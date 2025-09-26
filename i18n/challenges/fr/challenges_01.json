@@ -1,0 +1,107 @@
+[
+	{
+		"id": 1,
+		"title": "Initialiser un dépôt",
+		"description": "Bienvenue dans Git Gud ! Commençons par créer votre premier dépôt Git.\n\nCréez un nouveau dépôt Git en utilisant la commande 'git init'.",
+		"difficulty": "Facile",
+		"category": "Bases",
+		"hints": [
+			"Tapez 'git init' pour initialiser un nouveau dépôt."
+		]
+	},
+	{
+		"id": 2,
+		"title": "Vérifier l'état du dépôt",
+		"description": "Maintenant que vous avez un dépôt, vérifions son état pour voir quels fichiers sont suivis, modifiés ou indexés.\n\nUtilisez la commande appropriée pour vérifier l'état du dépôt.",
+		"difficulty": "Facile",
+		"category": "Bases",
+		"hints": [
+			"La commande pour vérifier l'état du dépôt est 'git status'."
+		]
+	},
+	{
+		"id": 3,
+		"title": "Indexer et confirmer un fichier",
+		"description": "Ajoutons un fichier à votre dépôt et enregistrons ces modifications.\n\nCommencez par indexer file.txt avec 'git add', puis confirmez-le avec un message.",
+		"difficulty": "Facile",
+		"category": "Bases",
+		"hints": [
+			"Utilisez 'git add file.txt' pour indexer le fichier.",
+			"Puis utilisez 'git commit -m \"Votre message ici\"' pour créer un commit."
+		]
+	},
+	{
+		"id": 4,
+		"title": "Ajouter et confirmer en une étape",
+		"description": "Parfois vous voulez indexer toutes vos modifications et les confirmer rapidement.\n\nAjoutez tous les fichiers modifiés à la zone d'index et confirmez-les en une seule étape.",
+		"difficulty": "Facile",
+		"category": "Bases",
+		"hints": [
+			"La plupart des commandes supportent un certain nombre d'options pour modifier leur comportement. Par exemple, 'git add' peut être utilisé avec l'option '-A' pour ajouter toutes les modifications.",
+			"Vous pouvez utiliser 'git add .' pour indexer tous les fichiers, puis 'git commit -m \"Votre message\"'. Réfléchissez aux moyens de combiner les deux en une seule commande avec des options ?",
+			"Pour les fichiers suivis, vous pouvez aussi utiliser 'git commit -a -m \"Votre message\"' pour indexer et confirmer en une commande."
+		]
+	},
+	{
+		"id": 5,
+		"title": "Afficher l'historique des commits",
+		"description": "Regardons l'historique des commits pour voir quelles modifications ont été apportées.\n\nUtilisez la commande pour afficher l'historique des commits.",
+		"difficulty": "Facile",
+		"category": "Bases",
+		"hints": [
+			"Utilisez 'git log' pour voir l'historique des commits."
+		]
+	},
+	{
+		"id": 6,
+		"title": "Créer une branche",
+		"description": "Les branches vous permettent de travailler sur différentes fonctionnalités ou corrections en isolation.\n\nCréez une nouvelle branche appelée 'feature'.",
+		"difficulty": "Facile",
+		"category": "Bases",
+		"hints": [
+			"Utilisez 'git branch feature' pour créer une nouvelle branche."
+		]
+	},
+	{
+		"id": 7,
+		"title": "Changer de branche",
+		"description": "Maintenant que vous avez créé une branche, changeons vers celle-ci.\n\nUtilisez la commande checkout pour basculer vers la branche 'feature'.",
+		"difficulty": "Facile",
+		"category": "Bases",
+		"hints": [
+			"Utilisez 'git checkout feature' pour basculer vers la branche.",
+			"Dans les versions plus récentes de Git, vous pourriez aussi utiliser 'git switch feature'."
+		]
+	},
+	{
+		"id": 8,
+		"title": "Supprimer une branche",
+		"description": "Quand vous avez fini avec une branche, vous pouvez la supprimer pour garder votre dépôt propre.\n\nCréez une branche appelée 'temp-branch', puis supprimez-la.",
+		"difficulty": "Facile",
+		"category": "Bases",
+		"hints": [
+			"Créez d'abord la branche avec 'git branch temp-branch'.",
+			"Puis supprimez-la avec 'git branch -d temp-branch'."
+		]
+	},
+	{
+		"id": 9,
+		"title": "Cloner un dépôt",
+		"description": "Le clonage vous permet de créer une copie locale d'un dépôt distant.\n\nClonez le dépôt d'exemple en utilisant l'URL fournie :\nhttps://github.com/example/repo.git",
+		"difficulty": "Facile",
+		"category": "Bases",
+		"hints": [
+			"Utilisez 'git clone https://github.com/example/repo.git' pour cloner un dépôt."
+		]
+	},
+	{
+		"id": 10,
+		"title": "Afficher les modifications",
+		"description": "Voyez quelles modifications vous avez apportées depuis le dernier commit.\n\nUtilisez la commande appropriée pour vérifier les différences entre votre répertoire de travail et le dernier commit.",
+		"difficulty": "Facile",
+		"category": "Bases",
+		"hints": [
+			"Utilisez 'git diff' pour voir les modifications non indexées depuis le dernier commit."
+		]
+	}
+]

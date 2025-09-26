@@ -1,0 +1,114 @@
+[
+	{
+		"id": 61,
+		"title": "Zu einem vorherigen Commit wechseln ohne Historie zu ändern",
+		"description": "Sie können zu einem vorherigen Commit wechseln, um den Zustand zu einem bestimmten Zeitpunkt anzuzeigen.\n\nWechseln Sie zu dem Commit mit der ID '1a2b3c4d', ohne die Repository-Historie zu ändern.",
+		"difficulty": "Mittel",
+		"category": "Debugging",
+		"hints": [
+			"Verwenden Sie 'git checkout 1a2b3c4d', um zu einem spezifischen Commit zu wechseln.",
+			"Dies versetzt Sie in den 'detached HEAD'-Zustand - Sie betrachten die Historie, ändern sie aber nicht."
+		]
+	},
+	{
+		"id": 62,
+		"title": "Herausfinden, welche Dateien in einem spezifischen Commit geändert wurden",
+		"description": "Sie können sehen, welche Dateien in einem bestimmten Commit geändert wurden.\n\nZeigen Sie an, welche Dateien im Commit mit der ID '1a2b3c4d' geändert wurden.",
+		"difficulty": "Einfach",
+		"category": "Debugging",
+		"hints": [
+			"Verwenden Sie 'git show --name-only 1a2b3c4d', um nur die Namen der geänderten Dateien zu sehen.",
+			"Sie können auch 'git diff-tree --no-commit-id --name-only -r 1a2b3c4d' verwenden."
+		]
+	},
+	{
+		"id": 63,
+		"title": "Von einem Commit eingeführte Änderungen anzeigen",
+		"description": "Sie können die spezifischen Änderungen sehen, die ein Commit eingeführt hat.\n\nZeigen Sie alle Änderungen an, die der Commit mit der ID '1a2b3c4d' eingeführt hat.",
+		"difficulty": "Einfach",
+		"category": "Debugging",
+		"hints": [
+			"Verwenden Sie 'git show 1a2b3c4d', um die vollständigen Änderungen zu sehen, die der Commit eingeführt hat.",
+			"Sie können auch 'git diff 1a2b3c4d~1 1a2b3c4d' verwenden."
+		]
+	},
+	{
+		"id": 64,
+		"title": "Commits in einem spezifischen Branch auflisten, die nicht in main sind",
+		"description": "Sie können Commits finden, die in einem Branch existieren, aber nicht in einem anderen.\n\nListen Sie alle Commits im 'feature'-Branch auf, die nicht im 'main'-Branch sind.",
+		"difficulty": "Mittel",
+		"category": "Debugging",
+		"hints": [
+			"Verwenden Sie 'git log main..feature', um Commits zu sehen, die in feature, aber nicht in main sind.",
+			"Sie können auch 'git log feature --not main' verwenden."
+		]
+	},
+	{
+		"id": 65,
+		"title": "Historie einer spezifischen Datei prüfen",
+		"description": "Sie können die Commit-Historie einer spezifischen Datei anzeigen.\n\nZeigen Sie die vollständige Historie der Datei 'important-file.txt' an.",
+		"difficulty": "Einfach",
+		"category": "Debugging",
+		"hints": [
+			"Verwenden Sie 'git log important-file.txt', um die Historie einer spezifischen Datei zu sehen.",
+			"Sie können '--follow' hinzufügen, um Umbenennungen zu verfolgen: 'git log --follow important-file.txt'"
+		]
+	},
+	{
+		"id": 66,
+		"title": "Unterschied zwischen zwei Commits anzeigen",
+		"description": "Sie können die Unterschiede zwischen zwei beliebigen Commits vergleichen.\n\nZeigen Sie den Unterschied zwischen den Commits '1a2b3c4d' und '5e6f7g8h' an.",
+		"difficulty": "Einfach",
+		"category": "Debugging",
+		"hints": [
+			"Verwenden Sie 'git diff 1a2b3c4d 5e6f7g8h', um die Unterschiede zwischen zwei Commits zu sehen.",
+			"Die Reihenfolge ist wichtig - dies zeigt die Änderungen von dem ersten zum zweiten Commit."
+		]
+	},
+	{
+		"id": 67,
+		"title": "Zwei Branches vergleichen und ihre Unterschiede sehen",
+		"description": "Sie können die Unterschiede zwischen zwei Branches vergleichen.\n\nVergleichen Sie den 'feature'-Branch mit dem 'main'-Branch und zeigen Sie alle Unterschiede an.",
+		"difficulty": "Mittel",
+		"category": "Debugging",
+		"hints": [
+			"Verwenden Sie 'git diff main..feature', um die Unterschiede zwischen den Branches zu sehen.",
+			"Sie können auch 'git diff main feature' verwenden."
+		]
+	},
+	{
+		"id": 68,
+		"title": "Commits von einem spezifischen Autor finden",
+		"description": "Sie können nach Commits suchen, die von einem bestimmten Autor erstellt wurden.\n\nFinden Sie alle Commits, die von dem Benutzer mit dem Namen 'John Doe' erstellt wurden.",
+		"difficulty": "Einfach",
+		"category": "Debugging",
+		"hints": [
+			"Verwenden Sie 'git log --author=\"John Doe\"', um Commits von einem spezifischen Autor zu finden.",
+			"Sie können auch Teilnamen verwenden: 'git log --author=\"John\"'"
+		]
+	},
+	{
+		"id": 69,
+		"title": "Gelöschten Branch wiederherstellen",
+		"description": "Wenn Sie versehentlich einen Branch gelöscht haben, können Sie ihn wiederherstellen, wenn Sie die Commit-ID kennen.\n\nStellen Sie den gelöschten Branch 'lost-branch' vom Commit '1a2b3c4d' wieder her.",
+		"difficulty": "Mittel",
+		"category": "Debugging",
+		"hints": [
+			"Verwenden Sie 'git checkout -b lost-branch 1a2b3c4d', um den Branch am spezifischen Commit zu erstellen.",
+			"Sie können 'git reflog' verwenden, um die Commit-ID eines kürzlich gelöschten Branches zu finden."
+		]
+	},
+	{
+		"id": 70,
+		"title": "Commit identifizieren, der einen Bug mit git bisect eingeführt hat",
+		"description": "Git bisect hilft Ihnen, den Commit zu finden, der einen Bug eingeführt hat.\n\nStarten Sie eine bisect-Sitzung zwischen dem 'good'-Tag und dem 'bad'-Tag, um den problematischen Commit zu finden.",
+		"difficulty": "Schwer",
+		"category": "Debugging",
+		"hints": [
+			"Starten Sie mit 'git bisect start'.",
+			"Markieren Sie den schlechten Zustand mit 'git bisect bad bad'.",
+			"Markieren Sie den guten Zustand mit 'git bisect good good'.",
+			"Git wird Sie durch die Commits führen - markieren Sie jeden als 'good' oder 'bad' mit 'git bisect good/bad'."
+		]
+	}
+]

@@ -1,0 +1,117 @@
+[
+	{
+		"id": 11,
+		"title": "Branch erstellen und wechseln in einem Befehl",
+		"description": "Git ermöglicht es Ihnen, einen neuen Branch zu erstellen und zu diesem in einem einzigen Befehl zu wechseln.\n\nErstellen Sie einen neuen Branch namens 'feature-branch' und wechseln Sie zu diesem in einem Befehl.",
+		"difficulty": "Einfach",
+		"category": "Verzweigungen & Zusammenführung",
+		"hints": [
+			"Verwenden Sie 'git checkout -b feature-branch', um einen neuen Branch zu erstellen und zu diesem in einem Befehl zu wechseln.",
+			"In neueren Git-Versionen können Sie auch 'git switch -c feature-branch' verwenden."
+		]
+	},
+	{
+		"id": 12,
+		"title": "Branch zusammenführen",
+		"description": "Zusammenführen kombiniert die Änderungen von einem Branch in einen anderen.\n\nWechseln Sie zum 'master'-Branch und führen Sie den 'feature'-Branch in diesen zusammen.",
+		"difficulty": "Mittel",
+		"category": "Verzweigungen & Zusammenführung",
+		"hints": [
+			"Verwenden Sie zuerst 'git checkout master', um zum Master-Branch zu wechseln.",
+			"Verwenden Sie dann 'git merge feature', um den Feature-Branch in Master zusammenzuführen."
+		]
+	},
+	{
+		"id": 13,
+		"title": "No Fast-Forward Merge",
+		"description": "Manchmal möchten Sie die Branch-Historie beim Zusammenführen erhalten.\n\nFühren Sie den 'feature'-Branch in 'master' mit dem --no-ff Flag zusammen, um Fast-Forwarding zu verhindern.",
+		"difficulty": "Mittel",
+		"category": "Verzweigungen & Zusammenführung",
+		"hints": [
+			"Verwenden Sie zuerst 'git checkout master', um zum Master-Branch zu wechseln.",
+			"Verwenden Sie dann 'git merge --no-ff feature', um mit einem Commit zusammenzuführen, auch wenn Fast-Forward möglich ist."
+		]
+	},
+	{
+		"id": 14,
+		"title": "Merge-Konflikt lösen",
+		"description": "Manchmal stehen Änderungen in verschiedenen Branches miteinander in Konflikt.\n\nLösen Sie den Merge-Konflikt zwischen 'feature'- und 'master'-Branches, indem Sie 'feature' in 'master' zusammenführen und den Konflikt in 'shared-file.txt' beheben.\n\nSie können die speziellen Spiel-Befehle verwenden:\n- 'resolve current shared-file.txt' um die aktuelle Branch-Version zu behalten\n- 'resolve incoming shared-file.txt' um die eingehende Branch-Version zu verwenden",
+		"difficulty": "Mittel",
+		"category": "Verzweigungen & Zusammenführung",
+		"hints": [
+			"Wechseln Sie zuerst zum Master-Branch mit 'git checkout master'",
+			"Versuchen Sie zusammenzuführen mit 'git merge feature' - dies wird den Konflikt anzeigen",
+			"Lösen Sie den Konflikt mit entweder 'resolve current shared-file.txt' oder 'resolve incoming shared-file.txt'",
+			"Nach dem Lösen verwenden Sie 'git add shared-file.txt', um es als gelöst zu markieren",
+			"Vervollständigen Sie das Zusammenführen mit 'git commit -m \"Merge conflict resolved\"'"
+		]
+	},
+	{
+		"id": 15,
+		"title": "Laufenden Merge abbrechen",
+		"description": "Manchmal läuft ein Merge schief und Sie müssen zum Zustand vor Beginn des Merge zurückkehren.\n\nWechseln Sie zum 'master'-Branch, versuchen Sie den 'feature'-Branch zusammenzuführen (was einen Konflikt verursacht), und brechen Sie dann das Zusammenführen mit einem geeigneten Git-Befehl ab.",
+		"difficulty": "Mittel",
+		"category": "Verzweigungen & Zusammenführung",
+		"hints": [
+			"Verwenden Sie 'git checkout master', um zum Master-Branch zu wechseln.",
+			"Versuchen Sie 'git merge feature', um den Konflikt zu verursachen.",
+			"Brechen Sie das Zusammenführen mit 'git merge --abort' ab.",
+			"Sie können auch 'git reset --hard HEAD' verwenden, um zum ursprünglichen Zustand zurückzukehren."
+		]
+	},
+	{
+		"id": 16,
+		"title": "Grafisches Log von Branches und Commits anzeigen",
+		"description": "Git kann eine grafische Darstellung der Branch-Struktur und Commits anzeigen.\n\nVerwenden Sie den entsprechenden Befehl, um ein grafisches Log aller Branches und deren Commits anzuzeigen.",
+		"difficulty": "Einfach",
+		"category": "Verzweigungen & Zusammenführung",
+		"hints": [
+			"Verwenden Sie 'git log --graph --all --oneline', um ein grafisches Log aller Branches zu sehen.",
+			"Sie können auch 'git log --graph --all --decorate --oneline' für mehr Details verwenden."
+		]
+	},
+	{
+		"id": 17,
+		"title": "Alle Branches in einem Repository auflisten",
+		"description": "Sie können alle lokalen und Remote-Branches in Ihrem Repository anzeigen.\n\nListen Sie alle Branches (sowohl lokale als auch Remote-Branches) in diesem Repository auf.",
+		"difficulty": "Einfach",
+		"category": "Verzweigungen & Zusammenführung",
+		"hints": [
+			"Verwenden Sie 'git branch -a', um alle lokalen und Remote-Branches aufzulisten.",
+			"Verwenden Sie 'git branch -r' für nur Remote-Branches oder 'git branch' für nur lokale Branches."
+		]
+	},
+	{
+		"id": 18,
+		"title": "Aktuellen Branch umbenennen",
+		"description": "Manchmal möchten Sie einen Branch umbenennen, um ihn aussagekräftiger zu machen.\n\nBenennen Sie den aktuellen Branch von 'old-feature' zu 'new-feature' um.",
+		"difficulty": "Mittel",
+		"category": "Verzweigungen & Zusammenführung",
+		"hints": [
+			"Verwenden Sie 'git branch -m new-feature', um den aktuellen Branch umzubenennen.",
+			"Alternativ können Sie 'git branch -m old-feature new-feature' verwenden, um explizit anzugeben, welcher Branch umbenannt werden soll."
+		]
+	},
+	{
+		"id": 19,
+		"title": "Branch erzwungen löschen",
+		"description": "Manchmal müssen Sie einen Branch löschen, der nicht zusammengeführt wurde.\n\nLöschen Sie den 'unmerged-feature'-Branch erzwungen, auch wenn er nicht zusammengeführt wurde.",
+		"difficulty": "Mittel",
+		"category": "Verzweigungen & Zusammenführung",
+		"hints": [
+			"Verwenden Sie 'git branch -D unmerged-feature', um einen Branch erzwungen zu löschen.",
+			"Das -D Flag ist eine Abkürzung für --delete --force."
+		]
+	},
+	{
+		"id": 20,
+		"title": "Zusammengeführte und nicht zusammengeführte Branches auflisten",
+		"description": "Git kann Ihnen zeigen, welche Branches bereits zusammengeführt wurden und welche nicht.\n\nListen Sie alle Branches auf, die in den aktuellen Branch zusammengeführt wurden, und dann alle Branches, die nicht zusammengeführt wurden.",
+		"difficulty": "Mittel",
+		"category": "Verzweigungen & Zusammenführung",
+		"hints": [
+			"Verwenden Sie 'git branch --merged', um zusammengeführte Branches zu sehen.",
+			"Verwenden Sie 'git branch --no-merged', um nicht zusammengeführte Branches zu sehen."
+		]
+	}
+]

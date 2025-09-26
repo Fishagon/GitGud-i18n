@@ -1,0 +1,117 @@
+[
+	{
+		"id": 21,
+		"title": "Ajouter un dépôt distant",
+		"description": "Les dépôts distants vous permettent de collaborer avec d'autres et de sauvegarder votre travail.\n\nAjoutez un dépôt distant appelé 'origin' avec l'URL :\nhttps://github.com/example/my-project.git",
+		"difficulty": "Facile",
+		"category": "Dépôts distants",
+		"hints": [
+			"Utilisez 'git remote add origin https://github.com/example/my-project.git' pour ajouter un dépôt distant.",
+			"Vous pouvez vérifier que le distant a été ajouté avec 'git remote -v' pour lister tous les distants."
+		]
+	},
+	{
+		"id": 22,
+		"title": "Lister les branches distantes",
+		"description": "Lors du travail avec des dépôts distants, vous devez souvent voir quelles branches existent sur le distant.\n\nUtilisez la commande Git appropriée pour lister toutes les branches distantes.",
+		"difficulty": "Facile",
+		"category": "Dépôts distants",
+		"hints": [
+			"Utilisez 'git branch -r' pour lister les branches distantes.",
+			"Vous pouvez aussi utiliser 'git branch --remotes' pour le même résultat."
+		]
+	},
+	{
+		"id": 23,
+		"title": "Récupérer les dernières modifications depuis un dépôt distant",
+		"description": "La récupération télécharge les modifications depuis un dépôt distant sans les fusionner dans votre branche actuelle.\n\nUtilisez la commande Git appropriée pour récupérer les dernières modifications depuis le dépôt distant 'origin'.",
+		"difficulty": "Facile",
+		"category": "Dépôts distants",
+		"hints": [
+			"Utilisez 'git fetch' pour télécharger les modifications depuis le dépôt distant.",
+			"Vous pouvez spécifier un nom de distant avec 'git fetch origin' ou utilisez simplement 'git fetch' pour le distant par défaut."
+		]
+	},
+	{
+		"id": 24,
+		"title": "Tirer les dernières modifications depuis un dépôt distant",
+		"description": "Le tirage combine la récupération et la fusion en une commande. Il télécharge les dernières modifications depuis un dépôt distant et les fusionne dans votre branche actuelle.\n\nUtilisez la commande Git appropriée pour tirer les dernières modifications depuis le dépôt distant dans votre branche actuelle.",
+		"difficulty": "Facile",
+		"category": "Dépôts distants",
+		"hints": [
+			"Utilisez 'git pull' pour récupérer et fusionner les modifications depuis le dépôt distant.",
+			"Vous pouvez spécifier un nom de distant avec 'git pull origin' ou utilisez simplement 'git pull' pour le distant par défaut."
+		]
+	},
+	{
+		"id": 25,
+		"title": "Pousser votre branche locale vers le dépôt distant",
+		"description": "La poussée téléverse vos commits locaux vers le dépôt distant, les rendant disponibles aux autres collaborateurs.\n\nVous avez quelques commits locaux qui doivent être partagés. Poussez votre branche actuelle vers le dépôt distant.",
+		"difficulty": "Facile",
+		"category": "Dépôts distants",
+		"hints": [
+			"Utilisez 'git push' pour téléverser vos commits locaux vers le dépôt distant.",
+			"Vous pouvez spécifier un nom de distant avec 'git push origin' ou utilisez 'git push' pour le distant par défaut.",
+			"Si c'est la première poussée d'une nouvelle branche, vous pourriez avoir besoin de 'git push -u origin <nom-branche>'"
+		]
+	},
+	{
+		"id": 26,
+		"title": "Pousser une nouvelle branche vers le distant et définir l'amont",
+		"description": "Quand vous créez une nouvelle branche localement, vous voulez souvent la pousser vers le dépôt distant et la définir comme branche amont pour faciliter les futures poussées et tirages.\n\nD'abord, créez une nouvelle branche appelée 'feature-login', puis poussez-la vers le dépôt distant et définissez-la comme branche amont en une commande.",
+		"difficulty": "Facile",
+		"category": "Dépôts distants",
+		"hints": [
+			"Créez d'abord et positionnez-vous sur une nouvelle branche avec 'git checkout -b feature-login'",
+			"Utilisez 'git push -u origin feature-login' pour pousser la branche et définir l'amont en une commande",
+			"L'option -u est l'abréviation de --set-upstream et crée une relation de suivi"
+		]
+	},
+	{
+		"id": 27,
+		"title": "Afficher les informations sur vos distants",
+		"description": "Parfois vous devez voir des informations détaillées sur vos dépôts distants, incluant leurs URLs et configurations de récupération/poussée.\n\nAffichez les informations détaillées sur vos distants en utilisant la commande Git appropriée.",
+		"difficulty": "Facile",
+		"category": "Dépôts distants",
+		"hints": [
+			"Utilisez 'git remote -v' pour voir les noms des distants avec leurs URLs.",
+			"Vous pouvez aussi utiliser 'git remote show <nom-distant>' pour voir des informations détaillées sur un distant spécifique."
+		]
+	},
+	{
+		"id": 28,
+		"title": "Supprimer un dépôt distant",
+		"description": "Parfois vous devez supprimer des dépôts distants qui ne sont plus nécessaires ou ont changé d'emplacement.\n\nSupprimez le dépôt distant 'upstream' de votre dépôt local.",
+		"difficulty": "Facile",
+		"category": "Dépôts distants",
+		"hints": [
+			"Utilisez 'git remote remove upstream' pour supprimer le distant upstream.",
+			"Vous pouvez aussi utiliser 'git remote rm upstream' comme raccourci.",
+			"Vérifiez que le distant a été supprimé avec 'git remote -v' pour lister les distants restants."
+		]
+	},
+	{
+		"id": 29,
+		"title": "Renommer un dépôt distant",
+		"description": "Parfois vous devez renommer des dépôts distants pour mieux refléter leur objectif ou pour suivre les conventions de nommage.\n\nRenommez le distant 'upstream' en 'fork' pour mieux indiquer que c'est un fork du dépôt original.",
+		"difficulty": "Facile",
+		"category": "Dépôts distants",
+		"hints": [
+			"Utilisez 'git remote rename upstream fork' pour renommer le distant.",
+			"Vous pouvez vérifier que le renommage a réussi avec 'git remote -v' pour lister tous les distants.",
+			"Renommer un distant met aussi à jour automatiquement toutes les branches de suivi distantes."
+		]
+	},
+	{
+		"id": 30,
+		"title": "Cloner un dépôt dans un répertoire spécifique",
+		"description": "Lors du clonage d'un dépôt, vous pouvez spécifier le nom du répertoire où il doit être cloné.\n\nClonez le dépôt 'https://github.com/example/my-awesome-project.git' dans un répertoire nommé 'my-project'.",
+		"difficulty": "Facile",
+		"category": "Dépôts distants",
+		"hints": [
+			"Utilisez 'git clone <url> <nom-répertoire>' pour cloner dans un répertoire spécifique.",
+			"La syntaxe est : git clone https://github.com/example/my-awesome-project.git my-project",
+			"Cela créera un répertoire appelé 'my-project' au lieu de 'my-awesome-project'."
+		]
+	}
+]

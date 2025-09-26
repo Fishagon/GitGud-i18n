@@ -1,0 +1,141 @@
+[
+	{
+		"id": 81,
+		"title": "Utiliser git reflog pour récupérer un commit perdu et le sauvegarder",
+		"description": "Parfois les commits peuvent devenir 'perdus' quand les branches sont supprimées ou réinitialisées. Cependant, Git garde un reflog (journal de référence) de tous les changements vers HEAD et les références de branche. Vous pouvez utiliser 'git reflog' pour trouver ces commits perdus et les récupérer en créant une nouvelle branche.\n\nUn commit avec des modifications utiles a été accidentellement perdu quand une branche a été supprimée. Utilisez 'git reflog' pour trouver le commit perdu et créez une nouvelle branche appelée 'recovered-work' pointant vers lui.",
+		"difficulty": "Moyen",
+		"category": "Utilisateur avancé",
+		"hints": [
+			"Utilisez 'git reflog' pour voir l'historique de tous les changements de référence.",
+			"Cherchez les commits qui ne sont plus accessibles depuis aucune branche.",
+			"Utilisez 'git checkout -b recovered-work <commit-id>' pour créer une branche au commit perdu.",
+			"Vous pouvez aussi utiliser 'git branch recovered-work <commit-id>' pour créer la branche sans basculer vers elle.",
+			"Le reflog montre des entrées comme 'HEAD@{0}', 'HEAD@{1}', etc. représentant différents points dans le temps."
+		]
+	},
+	{
+		"id": 82,
+		"title": "Afficher un log détaillé des modifications par commit",
+		"description": "Parfois vous devez voir pas seulement les messages de commit et métadonnées, mais aussi les modifications réelles faites dans chaque commit. Git fournit plusieurs options pour voir des informations détaillées sur les commits, incluant le contenu diff/patch réel, les statistiques de fichier, ou juste les noms des fichiers modifiés.\n\nUtilisez git log avec les options appropriées pour afficher un log détaillé montrant les modifications réelles (diff/patch) faites dans chaque commit.",
+		"difficulty": "Facile",
+		"category": "Utilisateur avancé",
+		"hints": [
+			"Utilisez 'git log -p' pour montrer le patch/diff pour chaque commit.",
+			"Vous pouvez aussi utiliser 'git log --patch' qui est identique à -p.",
+			"Essayez 'git log --stat' pour voir les statistiques de changement de fichier au lieu des diffs complets.",
+			"Utilisez 'git log --name-only' pour voir juste les noms des fichiers modifiés.",
+			"Utilisez 'git log --name-status' pour voir les noms de fichiers et leur statut de changement."
+		]
+	},
+	{
+		"id": 83,
+		"title": "Créer et utiliser un fichier .gitignore",
+		"description": "Certains fichiers ne devraient jamais être suivis par Git - comme les fichiers temporaires, les artefacts de build, ou les fichiers de configuration sensibles. Le fichier .gitignore dit à Git quels fichiers ignorer. Créez un fichier .gitignore avec des motifs pour ignorer les fichiers log (*.log) et un répertoire temp (temp/), puis vérifiez qu'il fonctionne en ajoutant des fichiers qui devraient être ignorés.\n\nCréez un fichier .gitignore, ajoutez des motifs pour ignorer les fichiers '*.log' et le répertoire 'temp/', puis testez que ces fichiers sont ignorés lors de l'utilisation de 'git add .'\n\n💡 Astuce : Vous pouvez créer des fichiers en utilisant des commandes comme 'createfile .gitignore', 'touch .gitignore', ou 'New-Item .gitignore'. Pour éditer les fichiers, essayez 'start .gitignore' (Windows), 'open .gitignore' (macOS), ou 'xdg-open .gitignore' (Linux).",
+		"difficulty": "Facile",
+		"category": "Utilisateur avancé",
+		"hints": [
+			"Créez un fichier .gitignore à la racine de votre dépôt en utilisant 'createfile .gitignore' ou 'touch .gitignore'",
+			"Ajoutez des motifs comme '*.log' pour ignorer tous les fichiers se terminant par .log",
+			"Ajoutez 'temp/' pour ignorer tout le répertoire temp",
+			"Vous pouvez éditer le fichier .gitignore en utilisant 'start .gitignore', 'open .gitignore', ou 'Invoke-Item .gitignore'",
+			"Utilisez 'git add .' pour tester que les fichiers ignorés ne sont pas indexés",
+			"Le fichier .gitignore lui-même devrait être ajouté et commité",
+			"Utilisez 'git status' pour voir quels fichiers sont ignorés vs. prêts à être indexés"
+		]
+	},
+	{
+		"id": 84,
+		"title": "Lister tous les fichiers ignorés",
+		"description": "Git fournit plusieurs moyens de voir quels fichiers sont ignorés par vos règles .gitignore. C'est utile pour déboguer les motifs .gitignore ou vérifier que les fichiers sensibles sont correctement ignorés.\n\nUtilisez les commandes Git pour lister tous les fichiers qui sont actuellement ignorés dans le dépôt.",
+		"difficulty": "Facile",
+		"category": "Utilisateur avancé",
+		"hints": [
+			"Utilisez 'git status --ignored' pour voir les fichiers ignorés avec le statut régulier",
+			"Utilisez 'git ls-files --ignored --exclude-standard' pour lister seulement les fichiers ignorés",
+			"Vous pouvez aussi utiliser 'git check-ignore *' pour vérifier quels fichiers sont ignorés",
+			"L'option --porcelain peut être utilisée avec git status pour une sortie plus propre"
+		]
+	},
+	{
+		"id": 85,
+		"title": "Configurer des alias Git pour les commandes fréquemment utilisées",
+		"description": "Les alias Git vous permettent de créer des raccourcis pour les commandes Git couramment utilisées, rendant votre workflow plus efficace.\n\nConfigurez les alias utiles suivants :\n- 'st' pour 'status'\n- 'co' pour 'checkout'\n- 'br' pour 'branch'\n- 'cm' pour 'commit -m'",
+		"difficulty": "Facile",
+		"category": "Utilisateur avancé",
+		"hints": [
+			"Utilisez 'git config --global alias.<nom> <commande>' pour créer un alias.",
+			"Par exemple : 'git config --global alias.st status' crée un alias 'st' pour 'status'.",
+			"Vous pouvez lister tous les alias configurés avec 'git config --list | grep alias'.",
+			"Après avoir configuré les alias, vous pouvez les utiliser comme 'git st' au lieu de 'git status'."
+		]
+	},
+	{
+		"id": 86,
+		"title": "Configurer le nom d'utilisateur et l'email Git globalement",
+		"description": "Avant de faire des commits, Git doit connaître votre identité. Le nom d'utilisateur et l'email sont inclus dans chaque commit que vous faites. Les configurer globalement signifie qu'ils seront utilisés pour tous les dépôts Git sur votre système sauf s'ils sont remplacés localement.\n\nConfigurez votre identité Git globalement :\n- Définissez votre nom à 'John Doe'\n- Définissez votre email à 'john.doe@example.com'",
+		"difficulty": "Facile",
+		"category": "Utilisateur avancé",
+		"hints": [
+			"Utilisez 'git config --global user.name \"Votre Nom\"' pour définir votre nom globalement.",
+			"Utilisez 'git config --global user.email \"votre.email@example.com\"' pour définir votre email globalement.",
+			"L'option --global applique le paramètre à tous les dépôts sur votre système.",
+			"Vous pouvez vérifier vos paramètres avec 'git config --list' ou 'git config user.name'.",
+			"Sans guillemets, les noms de plusieurs mots pourraient ne pas être analysés correctement."
+		]
+	},
+	{
+		"id": 87,
+		"title": "Utiliser git grep pour rechercher du texte dans les commits",
+		"description": "Git grep peut rechercher non seulement dans le répertoire de travail et les fichiers indexés, mais aussi dans des commits spécifiques. C'est utile pour trouver quand certain code ou texte était présent dans l'historique du dépôt.\n\nUtilisez 'git grep' pour rechercher le texte 'TODO' dans le commit 'HEAD~2' (deux commits en arrière depuis le HEAD actuel). Cela vous aidera à trouver les commentaires de développement qui étaient présents dans les versions antérieures du code.",
+		"difficulty": "Moyen",
+		"category": "Utilisateur avancé",
+		"hints": [
+			"Utilisez 'git grep \"motif\" <commit>' pour rechercher dans un commit spécifique.",
+			"Vous pouvez utiliser des références de commit comme 'HEAD~1', 'HEAD~2', etc.",
+			"Essayez 'git log --oneline' d'abord pour voir l'historique des commits.",
+			"La syntaxe est : git grep \"TODO\" HEAD~2",
+			"HEAD~2 fait référence au commit qui est 2 étapes en arrière depuis le HEAD actuel."
+		]
+	},
+	{
+		"id": 88,
+		"title": "Utiliser les sous-modules Git pour gérer les dépôts externes",
+		"description": "Les sous-modules Git vous permettent d'inclure et gérer des dépôts externes comme sous-répertoires dans votre dépôt principal. Ils sont utiles pour inclure des bibliothèques, du code partagé, ou d'autres dépendances tout en les gardant comme dépôts séparés.\n\nAjoutez un sous-module depuis le dépôt 'https://github.com/example/shared-utils.git' vers le chemin 'libs/utils', puis initialisez-le pour qu'il soit prêt à utiliser.",
+		"difficulty": "Moyen",
+		"category": "Utilisateur avancé",
+		"hints": [
+			"Utilisez 'git submodule add <url-dépôt> <chemin>' pour ajouter un sous-module.",
+			"La syntaxe est : git submodule add https://github.com/example/shared-utils.git libs/utils",
+			"Après ajout, utilisez 'git submodule init libs/utils' pour initialiser le sous-module.",
+			"Vous pouvez vérifier le statut des sous-modules avec 'git submodule status'.",
+			"Les sous-modules sont suivis dans le fichier .gitmodules et comme un commit spécial dans votre dépôt principal."
+		]
+	},
+	{
+		"id": 89,
+		"title": "Cloner un dépôt incluant les sous-modules",
+		"description": "Lors du clonage d'un dépôt qui contient des sous-modules, Git ne clone pas automatiquement les sous-modules par défaut. Vous devez utiliser des options spéciales pour inclure les sous-modules pendant l'opération de clonage.\n\nClonez le dépôt 'https://github.com/example/project-with-submodules.git' et assurez-vous que tous les sous-modules sont aussi clonés et initialisés.",
+		"difficulty": "Moyen",
+		"category": "Utilisateur avancé",
+		"hints": [
+			"Utilisez 'git clone --recurse-submodules <url-dépôt>' pour cloner en incluant les sous-modules.",
+			"Vous pouvez aussi utiliser 'git clone --recursive <url-dépôt>' qui est équivalent.",
+			"L'option --recurse-submodules initialisera et mettra automatiquement à jour chaque sous-module.",
+			"Sans ces options, vous auriez besoin d'exécuter 'git submodule init' et 'git submodule update' manuellement après clonage."
+		]
+	},
+	{
+		"id": 90,
+		"title": "Travailler avec plusieurs arbres de travail",
+		"description": "Les arbres de travail vous permettent d'avoir plusieurs répertoires de travail pour le même dépôt, chacun positionné sur différentes branches. C'est utile pour travailler sur plusieurs fonctionnalités simultanément sans changer de branche.\n\nCréez trois arbres de travail :\n1. Arbre de travail 'feature-a' au chemin '../feature-a' pour une nouvelle branche 'feature-a'\n2. Arbre de travail 'feature-b' au chemin '../feature-b' pour une nouvelle branche 'feature-b'\n3. Arbre de travail 'hotfix' au chemin '../hotfix' pour la branche 'main'\n\nPuis listez tous les arbres de travail pour voir votre configuration.",
+		"difficulty": "Moyen",
+		"category": "Utilisateur avancé",
+		"hints": [
+			"Utilisez 'git worktree add -b <branche> <chemin>' pour créer un arbre de travail avec une nouvelle branche.",
+			"Utilisez 'git worktree add <chemin> <branche-existante>' pour créer un arbre de travail depuis une branche existante.",
+			"La syntaxe est : git worktree add -b feature-a ../feature-a",
+			"Utilisez 'git worktree list' pour voir tous vos arbres de travail.",
+			"Chaque arbre de travail est un répertoire de travail séparé qui partage le même historique Git."
+		]
+	}
+]

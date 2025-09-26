@@ -1,0 +1,205 @@
+[
+  {
+    "Id": 1,
+    "Title": "Warum Git?",
+    "Content": "Git ist ein Versionskontrollsystem. Das bedeutet, es hilft Entwicklern dabei, Änderungen an ihren Dateien über die Zeit zu verfolgen. Wenn Sie schon einmal Arbeit verloren haben, etwas rückgängig machen mussten oder verstehen wollten, wer was in einem Teamprojekt geändert hat, ist Versionskontrolle die Antwort.\n\nGit ist lokal-first und verteilt — Sie müssen nicht online sein, um es zu verwenden, und jede Kopie eines Git-Repositorys enthält die vollständige Geschichte. Das macht Git zuverlässig, flexibel und mächtig, besonders für die Softwareentwicklung.",
+    "Questions": [
+      {
+        "QuestionText": "Wofür wird Git hauptsächlich verwendet?",
+        "Options": [
+          "Websites hosten",
+          "Projektversionen verwalten und Änderungen verfolgen",
+          "Ihr System sichern",
+          "Dateien verschlüsseln"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git ist hauptsächlich ein Versionskontrollsystem, das entwickelt wurde, um Änderungen in Dateien zu verfolgen und die Arbeit zwischen mehreren Personen zu koordinieren."
+      },
+      {
+        "QuestionText": "Welche Art von Projekt würde von Git profitieren?",
+        "Options": [
+          "Eine einzelne Textdatei, die Sie nie ändern werden",
+          "Ein großes Projekt mit sich entwickelnden Dateien",
+          "Etwas, das Sie per E-Mail hin und her schicken",
+          "Ein gesperrtes PDF"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git zeichnet sich bei der Verwaltung von Projekten aus, die sich über die Zeit ändern, besonders wenn mehrere Personen daran arbeiten."
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Title": "Was ist ein Repository?",
+    "Content": "Ein Git-Repository — oder \"Repo\" — ist ein Projektverzeichnis, das von Git verfolgt wird. Was einen Ordner zu einem Git-Repository macht, ist ein versteckter .git/ Ordner darin. Dieser .git/ Ordner enthält die gesamte Geschichte Ihres Projekts, Branches, Konfiguration und mehr.\n\nSie können ein neues Repo mit git init erstellen oder ein bestehendes mit git clone klonen. Ein Git-Repo sind nicht nur Ihre Dateien — es ist Ihre gesamte Arbeitszeitlinie.",
+    "Questions": [
+      {
+        "QuestionText": "Was macht einen Ordner zu einem Git-Repository?",
+        "Options": [
+          "Er ist auf GitHub hochgeladen",
+          "Er enthält einen .git/ Ordner",
+          "Er enthält JavaScript",
+          "Er hat eine README"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Der versteckte .git/ Ordner ist das, was jeden gewöhnlichen Ordner zu einem Git-Repository macht und alle Versionskontrolldaten enthält."
+      },
+      {
+        "QuestionText": "Sie tippen git init in einen Ordner. Was ist gerade passiert?",
+        "Options": [
+          "Git hat eine Kopie Ihrer Dateien heruntergeladen",
+          "Eine Remote-Verbindung wurde erstellt",
+          "Sie haben Ihre alte Geschichte gelöscht",
+          "Git hat einen .git/ Ordner erstellt, um Ihr Projekt zu verfolgen"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "Der git init Befehl erstellt einen neuen .git/ Ordner im aktuellen Verzeichnis und initialisiert es als Git-Repository."
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Title": "Wie Git denkt",
+    "Content": "Gits mentales Modell umfasst drei Hauptbereiche:\n\nArbeitsverzeichnis - Ihre tatsächlichen Dateien auf der Festplatte.\nStaging-Bereich - Eine Vorschau dessen, was committet wird.\nRepository - Die Geschichte der gespeicherten Commits.\n\nWenn Sie Dateien ändern, werden sie im Arbeitsverzeichnis aktualisiert. Wenn Sie sie git add-en, gelangen sie in den Staging-Bereich. Wenn Sie git commit machen, werden sie im Repository gespeichert.",
+    "Questions": [
+      {
+        "QuestionText": "Git ist ein \"Snapshot\"-System. Was bedeutet das?",
+        "Options": [
+          "Es zeichnet nur die Unterschiede zwischen Dateien auf",
+          "Es speichert jedes Mal eine vollständige Kopie Ihres Projekts",
+          "Es macht ein Foto von Ihrem Bildschirm",
+          "Es nimmt Ihre Stimme auf"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git macht Snapshots des gesamten Projektzustands bei jedem Commit, anstatt nur Dateiunterscheide zu speichern."
+      },
+      {
+        "QuestionText": "Was sind in Gits Modell die drei Hauptbereiche?",
+        "Options": [
+          "Dev, Test, Prod",
+          "Staging, Branching, Deploying",
+          "Arbeitsverzeichnis, Staging-Bereich, Repository",
+          "Upload, Sync, Review"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Diese drei Bereiche repräsentieren den Fluss der Änderungen: Arbeitsverzeichnis (wo Sie bearbeiten), Staging-Bereich (wo Sie vorbereiten) und Repository (wo Sie speichern)."
+      },
+      {
+        "QuestionText": "Welcher Bereich enthält Dateien, die Sie bearbeitet, aber noch nicht hinzugefügt haben?",
+        "Options": [
+          "Staging-Bereich",
+          "Arbeitsverzeichnis",
+          "Remote Repo",
+          "History Log"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Das Arbeitsverzeichnis enthält Ihre tatsächlichen Dateien, wie sie auf der Festplatte existieren, einschließlich aller ungespeicherten Änderungen."
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Title": "Commits und Geschichte",
+    "Content": "Commits sind Gits Art, Ihren Fortschritt zu speichern. Ein Commit ist ein Snapshot Ihres Projekts zu einem bestimmten Moment. Jeder Commit enthält Metadaten wie Autor, Zeitstempel und eine Nachricht.\n\nGute Commit-Nachrichten sind kurz und beschreibend. Eine Reihe gut geschriebener Commits erzählt die Geschichte Ihres Projekts.",
+    "Questions": [
+      {
+        "QuestionText": "Was repräsentiert ein Commit in Git?",
+        "Options": [
+          "Einen Ordner",
+          "Einen Speicherpunkt in der Projektgeschichte",
+          "Einen Mitarbeiter",
+          "Einen Branch"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Ein Commit ist wie ein Speicherpunkt oder Checkpoint in der Zeitlinie Ihres Projekts und erfasst den Zustand aller Dateien zu diesem Moment."
+      },
+      {
+        "QuestionText": "Was beschreibt am besten eine Commit-Nachricht?",
+        "Options": [
+          "Ein optionaler Witz",
+          "Ein Git-Befehl",
+          "Eine kurze Notiz, die erklärt, was sich geändert hat",
+          "Ihr GitHub-Passwort"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Commit-Nachrichten sollten kurz beschreiben, welche Änderungen vorgenommen wurden, und Ihnen und anderen helfen, die Entwicklung des Projekts zu verstehen."
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Title": "Git entdecken",
+    "Content": "Git kommt mit eingebauter Hilfe für fast jeden Befehl. Sie können ausführen:\n\ngit help <befehl>\n<befehl> --help\n\nOder Manualseiten ansehen mit man git-<befehl>\n\nSie müssen nicht alles auswendig lernen — Git erwartet, dass Sie beim Gehen erforschen.",
+    "Questions": [
+      {
+        "QuestionText": "Sie haben vergessen, was git log macht. Was tippen Sie?",
+        "Options": [
+          "git search log",
+          "git help log",
+          "git !log",
+          "git -explain log"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Der git help Befehl gefolgt von jedem Git-Befehl zeigt Ihnen die detaillierte Dokumentation für diesen Befehl."
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Title": "Klonen und Remotes",
+    "Content": "Git ist nicht nur für lokale Dateien. Sie können Ihre Arbeit mit Remote-Repositories wie GitHub synchronisieren, indem Sie Befehle wie git clone, git fetch und git push verwenden.\n\nWenn Sie ein Repo klonen, kopiert Git alles — nicht nur die Dateien, sondern die gesamte Commit-Geschichte. Der Standardname für das Remote ist origin.",
+    "Questions": [
+      {
+        "QuestionText": "Was macht git clone?",
+        "Options": [
+          "Erstellt einen neuen Branch",
+          "Kopiert ein Remote-Git-Repository auf Ihren Computer",
+          "Packt Ihr Projekt",
+          "Lädt Ihren Ordner in die Cloud hoch"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git clone lädt eine vollständige Kopie eines Remote-Repositories herunter, einschließlich aller Dateien und Commit-Geschichte."
+      },
+      {
+        "QuestionText": "Sie haben gerade ein Repo geklont. Wie heißt das Standard-Remote?",
+        "Options": [
+          "upstream",
+          "ssh",
+          "master",
+          "origin"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "Konventionsgemäß nennt Git das Standard-Remote 'origin', wenn Sie ein Repository klonen."
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Title": "Branches und HEAD",
+    "Content": "Branches ermöglichen es Ihnen, parallel an verschiedenen Versionen Ihres Projekts zu arbeiten. Ein Branch ist nur ein Zeiger auf einen Commit — eine Bezeichnung auf einer Zeitlinie.\n\nHEAD ist ein spezieller Zeiger auf Ihre aktuelle Position in Git. Er zeigt normalerweise auf den neuesten Commit Ihres aktuellen Branches.",
+    "Questions": [
+      {
+        "QuestionText": "Was ist ein Branch in Git?",
+        "Options": [
+          "Eine Kopie des .git/ Ordners",
+          "Eine Zeitlinie von Commits unter einer spezifischen Bezeichnung",
+          "Ein gezipptes Backup",
+          "Ein Staging-Verzeichnis"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Ein Branch ist im Wesentlichen ein beweglicher Zeiger oder eine Bezeichnung, die auf einen spezifischen Commit zeigt und eine Entwicklungslinie repräsentiert."
+      },
+      {
+        "QuestionText": "Was ist HEAD in Git?",
+        "Options": [
+          "Der erste Commit",
+          "Die .gitignore Datei",
+          "Der Zeiger auf Ihren aktuellen Commit",
+          "Der GitHub Issue Tracker"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "HEAD ist Gits Art zu wissen, wo Sie in der Geschichte Ihres Projekts sind - es zeigt auf den Commit, von dem aus Sie gerade arbeiten."
+      }
+    ]
+  }
+]

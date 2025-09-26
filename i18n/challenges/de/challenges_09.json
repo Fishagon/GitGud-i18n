@@ -1,0 +1,115 @@
+[
+	{
+		"id": 81,
+		"title": "Git reflog verwenden, um einen verlorenen Commit zu wiederherstellen",
+		"description": "Reflog zeigt die Historie aller Änderungen an HEAD, auch gelöschte Commits.\n\nVerwenden Sie reflog, um einen kürzlich gelöschten Commit zu finden und wiederherzustellen, indem Sie einen neuen Branch daraus erstellen.",
+		"difficulty": "Schwer",
+		"category": "Power User",
+		"hints": [
+			"Verwenden Sie 'git reflog', um die Historie aller HEAD-Bewegungen zu sehen.",
+			"Finden Sie die Commit-ID des verlorenen Commits.",
+			"Erstellen Sie einen neuen Branch mit 'git checkout -b recovered-branch <commit-id>'."
+		]
+	},
+	{
+		"id": 82,
+		"title": "Detailliertes Log der Änderungen pro Commit anzeigen",
+		"description": "Sie können ein detailliertes Log anzeigen, das die Statistiken für jede Dateiänderung in jedem Commit zeigt.\n\nZeigen Sie ein detailliertes Log an, das die Anzahl der hinzugefügten und entfernten Zeilen für jede Datei in den letzten 5 Commits zeigt.",
+		"difficulty": "Einfach",
+		"category": "Power User",
+		"hints": [
+			"Verwenden Sie 'git log --stat -5', um die letzten 5 Commits mit Dateistatistiken zu sehen.",
+			"Sie können auch '--numstat' für numerische Statistiken verwenden."
+		]
+	},
+	{
+		"id": 83,
+		"title": ".gitignore-Datei erstellen und verwenden",
+		"description": "Gitignore-Dateien teilen Git mit, welche Dateien und Ordner ignoriert werden sollen.\n\nErstellen Sie eine .gitignore-Datei, die alle .log-Dateien, den node_modules-Ordner und alle .tmp-Dateien ignoriert.",
+		"difficulty": "Einfach",
+		"category": "Power User",
+		"hints": [
+			"Erstellen Sie eine Datei namens '.gitignore' im Repository-Wurzelverzeichnis.",
+			"Fügen Sie Zeilen hinzu: '*.log', 'node_modules/', und '*.tmp'.",
+			"Committen Sie die .gitignore-Datei, damit sie mit anderen geteilt wird."
+		]
+	},
+	{
+		"id": 84,
+		"title": "Alle ignorierten Dateien auflisten",
+		"description": "Git kann Ihnen zeigen, welche Dateien aufgrund Ihrer .gitignore-Regeln ignoriert werden.\n\nListen Sie alle Dateien in Ihrem Repository auf, die derzeit von Git ignoriert werden.",
+		"difficulty": "Einfach",
+		"category": "Power User",
+		"hints": [
+			"Verwenden Sie 'git status --ignored', um alle ignorierten Dateien zu sehen.",
+			"Sie können auch 'git ls-files --others --ignored --exclude-standard' verwenden."
+		]
+	},
+	{
+		"id": 85,
+		"title": "Git-Aliase für häufig verwendete Befehle einrichten",
+		"description": "Aliase ermöglichen es Ihnen, Abkürzungen für lange oder häufig verwendete Git-Befehle zu erstellen.\n\nErstellen Sie Aliase: 'st' für status, 'co' für checkout, 'br' für branch, und 'ci' für commit.",
+		"difficulty": "Einfach",
+		"category": "Power User",
+		"hints": [
+			"Verwenden Sie 'git config --global alias.st status', um einen Alias zu erstellen.",
+			"Erstellen Sie weitere Aliase: 'git config --global alias.co checkout'",
+			"Setzen Sie fort mit 'br' für branch und 'ci' für commit."
+		]
+	},
+	{
+		"id": 86,
+		"title": "Git-Benutzername und E-Mail global konfigurieren",
+		"description": "Sie sollten Ihren Namen und Ihre E-Mail-Adresse konfigurieren, damit Ihre Commits richtig zugeordnet werden.\n\nSetzen Sie Ihren globalen Git-Benutzernamen auf 'John Doe' und die E-Mail auf 'john@example.com'.",
+		"difficulty": "Einfach",
+		"category": "Power User",
+		"hints": [
+			"Verwenden Sie 'git config --global user.name \"John Doe\"', um den Namen zu setzen.",
+			"Verwenden Sie 'git config --global user.email \"john@example.com\"', um die E-Mail zu setzen."
+		]
+	},
+	{
+		"id": 87,
+		"title": "Git grep verwenden, um Text in Commits zu suchen",
+		"description": "Git grep ermöglicht es Ihnen, in Dateien zu suchen, die von Git verwaltet werden.\n\nSuchen Sie nach dem Text 'TODO' in allen Dateien, die derzeit von Git verfolgt werden.",
+		"difficulty": "Einfach",
+		"category": "Power User",
+		"hints": [
+			"Verwenden Sie 'git grep \"TODO\"', um nach Text in allen verfolgten Dateien zu suchen.",
+			"Sie können '--line-number' hinzufügen, um Zeilennummern zu sehen."
+		]
+	},
+	{
+		"id": 88,
+		"title": "Git-Submodule verwenden, um externe Repositories zu verwalten",
+		"description": "Submodule ermöglichen es Ihnen, ein Git-Repository als Unterverzeichnis eines anderen Git-Repositories zu verwenden.\n\nFügen Sie ein Submodul vom Repository 'https://github.com/example/library.git' im Ordner 'lib' hinzu.",
+		"difficulty": "Schwer",
+		"category": "Power User",
+		"hints": [
+			"Verwenden Sie 'git submodule add https://github.com/example/library.git lib', um ein Submodul hinzuzufügen.",
+			"Committen Sie die Änderungen, um das Submodul zu speichern."
+		]
+	},
+	{
+		"id": 89,
+		"title": "Repository einschließlich Submodulen klonen",
+		"description": "Beim Klonen eines Repositories mit Submodulen müssen Sie diese separat initialisieren.\n\nKlonen Sie das Repository 'https://github.com/example/main-repo.git' und initialisieren Sie alle seine Submodule.",
+		"difficulty": "Mittel",
+		"category": "Power User",
+		"hints": [
+			"Verwenden Sie 'git clone --recurse-submodules https://github.com/example/main-repo.git', um mit Submodulen zu klonen.",
+			"Alternativ klonen Sie zuerst normal, dann verwenden Sie 'git submodule init' und 'git submodule update'."
+		]
+	},
+	{
+		"id": 90,
+		"title": "Mit mehreren Worktrees arbeiten",
+		"description": "Worktrees ermöglichen es Ihnen, mehrere Arbeitskopien des gleichen Repositories zu haben.\n\nErstellen Sie einen neuen Worktree für den 'feature'-Branch im Verzeichnis '../feature-work'.",
+		"difficulty": "Schwer",
+		"category": "Power User",
+		"hints": [
+			"Verwenden Sie 'git worktree add ../feature-work feature', um einen neuen Worktree zu erstellen.",
+			"Sie können 'git worktree list' verwenden, um alle Worktrees zu sehen."
+		]
+	}
+]

@@ -1,0 +1,116 @@
+[
+	{
+		"id": 71,
+		"title": "Änderungen von einem Remote fetchen ohne sie zusammenzuführen",
+		"description": "Fetchen lädt Remote-Änderungen herunter, führt sie aber nicht automatisch zusammen.\n\nFetchen Sie die neuesten Änderungen vom 'origin'-Remote, ohne sie in Ihren aktuellen Branch zusammenzuführen.",
+		"difficulty": "Einfach",
+		"category": "Zusammenarbeit",
+		"hints": [
+			"Verwenden Sie 'git fetch origin', um Änderungen herunterzuladen, ohne sie zusammenzuführen.",
+			"Dies aktualisiert Ihre Remote-Tracking-Branches, aber nicht Ihren aktuellen Branch."
+		]
+	},
+	{
+		"id": 72,
+		"title": "Lokale Änderungen zurücksetzen, um dem Remote-Branch zu entsprechen",
+		"description": "Manchmal möchten Sie alle lokalen Änderungen verwerfen und Ihren Branch genau dem Remote entsprechen lassen.\n\nSetzen Sie Ihren lokalen 'main'-Branch zurück, um exakt dem 'origin/main' zu entsprechen.",
+		"difficulty": "Mittel",
+		"category": "Zusammenarbeit",
+		"hints": [
+			"Verwenden Sie 'git reset --hard origin/main', um Ihren lokalen Branch dem Remote anzupassen.",
+			"WARNUNG: Dies verwirft alle lokalen Änderungen permanent."
+		]
+	},
+	{
+		"id": 73,
+		"title": "Remote-Änderungen zusammenführen und lokale Änderungen beibehalten",
+		"description": "Wenn sowohl Sie als auch andere Änderungen vorgenommen haben, müssen Sie diese zusammenführen.\n\nFetchen Sie Remote-Änderungen und führen Sie sie mit Ihren lokalen Änderungen zusammen, ohne bestehende Arbeit zu verlieren.",
+		"difficulty": "Mittel",
+		"category": "Zusammenarbeit",
+		"hints": [
+			"Verwenden Sie zuerst 'git fetch origin', um Remote-Änderungen herunterzuladen.",
+			"Verwenden Sie dann 'git merge origin/main', um die Remote-Änderungen mit Ihren lokalen zusammenzuführen."
+		]
+	},
+	{
+		"id": 74,
+		"title": "Commit von einem anderen Branch cherry-picken",
+		"description": "Cherry-picking ermöglicht es Ihnen, einen spezifischen Commit von einem Branch in einen anderen zu übernehmen.\n\nCherry-picken Sie den Commit mit der ID '1a2b3c4d' vom 'feature'-Branch in Ihren aktuellen Branch.",
+		"difficulty": "Mittel",
+		"category": "Zusammenarbeit",
+		"hints": [
+			"Verwenden Sie 'git cherry-pick 1a2b3c4d', um einen spezifischen Commit zu übernehmen.",
+			"Dies erstellt einen neuen Commit mit den gleichen Änderungen."
+		]
+	},
+	{
+		"id": 75,
+		"title": "Force Push nach Neuscheiben der Historie",
+		"description": "Nach dem Rebasen oder Neuschreiben der Historie müssen Sie möglicherweise einen Force Push durchführen.\n\nNach dem Neuschreiben der Historie führen Sie einen sicheren Force Push zu Ihrem Remote-Branch durch.",
+		"difficulty": "Schwer",
+		"category": "Zusammenarbeit",
+		"hints": [
+			"Verwenden Sie 'git push --force-with-lease origin branch-name' für einen sichereren Force Push.",
+			"Dies schlägt fehl, wenn jemand anderes zwischenzeitlich gepusht hat, wodurch deren Arbeit geschützt wird.",
+			"Alternativ können Sie 'git push -f' verwenden, aber das ist weniger sicher."
+		]
+	},
+	{
+		"id": 76,
+		"title": "Pushen und Upstream für neuen Remote-Branch setzen",
+		"description": "Wenn Sie einen neuen lokalen Branch zum ersten Mal pushen, müssen Sie das Upstream setzen.\n\nPushen Sie den neuen Branch 'feature-xyz' zum Remote und setzen Sie das Upstream für zukünftige Push/Pull-Operationen.",
+		"difficulty": "Einfach",
+		"category": "Zusammenarbeit",
+		"hints": [
+			"Verwenden Sie 'git push -u origin feature-xyz', um den Branch zu pushen und das Upstream zu setzen.",
+			"Das -u Flag ist eine Abkürzung für --set-upstream."
+		]
+	},
+	{
+		"id": 77,
+		"title": "Upstream zu bestehendem Remote-Branch setzen",
+		"description": "Sie können das Upstream für einen bestehenden Branch setzen, um Push/Pull-Operationen zu vereinfachen.\n\nSetzen Sie das Upstream für Ihren aktuellen Branch zu 'origin/main'.",
+		"difficulty": "Einfach",
+		"category": "Zusammenarbeit",
+		"hints": [
+			"Verwenden Sie 'git branch --set-upstream-to=origin/main', um das Upstream zu setzen.",
+			"Sie können auch 'git push -u origin main' beim nächsten Push verwenden."
+		]
+	},
+	{
+		"id": 78,
+		"title": "Feature-Branch auf main rebasen",
+		"description": "Rebasing kann verwendet werden, um die Historie sauber zu halten, indem Feature-Branches auf main gesetzt werden.\n\nRebasen Sie den 'feature'-Branch auf den neuesten 'main'-Branch.",
+		"difficulty": "Schwer",
+		"category": "Zusammenarbeit",
+		"hints": [
+			"Wechseln Sie zuerst zum Feature-Branch mit 'git checkout feature'.",
+			"Verwenden Sie dann 'git rebase main', um den Feature-Branch auf main zu rebasen.",
+			"Lösen Sie alle auftretenden Konflikte und setzen Sie mit 'git rebase --continue' fort."
+		]
+	},
+	{
+		"id": 79,
+		"title": "Detached HEAD-Zustand handhaben, um sicher zu erkunden",
+		"description": "Der detached HEAD-Zustand tritt auf, wenn Sie zu einem spezifischen Commit wechseln. Sie können sicher erkunden und dann zurückkehren.\n\nWechseln Sie zu Commit '1a2b3c4d', erkunden Sie den Code, und kehren Sie dann sicher zu Ihrem ursprünglichen Branch zurück.",
+		"difficulty": "Mittel",
+		"category": "Zusammenarbeit",
+		"hints": [
+			"Verwenden Sie 'git checkout 1a2b3c4d', um zu dem Commit zu wechseln (detached HEAD).",
+			"Erkunden Sie den Code nach Belieben.",
+			"Verwenden Sie 'git checkout main' (oder Ihren ursprünglichen Branch-Namen), um zurückzukehren."
+		]
+	},
+	{
+		"id": 80,
+		"title": "Fork mit Upstream-Repository synchronisieren",
+		"description": "Bei der Arbeit mit Forks müssen Sie diese mit dem ursprünglichen Repository synchronisiert halten.\n\nFügen Sie das ursprüngliche Repository als 'upstream'-Remote hinzu und synchronisieren Sie Ihren Fork mit den neuesten Änderungen.",
+		"difficulty": "Mittel",
+		"category": "Zusammenarbeit",
+		"hints": [
+			"Fügen Sie das Upstream-Remote hinzu: 'git remote add upstream https://github.com/original/repo.git'",
+			"Fetchen Sie Upstream-Änderungen: 'git fetch upstream'",
+			"Führen Sie Upstream-Änderungen zusammen: 'git merge upstream/main' oder rebasen Sie mit 'git rebase upstream/main'"
+		]
+	}
+]

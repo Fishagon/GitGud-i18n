@@ -1,0 +1,131 @@
+[
+	{
+		"id": 41,
+		"title": "Démarrer un rebasage interactif pour les trois derniers commits",
+		"description": "Le rebasage interactif vous permet de modifier l'historique des commits en réorganisant, éditant, fusionnant ou supprimant des commits. C'est utile pour nettoyer votre historique de commits avant de pousser vers un dépôt partagé.\n\nVous avez plusieurs commits qui doivent être nettoyés. Démarrez un rebasage interactif pour les trois derniers commits (HEAD~3) pour les préparer à l'édition.",
+		"difficulty": "Moyen",
+		"category": "Rebasage et historique",
+		"hints": [
+			"Utilisez 'git rebase -i HEAD~3' pour démarrer un rebasage interactif pour les 3 derniers commits.",
+			"L'option -i signifie 'interactif' et ouvrira un éditeur avec les instructions de commit.",
+			"HEAD~3 signifie 'reculez de 3 commits depuis le HEAD actuel'.",
+			"Le rebasage interactif vous permet de choisir, reformuler, éditer, fusionner ou supprimer des commits."
+		]
+	},
+	{
+		"id": 42,
+		"title": "Fusionner deux commits en un seul",
+		"description": "Parfois vous avez plusieurs petits commits qui seraient mieux combinés en un seul commit plus significatif. Git vous permet de fusionner des commits ensemble en utilisant le rebasage interactif ou en réinitialisant et re-commitant.\n\nVous avez deux commits récents qui devraient être combinés en un seul. Utilisez soit le rebasage interactif soit reset/commit pour les fusionner ensemble.",
+		"difficulty": "Moyen",
+		"category": "Rebasage et historique",
+		"hints": [
+			"Utilisez 'git rebase -i HEAD~2' pour démarrer un rebasage interactif des 2 derniers commits.",
+			"Cela ouvrira un éditeur de texte avec la liste des tâches de rebasage.",
+			"Changez la deuxième ligne de 'pick' à 'squash' (ou 's'), puis sauvegardez et fermez l'éditeur.",
+			"Si l'éditeur ne s'ouvre pas, utilisez la solution de rechange : 'git rebase pick squash'",
+			"Alternativement, utilisez 'git reset --soft HEAD~2' suivi de 'git commit'."
+		]
+	},
+	{
+		"id": 43,
+		"title": "Reformuler le message d'un ancien commit",
+		"description": "Un des commits précédents a un message vague 'Update file.txt content' qui ne décrit pas ce qui a réellement été changé. Utilisez le rebasage interactif pour reformuler le message de ce commit pour qu'il soit plus descriptif.\n\nUtilisez le rebasage interactif pour reformuler le message du deuxième commit vers quelque chose de plus spécifique.",
+		"difficulty": "Moyen",
+		"category": "Rebasage et historique",
+		"hints": [
+			"Utilisez 'git rebase -i HEAD~2' pour démarrer un rebasage interactif des 2 derniers commits.",
+			"Changez 'pick' à 'reword' (ou 'r') pour le commit avec le message 'Update file.txt content'.",
+			"Un meilleur message de commit pourrait décrire quels changements spécifiques ont été faits au fichier.",
+			"Sauvegardez et fermez l'éditeur, puis fournissez un nouveau message de commit quand demandé."
+		]
+	},
+	{
+		"id": 44,
+		"title": "Supprimer un commit de l'historique",
+		"description": "Parfois vous devez complètement supprimer un commit de l'historique de votre projet. C'est différent d'un revert - cela supprime réellement le commit comme s'il n'avait jamais existé.\n\nVous avez un commit avec une mauvaise implémentation qui doit être complètement supprimé de l'historique. Utilisez le rebasage interactif pour supprimer le commit avec l'ID 'abc123def'.",
+		"difficulty": "Moyen",
+		"category": "Rebasage et historique",
+		"hints": [
+			"Utilisez 'git log --oneline' pour voir l'historique des commits et identifier le commit bogué.",
+			"Utilisez 'git rebase -i HEAD~2' pour démarrer un rebasage interactif remontant 2 commits.",
+			"Changez 'pick' à 'drop' (ou 'd') pour le commit avec le message 'Add buggy feature'.",
+			"Le commit sera complètement supprimé de l'historique, pas juste annulé.",
+			"Utilisez 'git rebase --continue' si nécessaire pour terminer le rebasage."
+		]
+	},
+	{
+		"id": 45,
+		"title": "Réorganiser les commits pendant le rebasage interactif",
+		"description": "Parfois vous devez réorganiser votre historique de commits pour le rendre plus logique. En regardant l'historique des commits, 'Update to version 2.0' s'est produit avant 'Add configuration file', mais logiquement vous voudriez ajouter la configuration avant de mettre à jour les versions.\n\nUtilisez le rebasage interactif pour réorganiser les 3 derniers commits pour que 'Add configuration file' vienne chronologiquement avant 'Update to version 2.0'.",
+		"difficulty": "Moyen",
+		"category": "Rebasage et historique",
+		"hints": [
+			"Utilisez 'git rebase -i HEAD~3' pour démarrer un rebasage interactif des 3 derniers commits.",
+			"Dans l'éditeur de rebasage, vous verrez les commits listés du plus ancien au plus récent.",
+			"Déplacez la ligne 'Add configuration file' pour qu'elle vienne avant la ligne 'Update to version 2.0'.",
+			"Sauvegardez et fermez l'éditeur pour appliquer le nouvel ordre des commits.",
+			"Utilisez 'git log --oneline' pour vérifier que les commits sont maintenant dans l'ordre logique."
+		]
+	},
+	{
+		"id": 46,
+		"title": "Annuler un rebasage en cours",
+		"description": "Parfois pendant une opération de rebasage, vous rencontrez des conflits ou réalisez que vous voulez annuler entièrement le rebasage. Git vous permet d'annuler un rebasage en cours et de retourner votre dépôt à son état pré-rebasage.\n\nVous avez démarré un rebasage qui a rencontré des conflits. Au lieu de les résoudre, annulez le rebasage pour retourner à l'état original.",
+		"difficulty": "Moyen",
+		"category": "Rebasage et historique",
+		"hints": [
+			"Utilisez 'git rebase --abort' pour annuler une opération de rebasage en cours.",
+			"Cela retournera votre dépôt à l'état exact où il était avant que le rebasage commence.",
+			"Toutes les modifications indexées ou marqueurs de conflit seront automatiquement nettoyés."
+		]
+	},
+	{
+		"id": 47,
+		"title": "Continuer un rebasage après résolution des conflits",
+		"description": "Lors du rebasage de commits, des conflits peuvent survenir si les mêmes lignes ont été modifiées dans différents commits. Git pausera le rebasage et vous permettra de résoudre les conflits manuellement avant de continuer.\n\nVous avez démarré un rebasage qui a rencontré des conflits. Résolvez les conflits dans les fichiers affectés et continuez le processus de rebasage.",
+		"difficulty": "Moyen",
+		"category": "Rebasage et historique",
+		"hints": [
+			"D'abord, vérifiez le statut avec 'git status' pour voir quels fichiers ont des conflits.",
+			"Éditez le fichier en conflit pour résoudre les marqueurs de conflit (<<<<<<, ======, >>>>>>).",
+			"Indexez le fichier résolu avec 'git add <nomfichier>'.",
+			"Continuez le rebasage avec 'git rebase --continue'."
+		]
+	},
+	{
+		"id": 48,
+		"title": "Passer un commit pendant le rebasage interactif",
+		"description": "Parfois pendant un rebasage, vous rencontrez un commit qui cause des conflits ou des problèmes difficiles à résoudre. Git vous permet de passer entièrement les commits problématiques en utilisant l'option --skip.\n\nVous avez démarré un rebasage qui a rencontré un commit problématique. Passez le commit actuel et continuez avec le rebasage.",
+		"difficulty": "Moyen",
+		"category": "Rebasage et historique",
+		"hints": [
+			"Utilisez 'git rebase --skip' pour passer le commit problématique actuel.",
+			"Cela supprimera le commit problématique et continuera avec les commits restants.",
+			"Le rebasage devrait se terminer automatiquement après avoir passé le commit problématique."
+		]
+	},
+	{
+		"id": 49,
+		"title": "Trouver l'auteur de chaque ligne dans un fichier",
+		"description": "Parfois vous devez voir qui a écrit chaque ligne d'un fichier et quand elle a été modifiée pour la dernière fois. La commande git blame montre les informations d'authorship ligne par ligne pour un fichier.\n\nUtilisez git blame pour voir les informations d'authorship pour le fichier 'README.md'.",
+		"difficulty": "Facile",
+		"category": "Rebasage et historique",
+		"hints": [
+			"Utilisez 'git blame <nomfichier>' pour voir les informations d'authorship ligne par ligne.",
+			"La commande blame montre le hash du commit, l'auteur, l'horodatage et le numéro de ligne pour chaque ligne.",
+			"Essayez 'git blame README.md' pour voir qui a écrit chaque ligne du fichier README."
+		]
+	},
+	{
+		"id": 50,
+		"title": "Trouver le commit qui a introduit un changement spécifique",
+		"description": "Parfois vous devez trouver quand un morceau de code ou de texte spécifique a été introduit dans votre base de code. Git fournit de puissantes capacités de recherche pour vous aider à localiser les commits qui ont ajouté ou supprimé du contenu spécifique.\n\nUne fonction appelée 'authenticateUser' a été ajoutée à la base de code à un moment donné. Utilisez la fonctionnalité pickaxe de Git pour trouver le commit qui a introduit cette fonction.",
+		"difficulty": "Moyen",
+		"category": "Rebasage et historique",
+		"hints": [
+			"Utilisez 'git log -S \"authenticateUser\"' pour trouver les commits qui ont ajouté ou supprimé la fonction authenticateUser.",
+			"L'option -S (pickaxe) cherche les commits où le nombre d'occurrences de la chaîne de recherche a changé.",
+			"Vous pouvez aussi utiliser 'git log -G \"pattern\"' pour chercher les commits qui ont ajouté ou supprimé des lignes correspondant à un motif regex."
+		]
+	}
+]

@@ -1,0 +1,109 @@
+[
+	{
+		"id": 21,
+		"title": "Remote-Repository hinzufügen",
+		"description": "Remote-Repositories ermöglichen es Ihnen, mit anderen zusammenzuarbeiten und Ihren Code zu teilen.\n\nFügen Sie ein Remote-Repository mit dem Namen 'origin' und der URL 'https://github.com/example/repo.git' hinzu.",
+		"difficulty": "Einfach",
+		"category": "Remote-Repositories",
+		"hints": [
+			"Verwenden Sie 'git remote add origin https://github.com/example/repo.git', um ein Remote-Repository hinzuzufügen."
+		]
+	},
+	{
+		"id": 22,
+		"title": "Remote-Branches auflisten",
+		"description": "Sie können alle Branches in Remote-Repositories anzeigen.\n\nListen Sie alle Remote-Branches auf, die in diesem Repository verfügbar sind.",
+		"difficulty": "Einfach",
+		"category": "Remote-Repositories",
+		"hints": [
+			"Verwenden Sie 'git branch -r', um alle Remote-Branches aufzulisten.",
+			"Sie können auch 'git branch -a' verwenden, um sowohl lokale als auch Remote-Branches zu sehen."
+		]
+	},
+	{
+		"id": 23,
+		"title": "Neueste Änderungen vom Remote-Repository fetchen",
+		"description": "Fetchen lädt die neuesten Änderungen vom Remote-Repository herunter, ohne sie in Ihren lokalen Branch zusammenzuführen.\n\nFetchen Sie die neuesten Änderungen vom 'origin'-Remote.",
+		"difficulty": "Einfach",
+		"category": "Remote-Repositories",
+		"hints": [
+			"Verwenden Sie 'git fetch origin', um die neuesten Änderungen vom Origin-Remote zu fetchen.",
+			"Sie können auch einfach 'git fetch' verwenden, um von allen konfigurierten Remotes zu fetchen."
+		]
+	},
+	{
+		"id": 24,
+		"title": "Neueste Änderungen vom Remote-Repository pullen",
+		"description": "Pullen fetcht Änderungen und führt sie automatisch in Ihren aktuellen Branch zusammen.\n\nPullen Sie die neuesten Änderungen vom 'origin'-Remote in Ihren aktuellen Branch.",
+		"difficulty": "Einfach",
+		"category": "Remote-Repositories",
+		"hints": [
+			"Verwenden Sie 'git pull origin master', um Änderungen zu pullen und zusammenzuführen.",
+			"Sie können auch einfach 'git pull' verwenden, wenn das Upstream bereits konfiguriert ist."
+		]
+	},
+	{
+		"id": 25,
+		"title": "Lokalen Branch zum Remote-Repository pushen",
+		"description": "Pushen lädt Ihre lokalen Änderungen in das Remote-Repository hoch.\n\nPushen Sie Ihren aktuellen Branch zum 'origin'-Remote.",
+		"difficulty": "Einfach",
+		"category": "Remote-Repositories",
+		"hints": [
+			"Verwenden Sie 'git push origin master', um Ihren Master-Branch zu pushen.",
+			"Wenn Sie einen anderen Branch pushen möchten, ersetzen Sie 'master' durch den Branch-Namen."
+		]
+	},
+	{
+		"id": 26,
+		"title": "Neuen Branch zum Remote pushen und Upstream setzen",
+		"description": "Wenn Sie einen neuen Branch zum ersten Mal pushen, müssen Sie das Upstream setzen.\n\nPushen Sie den 'feature-branch' zum Remote und setzen Sie das Upstream, damit zukünftige Push/Pull-Operationen funktionieren.",
+		"difficulty": "Mittel",
+		"category": "Remote-Repositories",
+		"hints": [
+			"Verwenden Sie 'git push -u origin feature-branch', um den Branch zu pushen und das Upstream zu setzen.",
+			"Das -u Flag ist eine Abkürzung für --set-upstream."
+		]
+	},
+	{
+		"id": 27,
+		"title": "Informationen über Ihre Remotes anzeigen",
+		"description": "Git kann detaillierte Informationen über Ihre konfigurierten Remote-Repositories anzeigen.\n\nZeigen Sie detaillierte Informationen über alle Remote-Repositories an, einschließlich ihrer URLs.",
+		"difficulty": "Einfach",
+		"category": "Remote-Repositories",
+		"hints": [
+			"Verwenden Sie 'git remote -v', um alle Remotes mit ihren URLs anzuzeigen.",
+			"Sie können auch 'git remote show origin' für detaillierte Informationen über ein spezifisches Remote verwenden."
+		]
+	},
+	{
+		"id": 28,
+		"title": "Remote-Repository entfernen",
+		"description": "Manchmal müssen Sie ein Remote-Repository aus Ihrer lokalen Konfiguration entfernen.\n\nEntfernen Sie das Remote-Repository namens 'old-origin' aus Ihrer lokalen Konfiguration.",
+		"difficulty": "Einfach",
+		"category": "Remote-Repositories",
+		"hints": [
+			"Verwenden Sie 'git remote remove old-origin', um das Remote zu entfernen.",
+			"Sie können auch 'git remote rm old-origin' als Abkürzung verwenden."
+		]
+	},
+	{
+		"id": 29,
+		"title": "Remote-Repository umbenennen",
+		"description": "Sie können Remote-Repositories umbenennen, um sie besser zu organisieren.\n\nBenennen Sie das Remote-Repository von 'old-name' zu 'new-name' um.",
+		"difficulty": "Einfach",
+		"category": "Remote-Repositories",
+		"hints": [
+			"Verwenden Sie 'git remote rename old-name new-name', um ein Remote umzubenennen."
+		]
+	},
+	{
+		"id": 30,
+		"title": "Repository in ein spezifisches Verzeichnis klonen",
+		"description": "Beim Klonen können Sie angeben, in welches Verzeichnis das Repository geklont werden soll.\n\nKlonen Sie das Repository 'https://github.com/example/repo.git' in ein Verzeichnis namens 'my-project'.",
+		"difficulty": "Einfach",
+		"category": "Remote-Repositories",
+		"hints": [
+			"Verwenden Sie 'git clone https://github.com/example/repo.git my-project', um in ein spezifisches Verzeichnis zu klonen."
+		]
+	}
+]

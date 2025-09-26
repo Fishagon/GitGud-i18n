@@ -1,0 +1,112 @@
+[
+	{
+		"id": 31,
+		"title": "Letzten Commit ergänzen ohne Nachricht zu ändern",
+		"description": "Manchmal vergessen Sie, eine Datei zu einem Commit hinzuzufügen oder machen einen kleinen Fehler.\n\nErgänzen Sie den letzten Commit, indem Sie eine neue Datei hinzufügen, ohne die Commit-Nachricht zu ändern.",
+		"difficulty": "Mittel",
+		"category": "Rückgängig machen & Fehler beheben",
+		"hints": [
+			"Merken Sie zuerst die neue Datei mit 'git add' vor.",
+			"Verwenden Sie dann 'git commit --amend --no-edit', um den letzten Commit zu ergänzen, ohne die Nachricht zu ändern."
+		]
+	},
+	{
+		"id": 32,
+		"title": "Letzten Commit ergänzen und Nachricht aktualisieren",
+		"description": "Sie können sowohl den Inhalt als auch die Nachricht des letzten Commits ändern.\n\nErgänzen Sie den letzten Commit mit einer neuen Datei und aktualisieren Sie die Commit-Nachricht zu 'Updated commit with new file'.",
+		"difficulty": "Mittel",
+		"category": "Rückgängig machen & Fehler beheben",
+		"hints": [
+			"Merken Sie zuerst die neue Datei mit 'git add' vor.",
+			"Verwenden Sie dann 'git commit --amend -m \"Updated commit with new file\"', um sowohl den Inhalt als auch die Nachricht zu ändern."
+		]
+	},
+	{
+		"id": 33,
+		"title": "Letzten Commit rückgängig machen, aber Änderungen vorgemerkt lassen",
+		"description": "Manchmal möchten Sie einen Commit rückgängig machen, aber die Änderungen für einen neuen Commit beibehalten.\n\nMachen Sie den letzten Commit rückgängig, aber lassen Sie alle Änderungen im Staging-Bereich.",
+		"difficulty": "Mittel",
+		"category": "Rückgängig machen & Fehler beheben",
+		"hints": [
+			"Verwenden Sie 'git reset --soft HEAD~1', um den letzten Commit rückgängig zu machen und die Änderungen vorgemerkt zu lassen.",
+			"HEAD~1 bezieht sich auf den Commit vor dem aktuellen HEAD."
+		]
+	},
+	{
+		"id": 34,
+		"title": "Letzten Commit rückgängig machen und Änderungen entfernen",
+		"description": "Wenn Sie einen Commit und alle seine Änderungen komplett rückgängig machen möchten.\n\nMachen Sie den letzten Commit rückgängig und entfernen Sie die Änderungen aus dem Staging-Bereich (aber lassen Sie sie im Arbeitsverzeichnis).",
+		"difficulty": "Mittel",
+		"category": "Rückgängig machen & Fehler beheben",
+		"hints": [
+			"Verwenden Sie 'git reset HEAD~1', um den letzten Commit rückgängig zu machen und die Änderungen zu entfernen.",
+			"Dies ist die Standard-Reset-Option (--mixed)."
+		]
+	},
+	{
+		"id": 35,
+		"title": "Versehentlich hinzugefügte Datei entfernen",
+		"description": "Manchmal merken Sie eine Datei versehentlich vor, die nicht committed werden sollte.\n\nEntfernen Sie 'unwanted-file.txt' aus dem Staging-Bereich, ohne die Datei selbst zu löschen.",
+		"difficulty": "Einfach",
+		"category": "Rückgängig machen & Fehler beheben",
+		"hints": [
+			"Verwenden Sie 'git reset HEAD unwanted-file.txt', um die Datei aus dem Staging-Bereich zu entfernen.",
+			"Sie können auch 'git restore --staged unwanted-file.txt' in neueren Git-Versionen verwenden."
+		]
+	},
+	{
+		"id": 36,
+		"title": "Nicht committete Änderungen an einer Datei verwerfen",
+		"description": "Manchmal möchten Sie alle Änderungen an einer Datei seit dem letzten Commit verwerfen.\n\nVerwerfen Sie alle nicht committeten Änderungen an 'modified-file.txt' und stellen Sie sie auf den Zustand des letzten Commits zurück.",
+		"difficulty": "Einfach",
+		"category": "Rückgängig machen & Fehler beheben",
+		"hints": [
+			"Verwenden Sie 'git checkout -- modified-file.txt', um Änderungen an der Datei zu verwerfen.",
+			"Sie können auch 'git restore modified-file.txt' in neueren Git-Versionen verwenden."
+		]
+	},
+	{
+		"id": 37,
+		"title": "Commit rückgängig machen, der zum Remote gepusht wurde",
+		"description": "Wenn Sie einen fehlerhaften Commit bereits gepusht haben, sollten Sie ihn mit revert rückgängig machen, anstatt die Historie zu ändern.\n\nMachen Sie den Commit mit der ID '1a2b3c4d' rückgängig, indem Sie einen neuen Commit erstellen, der seine Änderungen umkehrt.",
+		"difficulty": "Mittel",
+		"category": "Rückgängig machen & Fehler beheben",
+		"hints": [
+			"Verwenden Sie 'git revert 1a2b3c4d', um einen neuen Commit zu erstellen, der die Änderungen des angegebenen Commits umkehrt.",
+			"Revert ist sicherer als reset, wenn der Commit bereits gepusht wurde."
+		]
+	},
+	{
+		"id": 38,
+		"title": "Branch zu einem vorherigen Commit zurücksetzen (Soft Reset)",
+		"description": "Ein Soft Reset bewegt den Branch-Zeiger, lässt aber alle Änderungen im Staging-Bereich.\n\nSetzen Sie den aktuellen Branch zu dem Commit vor 2 Commits zurück und behalten Sie alle Änderungen im Staging-Bereich bei.",
+		"difficulty": "Schwer",
+		"category": "Rückgängig machen & Fehler beheben",
+		"hints": [
+			"Verwenden Sie 'git reset --soft HEAD~2', um 2 Commits zurückzugehen und die Änderungen vorgemerkt zu lassen.",
+			"Soft Reset ändert nur den HEAD-Zeiger, nicht den Staging-Bereich oder das Arbeitsverzeichnis."
+		]
+	},
+	{
+		"id": 39,
+		"title": "Branch zu einem vorherigen Commit zurücksetzen (Hard Reset)",
+		"description": "Ein Hard Reset verwirft alle Änderungen und setzt alles auf einen vorherigen Zustand zurück.\n\nSetzen Sie den aktuellen Branch zu dem Commit vor 2 Commits zurück und verwerfen Sie alle Änderungen.",
+		"difficulty": "Schwer",
+		"category": "Rückgängig machen & Fehler beheben",
+		"hints": [
+			"Verwenden Sie 'git reset --hard HEAD~2', um 2 Commits zurückzugehen und alle Änderungen zu verwerfen.",
+			"WARNUNG: Hard Reset verwirft alle nicht committeten Änderungen permanent."
+		]
+	},
+	{
+		"id": 40,
+		"title": "Gelöschte Datei aus einem vorherigen Commit wiederherstellen",
+		"description": "Wenn Sie versehentlich eine Datei gelöscht haben, können Sie sie aus einem vorherigen Commit wiederherstellen.\n\nStellen Sie 'deleted-file.txt' aus dem Commit vor 2 Commits wieder her.",
+		"difficulty": "Mittel",
+		"category": "Rückgängig machen & Fehler beheben",
+		"hints": [
+			"Verwenden Sie 'git checkout HEAD~2 -- deleted-file.txt', um die Datei aus einem spezifischen Commit wiederherzustellen.",
+			"Sie können auch 'git restore --source=HEAD~2 deleted-file.txt' in neueren Git-Versionen verwenden."
+		]
+	}
+]

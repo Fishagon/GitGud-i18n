@@ -1,0 +1,124 @@
+[
+	{
+		"id": 31,
+		"title": "Modifier le dernier commit sans changer son message",
+		"description": "Parfois vous réalisez que vous avez oublié d'indexer un fichier ou fait un petit changement après avoir commité. Git vous permet de modifier le dernier commit pour inclure des modifications supplémentaires sans créer un nouveau commit.\n\nVous avez quelques modifications indexées qui auraient dû être incluses dans le dernier commit. Modifiez le dernier commit pour inclure ces modifications sans modifier le message de commit.",
+		"difficulty": "Facile",
+		"category": "Annuler et corriger les erreurs",
+		"hints": [
+			"Utilisez 'git commit --amend --no-edit' pour modifier le dernier commit sans changer le message.",
+			"L'option --amend modifie le dernier commit au lieu d'en créer un nouveau.",
+			"L'option --no-edit garde le message de commit existant inchangé."
+		]
+	},
+	{
+		"id": 32,
+		"title": "Modifier le dernier commit et mettre à jour son message",
+		"description": "Parfois vous devez modifier le message du dernier commit ou ajouter des modifications oubliées.\n\nVotre dernier commit a le message 'Add new feature' mais il devrait dire 'Add user authentication feature'. Utilisez la fonctionnalité d'amendement de Git pour mettre à jour le message de commit.",
+		"difficulty": "Facile",
+		"category": "Annuler et corriger les erreurs",
+		"hints": [
+			"Utilisez 'git commit --amend -m \"Add user authentication feature\"' pour changer le message du dernier commit.",
+			"L'option --amend modifie le commit le plus récent au lieu d'en créer un nouveau.",
+			"N'utilisez pas --no-edit car cela préserverait le message existant (incorrect)."
+		]
+	},
+	{
+		"id": 33,
+		"title": "Annuler le dernier commit mais garder les modifications indexées",
+		"description": "Parfois vous commitez trop tôt et réalisez que vous voulez faire des modifications supplémentaires ou corriger le message de commit. Git vous permet d'annuler le dernier commit tout en gardant les modifications indexées pour pouvoir les modifier et commiter à nouveau.\n\nVotre dernier commit a été fait prématurément. Annulez-le mais gardez les modifications indexées pour pouvoir travailler avec elles plus tard.",
+		"difficulty": "Facile",
+		"category": "Annuler et corriger les erreurs",
+		"hints": [
+			"Utilisez 'git reset --soft HEAD~1' pour annuler le dernier commit mais garder les modifications indexées.",
+			"L'option --soft préserve vos modifications indexées, contrairement à --hard qui les supprime.",
+			"HEAD~1 fait référence au commit avant le HEAD actuel (un commit en arrière)."
+		]
+	},
+	{
+		"id": 34,
+		"title": "Annuler le dernier commit et désindexer les modifications",
+		"description": "Parfois vous voulez annuler un commit mais garder les modifications dans votre répertoire de travail comme fichiers non indexés. Cela vous permet de modifier les fichiers davantage avant de commiter à nouveau.\n\nVotre dernier commit doit être annulé, et les modifications doivent rester dans votre répertoire de travail mais être désindexées.",
+		"difficulty": "Facile",
+		"category": "Annuler et corriger les erreurs",
+		"hints": [
+			"Utilisez 'git reset HEAD~1' pour annuler le dernier commit et désindexer les modifications.",
+			"Le reset mixte (par défaut) recule HEAD et désindexe les fichiers mais garde les modifications dans le répertoire de travail.",
+			"HEAD~1 fait référence au commit avant le HEAD actuel (un commit en arrière)."
+		]
+	},
+	{
+		"id": 35,
+		"title": "Désindexer un fichier qui a été ajouté accidentellement",
+		"description": "Parfois vous indexez accidentellement un fichier que vous ne vouliez pas inclure dans votre prochain commit. Git vous permet de désindexer des fichiers sans perdre les modifications dans votre répertoire de travail.\n\nVous avez accidentellement indexé 'temp.log' qui ne devrait pas être commité. Désindexez ce fichier tout en gardant les modifications dans votre répertoire de travail.",
+		"difficulty": "Facile",
+		"category": "Annuler et corriger les erreurs",
+		"hints": [
+			"Utilisez 'git reset HEAD temp.log' pour désindexer le fichier tout en gardant les modifications dans le répertoire de travail.",
+			"Vous pouvez aussi utiliser 'git reset temp.log' comme raccourci pour la même opération.",
+			"Le fichier restera modifié dans votre répertoire de travail après désindexation."
+		]
+	},
+	{
+		"id": 36,
+		"title": "Rejeter les modifications non commitées d'un fichier",
+		"description": "Parfois vous faites des modifications à un fichier mais réalisez que vous voulez les rejeter et ramener le fichier à son dernier état commité. Git vous permet de rejeter les modifications dans votre répertoire de travail sans affecter les modifications indexées.\n\nVous avez fait des modifications à 'file.txt' que vous voulez rejeter. Utilisez Git pour restaurer le fichier à son dernier état commité.",
+		"difficulty": "Facile",
+		"category": "Annuler et corriger les erreurs",
+		"hints": [
+			"Utilisez 'git checkout -- file.txt' pour rejeter les modifications du fichier.",
+			"Vous pouvez aussi utiliser 'git restore file.txt' (Git 2.23+) pour le même effet.",
+			"Cela affecte seulement les modifications non commitées dans votre répertoire de travail, pas les modifications indexées."
+		]
+	},
+	{
+		"id": 37,
+		"title": "Annuler un commit qui a été poussé vers le distant",
+		"description": "Parfois vous devez annuler les modifications d'un commit qui a déjà été poussé vers un dépôt distant. Contrairement à git reset, git revert crée un nouveau commit qui annule les modifications, le rendant sûr pour les dépôts partagés.\n\nVous avez un commit avec l'ID 'abc123def' qui a introduit un bug et doit être annulé. Utilisez git revert pour annuler ses modifications en toute sécurité.",
+		"difficulty": "Moyen",
+		"category": "Annuler et corriger les erreurs",
+		"hints": [
+			"Utilisez 'git revert <commit-id>' pour créer un nouveau commit qui annule les modifications du commit spécifié.",
+			"git revert est plus sûr que git reset pour les commits qui ont été poussés vers des dépôts distants.",
+			"La commande revert ouvrira un éditeur pour le message de commit, ou utilisez -m pour le spécifier directement."
+		]
+	},
+	{
+		"id": 38,
+		"title": "Réinitialiser une branche à un commit précédent (reset soft)",
+		"description": "Parfois vous devez réinitialiser votre branche à un commit précédent tout en préservant vos modifications dans la zone d'index. Cela vous permet de re-commiter les modifications avec une structure ou un message différent.\n\nVous avez des commits qui doivent être annulés, mais vous voulez garder les modifications indexées. Réinitialisez votre branche au commit 'abc123def' en utilisant un reset soft.",
+		"difficulty": "Moyen",
+		"category": "Annuler et corriger les erreurs",
+		"hints": [
+			"Utilisez 'git reset --soft <commit-id>' pour réinitialiser à un commit spécifique tout en gardant les modifications indexées.",
+			"Vous pouvez utiliser l'ID de commit 'abc123def' ou le trouver avec 'git log'.",
+			"Le reset soft recule HEAD mais préserve votre zone d'index et répertoire de travail."
+		]
+	},
+	{
+		"id": 39,
+		"title": "Réinitialiser une branche à un commit précédent (reset hard)",
+		"description": "Parfois vous devez complètement réinitialiser votre branche à un commit précédent, rejetant toutes les modifications dans la zone d'index et le répertoire de travail. C'est une opération destructive qui supprime de façon permanente les modifications non commitées.\n\nVous avez des commits qui contiennent des bugs et vous voulez complètement réinitialiser au commit 'abc123def', rejetant toutes les modifications subséquentes. Utilisez un reset hard pour accomplir cela.",
+		"difficulty": "Moyen",
+		"category": "Annuler et corriger les erreurs",
+		"hints": [
+			"Utilisez 'git reset --hard <commit-id>' pour réinitialiser à un commit spécifique et rejeter toutes les modifications.",
+			"Vous pouvez utiliser l'ID de commit 'abc123def' ou le trouver avec 'git log'.",
+			"Le reset hard est destructif - il supprimera de façon permanente toutes les modifications non commitées.",
+			"Soyez prudent avec le reset hard car il ne peut pas être annulé facilement."
+		]
+	},
+	{
+		"id": 40,
+		"title": "Restaurer un fichier supprimé depuis un commit précédent",
+		"description": "Parfois vous supprimez accidentellement un fichier et commitez la suppression, mais réalisez plus tard que vous avez besoin de ce fichier. Git vous permet de restaurer des fichiers depuis des commits précédents sans affecter les autres modifications.\n\nUn fichier appelé 'important-config.txt' a été supprimé dans un commit récent. Restaurez ce fichier depuis le commit avant qu'il soit supprimé (ID de commit 'def456abc').",
+		"difficulty": "Moyen",
+		"category": "Annuler et corriger les erreurs",
+		"hints": [
+			"Utilisez 'git checkout <commit-id> -- <nomfichier>' pour restaurer un fichier depuis un commit spécifique.",
+			"Vous pouvez aussi utiliser 'git restore --source=<commit-id> <nomfichier>' (Git 2.23+).",
+			"L'ID de commit 'def456abc' contient la version du fichier que vous voulez restaurer.",
+			"Après restauration, le fichier sera indexé et prêt à être commité."
+		]
+	}
+]

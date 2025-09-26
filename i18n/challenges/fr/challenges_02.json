@@ -1,0 +1,122 @@
+[
+	{
+		"id": 11,
+		"title": "Créer et basculer vers une branche en une commande",
+		"description": "Git vous permet de créer et basculer vers une nouvelle branche en une seule commande.\n\nCréez une nouvelle branche appelée 'feature-branch' et basculez vers elle en une commande.",
+		"difficulty": "Facile",
+		"category": "Branches et fusion",
+		"hints": [
+			"Utilisez 'git checkout -b feature-branch' pour créer et basculer vers une nouvelle branche en une commande.",
+			"Dans les versions plus récentes de Git, vous pourriez aussi utiliser 'git switch -c feature-branch'."
+		]
+	},
+	{
+		"id": 12,
+		"title": "Fusionner une branche",
+		"description": "La fusion combine les modifications d'une branche dans une autre.\n\nBasculez vers la branche 'master' et fusionnez la branche 'feature' dans celle-ci.",
+		"difficulty": "Moyen",
+		"category": "Branches et fusion",
+		"hints": [
+			"Utilisez d'abord 'git checkout master' pour basculer vers la branche master.",
+			"Puis utilisez 'git merge feature' pour fusionner la branche feature dans master."
+		]
+	},
+	{
+		"id": 13,
+		"title": "Fusion sans avance rapide",
+		"description": "Parfois vous voulez préserver l'historique de la branche lors de la fusion.\n\nFusionnez la branche 'feature' dans 'master' avec l'option --no-ff pour empêcher l'avance rapide.",
+		"difficulty": "Moyen",
+		"category": "Branches et fusion",
+		"hints": [
+			"Utilisez d'abord 'git checkout master' pour basculer vers la branche master.",
+			"Puis utilisez 'git merge --no-ff feature' pour fusionner avec un commit même si l'avance rapide est possible."
+		]
+	},
+	{
+		"id": 14,
+		"title": "Résoudre un conflit de fusion",
+		"description": "Parfois les modifications dans différentes branches entrent en conflit.\n\nRésolvez le conflit de fusion entre les branches 'feature' et 'master' en fusionnant 'feature' dans 'master' et en corrigeant le conflit dans 'shared-file.txt'.\n\nVous pouvez utiliser les commandes spéciales du jeu :\n- 'resolve current shared-file.txt' pour garder la version de la branche actuelle\n- 'resolve incoming shared-file.txt' pour utiliser la version de la branche entrante",
+		"difficulty": "Moyen",
+		"category": "Branches et fusion",
+		"hints": [
+			"Commencez par vous positionner sur la branche master avec 'git checkout master'",
+			"Essayez de fusionner avec 'git merge feature' - cela affichera le conflit",
+			"Résolvez le conflit avec soit 'resolve current shared-file.txt' soit 'resolve incoming shared-file.txt'",
+			"Après la résolution, utilisez 'git add shared-file.txt' pour marquer comme résolu",
+			"Terminez la fusion avec 'git commit -m \"Conflit de fusion résolu\"'"
+		]
+	},
+	{
+		"id": 15,
+		"title": "Annuler une fusion en cours",
+		"description": "Parfois une fusion se passe mal et vous devez retourner à l'état d'avant le début de la fusion.\n\nPositionnez-vous sur la branche 'master', tentez de fusionner la branche 'feature' (ce qui causera un conflit), puis annulez la fusion en utilisant n'importe quelle commande Git appropriée.",
+		"difficulty": "Moyen",
+		"category": "Branches et fusion",
+		"hints": [
+			"Utilisez d'abord 'git checkout master' pour basculer vers la branche master",
+			"Puis utilisez 'git merge feature' pour commencer la fusion (ce qui causera un conflit)",
+			"Pour annuler la fusion et retourner à l'état pré-fusion, utilisez 'git merge --abort'",
+			"Les solutions alternatives incluent 'git reset --hard HEAD' ou 'git checkout -f'"
+		]
+	},
+	{
+		"id": 16,
+		"title": "Afficher un log graphique des branches et commits",
+		"description": "La commande git log normale affiche les commits de façon linéaire. Pour les dépôts avec plusieurs branches, il peut être utile de visualiser la structure des branches.\n\nUtilisez git log avec l'option --graph pour afficher une représentation graphique de l'historique des commits. Vous pouvez aussi essayer des options supplémentaires comme --oneline pour une sortie compacte et --all pour voir toutes les branches.",
+		"difficulty": "Facile",
+		"category": "Branches et fusion",
+		"hints": [
+			"Utilisez 'git log --graph' pour afficher une représentation graphique textuelle de l'historique des commits.",
+			"Essayez de combiner les options : 'git log --graph --oneline --all' pour une vue encore plus utile."
+		]
+	},
+	{
+		"id": 17,
+		"title": "Lister toutes les branches d'un dépôt",
+		"description": "Pour gérer efficacement votre dépôt, vous devez savoir quelles branches existent.\n\nUtilisez la commande Git appropriée pour lister toutes les branches du dépôt.",
+		"difficulty": "Facile",
+		"category": "Branches et fusion",
+		"hints": [
+			"La commande pour lister toutes les branches est simplement 'git branch' sans arguments supplémentaires.",
+			"Votre branche actuelle sera marquée d'un astérisque (*) dans la sortie."
+		]
+	},
+	{
+		"id": 18,
+		"title": "Renommer la branche actuelle",
+		"description": "Parfois vos noms de branches doivent changer pour mieux refléter leur objectif.\n\nRenommez la branche actuelle de 'master' à 'main'.",
+		"difficulty": "Facile",
+		"category": "Branches et fusion",
+		"hints": [
+			"Utilisez 'git branch -m main' pour renommer votre branche actuelle.",
+			"Vous pouvez aussi utiliser la forme longue 'git branch --move main'."
+		]
+	},
+	{
+		"id": 19,
+		"title": "Forcer la suppression d'une branche",
+		"description": "Parfois vous devez supprimer une branche même quand elle a des modifications non fusionnées.\n\nCréez une branche appelée 'feature-temp' et ajoutez-y un commit. Puis revenez sur master et forcez la suppression de la branche 'feature-temp'.\n\nUtilisez la commande spéciale du jeu 'createfile filename content' pour créer un fichier (ex : 'createfile newfile.txt Ceci est du contenu').",
+		"difficulty": "Moyen",
+		"category": "Branches et fusion",
+		"hints": [
+			"Créez d'abord une branche avec 'git branch feature-temp' et basculez vers elle avec 'git checkout feature-temp'",
+			"Créez un fichier avec 'createfile newfile.txt Du contenu'",
+			"Indexez le fichier avec 'git add newfile.txt'",
+			"Commitez-le avec 'git commit -m \"Ajouter nouveau fichier\"'",
+			"Revenez sur master avec 'git checkout master'",
+			"Essayez de supprimer avec 'git branch -d feature-temp' - vous verrez que cela échoue",
+			"Forcez la suppression avec 'git branch -D feature-temp'"
+		]
+	},
+	{
+		"id": 20,
+		"title": "Lister les branches fusionnées et non fusionnées",
+		"description": "Git vous permet de filtrer les branches par leur statut de fusion relatif à la branche actuelle.\n\nUtilisez les commandes Git appropriées pour :\n1. Lister les branches qui ont été fusionnées dans la branche actuelle\n2. Lister les branches qui n'ont pas été fusionnées dans la branche actuelle",
+		"difficulty": "Moyen",
+		"category": "Branches et fusion",
+		"hints": [
+			"Utilisez 'git branch --merged' pour voir les branches qui ont été fusionnées dans la branche actuelle.",
+			"Utilisez 'git branch --no-merged' pour voir les branches qui n'ont pas été fusionnées dans la branche actuelle."
+		]
+	}
+]

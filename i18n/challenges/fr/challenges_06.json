@@ -1,0 +1,126 @@
+[
+	{
+		"id": 51,
+		"title": "Mettre de côté les modifications non commitées",
+		"description": "Parfois vous travaillez sur quelque chose mais devez rapidement changer de contexte ou tirer des modifications depuis un dépôt distant. Git stash vous permet de sauvegarder temporairement vos modifications non commitées sans créer un commit.\n\nVous avez quelques modifications non commitées dans votre répertoire de travail. Utilisez git stash pour sauvegarder ces modifications afin de pouvoir travailler sur autre chose et y revenir plus tard.",
+		"difficulty": "Facile",
+		"category": "Mise de côté (stash)",
+		"hints": [
+			"Utilisez 'git stash' ou 'git stash push' pour sauvegarder vos modifications non commitées.",
+			"Après la mise de côté, votre répertoire de travail devrait être propre.",
+			"Vous pourrez récupérer vos modifications plus tard avec 'git stash pop' ou 'git stash apply'."
+		]
+	},
+	{
+		"id": 52,
+		"title": "Afficher une liste de toutes les modifications mises de côté",
+		"description": "Git vous permet de voir toutes vos modifications mises de côté en utilisant la commande stash list. Cela vous montre toutes les réserves que vous avez sauvegardées, avec leurs messages et IDs de réserve.\n\nVous avez quelques modifications mises de côté existantes. Utilisez Git pour voir une liste de toutes vos modifications mises de côté.",
+		"difficulty": "Facile",
+		"category": "Mise de côté (stash)",
+		"hints": [
+			"Utilisez 'git stash list' pour voir toutes vos modifications mises de côté.",
+			"Chaque entrée de réserve montre l'ID de réserve (stash@{0}, stash@{1}, etc.) et le message de réserve.",
+			"La réserve la plus récente est en haut de la liste (stash@{0})."
+		]
+	},
+	{
+		"id": 53,
+		"title": "Appliquer la dernière réserve sans la supprimer",
+		"description": "Parfois vous voulez appliquer les modifications mises de côté à votre répertoire de travail mais garder l'entrée de réserve pour un usage futur potentiel. La commande 'git stash apply' applique la réserve sans la supprimer de la liste de réserves, contrairement à 'git stash pop' qui la supprime.\n\nVous avez quelques modifications mises de côté que vous voulez appliquer à votre répertoire de travail, mais vous voulez garder l'entrée de réserve au cas où vous en auriez besoin plus tard.",
+		"difficulty": "Facile",
+		"category": "Mise de côté (stash)",
+		"hints": [
+			"Utilisez 'git stash apply' pour appliquer la dernière réserve sans la supprimer de la liste de réserves.",
+			"Contrairement à 'git stash pop', 'git stash apply' garde l'entrée de réserve pour un usage futur.",
+			"Vous pouvez vérifier que la réserve est toujours là avec 'git stash list' après application."
+		]
+	},
+	{
+		"id": 54,
+		"title": "Appliquer une réserve spécifique",
+		"description": "Quand vous avez plusieurs réserves, vous pouvez appliquer une spécifique en référençant son index. Chaque réserve est numérotée en commençant par 0, avec stash@{0} étant la plus récente, stash@{1} la deuxième plus récente, et ainsi de suite.\n\nVous avez plusieurs modifications mises de côté. Appliquez la deuxième entrée de réserve (stash@{1}) sans la supprimer de la liste de réserves.",
+		"difficulty": "Facile",
+		"category": "Mise de côté (stash)",
+		"hints": [
+			"Utilisez 'git stash list' pour voir toutes les entrées de réserve disponibles.",
+			"Utilisez 'git stash apply stash@{1}' pour appliquer la deuxième entrée de réserve.",
+			"Vous pouvez aussi utiliser la forme courte 'git stash apply 1'.",
+			"L'entrée stash@{1} devrait rester dans la liste de réserves après application."
+		]
+	},
+	{
+		"id": 55,
+		"title": "Supprimer une réserve spécifique",
+		"description": "Parfois vous voulez supprimer une entrée de réserve spécifique sans l'appliquer. La commande 'git stash drop' peut cibler une réserve spécifique par sa référence (stash@{1}, stash@{2}, etc.).\n\nVous avez plusieurs modifications mises de côté. Supprimez la deuxième entrée de réserve (stash@{1}) sans l'appliquer.",
+		"difficulty": "Facile",
+		"category": "Mise de côté (stash)",
+		"hints": [
+			"Utilisez 'git stash list' pour voir toutes les entrées de réserve disponibles.",
+			"Utilisez 'git stash drop stash@{1}' pour supprimer la deuxième entrée de réserve.",
+			"Vous pouvez aussi utiliser la forme courte 'git stash drop 1'.",
+			"L'entrée stash@{1} devrait être supprimée de la liste de réserves après suppression."
+		]
+	},
+	{
+		"id": 56,
+		"title": "Créer une réserve avec un message personnalisé",
+		"description": "Lors de la mise de côté de modifications, vous pouvez fournir un message personnalisé pour aider à identifier ce que contient la réserve. C'est particulièrement utile quand vous avez plusieurs réserves et devez vous rappeler à quoi chacune servait.\n\nVous avez quelques modifications non commitées dans votre répertoire de travail. Créez une réserve avec le message personnalisé 'Work in progress on feature X'.",
+		"difficulty": "Facile",
+		"category": "Mise de côté (stash)",
+		"hints": [
+			"Utilisez 'git stash push -m \"message\"' pour créer une réserve avec un message personnalisé.",
+			"Vous pouvez aussi utiliser 'git stash save \"message\"' (déprécié mais fonctionne encore).",
+			"Le message devrait être : 'Work in progress on feature X'",
+			"Après la mise de côté, votre répertoire de travail devrait être propre."
+		]
+	},
+	{
+		"id": 57,
+		"title": "Mettre de côté les fichiers non suivis aussi",
+		"description": "Par défaut, git stash ne sauvegarde que les fichiers suivis qui ont été modifiés. Parfois vous voulez aussi mettre de côté les fichiers non suivis (fichiers qui n'ont pas encore été ajoutés à Git). Utilisez l'option --include-untracked pour mettre de côté à la fois les fichiers suivis et non suivis.\n\nVous avez quelques fichiers suivis modifiés et quelques nouveaux fichiers non suivis. Mettez-les tous de côté, y compris les fichiers non suivis.",
+		"difficulty": "Facile",
+		"category": "Mise de côté (stash)",
+		"hints": [
+			"Utilisez 'git stash -u' ou 'git stash --include-untracked' pour mettre de côté les fichiers non suivis aussi.",
+			"Vous pouvez aussi utiliser 'git stash push -u' avec le même effet.",
+			"Après la mise de côté, les fichiers suivis et non suivis devraient être sauvegardés et votre répertoire de travail devrait être complètement propre."
+		]
+	},
+	{
+		"id": 58,
+		"title": "Récupérer la dernière réserve et la supprimer",
+		"description": "La commande 'git stash pop' applique la réserve la plus récente à votre répertoire de travail et la supprime de la liste de réserves. C'est différent de 'git stash apply' qui garde l'entrée de réserve après l'avoir appliquée.\n\nVous avez quelques modifications mises de côté que vous voulez appliquer à votre répertoire de travail et supprimer de la liste de réserves de façon permanente.",
+		"difficulty": "Facile",
+		"category": "Mise de côté (stash)",
+		"hints": [
+			"Utilisez 'git stash pop' pour appliquer la dernière réserve et la supprimer de la liste de réserves.",
+			"Contrairement à 'git stash apply', 'git stash pop' supprime l'entrée de réserve après l'avoir appliquée.",
+			"Vous pouvez vérifier que la réserve a été supprimée avec 'git stash list' après récupération."
+		]
+	},
+	{
+		"id": 59,
+		"title": "Récupérer une réserve spécifique",
+		"description": "Quand vous avez plusieurs réserves, vous pouvez récupérer une spécifique en référençant son index. La commande 'git stash pop' avec une référence de réserve applique la réserve et la supprime de la liste de réserves.\n\nVous avez plusieurs modifications mises de côté. Récupérez la deuxième entrée de réserve (stash@{1}) et supprimez-la de la liste de réserves.",
+		"difficulty": "Facile",
+		"category": "Mise de côté (stash)",
+		"hints": [
+			"Utilisez 'git stash list' pour voir toutes les entrées de réserve disponibles.",
+			"Utilisez 'git stash pop stash@{1}' pour récupérer la deuxième entrée de réserve.",
+			"Vous pouvez aussi utiliser la forme courte 'git stash pop 1'.",
+			"L'entrée stash@{1} devrait être supprimée de la liste de réserves après récupération."
+		]
+	},
+	{
+		"id": 60,
+		"title": "Effacer toutes les modifications mises de côté",
+		"description": "Parfois vous voulez supprimer de façon permanente toutes les modifications mises de côté d'un coup. La commande 'git stash clear' supprime toutes les entrées de réserve de votre liste de réserves. Soyez prudent avec cette commande car elle supprime de façon permanente toutes vos modifications mises de côté.\n\nVous avez plusieurs modifications mises de côté dont vous n'avez plus besoin. Effacez toutes les entrées de réserve pour nettoyer votre liste de réserves.",
+		"difficulty": "Facile",
+		"category": "Mise de côté (stash)",
+		"hints": [
+			"Utilisez 'git stash clear' pour supprimer toutes les entrées de réserve d'un coup.",
+			"Cette commande supprime de façon permanente toutes les modifications mises de côté - utilisez avec précaution.",
+			"Vous pouvez vérifier que toutes les réserves ont été effacées avec 'git stash list' après."
+		]
+	}
+]

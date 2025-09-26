@@ -1,0 +1,107 @@
+[
+	{
+		"id": 1,
+		"title": "Repository initialisieren",
+		"description": "Willkommen bei Git Gud! Lassen Sie uns beginnen, indem wir Ihr erstes Git-Repository erstellen.\n\nErstellen Sie ein neues Git-Repository mit dem Befehl 'git init'.",
+		"difficulty": "Einfach",
+		"category": "Grundlagen",
+		"hints": [
+			"Geben Sie 'git init' ein, um ein neues Repository zu initialisieren."
+		]
+	},
+	{
+		"id": 2,
+		"title": "Repository-Status prüfen",
+		"description": "Jetzt, da Sie ein Repository haben, lassen Sie uns den Status prüfen, um zu sehen, welche Dateien verfolgt, geändert oder vorgemerkt sind.\n\nVerwenden Sie den entsprechenden Befehl, um den Repository-Status zu prüfen.",
+		"difficulty": "Einfach",
+		"category": "Grundlagen",
+		"hints": [
+			"Der Befehl zur Prüfung des Repository-Status ist 'git status'."
+		]
+	},
+	{
+		"id": 3,
+		"title": "Datei vormerken und committen",
+		"description": "Lassen Sie uns eine Datei zu Ihrem Repository hinzufügen und diese Änderungen aufzeichnen.\n\nMerken Sie zuerst file.txt mit 'git add' vor und committen Sie sie dann mit einer Nachricht.",
+		"difficulty": "Einfach",
+		"category": "Grundlagen",
+		"hints": [
+			"Verwenden Sie 'git add file.txt', um die Datei vorzumerken.",
+			"Verwenden Sie dann 'git commit -m \"Ihre Nachricht hier\"', um einen Commit zu erstellen."
+		]
+	},
+	{
+		"id": 4,
+		"title": "Hinzufügen und Committen in einem Schritt",
+		"description": "Manchmal möchten Sie alle Ihre Änderungen schnell vormerken und committen.\n\nFügen Sie alle geänderten Dateien zum Staging-Bereich hinzu und committen Sie sie in einem einzigen Schritt.",
+		"difficulty": "Einfach",
+		"category": "Grundlagen",
+		"hints": [
+			"Die meisten Befehle unterstützen eine Reihe von Flags, um ihr Verhalten zu ändern. Zum Beispiel kann 'git add' mit dem Flag '-A' verwendet werden, um alle Änderungen hinzuzufügen.",
+			"Sie können 'git add .' verwenden, um alle Dateien vorzumerken, dann 'git commit -m \"Ihre Nachricht\"'. Überlegen Sie, wie Sie diese beiden Befehle mit Flags zu einem einzigen Befehl kombinieren können.",
+			"Für verfolgte Dateien können Sie auch 'git commit -a -m \"Ihre Nachricht\"' verwenden, um in einem Befehl vorzumerken und zu committen."
+		]
+	},
+	{
+		"id": 5,
+		"title": "Commit-Verlauf anzeigen",
+		"description": "Lassen Sie uns den Commit-Verlauf betrachten, um zu sehen, welche Änderungen vorgenommen wurden.\n\nVerwenden Sie den Befehl, um den Commit-Verlauf anzuzeigen.",
+		"difficulty": "Einfach",
+		"category": "Grundlagen",
+		"hints": [
+			"Verwenden Sie 'git log', um den Commit-Verlauf zu sehen."
+		]
+	},
+	{
+		"id": 6,
+		"title": "Branch erstellen",
+		"description": "Branches ermöglichen es Ihnen, an verschiedenen Features oder Fixes isoliert zu arbeiten.\n\nErstellen Sie einen neuen Branch namens 'feature'.",
+		"difficulty": "Einfach",
+		"category": "Grundlagen",
+		"hints": [
+			"Verwenden Sie 'git branch feature', um einen neuen Branch zu erstellen."
+		]
+	},
+	{
+		"id": 7,
+		"title": "Zwischen Branches wechseln",
+		"description": "Jetzt, da Sie einen Branch erstellt haben, wechseln Sie zu diesem.\n\nVerwenden Sie den checkout-Befehl, um zum 'feature'-Branch zu wechseln.",
+		"difficulty": "Einfach",
+		"category": "Grundlagen",
+		"hints": [
+			"Verwenden Sie 'git checkout feature', um zum Branch zu wechseln.",
+			"In neueren Git-Versionen können Sie auch 'git switch feature' verwenden."
+		]
+	},
+	{
+		"id": 8,
+		"title": "Branch löschen",
+		"description": "Wenn Sie mit einem Branch fertig sind, können Sie ihn löschen, um Ihr Repository sauber zu halten.\n\nErstellen Sie einen Branch namens 'temp-branch' und löschen Sie ihn dann.",
+		"difficulty": "Einfach",
+		"category": "Grundlagen",
+		"hints": [
+			"Erstellen Sie zuerst den Branch mit 'git branch temp-branch'.",
+			"Löschen Sie ihn dann mit 'git branch -d temp-branch'."
+		]
+	},
+	{
+		"id": 9,
+		"title": "Repository klonen",
+		"description": "Klonen ermöglicht es Ihnen, eine lokale Kopie eines Remote-Repositories zu erstellen.\n\nKlonen Sie das Beispiel-Repository mit der bereitgestellten URL:\nhttps://github.com/example/repo.git",
+		"difficulty": "Einfach",
+		"category": "Grundlagen",
+		"hints": [
+			"Verwenden Sie 'git clone https://github.com/example/repo.git', um ein Repository zu klonen."
+		]
+	},
+	{
+		"id": 10,
+		"title": "Änderungen anzeigen",
+		"description": "Sehen Sie, welche Änderungen Sie seit dem letzten Commit vorgenommen haben.\n\nVerwenden Sie den entsprechenden Befehl, um die Unterschiede zwischen Ihrem Arbeitsverzeichnis und dem letzten Commit zu prüfen.",
+		"difficulty": "Einfach",
+		"category": "Grundlagen",
+		"hints": [
+			"Verwenden Sie 'git diff', um ungestagete Änderungen seit dem letzten Commit zu sehen."
+		]
+	}
+]

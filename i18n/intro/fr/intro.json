@@ -1,0 +1,205 @@
+[
+  {
+    "Id": 1,
+    "Title": "Pourquoi Git ?",
+    "Content": "Git est un système de contrôle de version. Cela signifie qu'il aide les développeurs à suivre les changements apportés à leurs fichiers au fil du temps. Si vous avez déjà perdu du travail, eu besoin d'annuler quelque chose, ou voulu comprendre qui a changé quoi dans un projet d'équipe, le contrôle de version est la réponse.\n\nGit est local d'abord et distribué — vous n'avez pas besoin d'être en ligne pour l'utiliser, et chaque copie d'un dépôt Git contient l'historique complet. Cela rend Git fiable, flexible et puissant, en particulier pour le développement logiciel.",
+    "Questions": [
+      {
+        "QuestionText": "À quoi sert principalement Git ?",
+        "Options": [
+          "Héberger des sites web",
+          "Gérer les versions de projet et suivre les changements",
+          "Sauvegarder votre système",
+          "Chiffrer des fichiers"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git est principalement un système de contrôle de version conçu pour suivre les changements dans les fichiers et coordonner le travail entre plusieurs personnes."
+      },
+      {
+        "QuestionText": "Quel type de projet bénéficierait de Git ?",
+        "Options": [
+          "Un seul fichier texte que vous ne changerez jamais",
+          "Un grand projet avec des fichiers qui évoluent",
+          "Quelque chose que vous envoyez par email",
+          "Un PDF verrouillé"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git excelle dans la gestion de projets qui changent au fil du temps, en particulier lorsque plusieurs personnes y travaillent."
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Title": "Qu'est-ce qu'un Dépôt ?",
+    "Content": "Un dépôt Git — ou \"repo\" — est un répertoire de projet qui est suivi par Git. Ce qui fait d'un dossier un dépôt Git est un dossier caché .git/ à l'intérieur. Ce dossier .git/ contient tout l'historique de votre projet, les branches, la configuration, et plus encore.\n\nVous pouvez créer un nouveau dépôt avec git init ou cloner un dépôt existant avec git clone. Un dépôt Git n'est pas seulement vos fichiers — c'est toute votre chronologie de travail.",
+    "Questions": [
+      {
+        "QuestionText": "Qu'est-ce qui fait d'un dossier un dépôt Git ?",
+        "Options": [
+          "Il est téléchargé sur GitHub",
+          "Il contient un dossier .git/",
+          "Il contient du JavaScript",
+          "Il a un README"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Le dossier caché .git/ est ce qui fait d'un dossier ordinaire un dépôt Git, contenant toutes les données de contrôle de version."
+      },
+      {
+        "QuestionText": "Vous tapez git init dans un dossier. Que vient-il de se passer ?",
+        "Options": [
+          "Git a téléchargé une copie de vos fichiers",
+          "Une connexion distante a été créée",
+          "Vous avez supprimé votre ancien historique",
+          "Git a créé un dossier .git/ pour commencer à suivre votre projet"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "La commande git init crée un nouveau dossier .git/ dans le répertoire courant, l'initialisant comme un dépôt Git."
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Title": "Comment Git Pense",
+    "Content": "Le modèle mental de Git inclut trois zones principales :\n\nRépertoire de Travail - Vos fichiers réels sur le disque.\nZone de Préparation - Un aperçu de ce qui sera commité.\nDépôt - L'historique des commits sauvegardés.\n\nQuand vous modifiez des fichiers, ils sont mis à jour dans le répertoire de travail. Quand vous les git add, ils passent dans la zone de préparation. Quand vous git commit, ils sont sauvés dans le dépôt.",
+    "Questions": [
+      {
+        "QuestionText": "Git est un système de \"captures d'écran\". Qu'est-ce que cela signifie ?",
+        "Options": [
+          "Il enregistre seulement les différences entre les fichiers",
+          "Il sauve une copie entière de votre projet à chaque fois",
+          "Il prend une photo de votre écran",
+          "Il enregistre votre voix"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git prend des captures de l'état entier de votre projet à chaque commit, plutôt que de simplement stocker les différences de fichiers."
+      },
+      {
+        "QuestionText": "Dans le modèle de Git, quelles sont les trois zones principales ?",
+        "Options": [
+          "Dev, Test, Prod",
+          "Préparation, Branchement, Déploiement",
+          "Répertoire de Travail, Zone de Préparation, Dépôt",
+          "Téléchargement, Synchronisation, Révision"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Ces trois zones représentent le flux des changements : Répertoire de Travail (où vous éditez), Zone de Préparation (où vous préparez), et Dépôt (où vous sauvez)."
+      },
+      {
+        "QuestionText": "Quelle zone contient les fichiers que vous avez édités mais pas encore ajoutés ?",
+        "Options": [
+          "Zone de Préparation",
+          "Répertoire de Travail",
+          "Dépôt Distant",
+          "Journal d'Historique"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Le Répertoire de Travail contient vos fichiers réels tels qu'ils existent sur le disque, y compris tous les changements non sauvegardés."
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Title": "Commits et Historique",
+    "Content": "Les commits sont la façon dont Git sauvegarde votre progression. Un commit est une capture de votre projet à un certain moment. Chaque commit inclut des métadonnées comme l'auteur, l'horodatage, et un message.\n\nLes bons messages de commit sont courts et descriptifs. Une série de commits bien écrits raconte l'histoire de votre projet.",
+    "Questions": [
+      {
+        "QuestionText": "Que représente un commit dans Git ?",
+        "Options": [
+          "Un dossier",
+          "Un point de sauvegarde dans l'historique du projet",
+          "Un collaborateur",
+          "Une branche"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Un commit est comme un point de sauvegarde ou un checkpoint dans la chronologie de votre projet, capturant l'état de tous les fichiers à ce moment."
+      },
+      {
+        "QuestionText": "Lequel de ces éléments décrit le mieux un message de commit ?",
+        "Options": [
+          "Une blague optionnelle",
+          "Une commande Git",
+          "Une courte note expliquant ce qui a changé",
+          "Votre mot de passe GitHub"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Les messages de commit devraient brièvement décrire quels changements ont été apportés, aidant vous et les autres à comprendre l'évolution du projet."
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Title": "Découvrir Git",
+    "Content": "Git vient avec une aide intégrée pour presque chaque commande. Vous pouvez exécuter :\n\ngit help <commande>\n<commande> --help\n\nOu voir les pages de manuel avec man git-<commande>\n\nVous n'avez pas besoin de tout mémoriser — Git s'attend à ce que vous exploriez en cours de route.",
+    "Questions": [
+      {
+        "QuestionText": "Vous avez oublié ce que fait git log. Que tapez-vous ?",
+        "Options": [
+          "git search log",
+          "git help log",
+          "git !log",
+          "git -explain log"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "La commande git help suivie de n'importe quelle commande Git vous montrera la documentation détaillée pour cette commande."
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Title": "Clonage et Dépôts Distants",
+    "Content": "Git n'est pas seulement pour les fichiers locaux. Vous pouvez synchroniser votre travail avec des dépôts distants comme GitHub en utilisant des commandes comme git clone, git fetch, et git push.\n\nQuand vous clonez un dépôt, Git copie tout — pas seulement les fichiers, mais tout l'historique des commits. Le nom par défaut pour le dépôt distant est origin.",
+    "Questions": [
+      {
+        "QuestionText": "Que fait git clone ?",
+        "Options": [
+          "Crée une nouvelle branche",
+          "Copie un dépôt Git distant sur votre machine",
+          "Compresse votre projet",
+          "Télécharge votre dossier dans le cloud"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git clone télécharge une copie complète d'un dépôt distant, y compris tous les fichiers et l'historique des commits."
+      },
+      {
+        "QuestionText": "Vous venez de cloner un dépôt. Comment s'appelle le dépôt distant par défaut ?",
+        "Options": [
+          "upstream",
+          "ssh",
+          "master",
+          "origin"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "Par convention, Git nomme le dépôt distant par défaut 'origin' quand vous clonez un dépôt."
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Title": "Branches et HEAD",
+    "Content": "Les branches vous permettent de travailler sur différentes versions de votre projet en parallèle. Une branche n'est qu'un pointeur vers un commit — une étiquette sur une chronologie.\n\nHEAD est un pointeur spécial vers votre position actuelle dans Git. Il pointe généralement vers le dernier commit de votre branche courante.",
+    "Questions": [
+      {
+        "QuestionText": "Qu'est-ce qu'une branche dans Git ?",
+        "Options": [
+          "Une copie du dossier .git/",
+          "Une chronologie de commits sous une étiquette spécifique",
+          "Une sauvegarde compressée",
+          "Un répertoire de préparation"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Une branche est essentiellement un pointeur mobile ou une étiquette qui pointe vers un commit spécifique, représentant une ligne de développement."
+      },
+      {
+        "QuestionText": "Qu'est-ce que HEAD dans Git ?",
+        "Options": [
+          "Le premier commit",
+          "Le fichier .gitignore",
+          "Le pointeur vers votre commit actuel",
+          "Le traqueur de problèmes GitHub"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "HEAD est la façon dont Git sait où vous êtes dans l'historique de votre projet - il pointe vers le commit à partir duquel vous travaillez actuellement."
+      }
+    ]
+  }
+]

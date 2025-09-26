@@ -1,0 +1,135 @@
+[
+	{
+		"id": 71,
+		"title": "Récupérer les modifications d'un distant sans les fusionner",
+		"description": "Parfois vous voulez voir quelles modifications sont disponibles sur un dépôt distant sans immédiatement les fusionner dans votre branche actuelle. La commande 'git fetch' télécharge les modifications mais ne les fusionne pas, vous permettant de les réviser d'abord.\n\nRécupérez les dernières modifications depuis le distant 'origin' sans les fusionner dans votre branche actuelle.",
+		"difficulty": "Facile",
+		"category": "Collaboration",
+		"hints": [
+			"Utilisez 'git fetch origin' pour télécharger les modifications depuis le distant origin.",
+			"Contrairement à 'git pull', fetch ne fusionne pas les modifications dans votre branche actuelle.",
+			"Après récupération, vous pouvez utiliser 'git log origin/main' pour voir quelles modifications sont disponibles.",
+			"Utilisez 'git status' pour voir que votre branche locale est en retard sur le distant."
+		]
+	},
+	{
+		"id": 72,
+		"title": "Réinitialiser les modifications locales pour correspondre à la branche distante",
+		"description": "Parfois votre branche locale a divergé de la branche distante et vous voulez rejeter toutes les modifications locales pour correspondre exactement à ce qui est sur le distant. C'est utile quand vous voulez abandonner le travail local et synchroniser avec l'état distant.\n\nVous avez des modifications locales qui entrent en conflit avec la branche distante 'origin/main'. Réinitialisez votre branche locale pour correspondre exactement à la branche distante.",
+		"difficulty": "Moyen",
+		"category": "Collaboration",
+		"hints": [
+			"Utilisez d'abord 'git fetch' pour obtenir les dernières modifications distantes.",
+			"Utilisez 'git reset --hard origin/main' pour réinitialiser votre branche locale pour correspondre au distant.",
+			"Cela supprimera toutes les modifications et commits locaux qui ne sont pas sur le distant.",
+			"Soyez prudent - cette opération ne peut pas être annulée facilement !"
+		]
+	},
+	{
+		"id": 73,
+		"title": "Fusionner les modifications distantes tout en gardant les modifications locales intactes",
+		"description": "Vous avez des modifications locales dans votre répertoire de travail, mais il y a aussi de nouvelles modifications sur le dépôt distant. Vous devez fusionner les modifications distantes tout en préservant votre travail local. Cela peut être fait en mettant de côté vos modifications, tirant, puis restaurant, ou en commitant vos modifications d'abord.\n\nVous avez des modifications locales et le distant a de nouveaux commits. Fusionnez les modifications distantes tout en gardant vos modifications locales intactes.",
+		"difficulty": "Moyen",
+		"category": "Collaboration",
+		"hints": [
+			"Vous pouvez utiliser 'git stash' pour sauvegarder temporairement vos modifications locales.",
+			"Après mise de côté, utilisez 'git pull' pour obtenir les modifications distantes.",
+			"Puis utilisez 'git stash pop' pour restaurer vos modifications locales.",
+			"Alternativement, vous pouvez commiter vos modifications locales d'abord, puis tirer.",
+			"Utilisez 'git status' pour vérifier l'état de votre répertoire de travail."
+		]
+	},
+	{
+		"id": 74,
+		"title": "Cherry-pick un commit depuis une autre branche",
+		"description": "Parfois vous devez appliquer un commit spécifique d'une branche à une autre sans fusionner toute la branche. La commande 'git cherry-pick' vous permet de copier un commit d'une branche et l'appliquer à votre branche actuelle.\n\nVous avez une branche de fonctionnalité avec un commit utile que vous voulez appliquer à votre branche principale. Cherry-pickez le commit avec l'ID 'abc1234' depuis la branche feature vers votre branche actuelle.",
+		"difficulty": "Moyen",
+		"category": "Collaboration",
+		"hints": [
+			"Utilisez 'git log feature-branch' pour voir les commits sur la branche feature.",
+			"Utilisez 'git cherry-pick <commit-id>' pour appliquer un commit spécifique à votre branche actuelle.",
+			"Assurez-vous d'être sur la branche cible avant de cherry-picker.",
+			"Le cherry-pick crée un nouveau commit avec les mêmes modifications mais un ID de commit différent."
+		]
+	},
+	{
+		"id": 75,
+		"title": "Force push après réécriture de l'historique",
+		"description": "Après avoir réécrit l'historique Git (comme avec rebase ou amend), votre branche locale divergera de la branche distante. Un push régulier sera rejeté, donc vous devez utiliser un force push pour écraser l'historique distant. C'est potentiellement dangereux car cela peut écraser le travail d'autres personnes.\n\nVous avez réécrit l'historique des commits localement et devez forcer la poussée de vos modifications pour mettre à jour la branche distante. Utilisez un force push pour mettre à jour le distant 'origin'.",
+		"difficulty": "Difficile",
+		"category": "Collaboration",
+		"hints": [
+			"Utilisez 'git push --force' ou 'git push -f' pour forcer la poussée de vos modifications.",
+			"Le force push écrase la branche distante avec votre version locale.",
+			"Soyez très prudent avec le force push - cela peut écraser le travail d'autres personnes !",
+			"Vous pouvez utiliser 'git push --force-with-lease' pour un force push plus sûr.",
+			"Vérifiez 'git log --oneline' pour voir votre historique réécrit avant de pousser."
+		]
+	},
+	{
+		"id": 76,
+		"title": "Pousser et définir l'amont pour une nouvelle branche distante",
+		"description": "Quand vous créez une branche locale et voulez la pousser vers un dépôt distant pour la première fois, vous devez établir la relation de suivi amont. Cela permet aux futures commandes `git push` et `git pull` de fonctionner sans spécifier les noms de distant et de branche.\n\nVous avez une branche locale 'feature-login' avec quelques commits qui doit être poussée vers le dépôt distant. Utilisez git push avec l'option upstream pour créer la branche distante et établir le suivi en une commande.",
+		"difficulty": "Facile",
+		"category": "Collaboration",
+		"hints": [
+			"Utilisez 'git push --set-upstream origin feature-login' pour pousser et définir l'amont en une commande.",
+			"Vous pouvez aussi utiliser la forme courte 'git push -u origin feature-login'.",
+			"Cela crée la branche distante et établit le suivi donc les futures poussées n'ont pas besoin de spécifier le distant.",
+			"Assurez-vous d'être sur la branche 'feature-login' quand vous exécutez la commande."
+		]
+	},
+	{
+		"id": 77,
+		"title": "Définir l'amont vers une branche distante existante",
+		"description": "Parfois vous avez une branche locale qui devrait suivre une branche distante existante, mais la relation de suivi n'a pas encore été établie. Cela arrive souvent quand vous créez une branche locale depuis une branche distante ou quand vous travaillez avec des branches créées par d'autres membres de l'équipe.\n\nVous avez une branche locale 'feature-auth' et il y a déjà une branche distante 'origin/feature-auth'. Configurez votre branche locale pour suivre la branche distante existante.",
+		"difficulty": "Facile",
+		"category": "Collaboration",
+		"hints": [
+			"Utilisez 'git branch -u origin/feature-auth' pour définir l'amont pour la branche actuelle.",
+			"Vous pouvez aussi utiliser 'git branch --set-upstream-to=origin/feature-auth feature-auth' pour être plus explicite.",
+			"Assurez-vous d'être sur la branche 'feature-auth', ou spécifiez le nom de branche dans la commande.",
+			"N'utilisez pas 'git push -u' pour ce défi - c'est pour créer de nouvelles branches distantes."
+		]
+	},
+	{
+		"id": 78,
+		"title": "Rebaser une branche de fonctionnalité sur main",
+		"description": "Vous avez une branche de fonctionnalité qui a été créée depuis une version plus ancienne de main. Depuis, main a reçu de nouveaux commits. Rebaser votre branche de fonctionnalité sur la dernière main garde un historique propre et linéaire en rejouant vos commits de fonctionnalité au-dessus des derniers commits main, évitant les commits de fusion inutiles. Cette pratique assure aussi que votre fonctionnalité fonctionne avec les changements de code les plus récents et rend l'historique du projet plus facile à lire et comprendre.\n\nBasculez vers la branche 'feature-payment' et rebasez-la sur 'main' pour mettre à jour sa base.",
+		"difficulty": "Moyen",
+		"category": "Collaboration",
+		"hints": [
+			"Basculez d'abord vers la branche feature avec 'git checkout feature-payment'.",
+			"Puis utilisez 'git rebase main' pour rebaser la branche feature sur main.",
+			"Cela rejouera vos commits de fonctionnalité au-dessus des derniers commits main.",
+			"S'il y a des conflits, résolvez-les et utilisez 'git rebase --continue'."
+		]
+	},
+	{
+		"id": 79,
+		"title": "Gérer un état detached HEAD pour explorer en sécurité",
+		"description": "Quand vous vous positionnez sur un commit spécifique, vous entrez dans un état 'detached HEAD' où vous n'êtes sur aucune branche. C'est utile pour explorer l'ancien code ou tester des modifications, mais tous les commits faits ici pourraient être perdus s'ils ne sont pas gérés correctement. La façon sûre de travailler en detached HEAD est de créer une nouvelle branche si vous voulez garder les modifications.\n\nPositionnez-vous sur le commit 'abc5678' pour entrer en état detached HEAD, puis créez une nouvelle branche appelée 'exploration' pour le rendre sûr pour le développement.",
+		"difficulty": "Moyen",
+		"category": "Collaboration",
+		"hints": [
+			"Utilisez 'git checkout abc5678' pour vous positionner sur le commit spécifique (cela entre en detached HEAD).",
+			"Git vous avertira de l'état detached HEAD - c'est normal.",
+			"Créez une nouvelle branche avec 'git checkout -b exploration' ou 'git switch -c exploration'.",
+			"Cela rend votre position sûre pour faire des commits sans perdre de travail."
+		]
+	},
+	{
+		"id": 80,
+		"title": "Synchroniser un fork avec le dépôt amont",
+		"description": "Dans le développement collaboratif, vous travaillez souvent avec un fork du dépôt original. Votre fork (origin) peut devenir obsolète quand le dépôt original (upstream) reçoit de nouveaux commits d'autres contributeurs. Vous devez synchroniser votre fork avec le dépôt amont pour rester à jour avec les dernières modifications.\n\nVous avez un dépôt forké avec 'origin' pointant vers votre fork et 'upstream' pointant vers le dépôt original. Le dépôt amont a de nouveaux commits que vous devez tirer dans votre dépôt local et pousser vers votre fork pour le garder synchronisé.",
+		"difficulty": "Moyen",
+		"category": "Collaboration",
+		"hints": [
+			"D'abord, récupérez les dernières modifications depuis upstream avec 'git fetch upstream'.",
+			"Assurez-vous d'être sur votre branche main avec 'git checkout main'.",
+			"Fusionnez les modifications upstream avec 'git merge upstream/main'.",
+			"Poussez la branche main mise à jour vers votre fork avec 'git push origin main'.",
+			"Ce workflow garde votre fork synchronisé avec le dépôt original."
+		]
+	}
+]

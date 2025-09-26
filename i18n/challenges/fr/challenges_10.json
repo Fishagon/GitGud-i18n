@@ -1,0 +1,144 @@
+[
+	{
+		"id": 91,
+		"title": "Signer automatiquement les commits avec GPG",
+		"description": "GPG (GNU Privacy Guard) vous permet de signer cryptographiquement vos commits pour vérifier leur authenticité. Cela assure que les commits viennent réellement de vous et n'ont pas été altérés. Configurez Git pour signer automatiquement tous les commits avec votre clé GPG.\n\nConfigurez la signature de commit GPG :\n1. Configurez votre clé de signature GPG (utilisez 'ABC123DEF456' comme ID de clé)\n2. Activez la signature automatique de commit\n3. Faites un commit signé pour tester la configuration",
+		"difficulty": "Moyen",
+		"category": "Expert",
+		"hints": [
+			"Utilisez 'git config --global user.signingkey <key-id>' pour définir votre clé de signature GPG.",
+			"Utilisez 'git config --global commit.gpgsign true' pour activer la signature automatique de commit.",
+			"L'ID de clé pour cet exercice est 'ABC123DEF456'.",
+			"Faites un commit après configuration pour tester que la signature fonctionne.",
+			"Vous pouvez vérifier la configuration GPG avec 'git config --list | grep gpg'."
+		]
+	},
+	{
+		"id": 92,
+		"title": "Fusionner plusieurs commits en un lors de la fusion d'une branche",
+		"description": "Parfois vous voulez fusionner une branche de fonctionnalité mais garder un historique propre en combinant tous les commits de la branche de fonctionnalité en un seul commit. C'est appelé une 'fusion squash' et se fait en utilisant 'git merge --squash'.\n\nUne branche de fonctionnalité appelée 'feature-cleanup' a plusieurs petits commits qui devraient être combinés en un commit lors de la fusion dans main. Utilisez une fusion squash pour combiner tous les commits de 'feature-cleanup' en un seul commit avec le message 'Implement cleanup feature'.",
+		"difficulty": "Moyen",
+		"category": "Expert",
+		"hints": [
+			"Utilisez 'git merge --squash feature-cleanup' pour fusionner tous les commits de la branche feature.",
+			"Après fusion squash, les modifications sont indexées mais pas encore commitées.",
+			"Utilisez 'git commit -m \"Implement cleanup feature\"' pour créer le commit squash final.",
+			"Vérifiez 'git log --oneline' pour voir qu'un seul commit a été ajouté au lieu de plusieurs.",
+			"Les commits originaux de la branche feature n'apparaîtront pas dans l'historique de la branche main."
+		]
+	},
+	{
+		"id": 93,
+		"title": "Réécrire l'historique d'une branche et force push",
+		"description": "Parfois vous devez nettoyer votre historique de commits avant de le partager avec d'autres. Cela implique de réécrire l'historique (en utilisant le rebasage interactif) puis de force push les modifications pour mettre à jour la branche distante. C'est utile pour fusionner des commits, corriger des messages de commit, ou réorganiser des commits avant fusion.\n\nRéécrivez l'historique de la branche actuelle en fusionnant les 2 derniers commits en 1, puis force push les modifications vers le dépôt distant.",
+		"difficulty": "Difficile",
+		"category": "Expert",
+		"hints": [
+			"Utilisez 'git rebase -i HEAD~2' pour démarrer un rebasage interactif des 2 derniers commits.",
+			"Changez 'pick' à 'squash' (ou 's') pour le deuxième commit pour le fusionner dans le premier.",
+			"Après avoir terminé le rebasage, utilisez 'git push --force' ou 'git push -f' pour mettre à jour le distant.",
+			"Soyez prudent avec le force push - cela réécrit l'historique distant et peut affecter d'autres collaborateurs.",
+			"Vous pouvez aussi utiliser 'git push --force-with-lease' pour un force push plus sûr."
+		]
+	},
+	{
+		"id": 94,
+		"title": "Utiliser git filter-branch pour supprimer des données sensibles de l'historique",
+		"description": "Parfois des données sensibles comme des mots de passe, des clés API, ou des informations personnelles sont accidentellement commitées dans un dépôt. Simplement supprimer le fichier dans un nouveau commit n'est pas suffisant - les données sensibles existent toujours dans l'historique Git et peuvent être accédées par quiconque a accès au dépôt.\n\nUn fichier appelé 'secrets.txt' contenant des clés API sensibles a été accidentellement commité dans l'historique du dépôt. Utilisez 'git filter-branch' pour supprimer complètement ce fichier de tous les commits dans l'historique du dépôt, et assurez-vous que les commits vides sont élagués.\n\nImportant : Cette opération réécrit l'historique et devrait être faite avec précaution dans les dépôts partagés. Il est préférable d'utiliser un outil externe comme filter-repo.",
+		"difficulty": "Difficile",
+		"category": "Expert",
+		"hints": [
+			"Utilisez 'git filter-branch --tree-filter \"rm -f secrets.txt\" --prune-empty --all' pour supprimer le fichier de l'historique",
+			"Le --tree-filter opère sur le répertoire de travail de chaque commit",
+			"Utilisez --prune-empty pour supprimer les commits qui deviennent vides après filtrage",
+			"L'option --all assure que toutes les branches sont traitées",
+			"Alternative : Utilisez --index-filter 'git rm --cached --ignore-unmatch secrets.txt' pour de meilleures performances",
+			"Après filtrage, le fichier sensible ne devrait exister dans aucun commit de l'historique"
+		]
+	},
+	{
+		"id": 95,
+		"title": "Réécrire l'historique de commit en utilisant git rebase -i à travers plusieurs branches",
+		"description": "Les projets complexes nécessitent souvent de nettoyer l'historique de commit à travers plusieurs branches avant fusion. Vous avez un projet avec deux branches de fonctionnalité qui ont besoin que leur historique de commits soit nettoyé.\n\nTâches :\n1. Basculez vers la branche 'feature-cleanup' et utilisez le rebasage interactif pour fusionner les 3 derniers commits en 1\n2. Basculez vers la branche 'feature-refactor' et rebasez-la sur la branche 'main'\n3. Utilisez le rebasage interactif sur 'feature-refactor' pour réorganiser les commits pour que 'refactor tests' vienne avant 'refactor code'\n\nCela simule la préparation de plusieurs branches de fonctionnalité pour une fusion propre dans main.",
+		"difficulty": "Difficile",
+		"category": "Expert",
+		"hints": [
+			"Utilisez 'git checkout feature-cleanup' pour basculer vers la première branche",
+			"Utilisez 'git rebase -i HEAD~3' pour démarrer le rebasage interactif des 3 derniers commits",
+			"Changez 'pick' à 'squash' ou 's' pour les commits que vous voulez combiner",
+			"Changez de branche avec 'git checkout feature-refactor'",
+			"Utilisez 'git rebase main' pour rebaser feature-refactor sur main",
+			"Utilisez 'git rebase -i HEAD~2' pour réorganiser les 2 derniers commits",
+			"Dans la liste de tâches de rebasage, vous pouvez déplacer les lignes haut/bas pour réorganiser les commits"
+		]
+	},
+	{
+		"id": 96,
+		"title": "Configurer un serveur Git pour héberger vos propres dépôts",
+		"description": "Configurer votre propre serveur Git vous permet d'héberger des dépôts en privé et de contrôler l'accès. Vous pouvez utiliser le daemon intégré de Git pour un service simple, ou configurer des solutions plus avancées.\n\nCréez un dépôt bare appelé 'project.git', puis démarrez un daemon Git pour le servir sur le port par défaut (9418) avec receive-pack activé pour que d'autres puissent y pousser.",
+		"difficulty": "Difficile",
+		"category": "Expert",
+		"hints": [
+			"Utilisez 'git init --bare project.git' pour créer un dépôt bare",
+			"Démarrez le daemon Git avec 'git daemon --base-path=. --enable=receive-pack'",
+			"Les dépôts bare n'ont pas de répertoire de travail - ils stockent seulement les données Git",
+			"L'option --enable=receive-pack permet aux autres de pousser vers votre serveur",
+			"Vous pouvez tester le serveur en clonant avec 'git clone git://localhost/project.git'"
+		]
+	},
+	{
+		"id": 97,
+		"title": "Convertir un dépôt Git existant en dépôt bare",
+		"description": "Parfois vous devez convertir un dépôt Git régulier (avec répertoire de travail) en dépôt bare pour le partage ou l'usage serveur. Un dépôt bare contient seulement les données Git sans répertoire de travail.\n\nVous avez un dépôt régulier avec quelques commits. Convertissez-le en dépôt bare au chemin '../project-bare.git' tout en préservant tous les commits et branches.",
+		"difficulty": "Moyen",
+		"category": "Expert",
+		"hints": [
+			"Utilisez 'git clone --bare . ../project-bare.git' pour créer un clone bare du dépôt actuel",
+			"Un dépôt bare n'a pas de répertoire de travail - seulement des données Git",
+			"Vous pouvez aussi utiliser 'git clone --mirror' pour inclure toutes les refs et distants",
+			"Après conversion, vérifiez avec 'git config core.bare' dans le nouveau dépôt",
+			"Les dépôts bare sont typiquement nommés avec le suffixe .git"
+		]
+	},
+	{
+		"id": 98,
+		"title": "Utiliser git rev-list avec des options de filtrage avancées",
+		"description": "La commande `git rev-list` est l'outil bas niveau puissant de Git pour parcourir l'historique des commits. Elle supporte de nombreuses options de filtrage et formatage qui la rendent incroyablement versatile pour analyser l'historique du dépôt.\n\nUtilisez `git rev-list` avec les options suivantes combinées en une seule commande :\n- Comptez les commits au lieu de les lister\n- Filtrez pour montrer seulement les commits par des auteurs contenant 'john'\n- Recherchez dans les messages de commit le mot 'fix'\n- Excluez les commits de fusion des résultats\n\nCette combinaison vous donnera un compte des commits non-fusion par 'john' qui mentionnent 'fix' dans leur message de commit.",
+		"difficulty": "Moyen",
+		"category": "Expert",
+		"hints": [
+			"L'option --count fait que rev-list retourne juste le nombre de commits correspondants",
+			"L'option --author filtre les commits par nom d'auteur (les correspondances partielles fonctionnent)",
+			"L'option --grep recherche du texte dans les messages de commit",
+			"L'option --no-merges exclut les commits de fusion des résultats",
+			"Toutes ces options peuvent être combinées en une seule commande rev-list",
+			"Utilisez 'git rev-list --count --author=\"john\" --grep=\"fix\" --no-merges HEAD'"
+		]
+	},
+	{
+		"id": 99,
+		"title": "Trouver toutes les bases de fusion avec git merge-base --all",
+		"description": "Dans les dépôts complexes avec plusieurs points de fusion, il peut y avoir plus d'une base de fusion entre les commits. Utilisez git merge-base avec l'option --all pour trouver toutes les bases de fusion possibles entre trois branches de fonctionnalité.\n\nTrouvez toutes les bases de fusion entre 'feature-x', 'feature-y', et 'feature-z' en utilisant une seule commande avec l'option --all. Cela vous montrera chaque ancêtre commun partagé entre ces branches.",
+		"difficulty": "Difficile",
+		"category": "Expert",
+		"hints": [
+			"Utilisez 'git merge-base --all feature-x feature-y feature-z' pour trouver tous les ancêtres communs.",
+			"L'option --all montre chaque base de fusion, pas seulement la meilleure.",
+			"Avec des historiques de fusion complexes, plusieurs commits peuvent être des bases de fusion.",
+			"Vous pouvez visualiser la structure avec 'git log --graph --oneline --all'."
+		]
+	},
+	{
+		"id": 100,
+		"title": "Maîtriser Git Clean - Défi final",
+		"description": "Félicitations pour avoir atteint le défi final ! Votre dépôt a accumulé divers types de fichiers et répertoires non suivis qui doivent être nettoyés stratégiquement.\n\nVous avez :\n- Des fichiers source non suivis qui devraient être supprimés\n- Des répertoires non suivis qui ont besoin de nettoyage\n- Quelques fichiers ignorés (artefacts de build) qui devraient aussi être supprimés\n- Un fichier spécifique 'important-notes.txt' qui devrait être préservé\n\nEffectuez une opération de nettoyage complète qui supprime les fichiers et répertoires non suivis, incluant les fichiers ignorés, mais exclut le fichier de notes importantes.",
+		"difficulty": "Difficile",
+		"category": "Nettoyage et maintenance",
+		"hints": [
+			"Vous devez utiliser plusieurs options : -f (force), -d (répertoires), -x (fichiers ignorés)",
+			"Utilisez -e pour exclure le fichier important-notes.txt du nettoyage",
+			"La commande complète devrait être : git clean -fdx -e important-notes.txt",
+			"Cela supprime les fichiers non suivis, répertoires, et fichiers ignorés tout en préservant le fichier exclu"
+		]
+	}
+]

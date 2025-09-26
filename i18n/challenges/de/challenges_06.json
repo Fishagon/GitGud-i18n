@@ -1,0 +1,111 @@
+[
+	{
+		"id": 51,
+		"title": "Nicht committete Änderungen stashen",
+		"description": "Stashing ermöglicht es Ihnen, nicht committete Änderungen temporär zu speichern.\n\nStashen Sie alle Ihre aktuellen nicht committeten Änderungen, damit Sie an etwas anderem arbeiten können.",
+		"difficulty": "Einfach",
+		"category": "Stashing",
+		"hints": [
+			"Verwenden Sie 'git stash', um alle nicht committeten Änderungen zu stashen.",
+			"Sie können auch 'git stash push' verwenden."
+		]
+	},
+	{
+		"id": 52,
+		"title": "Liste aller gestashten Änderungen anzeigen",
+		"description": "Sie können alle Ihre gestashten Änderungen anzeigen lassen.\n\nZeigen Sie eine Liste aller aktuell gestashten Änderungen an.",
+		"difficulty": "Einfach",
+		"category": "Stashing",
+		"hints": [
+			"Verwenden Sie 'git stash list', um alle gestashten Änderungen anzuzeigen.",
+			"Jeder Stash hat eine ID wie 'stash@{0}', 'stash@{1}', etc."
+		]
+	},
+	{
+		"id": 53,
+		"title": "Neuesten Stash anwenden ohne ihn zu entfernen",
+		"description": "Sie können gestashte Änderungen anwenden, ohne sie aus dem Stash zu entfernen.\n\nWenden Sie den neuesten Stash auf Ihr Arbeitsverzeichnis an, ohne ihn aus der Stash-Liste zu entfernen.",
+		"difficulty": "Einfach",
+		"category": "Stashing",
+		"hints": [
+			"Verwenden Sie 'git stash apply', um den neuesten Stash anzuwenden, ohne ihn zu entfernen.",
+			"Sie können auch 'git stash apply stash@{0}' verwenden, um explizit den neuesten Stash anzugeben."
+		]
+	},
+	{
+		"id": 54,
+		"title": "Spezifischen Stash anwenden",
+		"description": "Wenn Sie mehrere Stashes haben, können Sie einen bestimmten auswählen und anwenden.\n\nWenden Sie den Stash mit der ID 'stash@{1}' auf Ihr Arbeitsverzeichnis an.",
+		"difficulty": "Einfach",
+		"category": "Stashing",
+		"hints": [
+			"Verwenden Sie 'git stash apply stash@{1}', um einen spezifischen Stash anzuwenden.",
+			"Die Nummer in den Klammern gibt die Position in der Stash-Liste an."
+		]
+	},
+	{
+		"id": 55,
+		"title": "Spezifischen Stash löschen",
+		"description": "Sie können Stashes löschen, die Sie nicht mehr benötigen.\n\nLöschen Sie den Stash mit der ID 'stash@{1}' aus der Stash-Liste.",
+		"difficulty": "Einfach",
+		"category": "Stashing",
+		"hints": [
+			"Verwenden Sie 'git stash drop stash@{1}', um einen spezifischen Stash zu löschen.",
+			"Seien Sie vorsichtig - gelöschte Stashes können nicht wiederhergestellt werden."
+		]
+	},
+	{
+		"id": 56,
+		"title": "Stash mit benutzerdefinierter Nachricht erstellen",
+		"description": "Sie können Stashes mit beschreibenden Nachrichten erstellen, um sie später leichter zu identifizieren.\n\nErstellen Sie einen Stash mit der Nachricht 'Work in progress on feature X'.",
+		"difficulty": "Einfach",
+		"category": "Stashing",
+		"hints": [
+			"Verwenden Sie 'git stash push -m \"Work in progress on feature X\"', um einen Stash mit einer benutzerdefinierten Nachricht zu erstellen.",
+			"Sie können auch 'git stash save \"message\"' in älteren Git-Versionen verwenden."
+		]
+	},
+	{
+		"id": 57,
+		"title": "Nicht verfolgte Dateien ebenfalls stashen",
+		"description": "Standardmäßig stasht Git nur verfolgte Dateien. Sie können auch nicht verfolgte Dateien einschließen.\n\nStashen Sie alle Änderungen, einschließlich nicht verfolgter Dateien.",
+		"difficulty": "Mittel",
+		"category": "Stashing",
+		"hints": [
+			"Verwenden Sie 'git stash -u', um auch nicht verfolgte Dateien zu stashen.",
+			"Das -u Flag steht für --include-untracked."
+		]
+	},
+	{
+		"id": 58,
+		"title": "Neuesten Stash anwenden und entfernen",
+		"description": "Pop wendet einen Stash an und entfernt ihn gleichzeitig aus der Stash-Liste.\n\nWenden Sie den neuesten Stash an und entfernen Sie ihn aus der Stash-Liste in einem Befehl.",
+		"difficulty": "Einfach",
+		"category": "Stashing",
+		"hints": [
+			"Verwenden Sie 'git stash pop', um den neuesten Stash anzuwenden und zu entfernen.",
+			"Dies ist gleichbedeutend mit 'git stash apply' gefolgt von 'git stash drop'."
+		]
+	},
+	{
+		"id": 59,
+		"title": "Spezifischen Stash anwenden und entfernen",
+		"description": "Sie können auch einen spezifischen Stash poppen.\n\nWenden Sie den Stash mit der ID 'stash@{2}' an und entfernen Sie ihn aus der Stash-Liste.",
+		"difficulty": "Einfach",
+		"category": "Stashing",
+		"hints": [
+			"Verwenden Sie 'git stash pop stash@{2}', um einen spezifischen Stash anzuwenden und zu entfernen."
+		]
+	},
+	{
+		"id": 60,
+		"title": "Alle gestashten Änderungen löschen",
+		"description": "Manchmal möchten Sie alle gestashten Änderungen auf einmal löschen.\n\nLöschen Sie alle gestashten Änderungen aus der Stash-Liste.",
+		"difficulty": "Mittel",
+		"category": "Stashing",
+		"hints": [
+			"Verwenden Sie 'git stash clear', um alle Stashes zu löschen.",
+			"WARNUNG: Dieser Befehl löscht alle Stashes permanent und kann nicht rückgängig gemacht werden."
+		]
+	}
+]

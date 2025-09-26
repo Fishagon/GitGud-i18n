@@ -1,0 +1,126 @@
+[
+	{
+		"id": 91,
+		"title": "Commits automatisch mit GPG signieren",
+		"description": "GPG-Signierung verifiziert die Authentizität Ihrer Commits.\n\nKonfigurieren Sie Git, um alle Ihre Commits automatisch mit GPG zu signieren, und erstellen Sie dann einen signierten Commit.",
+		"difficulty": "Schwer",
+		"category": "Experte",
+		"hints": [
+			"Generieren Sie zuerst einen GPG-Schlüssel mit 'gpg --gen-key', falls noch nicht vorhanden.",
+			"Konfigurieren Sie Git mit 'git config --global user.signingkey <key-id>'.",
+			"Aktivieren Sie automatisches Signieren mit 'git config --global commit.gpgsign true'.",
+			"Erstellen Sie einen Commit - er wird automatisch signiert."
+		]
+	},
+	{
+		"id": 92,
+		"title": "Mehrere Commits zu einem zusammenführen beim Mergen eines Branches",
+		"description": "Squash-Merging kombiniert alle Commits eines Feature-Branches zu einem einzigen Commit im Ziel-Branch.\n\nMergen Sie den 'feature'-Branch in 'main' und squashen Sie dabei alle Commits zu einem einzigen.",
+		"difficulty": "Schwer",
+		"category": "Experte",
+		"hints": [
+			"Wechseln Sie zum Ziel-Branch: 'git checkout main'.",
+			"Verwenden Sie 'git merge --squash feature', um alle Commits zu squashen.",
+			"Committen Sie das Ergebnis mit 'git commit -m \"Feature implementation\"'."
+		]
+	},
+	{
+		"id": 93,
+		"title": "Historie eines Branches neuschreiben und force pushen",
+		"description": "Manchmal müssen Sie die Historie komplett neuschreiben und die Änderungen forciert pushen.\n\nSchreiben Sie die Historie der letzten 3 Commits neu, ändern Sie deren Nachrichten, und pushen Sie die Änderungen forciert zum Remote.",
+		"difficulty": "Schwer",
+		"category": "Experte",
+		"hints": [
+			"Verwenden Sie 'git rebase -i HEAD~3', um interaktiven Rebase zu starten.",
+			"Ändern Sie 'pick' zu 'reword' für Commits, deren Nachrichten Sie ändern möchten.",
+			"Nach dem Rebase verwenden Sie 'git push --force-with-lease origin branch-name'."
+		]
+	},
+	{
+		"id": 94,
+		"title": "Git filter-branch verwenden, um sensible Daten aus der Historie zu entfernen",
+		"description": "Filter-branch kann verwendet werden, um sensible Dateien oder Daten komplett aus der Git-Historie zu entfernen.\n\nEntfernen Sie die Datei 'secrets.txt' aus der gesamten Repository-Historie mit filter-branch.",
+		"difficulty": "Schwer",
+		"category": "Experte",
+		"hints": [
+			"Verwenden Sie 'git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch secrets.txt\" --prune-empty --tag-name-filter cat -- --all'.",
+			"Dies entfernt die Datei aus allen Commits in der Historie.",
+			"WARNUNG: Dies ändert alle Commit-IDs in der Historie."
+		]
+	},
+	{
+		"id": 95,
+		"title": "Commit-Historie mit git rebase -i über mehrere Branches neuschreiben",
+		"description": "Fortgeschrittenes Rebasing kann über mehrere Branches hinweg durchgeführt werden.\n\nRebasen Sie den 'feature'-Branch auf 'main', squashen Sie dabei mehrere Commits und ändern Sie deren Nachrichten, während Sie Konflikte lösen.",
+		"difficulty": "Schwer",
+		"category": "Experte",
+		"hints": [
+			"Wechseln Sie zum Feature-Branch: 'git checkout feature'.",
+			"Starten Sie interaktiven Rebase: 'git rebase -i main'.",
+			"Verwenden Sie 'squash', 'reword' und andere Optionen nach Bedarf.",
+			"Lösen Sie alle auftretenden Konflikte und setzen Sie mit 'git rebase --continue' fort."
+		]
+	},
+	{
+		"id": 96,
+		"title": "Git-Server einrichten, um eigene Repositories zu hosten",
+		"description": "Sie können Ihren eigenen Git-Server einrichten, um Repositories zu hosten.\n\nErstellen Sie ein Bare-Repository namens 'project.git' und konfigurieren Sie es für Remote-Zugriff.",
+		"difficulty": "Schwer",
+		"category": "Experte",
+		"hints": [
+			"Erstellen Sie ein Bare-Repository: 'git init --bare project.git'.",
+			"Konfigurieren Sie das Repository für gemeinsame Nutzung: 'git config core.sharedRepository group'.",
+			"Setzen Sie entsprechende Berechtigungen für den Ordner."
+		]
+	},
+	{
+		"id": 97,
+		"title": "Bestehendes Git-Repository in ein Bare-Repository konvertieren",
+		"description": "Bare-Repositories haben keine Arbeitsverzeichnisse und werden für das Hosting verwendet.\n\nKonvertieren Sie das aktuelle Repository in ein Bare-Repository, das als Server-Repository verwendet werden kann.",
+		"difficulty": "Schwer",
+		"category": "Experte",
+		"hints": [
+			"Klonen Sie das Repository als Bare-Repository: 'git clone --bare . ../project.git'.",
+			"Alternativ verwenden Sie 'git config --bool core.bare true' und entfernen Sie das Arbeitsverzeichnis.",
+			"Bare-Repositories enthalten nur die .git-Inhalte ohne Arbeitsverzeichnis."
+		]
+	},
+	{
+		"id": 98,
+		"title": "Git rev-list mit erweiterten Filteroptionen verwenden",
+		"description": "Rev-list ist ein mächtiges Tool, um Commits basierend auf verschiedenen Kriterien aufzulisten.\n\nVerwenden Sie rev-list, um alle Commits der letzten 30 Tage zu finden, die eine bestimmte Datei geändert haben.",
+		"difficulty": "Schwer",
+		"category": "Experte",
+		"hints": [
+			"Verwenden Sie 'git rev-list --since=\"30 days ago\" --all -- filename.txt'.",
+			"Sie können auch '--author', '--grep' und andere Filter hinzufügen.",
+			"Rev-list zeigt nur Commit-IDs; verwenden Sie '--pretty' für mehr Details."
+		]
+	},
+	{
+		"id": 99,
+		"title": "Alle Merge-Bases mit git merge-base --all finden",
+		"description": "Merge-base findet gemeinsame Vorfahren zwischen Branches.\n\nFinden Sie alle gemeinsamen Merge-Bases zwischen dem 'feature'-Branch und dem 'main'-Branch.",
+		"difficulty": "Schwer",
+		"category": "Experte",
+		"hints": [
+			"Verwenden Sie 'git merge-base --all feature main', um alle gemeinsamen Vorfahren zu finden.",
+			"Dies kann mehrere Commit-IDs zurückgeben, wenn komplexe Merge-Historien vorliegen.",
+			"Verwenden Sie 'git show <commit-id>', um Details zu jedem Merge-Base-Commit zu sehen."
+		]
+	},
+	{
+		"id": 100,
+		"title": "Git Clean meistern - Finale Herausforderung",
+		"description": "Die finale Herausforderung testet Ihre Fähigkeit, ein Repository vollständig zu bereinigen.\n\nBereinigen Sie das Repository komplett: Entfernen Sie alle nicht verfolgten Dateien, ignorierte Dateien, leere Verzeichnisse und temporäre Objekte. Lassen Sie nur verfolgte Dateien übrig.",
+		"difficulty": "Schwer",
+		"category": "Bereinigung & Wartung",
+		"hints": [
+			"Verwenden Sie 'git clean -f' für nicht verfolgte Dateien.",
+			"Verwenden Sie 'git clean -fd' für Verzeichnisse.",
+			"Verwenden Sie 'git clean -fx' für ignorierte Dateien.",
+			"Verwenden Sie 'git gc --aggressive --prune=now' für Objekt-Bereinigung.",
+			"Kombinieren Sie alles: 'git clean -fxd && git gc --aggressive --prune=now'"
+		]
+	}
+]

@@ -1,0 +1,117 @@
+[
+	{
+		"id": 41,
+		"title": "Interaktiven Rebase für die letzten drei Commits starten",
+		"description": "Interaktiver Rebase ermöglicht es Ihnen, die Commit-Historie zu bearbeiten.\n\nStarten Sie einen interaktiven Rebase für die letzten drei Commits, um diese zu bearbeiten.",
+		"difficulty": "Schwer",
+		"category": "Rebasing & Historie",
+		"hints": [
+			"Verwenden Sie 'git rebase -i HEAD~3', um einen interaktiven Rebase für die letzten 3 Commits zu starten.",
+			"Dies öffnet einen Editor, in dem Sie angeben können, was mit jedem Commit passieren soll."
+		]
+	},
+	{
+		"id": 42,
+		"title": "Zwei Commits zu einem zusammenführen",
+		"description": "Squashing kombiniert mehrere Commits zu einem einzigen Commit.\n\nVerwenden Sie interaktiven Rebase, um die letzten beiden Commits zu einem zusammenzuführen.",
+		"difficulty": "Schwer",
+		"category": "Rebasing & Historie",
+		"hints": [
+			"Starten Sie 'git rebase -i HEAD~2', um die letzten 2 Commits zu bearbeiten.",
+			"Ändern Sie 'pick' zu 'squash' oder 's' für den Commit, den Sie zusammenführen möchten.",
+			"Speichern Sie und schließen Sie den Editor, um fortzufahren."
+		]
+	},
+	{
+		"id": 43,
+		"title": "Nachricht eines alten Commits ändern",
+		"description": "Sie können die Nachricht eines Commits in der Historie ändern.\n\nÄndern Sie die Nachricht des Commits vor 2 Commits zu 'Updated commit message'.",
+		"difficulty": "Schwer",
+		"category": "Rebasing & Historie",
+		"hints": [
+			"Starten Sie 'git rebase -i HEAD~3', um die letzten 3 Commits zu bearbeiten.",
+			"Ändern Sie 'pick' zu 'reword' oder 'r' für den Commit, dessen Nachricht Sie ändern möchten.",
+			"Speichern Sie und schließen Sie den Editor, dann geben Sie die neue Nachricht ein."
+		]
+	},
+	{
+		"id": 44,
+		"title": "Commit aus der Historie löschen",
+		"description": "Manchmal möchten Sie einen Commit komplett aus der Historie entfernen.\n\nLöschen Sie den mittleren Commit aus den letzten drei Commits unter Verwendung von interaktivem Rebase.",
+		"difficulty": "Schwer",
+		"category": "Rebasing & Historie",
+		"hints": [
+			"Starten Sie 'git rebase -i HEAD~3', um die letzten 3 Commits zu bearbeiten.",
+			"Löschen Sie die gesamte Zeile für den Commit, den Sie entfernen möchten, oder ändern Sie 'pick' zu 'drop'.",
+			"Speichern Sie und schließen Sie den Editor."
+		]
+	},
+	{
+		"id": 45,
+		"title": "Commits während interaktivem Rebase neu ordnen",
+		"description": "Sie können die Reihenfolge der Commits in der Historie ändern.\n\nÄndern Sie die Reihenfolge der letzten drei Commits, so dass der älteste Commit der neueste wird.",
+		"difficulty": "Schwer",
+		"category": "Rebasing & Historie",
+		"hints": [
+			"Starten Sie 'git rebase -i HEAD~3', um die letzten 3 Commits zu bearbeiten.",
+			"Ändern Sie die Reihenfolge der Zeilen im Editor, um die Commits neu zu ordnen.",
+			"Speichern Sie und schließen Sie den Editor."
+		]
+	},
+	{
+		"id": 46,
+		"title": "Laufenden Rebase abbrechen",
+		"description": "Wenn ein Rebase schief läuft, können Sie ihn abbrechen und zum ursprünglichen Zustand zurückkehren.\n\nStarten Sie einen Rebase, der zu Konflikten führt, und brechen Sie ihn dann ab.",
+		"difficulty": "Mittel",
+		"category": "Rebasing & Historie",
+		"hints": [
+			"Versuchen Sie zuerst einen Rebase, der einen Konflikt verursacht.",
+			"Verwenden Sie dann 'git rebase --abort', um den Rebase abzubrechen und zum ursprünglichen Zustand zurückzukehren."
+		]
+	},
+	{
+		"id": 47,
+		"title": "Rebase nach Konfliktlösung fortsetzen",
+		"description": "Wenn während eines Rebase Konflikte auftreten, müssen Sie diese lösen und den Rebase fortsetzen.\n\nLösen Sie die Konflikte während eines Rebase und setzen Sie den Rebase fort.",
+		"difficulty": "Schwer",
+		"category": "Rebasing & Historie",
+		"hints": [
+			"Wenn ein Konflikt auftritt, lösen Sie ihn manuell in den betroffenen Dateien.",
+			"Verwenden Sie 'git add <file>' für jede gelöste Datei.",
+			"Verwenden Sie 'git rebase --continue', um den Rebase fortzusetzen."
+		]
+	},
+	{
+		"id": 48,
+		"title": "Commit während interaktivem Rebase überspringen",
+		"description": "Manchmal möchten Sie einen Commit während eines Rebase überspringen, ohne ihn zu löschen.\n\nÜberspringen Sie einen problematischen Commit während des Rebase-Prozesses.",
+		"difficulty": "Schwer",
+		"category": "Rebasing & Historie",
+		"hints": [
+			"Wenn ein Konflikt oder Problem während des Rebase auftritt, können Sie 'git rebase --skip' verwenden.",
+			"Dies überspringt den aktuellen Commit und setzt den Rebase mit dem nächsten fort."
+		]
+	},
+	{
+		"id": 49,
+		"title": "Autor jeder Zeile in einer Datei finden",
+		"description": "Git kann Ihnen zeigen, wer jede Zeile in einer Datei geschrieben hat und in welchem Commit.\n\nVerwenden Sie den entsprechenden Befehl, um die Autorschaft jeder Zeile in 'example.txt' anzuzeigen.",
+		"difficulty": "Einfach",
+		"category": "Rebasing & Historie",
+		"hints": [
+			"Verwenden Sie 'git blame example.txt', um zu sehen, wer jede Zeile geschrieben hat.",
+			"Dies zeigt den Autor, das Datum und die Commit-ID für jede Zeile."
+		]
+	},
+	{
+		"id": 50,
+		"title": "Commit finden, der eine spezifische Änderung eingeführt hat",
+		"description": "Git kann Ihnen helfen, den Commit zu finden, der eine bestimmte Zeile oder Änderung eingeführt hat.\n\nFinden Sie den Commit, der die Zeile 'important feature' in 'main.txt' eingeführt hat.",
+		"difficulty": "Mittel",
+		"category": "Rebasing & Historie",
+		"hints": [
+			"Verwenden Sie 'git log -S \"important feature\" main.txt', um Commits zu finden, die diesen Text hinzugefügt oder entfernt haben.",
+			"Sie können auch 'git log --grep=\"important feature\"' verwenden, um nach Commit-Nachrichten zu suchen."
+		]
+	}
+]
