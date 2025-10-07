@@ -1,0 +1,117 @@
+[
+	{
+		"id": 21,
+		"title": "Dodanie zdalnego repozytorium",
+		"description": "Zdalne repozytoria pozwalają współpracować z innymi i tworzyć kopie zapasowe twojej pracy.\n\nDodaj zdalne repozytorium o nazwie 'origin' z URL:\nhttps://github.com/example/my-project.git",
+		"difficulty": "Łatwy",
+		"category": "Zdalne repozytoria",
+		"hints": [
+			"Użyj 'git remote add origin https://github.com/example/my-project.git', aby dodać zdalne repozytorium.",
+			"Możesz zweryfikować czy remote został dodany za pomocą 'git remote -v', aby wylistować wszystkie remote'y."
+		]
+	},
+	{
+		"id": 22,
+		"title": "Wylistowanie zdalnych gałęzi",
+		"description": "Podczas pracy ze zdalnymi repozytoriami często musisz zobaczyć jakie gałęzie istnieją w repozytorium zdalnym.\n\nUżyj odpowiedniej komendy Git, aby wylistować wszystkie zdalne gałęzie.",
+		"difficulty": "Łatwy",
+		"category": "Zdalne repozytoria",
+		"hints": [
+			"Użyj 'git branch -r', aby wylistować zdalne gałęzie.",
+			"Możesz również użyć 'git branch --remotes' dla tego samego rezultatu."
+		]
+	},
+	{
+		"id": 23,
+		"title": "Pobranie najnowszych zmian ze zdalnego repozytorium",
+		"description": "Fetchowanie pobiera zmiany ze zdalnego repozytorium bez scalania ich z twoją bieżącą gałęzią.\n\nUżyj odpowiedniej komendy Git, aby pobrać najnowsze zmiany ze zdalnego repozytorium 'origin'.",
+		"difficulty": "Łatwy",
+		"category": "Zdalne repozytoria",
+		"hints": [
+			"Użyj 'git fetch', aby pobrać zmiany ze zdalnego repozytorium.",
+			"Możesz określić nazwę remote'a za pomocą 'git fetch origin' lub użyj po prostu 'git fetch' dla domyślnego remote'a."
+		]
+	},
+	{
+		"id": 24,
+		"title": "Ściągnięcie najnowszych zmian ze zdalnego repozytorium",
+		"description": "Pullowanie łączy fetchowanie i scalanie w jednej komendzie. Pobiera najnowsze zmiany ze zdalnego repozytorium i scala je z twoją bieżącą gałęzią.\n\nUżyj odpowiedniej komendy Git, aby ściągnąć najnowsze zmiany ze zdalnego repozytorium do twojej bieżącej gałęzi.",
+		"difficulty": "Łatwy",
+		"category": "Zdalne repozytoria",
+		"hints": [
+			"Użyj 'git pull', aby pobrać i scalić zmiany ze zdalnego repozytorium.",
+			"Możesz określić nazwę remote'a za pomocą 'git pull origin' lub użyj po prostu 'git pull' dla domyślnego remote'a."
+		]
+	},
+	{
+		"id": 25,
+		"title": "Wypchnięcie lokalnej gałęzi do zdalnego repozytorium",
+		"description": "Pushowanie wysyła twoje lokalne commity do zdalnego repozytorium, udostępniając je innym współpracownikom.\n\nMasz lokalne commity które muszą być udostępnione. Wypchnij swoją bieżącą gałąź do zdalnego repozytorium.",
+		"difficulty": "Łatwy",
+		"category": "Zdalne repozytoria",
+		"hints": [
+			"Użyj 'git push', aby wysłać swoje lokalne commity do zdalnego repozytorium.",
+			"Możesz określić nazwę remote'a za pomocą 'git push origin' lub użyć 'git push' dla domyślnego remote'a.",
+			"Jeśli to pierwszy push nowej gałęzi, możesz potrzebować 'git push -u origin <branch-name>'"
+		]
+	},
+	{
+		"id": 26,
+		"title": "Wypchnięcie nowej gałęzi do remote'a i ustawienie upstream",
+		"description": "Gdy tworzysz nową gałąź lokalnie, często chcesz ją wypchnąć do zdalnego repozytorium i ustawić jako upstream gałąź dla łatwych przyszłych push'ów i pull'ów.\n\nNajpierw utwórz nową gałąź o nazwie 'feature-login', następnie wypchnij ją do zdalnego repozytorium i ustaw jako upstream gałąź w jednej komendzie.",
+		"difficulty": "Łatwy",
+		"category": "Zdalne repozytoria",
+		"hints": [
+			"Najpierw utwórz i przejdź na nową gałąź za pomocą 'git checkout -b feature-login'",
+			"Użyj 'git push -u origin feature-login', aby wypchnąć gałąź i ustawić upstream w jednej komendzie",
+			"Flaga -u to skrót od --set-upstream i tworzy relację śledzenia"
+		]
+	},
+	{
+		"id": 27,
+		"title": "Wyświetlenie informacji o twoich remote'ach",
+		"description": "Czasem musisz zobaczyć szczegółowe informacje o twoich zdalnych repozytoriach, włączając ich URL-e i konfiguracje fetch/push.\n\nWyświetl szczegółowe informacje o twoich remote'ach używając odpowiedniej komendy Git.",
+		"difficulty": "Łatwy",
+		"category": "Zdalne repozytoria",
+		"hints": [
+			"Użyj 'git remote -v', aby zobaczyć nazwy remote'ów z ich URL-ami.",
+			"Możesz również użyć 'git remote show <remote-name>', aby zobaczyć szczegółowe informacje o konkretnym remote'ie."
+		]
+	},
+	{
+		"id": 28,
+		"title": "Usunięcie zdalnego repozytorium",
+		"description": "Czasem musisz usunąć zdalne repozytoria które nie są już potrzebne lub zmieniły lokalizację.\n\nUsuń zdalne repozytorium 'upstream' z twojego lokalnego repozytorium.",
+		"difficulty": "Łatwy",
+		"category": "Zdalne repozytoria",
+		"hints": [
+			"Użyj 'git remote remove upstream', aby usunąć upstream remote.",
+			"Możesz również użyć 'git remote rm upstream' jako skrótu.",
+			"Zweryfikuj czy remote został usunięty za pomocą 'git remote -v', aby wylistować pozostałe remote'y."
+		]
+	},
+	{
+		"id": 29,
+		"title": "Zmiana nazwy zdalnego repozytorium",
+		"description": "Czasem musisz zmienić nazwę zdalnych repozytoriów, aby lepiej odzwierciedlały ich przeznaczenie lub aby przestrzegać konwencji nazewnictwa.\n\nZmień nazwę remote'a 'upstream' na 'fork', aby lepiej wskazać że to fork oryginalnego repozytorium.",
+		"difficulty": "Łatwy",
+		"category": "Zdalne repozytoria",
+		"hints": [
+			"Użyj 'git remote rename upstream fork', aby zmienić nazwę remote'a.",
+			"Możesz zweryfikować czy zmiana nazwy się powiodła za pomocą 'git remote -v', aby wylistować wszystkie remote'y.",
+			"Zmiana nazwy remote'a automatycznie aktualizuje także wszystkie remote-tracking gałęzie."
+		]
+	},
+	{
+		"id": 30,
+		"title": "Klonowanie repozytorium do konkretnego katalogu",
+		"description": "Podczas klonowania repozytorium możesz określić nazwę katalogu gdzie ma zostać sklonowane.\n\nSklonuj repozytorium 'https://github.com/example/my-awesome-project.git' do katalogu o nazwie 'my-project'.",
+		"difficulty": "Łatwy",
+		"category": "Zdalne repozytoria",
+		"hints": [
+			"Użyj 'git clone <url> <nazwa-katalogu>', aby sklonować do konkretnego katalogu.",
+			"Składnia to: git clone https://github.com/example/my-awesome-project.git my-project",
+			"To utworzy katalog o nazwie 'my-project' zamiast 'my-awesome-project'."
+		]
+	}
+]

@@ -1,0 +1,144 @@
+[
+	{
+		"id": 91,
+		"title": "Automatyczne podpisywanie commitów za pomocą GPG",
+		"description": "GPG (GNU Privacy Guard) pozwala cyfrowo podpisywać commity, aby zweryfikować ich autentyczność. To ważne dla bezpieczeństwa w projektach open source.\n\nSkonfiguruj Git do automatycznego podpisywania commitów za pomocą klucza GPG z ID '1234567890ABCDEF'.",
+		"difficulty": "Średni",
+		"category": "Ekspert",
+		"hints": [
+			"Najpierw upewnij się, że masz klucz GPG: sprawdź za pomocą 'gpg --list-keys'.",
+			"Użyj 'git config --global user.signingkey 1234567890ABCDEF', aby ustawić klucz podpisywania.",
+			"Włącz automatyczne podpisywanie: 'git config --global commit.gpgsign true'.",
+			"Przetestuj za pomocą tworzenia commita - powinien być podpisany automatycznie."
+		]
+	},
+	{
+		"id": 92,
+		"title": "Squashowanie wielu commitów w jeden podczas scalania gałęzi",
+		"description": "Czasem chcesz scalić gałąź funkcjonalności ale połączyć wszystkie jej commity w jeden clean commit w głównej gałęzi zamiast zachowywać całą historię.\n\nScal gałąź 'feature-cleanup' z główną gałęzią używając squash merge, aby wszystkie jej commity zostały połączone w jeden commit.",
+		"difficulty": "Średni",
+		"category": "Ekspert",
+		"hints": [
+			"Przełącz się na główną gałąź: 'git checkout main'.",
+			"Użyj 'git merge --squash feature-cleanup', aby przygotować squash merge.",
+			"To przygotuje wszystkie zmiany z feature-cleanup ale nie utworzy commita merge.",
+			"Ręcznie zatwierdź zmiany: 'git commit -m \"Implement cleanup feature\"'.",
+			"Gałąź feature-cleanup może teraz być bezpiecznie usunięta."
+		]
+	},
+	{
+		"id": 93,
+		"title": "Przepisanie historii gałęzi i force push",
+		"description": "Czasem musisz całkowicie przepisać historię gałęzi, aby wyczyścić wrażliwe dane lub reorganizować commity. To zaawansowana operacja wymagająca force push.\n\nPrzepisz historię obecnej gałęzi, aby usunąć wszystkie commity zawierające słowo 'secret' w wiadomości commita, następnie wykonaj force push.",
+		"difficulty": "Trudny",
+		"category": "Ekspert",
+		"hints": [
+			"Użyj 'git rebase -i HEAD~5', aby interaktywnie rebas'ować ostatnie 5 commitów.",
+			"W edytorze zmień 'pick' na 'drop' dla commitów zawierających 'secret'.",
+			"Alternatywnie użyj 'git filter-branch' dla bardziej zaawansowanego przepisywania.",
+			"Po przepisaniu historii użyj 'git push --force-with-lease', aby bezpiecznie wypchnąć.",
+			"UWAGA: To zmienia historię - koordynuj z zespołem przed wykonaniem."
+		]
+	},
+	{
+		"id": 94,
+		"title": "Użycie git filter-branch do usunięcia wrażliwych danych z historii",
+		"description": "Filter-branch to potężne narzędzie do przepisywania całej historii repozytorium, np. do usunięcia wrażliwych plików czy danych ze wszystkich commitów.\n\nUsuń plik 'passwords.txt' z całej historii repozytorium używając git filter-branch.",
+		"difficulty": "Trudny",
+		"category": "Ekspert",
+		"hints": [
+			"Użyj 'git filter-branch --tree-filter \"rm -f passwords.txt\" HEAD'.",
+			"To przepisze całą historię, usuwając passwords.txt z każdego commita.",
+			"Alternatywnie użyj '--index-filter' dla lepszej wydajności.",
+			"Po filter-branch użyj 'git push --force' do zaktualizowania remote'a.",
+			"OSTRZEŻENIE: To przepisuje całą historię - skoordynuj z zespołem!"
+		]
+	},
+	{
+		"id": 95,
+		"title": "Przepisanie historii commitów używając git rebase -i w wielu gałęziach",
+		"description": "Zaawansowane użycie interaktywnego rebase może przepisać historię w wielu gałęziach jednocześnie, reorganizując strukturę całego projektu.\n\nMasz gałęzie 'feature-a' i 'feature-b' oparte na starym commicie. Przepisz je tak, aby były oparte na najnowszym main, używając rebase.",
+		"difficulty": "Trudny",
+		"category": "Ekspert",
+		"hints": [
+			"Przełącz się na feature-a: 'git checkout feature-a'.",
+			"Rebas'uj na main: 'git rebase main'.",
+			"Przełącz się na feature-b: 'git checkout feature-b'.",
+			"Rebas'uj na main: 'git rebase main'.",
+			"Jeśli wystąpią konflikty, rozwiąż je i użyj 'git rebase --continue'.",
+			"Po rebas'owaniu obu gałęzi użyj force push: 'git push --force-with-lease'."
+		]
+	},
+	{
+		"id": 96,
+		"title": "Ustawienie serwera Git do hostowania własnych repozytoriów",
+		"description": "Tworzenie własnego serwera Git pozwala hostować prywatne repozytoria. Wymaga to ustawienia bare repository i odpowiedniej konfiguracji.\n\nUtwórz bare repository o nazwie 'project.git', które może służyć jako centralny serwer dla zespołu.",
+		"difficulty": "Trudny",
+		"category": "Ekspert",
+		"hints": [
+			"Utwórz bare repository: 'git init --bare project.git'.",
+			"Bare repository nie ma working directory - służy tylko do przechowywania historii Git.",
+			"Ustaw odpowiednie uprawnienia na serwerze dla dostępu zespołu.",
+			"Zespół może klonować za pomocą: 'git clone user@server:/path/to/project.git'.",
+			"Skonfiguruj SSH keys dla bezpiecznego dostępu."
+		]
+	},
+	{
+		"id": 97,
+		"title": "Konwersja istniejącego repozytorium Git na bare repository",
+		"description": "Czasem chcesz przekonwertować normalne repozytorium na bare repository, które może służyć jako centralne repozytorium dla zespołu.\n\nPrzekształć obecne repozytorium w bare repository, które może być używane jako serwer.",
+		"difficulty": "Średni",
+		"category": "Ekspert",
+		"hints": [
+			"Utwórz kopię zapasową: skopiuj katalog .git do nowej lokalizacji.",
+			"Użyj 'git config --bool core.bare true', aby oznaczyć repozytorium jako bare.",
+			"Usuń working directory files (wszystko oprócz .git).",
+			"Przenieś zawartość .git do głównego katalogu repozytorium.",
+			"Alternatywnie użyj 'git clone --bare' do utworzenia nowego bare repo."
+		]
+	},
+	{
+		"id": 98,
+		"title": "Użycie git rev-list z zaawansowanymi opcjami filtrowania",
+		"description": "Git rev-list to niskopoziomowe narzędzie do listowania commitów z zaawansowanymi opcjami filtrowania. Przydatne do skryptowania i zaawansowanych zapytań.\n\nWylistuj wszystkie commity z ostatnich 30 dni, które modyfikowały pliki .py, autorstwa 'john@example.com'.",
+		"difficulty": "Trudny",
+		"category": "Ekspert",
+		"hints": [
+			"Użyj 'git rev-list --since=\"30 days ago\" --author=\"john@example.com\" HEAD'.",
+			"Dodaj '--grep' do filtrowania po wiadomościach commitów.",
+			"Użyj '-- *.py' na końcu, aby filtrować tylko pliki Python.",
+			"Pełna komenda: 'git rev-list --since=\"30 days ago\" --author=\"john@example.com\" HEAD -- *.py'.",
+			"Rev-list jest podstawą dla większości komend Git wyświetlających historię."
+		]
+	},
+	{
+		"id": 99,
+		"title": "Znalezienie wszystkich merge base z git merge-base --all",
+		"description": "W złożonych historiach z wieloma gałęziami może istnieć wiele punktów wspólnych (merge bases) między gałęziami. Git pozwala znaleźć wszystkie takie punkty.\n\nZnajdź wszystkie merge bases między gałęziami 'feature-x' i 'feature-y'.",
+		"difficulty": "Trudny",
+		"category": "Ekspert",
+		"hints": [
+			"Użyj 'git merge-base --all feature-x feature-y', aby znaleźć wszystkie merge bases.",
+			"W prostych przypadkach zwykle jest jeden merge base.",
+			"W złożonych historiach może być wiele merge bases.",
+			"To przydatne do zrozumienia jak gałęzie się rozwinęły.",
+			"Merge base to najnowszy wspólny commit przodek dwóch gałęzi."
+		]
+	},
+	{
+		"id": 100,
+		"title": "Mistrz Git Clean - Finalne Wyzwanie",
+		"description": "Gratulacje! Dotarłeś do finalnego wyzwania. To połączenie wielu zaawansowanych technik Git. Masz repozytorium z pomieszaną historią, konfliktami i problemami.\n\nWykonaj kompletne oczyszczenie: zidentyfikuj i rozwiąż konflikty, uporządkuj historię używając interaktywnego rebase, usuń niepotrzebne gałęzie, wyczyść working directory i przygotuj idealne, czyste repozytorium gotowe do produkcji.",
+		"difficulty": "Trudny",
+		"category": "Ekspert",
+		"hints": [
+			"Zacznij od 'git status' i 'git log --oneline --graph --all', aby ocenić sytuację.",
+			"Użyj 'git rebase -i' do uporządkowania historii commitów.",
+			"Rozwiąż wszystkie konflikty merge i usuń niepotrzebne pliki.",
+			"Wyczyść gałęzie: usuń zmergowane gałęzie za pomocą 'git branch -d'.",
+			"Użyj 'git clean -fd' do usunięcia nieśledzonych plików i katalogów.",
+			"Zakończ za pomocą 'git gc' do optymalizacji repozytorium.",
+			"To szczyt umiejętności Git - powodzenia!"
+		]
+	}
+]

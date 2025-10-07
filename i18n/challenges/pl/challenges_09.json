@@ -1,0 +1,135 @@
+[
+	{
+		"id": 81,
+		"title": "Użycie git reflog do odzyskania utraconego commita i zapisania go",
+		"description": "Git reflog przechowuje historię wszystkich zmian HEAD w lokalnym repozytorium. To potężne narzędzie do odzyskiwania utraconych commitów po operacjach takich jak reset lub usunięcie gałęzi.\n\nCommit został utracony po operacji reset. Użyj git reflog, aby znaleźć commit z hash 'abc123def' i utwórz nową gałąź 'recovery' wskazującą na niego.",
+		"difficulty": "Średni",
+		"category": "Zaawansowany użytkownik",
+		"hints": [
+			"Użyj 'git reflog', aby zobaczyć historię wszystkich zmian HEAD.",
+			"Znajdź wpis z commit hash 'abc123def' na liście reflog.",
+			"Użyj 'git checkout -b recovery abc123def', aby utworzyć nową gałąź z utraconego commita.",
+			"Git reflog jest lokalny i przechowuje historię przez ~90 dni domyślnie."
+		]
+	},
+	{
+		"id": 82,
+		"title": "Wyświetlenie szczegółowego logu zmian na commit",
+		"description": "Czasem potrzebujesz więcej informacji o commitach niż podstawowy log. Git oferuje wiele opcji formatowania, aby dostosować widok logu do twoich potrzeb.\n\nWyświetl log pokazujący hash commitów, autora, datę i pełną wiadomość commita w formacie jednego commita na linię.",
+		"difficulty": "Łatwy",
+		"category": "Zaawansowany użytkownik",
+		"hints": [
+			"Użyj 'git log --oneline', aby zobaczyć krótki hash i wiadomość commita.",
+			"Użyj 'git log --format=\"%h %an %ad %s\"', aby dostosować format wyjścia.",
+			"Możesz również użyć 'git log --pretty=format:\"%h %an %ad %s\"'.",
+			"Format placeholders: %h (short hash), %an (author name), %ad (author date), %s (subject)."
+		]
+	},
+	{
+		"id": 83,
+		"title": "Utworzenie i użycie pliku .gitignore",
+		"description": "Pliki .gitignore mówią Git'owi które pliki i katalogi powinny być ignorowane (nie śledzone). To ważne dla plików tymczasowych, logów, zależności i innych plików, które nie powinny być w repozytorium.\n\nUtwórz plik .gitignore, który ignoruje pliki .log, katalog node_modules/ i pliki .tmp.",
+		"difficulty": "Łatwy",
+		"category": "Zaawansowany użytkownik",
+		"hints": [
+			"Utwórz plik o nazwie '.gitignore' w root katalogu repozytorium.",
+			"Dodaj wzorce po jednym na linię: '*.log', 'node_modules/', '*.tmp'.",
+			"Gwiazdka (*) jest wildcard dopasowującym dowolne znaki.",
+			"Dodaj .gitignore do repozytorium: 'git add .gitignore && git commit -m \"Add gitignore\"'."
+		]
+	},
+	{
+		"id": 84,
+		"title": "Wylistowanie wszystkich ignorowanych plików",
+		"description": "Czasem chcesz zobaczyć które pliki są obecnie ignorowane przez Git na podstawie twoich reguł .gitignore.\n\nWyświetl wszystkie pliki, które są obecnie ignorowane przez Git w twoim repozytorium.",
+		"difficulty": "Łatwy",
+		"category": "Zaawansowany użytkownik",
+		"hints": [
+			"Użyj 'git status --ignored', aby zobaczyć ignorowane pliki wraz ze zwykłym statusem.",
+			"Użyj 'git ls-files --others --ignored --exclude-standard', aby zobaczyć tylko ignorowane pliki.",
+			"Możesz również użyć 'git clean -Xn', aby zobaczyć co zostałoby usunięte jako ignorowane (dry run)."
+		]
+	},
+	{
+		"id": 85,
+		"title": "Ustawienie aliasów Git dla często używanych komend",
+		"description": "Aliasy Git pozwalają tworzyć skróty dla często używanych komend lub złożonych komend z wieloma flagami. To oszczędza czas i redukuje błędy.\n\nUtwórz alias 'st' dla 'status', 'co' dla 'checkout' i 'lg' dla 'log --oneline --graph --all'.",
+		"difficulty": "Łatwy",
+		"category": "Zaawansowany użytkownik",
+		"hints": [
+			"Użyj 'git config --global alias.st status', aby utworzyć alias 'st' dla 'status'.",
+			"Dodaj alias 'co': 'git config --global alias.co checkout'.",
+			"Dodaj alias 'lg': 'git config --global alias.lg \"log --oneline --graph --all\"'.",
+			"Po ustawieniu możesz używać 'git st', 'git co', 'git lg'.",
+			"Sprawdź aliasy za pomocą 'git config --get-regexp alias'."
+		]
+	},
+	{
+		"id": 86,
+		"title": "Konfiguracja nazwy użytkownika i email Git globalnie",
+		"description": "Git potrzebuje znać twoją tożsamość dla commitów. Te informacje są używane w każdym commicie i powinny być ustawione globalnie dla wygody.\n\nUstaw globalną nazwę użytkownika na 'John Doe' i email na 'john.doe@example.com'.",
+		"difficulty": "Łatwy",
+		"category": "Zaawansowany użytkownik",
+		"hints": [
+			"Użyj 'git config --global user.name \"John Doe\"', aby ustawić nazwę użytkownika.",
+			"Użyj 'git config --global user.email \"john.doe@example.com\"', aby ustawić email.",
+			"Flaga --global ustawia konfigurację dla wszystkich repozytoriów.",
+			"Sprawdź konfigurację za pomocą 'git config --global --list'.",
+			"Możesz nadpisać globalne ustawienia lokalnie w konkretnym repozytorium."
+		]
+	},
+	{
+		"id": 87,
+		"title": "Użycie git grep do wyszukiwania tekstu wewnątrz commitów",
+		"description": "Git grep to potężne narzędzie wyszukiwania, które może szukać tekstu w plikach śledzonych przez Git. Jest szybsze niż grep dla repozytoriów Git.\n\nWyszukaj wszystkie wystąpienia słowa 'function' w śledzonych plikach.",
+		"difficulty": "Łatwy",
+		"category": "Zaawansowany użytkownik",
+		"hints": [
+			"Użyj 'git grep \"function\"', aby wyszukać tekst w śledzonych plikach.",
+			"Git grep domyślnie szuka w working tree (bieżących plikach).",
+			"Użyj 'git grep -n \"function\"', aby pokazać numery linii.",
+			"Użyj 'git grep -i \"function\"', aby wyszukiwać bez rozróżniania wielkości liter.",
+			"Możesz wyszukiwać w konkretnym commicie: 'git grep \"function\" HEAD~1'."
+		]
+	},
+	{
+		"id": 88,
+		"title": "Użycie submodułów Git do zarządzania zewnętrznymi repozytoriami",
+		"description": "Submoduły pozwalają włączyć jedno repozytorium Git jako podkatalog innego repozytorium Git. To przydatne dla zarządzania zależnościami czy współdzielonymi komponentami.\n\nDodaj submoduł z 'https://github.com/example/library.git' do katalogu 'lib/external'.",
+		"difficulty": "Trudny",
+		"category": "Zaawansowany użytkownik",
+		"hints": [
+			"Użyj 'git submodule add https://github.com/example/library.git lib/external'.",
+			"To utworzy katalog lib/external z sklonowanym repozytorium.",
+			"Zostanie również utworzony plik .gitmodules z konfiguracją submodułu.",
+			"Zatwierdź zmiany: 'git add .gitmodules lib/external && git commit -m \"Add submodule\"'."
+		]
+	},
+	{
+		"id": 89,
+		"title": "Klonowanie repozytorium włączając submoduły",
+		"description": "Gdy klonujesz repozytorium zawierające submoduły, domyślnie katalogi submodułów będą puste. Musisz określić że chcesz również sklonować submoduły.\n\nSklonuj repozytorium 'https://github.com/example/main-project.git' włączając wszystkie jego submoduły.",
+		"difficulty": "Średni",
+		"category": "Zaawansowany użytkownik",
+		"hints": [
+			"Użyj 'git clone --recurse-submodules https://github.com/example/main-project.git'.",
+			"Flaga --recurse-submodules automatycznie zainicjalizuje i zaktualizuje submoduły.",
+			"Alternatywnie możesz klonować normalnie, następnie użyć 'git submodule update --init --recursive'.",
+			"Sprawdź status submodułów za pomocą 'git submodule status'."
+		]
+	},
+	{
+		"id": 90,
+		"title": "Praca z wieloma worktree",
+		"description": "Git worktree pozwala mieć wiele working directories z tego samego repozytorium. Przydatne gdy chcesz pracować nad różnymi gałęziami jednocześnie.\n\nUtwórz nowe worktree dla gałęzi 'feature-branch' w katalogu '../feature-work'.",
+		"difficulty": "Średni",
+		"category": "Zaawansowany użytkownik",
+		"hints": [
+			"Użyj 'git worktree add ../feature-work feature-branch', aby utworzyć nowe worktree.",
+			"To utworzy katalog '../feature-work' z checkout gałęzi 'feature-branch'.",
+			"Możesz mieć wiele worktree z różnymi gałęziami jednocześnie.",
+			"Sprawdź wszystkie worktree za pomocą 'git worktree list'.",
+			"Usuń worktree za pomocą 'git worktree remove ../feature-work' gdy skończysz."
+		]
+	}
+]

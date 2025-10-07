@@ -1,0 +1,122 @@
+[
+	{
+		"id": 11,
+		"title": "Criar e Alternar para uma Branch em Um Comando",
+		"description": "O Git permite criar e alternar para uma nova branch em um único comando.\n\nCrie uma nova branch chamada 'feature-branch' e alterne para ela em um comando.",
+		"difficulty": "Fácil",
+		"category": "Ramificação e Fusão",
+		"hints": [
+			"Use 'git checkout -b feature-branch' para criar e alternar para uma nova branch em um comando.",
+			"Em versões mais recentes do Git, você também pode usar 'git switch -c feature-branch'."
+		]
+	},
+	{
+		"id": 12,
+		"title": "Fazer Merge de uma Branch",
+		"description": "O merge combina as alterações de uma branch com outra.\n\nAlterne para a branch 'master' e faça merge da branch 'feature' nela.",
+		"difficulty": "Médio",
+		"category": "Ramificação e Fusão",
+		"hints": [
+			"Primeiro use 'git checkout master' para alternar para a branch master.",
+			"Depois use 'git merge feature' para fazer merge da branch feature na master."
+		]
+	},
+	{
+		"id": 13,
+		"title": "Merge Sem Fast-Forward",
+		"description": "Às vezes você quer preservar o histórico da branch ao fazer merge.\n\nFaça merge da branch 'feature' na 'master' com a flag --no-ff para prevenir fast-forwarding.",
+		"difficulty": "Médio",
+		"category": "Ramificação e Fusão",
+		"hints": [
+			"Primeiro use 'git checkout master' para alternar para a branch master.",
+			"Depois use 'git merge --no-ff feature' para fazer merge com um commit mesmo se fast-forward for possível."
+		]
+	},
+	{
+		"id": 14,
+		"title": "Resolver um Conflito de Merge",
+		"description": "Às vezes alterações em branches diferentes entram em conflito umas com as outras.\n\nResolva o conflito de merge entre as branches 'feature' e 'master' fazendo merge de 'feature' em 'master' e corrigindo o conflito em 'shared-file.txt'.\n\nVocê pode usar os comandos especiais do jogo:\n- 'resolve current shared-file.txt' para manter a versão da branch atual\n- 'resolve incoming shared-file.txt' para usar a versão da branch que está chegando",
+		"difficulty": "Médio",
+		"category": "Ramificação e Fusão",
+		"hints": [
+			"Primeiro faça checkout da branch master com 'git checkout master'",
+			"Tente fazer merge com 'git merge feature' - isso mostrará o conflito",
+			"Resolva o conflito com 'resolve current shared-file.txt' ou 'resolve incoming shared-file.txt'",
+			"Após resolver, use 'git add shared-file.txt' para marcá-lo como resolvido",
+			"Complete o merge com 'git commit -m \"Conflito de merge resolvido\"'"
+		]
+	},
+	{
+		"id": 15,
+		"title": "Cancelar um Merge em Progresso",
+		"description": "Às vezes um merge dá errado e você precisa retornar ao estado anterior ao merge.\n\nFaça checkout da branch 'master', tente fazer merge da branch 'feature' (que causará um conflito), depois cancele o merge usando qualquer comando Git apropriado.",
+		"difficulty": "Médio",
+		"category": "Ramificação e Fusão",
+		"hints": [
+			"Primeiro use 'git checkout master' para alternar para a branch master",
+			"Depois use 'git merge feature' para começar o merge (que causará um conflito)",
+			"Para cancelar o merge e retornar ao estado anterior, use 'git merge --abort'",
+			"Soluções alternativas incluem 'git reset --hard HEAD' ou 'git checkout -f'"
+		]
+	},
+	{
+		"id": 16,
+		"title": "Ver um Log Gráfico de Branches e Commits",
+		"description": "O comando git log regular mostra commits de forma linear. Para repositórios com múltiplas branches, pode ser útil visualizar a estrutura das branches.\n\nUse git log com a flag --graph para exibir uma representação gráfica do histórico de commits. Você também pode tentar flags adicionais como --oneline para saída compacta e --all para ver todas as branches.",
+		"difficulty": "Fácil",
+		"category": "Ramificação e Fusão",
+		"hints": [
+			"Use 'git log --graph' para mostrar uma representação gráfica baseada em texto do histórico de commits.",
+			"Tente combinar flags: 'git log --graph --oneline --all' para uma visualização ainda mais útil."
+		]
+	},
+	{
+		"id": 17,
+		"title": "Listar Todas as Branches em um Repositório",
+		"description": "Para gerenciar seu repositório efetivamente, você precisa saber quais branches existem.\n\nUse o comando Git apropriado para listar todas as branches no repositório.",
+		"difficulty": "Fácil",
+		"category": "Ramificação e Fusão",
+		"hints": [
+			"O comando para listar todas as branches é simplesmente 'git branch' sem argumentos adicionais.",
+			"Sua branch atual será marcada com um asterisco (*) na saída."
+		]
+	},
+	{
+		"id": 18,
+		"title": "Renomear a Branch Atual",
+		"description": "Às vezes os nomes das suas branches precisam mudar para refletir melhor seu propósito.\n\nRenomeie a branch atual de 'master' para 'main'.",
+		"difficulty": "Fácil",
+		"category": "Ramificação e Fusão",
+		"hints": [
+			"Use 'git branch -m main' para renomear sua branch atual.",
+			"Você também pode usar a forma mais longa 'git branch --move main'."
+		]
+	},
+	{
+		"id": 19,
+		"title": "Forçar Exclusão de uma Branch",
+		"description": "Às vezes você precisa excluir uma branch mesmo quando ela tem alterações não mescladas.\n\nCrie uma branch chamada 'feature-temp' e adicione um commit a ela. Depois alterne de volta para master e force a exclusão da branch 'feature-temp'.\n\nUse o comando especial do jogo 'createfile filename content' para criar um arquivo (ex: 'createfile newfile.txt Este é o conteúdo').",
+		"difficulty": "Médio",
+		"category": "Ramificação e Fusão",
+		"hints": [
+			"Primeiro crie uma branch com 'git branch feature-temp' e alterne para ela com 'git checkout feature-temp'",
+			"Crie um arquivo usando 'createfile newfile.txt Algum conteúdo'",
+			"Prepare o arquivo com 'git add newfile.txt'",
+			"Faça commit com 'git commit -m \"Adicionar novo arquivo\"'",
+			"Alterne de volta para master com 'git checkout master'",
+			"Tente excluir com 'git branch -d feature-temp' - você verá que falhará",
+			"Force a exclusão com 'git branch -D feature-temp'"
+		]
+	},
+	{
+		"id": 20,
+		"title": "Listar Branches Mescladas e Não Mescladas",
+		"description": "O Git permite filtrar branches pelo seu status de mesclagem relativo à branch atual.\n\nUse os comandos Git apropriados para:\n1. Listar branches que foram mescladas na branch atual\n2. Listar branches que não foram mescladas na branch atual",
+		"difficulty": "Médio",
+		"category": "Ramificação e Fusão",
+		"hints": [
+			"Use 'git branch --merged' para ver branches que foram mescladas na branch atual.",
+			"Use 'git branch --no-merged' para ver branches que não foram mescladas na branch atual."
+		]
+	}
+]

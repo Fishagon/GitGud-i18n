@@ -1,0 +1,141 @@
+[
+	{
+		"id": 81,
+		"title": "Usar git reflog para Recuperar una Confirmación Perdida y Guardarla",
+		"description": "A veces las confirmaciones pueden volverse 'perdidas' cuando las ramas son eliminadas o reiniciadas. Sin embargo, Git mantiene un reflog (registro de referencias) de todos los cambios a HEAD y referencias de rama. Puedes usar 'git reflog' para encontrar estas confirmaciones perdidas y recuperarlas creando una nueva rama.\n\nUna confirmación con cambios útiles se perdió accidentalmente cuando una rama fue eliminada. Usa 'git reflog' para encontrar la confirmación perdida y crear una nueva rama llamada 'recovered-work' apuntando a ella.",
+		"difficulty": "Medio",
+		"category": "Usuario Avanzado",
+		"hints": [
+			"Usa 'git reflog' para ver el historial de todos los cambios de referencia.",
+			"Busca confirmaciones que ya no sean alcanzables desde ninguna rama.",
+			"Usa 'git checkout -b recovered-work <commit-id>' para crear una rama en la confirmación perdida.",
+			"También puedes usar 'git branch recovered-work <commit-id>' para crear la rama sin cambiar a ella.",
+			"El reflog muestra entradas como 'HEAD@{0}', 'HEAD@{1}', etc. representando diferentes puntos en el tiempo."
+		]
+	},
+	{
+		"id": 82,
+		"title": "Ver un Log Detallado de Cambios por Confirmación",
+		"description": "A veces necesitas ver no solo los mensajes de confirmación y metadatos, sino también los cambios reales hechos en cada confirmación. Git proporciona varias opciones para ver información detallada sobre confirmaciones, incluyendo el contenido real del diff/patch, estadísticas de archivos, o solo los nombres de archivos cambiados.\n\nUsa git log con opciones apropiadas para ver un log detallado mostrando los cambios reales (diff/patch) hechos en cada confirmación.",
+		"difficulty": "Fácil",
+		"category": "Usuario Avanzado",
+		"hints": [
+			"Usa 'git log -p' para mostrar el patch/diff para cada confirmación.",
+			"También puedes usar 'git log --patch' que es lo mismo que -p.",
+			"Prueba 'git log --stat' para ver estadísticas de cambios de archivos en lugar de diffs completos.",
+			"Usa 'git log --name-only' para ver solo los nombres de archivos cambiados.",
+			"Usa 'git log --name-status' para ver nombres de archivos y su estado de cambio."
+		]
+	},
+	{
+		"id": 83,
+		"title": "Crear y Usar un Archivo .gitignore",
+		"description": "Algunos archivos nunca deberían ser rastreados por Git - como archivos temporales, artefactos de construcción, o archivos de configuración sensibles. El archivo .gitignore le dice a Git qué archivos ignorar. Crea un archivo .gitignore con patrones para ignorar archivos log (*.log) y un directorio temp (temp/), luego verifica que funciona agregando archivos que deberían ser ignorados.\n\nCrea un archivo .gitignore, agrega patrones para ignorar archivos '*.log' y directorio 'temp/', luego prueba que estos archivos son ignorados cuando usas 'git add .'\n\n💡 Consejo: Puedes crear archivos usando comandos como 'createfile .gitignore', 'touch .gitignore', o 'New-Item .gitignore'. Para editar archivos, prueba 'start .gitignore' (Windows), 'open .gitignore' (macOS), o 'xdg-open .gitignore' (Linux).",
+		"difficulty": "Fácil",
+		"category": "Usuario Avanzado",
+		"hints": [
+			"Crea un archivo .gitignore en la raíz de tu repositorio usando 'createfile .gitignore' o 'touch .gitignore'",
+			"Agrega patrones como '*.log' para ignorar todos los archivos que terminan en .log",
+			"Agrega 'temp/' para ignorar todo el directorio temp",
+			"Puedes editar el archivo .gitignore usando 'start .gitignore', 'open .gitignore', o 'Invoke-Item .gitignore'",
+			"Usa 'git add .' para probar que los archivos ignorados no son preparados",
+			"El archivo .gitignore mismo debería ser agregado y confirmado",
+			"Usa 'git status' para ver qué archivos son ignorados vs. listos para ser preparados"
+		]
+	},
+	{
+		"id": 84,
+		"title": "Listar Todos los Archivos Ignorados",
+		"description": "Git proporciona varias maneras de ver qué archivos están siendo ignorados por tus reglas .gitignore. Esto es útil para depurar patrones .gitignore o verificar que archivos sensibles están siendo ignorados apropiadamente.\n\nUsa comandos de Git para listar todos los archivos que están siendo ignorados actualmente en el repositorio.",
+		"difficulty": "Fácil",
+		"category": "Usuario Avanzado",
+		"hints": [
+			"Usa 'git status --ignored' para ver archivos ignorados junto con el estado regular",
+			"Usa 'git ls-files --ignored --exclude-standard' para listar solo archivos ignorados",
+			"También puedes usar 'git check-ignore *' para verificar qué archivos son ignorados",
+			"La opción --porcelain puede usarse con git status para salida más limpia"
+		]
+	},
+	{
+		"id": 85,
+		"title": "Configurar Alias de Git para Comandos Usados Frecuentemente",
+		"description": "Los alias de Git te permiten crear atajos para comandos de Git comúnmente usados, haciendo tu flujo de trabajo más eficiente.\n\nConfigura los siguientes alias útiles:\n- 'st' para 'status'\n- 'co' para 'checkout'\n- 'br' para 'branch'\n- 'cm' para 'commit -m'",
+		"difficulty": "Fácil",
+		"category": "Usuario Avanzado",
+		"hints": [
+			"Usa 'git config --global alias.<nombre> <comando>' para crear un alias.",
+			"Por ejemplo: 'git config --global alias.st status' crea un alias 'st' para 'status'.",
+			"Puedes listar todos los alias configurados con 'git config --list | grep alias'.",
+			"Después de configurar alias, puedes usarlos como 'git st' en lugar de 'git status'."
+		]
+	},
+	{
+		"id": 86,
+		"title": "Configurar Nombre de Usuario y Email de Git Globalmente",
+		"description": "Antes de hacer confirmaciones, Git necesita conocer tu identidad. El nombre de usuario y email se incluyen en cada confirmación que haces. Configurar esto globalmente significa que se usarán para todos los repositorios Git en tu sistema a menos que se sobrescriban localmente.\n\nConfigura tu identidad de Git globalmente:\n- Establece tu nombre a 'John Doe'\n- Establece tu email a 'john.doe@example.com'",
+		"difficulty": "Fácil",
+		"category": "Usuario Avanzado",
+		"hints": [
+			"Usa 'git config --global user.name \"Tu Nombre\"' para establecer tu nombre globalmente.",
+			"Usa 'git config --global user.email \"tu.email@example.com\"' para establecer tu email globalmente.",
+			"La opción --global aplica la configuración a todos los repositorios en tu sistema.",
+			"Puedes verificar tus configuraciones con 'git config --list' o 'git config user.name'.",
+			"Sin comillas, nombres de múltiples palabras podrían no ser analizados correctamente."
+		]
+	},
+	{
+		"id": 87,
+		"title": "Usar git grep para Buscar Texto Dentro de Confirmaciones",
+		"description": "Git grep puede buscar no solo en el directorio de trabajo y archivos preparados, sino también en confirmaciones específicas. Esto es útil para encontrar cuándo cierto código o texto estuvo presente en el historial del repositorio.\n\nUsa 'git grep' para buscar el texto 'TODO' en la confirmación 'HEAD~2' (dos confirmaciones atrás del HEAD actual). Esto te ayudará a encontrar comentarios de desarrollo que estuvieron presentes en versiones anteriores del código.",
+		"difficulty": "Medio",
+		"category": "Usuario Avanzado",
+		"hints": [
+			"Usa 'git grep \"patrón\" <confirmación>' para buscar en una confirmación específica.",
+			"Puedes usar referencias de confirmación como 'HEAD~1', 'HEAD~2', etc.",
+			"Prueba 'git log --oneline' primero para ver el historial de confirmaciones.",
+			"La sintaxis es: git grep \"TODO\" HEAD~2",
+			"HEAD~2 se refiere a la confirmación que está 2 pasos atrás del HEAD actual."
+		]
+	},
+	{
+		"id": 88,
+		"title": "Usar Submódulos de Git para Gestionar Repositorios Externos",
+		"description": "Los submódulos de Git te permiten incluir y gestionar repositorios externos como subdirectorios dentro de tu repositorio principal. Son útiles para incluir librerías, código compartido, u otras dependencias mientras los mantienes como repositorios separados.\n\nAgrega un submódulo del repositorio 'https://github.com/example/shared-utils.git' en la ruta 'libs/utils', luego inicialízalo para que esté listo para usar.",
+		"difficulty": "Medio",
+		"category": "Usuario Avanzado",
+		"hints": [
+			"Usa 'git submodule add <repository-url> <ruta>' para agregar un submódulo.",
+			"La sintaxis es: git submodule add https://github.com/example/shared-utils.git libs/utils",
+			"Después de agregar, usa 'git submodule init libs/utils' para inicializar el submódulo.",
+			"Puedes verificar el estado del submódulo con 'git submodule status'.",
+			"Los submódulos se rastrean en el archivo .gitmodules y como una confirmación especial en tu repositorio principal."
+		]
+	},
+	{
+		"id": 89,
+		"title": "Clonar un Repositorio Incluyendo Submódulos",
+		"description": "Al clonar un repositorio que contiene submódulos, Git no clona automáticamente los submódulos por defecto. Necesitas usar opciones especiales para incluir submódulos durante la operación de clonado.\n\nClona el repositorio 'https://github.com/example/project-with-submodules.git' y asegúrate de que todos los submódulos también sean clonados e inicializados.",
+		"difficulty": "Medio",
+		"category": "Usuario Avanzado",
+		"hints": [
+			"Usa 'git clone --recurse-submodules <repository-url>' para clonar incluyendo submódulos.",
+			"También puedes usar 'git clone --recursive <repository-url>' que es equivalente.",
+			"La opción --recurse-submodules inicializará y actualizará automáticamente cada submódulo.",
+			"Sin estas opciones, necesitarías ejecutar 'git submodule init' y 'git submodule update' manualmente después de clonar."
+		]
+	},
+	{
+		"id": 90,
+		"title": "Trabajar con Múltiples Worktrees",
+		"description": "Los worktrees te permiten tener múltiples directorios de trabajo para el mismo repositorio, cada uno con checkout a diferentes ramas. Esto es útil para trabajar en múltiples características simultáneamente sin cambiar ramas.\n\nCrea tres worktrees:\n1. Worktree 'feature-a' en la ruta '../feature-a' para una nueva rama 'feature-a'\n2. Worktree 'feature-b' en la ruta '../feature-b' para una nueva rama 'feature-b'\n3. Worktree 'hotfix' en la ruta '../hotfix' para la rama 'main'\n\nLuego lista todos los worktrees para ver tu configuración.",
+		"difficulty": "Medio",
+		"category": "Usuario Avanzado",
+		"hints": [
+			"Usa 'git worktree add -b <rama> <ruta>' para crear un worktree con una nueva rama.",
+			"Usa 'git worktree add <ruta> <rama-existente>' para crear un worktree desde una rama existente.",
+			"La sintaxis es: git worktree add -b feature-a ../feature-a",
+			"Usa 'git worktree list' para ver todos tus worktrees.",
+			"Cada worktree es un directorio de trabajo separado que comparte el mismo historial de Git."
+		]
+	}
+]

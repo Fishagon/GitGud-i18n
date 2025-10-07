@@ -1,0 +1,144 @@
+[
+	{
+		"id": 91,
+		"title": "Firmar Confirmaciones Automáticamente con GPG",
+		"description": "GPG (GNU Privacy Guard) te permite firmar criptográficamente tus confirmaciones para verificar su autenticidad. Esto asegura que las confirmaciones son realmente tuyas y no han sido manipuladas. Configura Git para firmar automáticamente todas las confirmaciones con tu clave GPG.\n\nConfigura la firma de confirmaciones GPG:\n1. Configura tu clave de firma GPG (usa 'ABC123DEF456' como el ID de clave)\n2. Habilita la firma automática de confirmaciones\n3. Haz una confirmación firmada para probar la configuración",
+		"difficulty": "Medio",
+		"category": "Experto",
+		"hints": [
+			"Usa 'git config --global user.signingkey <key-id>' para establecer tu clave de firma GPG.",
+			"Usa 'git config --global commit.gpgsign true' para habilitar la firma automática de confirmaciones.",
+			"El ID de clave para este ejercicio es 'ABC123DEF456'.",
+			"Haz una confirmación después de configurar para probar que la firma funciona.",
+			"Puedes verificar la configuración GPG con 'git config --list | grep gpg'."
+		]
+	},
+	{
+		"id": 92,
+		"title": "Aplastar Múltiples Confirmaciones en Una al Fusionar una Rama",
+		"description": "A veces quieres fusionar una rama feature pero mantener un historial limpio combinando todas las confirmaciones de la rama feature en una sola confirmación. Esto se llama 'squash merge' y se hace usando 'git merge --squash'.\n\nUna rama feature llamada 'feature-cleanup' tiene múltiples confirmaciones pequeñas que deberían combinarse en una confirmación cuando se fusione en main. Usa un squash merge para combinar todas las confirmaciones de 'feature-cleanup' en una sola confirmación con el mensaje 'Implement cleanup feature'.",
+		"difficulty": "Medio",
+		"category": "Experto",
+		"hints": [
+			"Usa 'git merge --squash feature-cleanup' para aplastar todas las confirmaciones de la rama feature.",
+			"Después del squash merge, los cambios están preparados pero aún no confirmados.",
+			"Usa 'git commit -m \"Implement cleanup feature\"' para crear la confirmación aplastada final.",
+			"Verifica 'git log --oneline' para ver que solo una confirmación fue agregada en lugar de múltiples.",
+			"Las confirmaciones originales de la rama feature no aparecerán en el historial de la rama main."
+		]
+	},
+	{
+		"id": 93,
+		"title": "Reescribir el Historial de una Rama y Forzar Push",
+		"description": "A veces necesitas limpiar tu historial de confirmaciones antes de compartirlo con otros. Esto involucra reescribir historial (usando rebase interactivo) y luego forzar push de los cambios para actualizar la rama remota. Esto es útil para aplastar confirmaciones, arreglar mensajes de confirmación, o reordenar confirmaciones antes de fusionar.\n\nReescribe el historial de la rama actual aplastando las últimas 2 confirmaciones en 1, luego fuerza push de los cambios al repositorio remoto.",
+		"difficulty": "Difícil",
+		"category": "Experto",
+		"hints": [
+			"Usa 'git rebase -i HEAD~2' para iniciar un rebase interactivo de las últimas 2 confirmaciones.",
+			"Cambia 'pick' a 'squash' (o 's') para la segunda confirmación para aplastrarla en la primera.",
+			"Después de completar el rebase, usa 'git push --force' o 'git push -f' para actualizar el remoto.",
+			"Ten cuidado con force push - reescribe historial remoto y puede afectar otros colaboradores.",
+			"También puedes usar 'git push --force-with-lease' para un force push más seguro."
+		]
+	},
+	{
+		"id": 94,
+		"title": "Usar git filter-branch para Remover Datos Sensibles del Historial",
+		"description": "A veces datos sensibles como contraseñas, claves API, o información personal se confirma accidentalmente en un repositorio. Simplemente eliminar el archivo en una nueva confirmación no es suficiente - los datos sensibles aún existen en el historial de Git y pueden ser accedidos por cualquiera con acceso al repositorio.\n\nUn archivo llamado 'secrets.txt' conteniendo claves API sensibles fue confirmado accidentalmente en el historial del repositorio. Usa 'git filter-branch' para remover completamente este archivo de todas las confirmaciones en el historial del repositorio, y asegura que las confirmaciones vacías sean podadas.\n\nImportante: Esta operación reescribe historial y debería hacerse cuidadosamente en repositorios compartidos. Es preferible usar una herramienta externa como filter-repo.",
+		"difficulty": "Difícil",
+		"category": "Experto",
+		"hints": [
+			"Usa 'git filter-branch --tree-filter \"rm -f secrets.txt\" --prune-empty --all' para remover el archivo del historial",
+			"El --tree-filter opera en el directorio de trabajo de cada confirmación",
+			"Usa --prune-empty para remover confirmaciones que se vuelven vacías después del filtrado",
+			"La opción --all asegura que todas las ramas sean procesadas",
+			"Alternativa: Usa --index-filter 'git rm --cached --ignore-unmatch secrets.txt' para mejor rendimiento",
+			"Después del filtrado, el archivo sensible no debería existir en ninguna confirmación en el historial"
+		]
+	},
+	{
+		"id": 95,
+		"title": "Reescribir Historial de Confirmaciones Usando git rebase -i a Través de Múltiples Ramas",
+		"description": "Los proyectos complejos a menudo requieren limpiar el historial de confirmaciones a través de múltiples ramas antes de fusionar. Tienes un proyecto con dos ramas feature que necesitan que su historial de confirmaciones sea limpiado.\n\nTareas:\n1. Cambia a la rama 'feature-cleanup' y usa rebase interactivo para aplastar las últimas 3 confirmaciones en 1\n2. Cambia a la rama 'feature-refactor' y haz rebase en la rama 'main'\n3. Usa rebase interactivo en 'feature-refactor' para reordenar confirmaciones para que 'refactor tests' venga antes de 'refactor code'\n\nEsto simula preparar múltiples ramas feature para una fusión limpia en main.",
+		"difficulty": "Difícil",
+		"category": "Experto",
+		"hints": [
+			"Usa 'git checkout feature-cleanup' para cambiar a la primera rama",
+			"Usa 'git rebase -i HEAD~3' para iniciar rebase interactivo de las últimas 3 confirmaciones",
+			"Cambia 'pick' a 'squash' o 's' para confirmaciones que quieres combinar",
+			"Cambia ramas con 'git checkout feature-refactor'",
+			"Usa 'git rebase main' para hacer rebase de feature-refactor en main",
+			"Usa 'git rebase -i HEAD~2' para reordenar las últimas 2 confirmaciones",
+			"En la lista de tareas de rebase, puedes mover líneas arriba/abajo para reordenar confirmaciones"
+		]
+	},
+	{
+		"id": 96,
+		"title": "Configurar un Servidor Git para Alojar tus Propios Repositorios",
+		"description": "Configurar tu propio servidor Git te permite alojar repositorios de forma privada y controlar acceso. Puedes usar el daemon incorporado de Git para servicio simple, o configurar soluciones más avanzadas.\n\nCrea un repositorio bare llamado 'project.git', luego inicia un daemon Git para servirlo en el puerto por defecto (9418) con receive-pack habilitado para que otros puedan empujar a él.",
+		"difficulty": "Difícil",
+		"category": "Experto",
+		"hints": [
+			"Usa 'git init --bare project.git' para crear un repositorio bare",
+			"Inicia el daemon Git con 'git daemon --base-path=. --enable=receive-pack'",
+			"Los repositorios bare no tienen un directorio de trabajo - solo almacenan datos de Git",
+			"La opción --enable=receive-pack permite que otros empujen a tu servidor",
+			"Puedes probar el servidor clonando con 'git clone git://localhost/project.git'"
+		]
+	},
+	{
+		"id": 97,
+		"title": "Convertir un Repositorio Git Existente en un Repositorio Bare",
+		"description": "A veces necesitas convertir un repositorio Git regular (con directorio de trabajo) en un repositorio bare para compartir o uso en servidor. Un repositorio bare contiene solo los datos de Git sin un directorio de trabajo.\n\nTienes un repositorio regular con algunas confirmaciones. Conviértelo a un repositorio bare en la ruta '../project-bare.git' mientras preservas todas las confirmaciones y ramas.",
+		"difficulty": "Medio",
+		"category": "Experto",
+		"hints": [
+			"Usa 'git clone --bare . ../project-bare.git' para crear un clon bare del repositorio actual",
+			"Un repositorio bare no tiene directorio de trabajo - solo datos de Git",
+			"También puedes usar 'git clone --mirror' para incluir todas las refs y remotos",
+			"Después de la conversión, verifica con 'git config core.bare' en el nuevo repositorio",
+			"Los repositorios bare típicamente se nombran con sufijo .git"
+		]
+	},
+	{
+		"id": 98,
+		"title": "Usar git rev-list con Opciones de Filtrado Avanzadas",
+		"description": "El comando `git rev-list` es la herramienta poderosa de bajo nivel de Git para atravesar historial de confirmaciones. Soporta muchas opciones de filtrado y formato que lo hacen increíblemente versátil para analizar historial de repositorio.\n\nUsa `git rev-list` con las siguientes opciones combinadas en un solo comando:\n- Contar las confirmaciones en lugar de listarlas\n- Filtrar para mostrar solo confirmaciones por autores que contengan 'john'\n- Buscar mensajes de confirmación por la palabra 'fix'\n- Excluir confirmaciones de fusión de los resultados\n\nEsta combinación te dará un conteo de confirmaciones no-merge por 'john' que mencionan 'fix' en su mensaje de confirmación.",
+		"difficulty": "Medio",
+		"category": "Experto",
+		"hints": [
+			"La opción --count hace que rev-list retorne solo el número de confirmaciones coincidentes",
+			"La opción --author filtra confirmaciones por nombre de autor (coincidencias parciales funcionan)",
+			"La opción --grep busca texto dentro de mensajes de confirmación",
+			"La opción --no-merges excluye confirmaciones de fusión de los resultados",
+			"Todas estas opciones pueden combinarse en un solo comando rev-list",
+			"Usa 'git rev-list --count --author=\"john\" --grep=\"fix\" --no-merges HEAD'"
+		]
+	},
+	{
+		"id": 99,
+		"title": "Encontrar Todas las Bases de Fusión con git merge-base --all",
+		"description": "En repositorios complejos con múltiples puntos de fusión, puede haber más de una base de fusión entre confirmaciones. Usa git merge-base con la opción --all para encontrar todas las bases de fusión posibles entre tres ramas feature.\n\nEncuentra todas las bases de fusión entre 'feature-x', 'feature-y', y 'feature-z' usando un solo comando con la opción --all. Esto te mostrará cada ancestro común compartido entre estas ramas.",
+		"difficulty": "Difícil",
+		"category": "Experto",
+		"hints": [
+			"Usa 'git merge-base --all feature-x feature-y feature-z' para encontrar todos los ancestros comunes.",
+			"La opción --all muestra cada base de fusión, no solo la mejor.",
+			"Con historiales de fusión complejos, múltiples confirmaciones pueden ser bases de fusión.",
+			"Puedes visualizar la estructura con 'git log --graph --oneline --all'."
+		]
+	},
+	{
+		"id": 100,
+		"title": "Dominar Git Clean - Desafío Final",
+		"description": "¡Felicidades por llegar al desafío final! Tu repositorio ha acumulado varios tipos de archivos y directorios no rastreados que necesitan ser limpiados estratégicamente.\n\nTienes:\n- Archivos fuente no rastreados que deberían ser removidos\n- Directorios no rastreados que necesitan limpieza\n- Algunos archivos ignorados (artefactos de construcción) que también deberían ser removidos\n- Un archivo específico 'important-notes.txt' que debería ser preservado\n\nRealiza una operación de limpieza comprensiva que remueva archivos y directorios no rastreados, incluyendo archivos ignorados, pero excluye el archivo de notas importantes.",
+		"difficulty": "Difícil",
+		"category": "Limpieza y Mantenimiento",
+		"hints": [
+			"Necesitas usar múltiples opciones: -f (forzar), -d (directorios), -x (archivos ignorados)",
+			"Usa -e para excluir el archivo important-notes.txt de la limpieza",
+			"El comando completo debería ser: git clean -fdx -e important-notes.txt",
+			"Esto remueve archivos no rastreados, directorios, y archivos ignorados mientras preserva el archivo excluido"
+		]
+	}
+]

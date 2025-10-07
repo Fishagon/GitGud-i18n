@@ -1,0 +1,107 @@
+[
+	{
+		"id": 1,
+		"title": "Inicjalizacja repozytorium",
+		"description": "Witaj w Git Gud! Zacznijmy od utworzenia twojego pierwszego repozytorium Git.\n\nUtwórz nowe repozytorium Git używając komendy 'git init'.",
+		"difficulty": "Łatwy",
+		"category": "Podstawy",
+		"hints": [
+			"Wpisz 'git init', aby zainicjalizować nowe repozytorium."
+		]
+	},
+	{
+		"id": 2,
+		"title": "Sprawdzenie statusu repozytorium",
+		"description": "Teraz gdy masz repozytorium, sprawdźmy jego status, aby zobaczyć które pliki są śledzone, zmodyfikowane lub przygotowane.\n\nUżyj odpowiedniej komendy, aby sprawdzić status repozytorium.",
+		"difficulty": "Łatwy",
+		"category": "Podstawy",
+		"hints": [
+			"Komenda do sprawdzania statusu repozytorium to 'git status'."
+		]
+	},
+	{
+		"id": 3,
+		"title": "Przygotowanie i zatwierdzenie pliku",
+		"description": "Dodajmy plik do twojego repozytorium i zapiszmy te zmiany.\n\nNajpierw przygotuj file.txt używając 'git add', następnie zatwierdź go z wiadomością.",
+		"difficulty": "Łatwy",
+		"category": "Podstawy",
+		"hints": [
+			"Użyj 'git add file.txt', aby przygotować plik.",
+			"Następnie użyj 'git commit -m \"Your message here\"', aby utworzyć commit."
+		]
+	},
+	{
+		"id": 4,
+		"title": "Dodanie i zatwierdzenie w jednym kroku",
+		"description": "Czasem chcesz przygotować wszystkie zmiany i szybko je zatwierdzić.\n\nDodaj wszystkie zmodyfikowane pliki do obszaru przygotowania i zatwierdź je w jednym kroku.",
+		"difficulty": "Łatwy",
+		"category": "Podstawy",
+		"hints": [
+			"Większość komend obsługuje flagi do modyfikacji ich zachowania. Na przykład, 'git add' może być używane z flagą '-A' do dodania wszystkich zmian.",
+			"Możesz użyć 'git add .', aby przygotować wszystkie pliki, następnie 'git commit -m \"Your message\"'. Zastanów się nad sposobami łączenia tych dwóch komend w jedną z flagami.",
+			"Dla śledzonych plików możesz również użyć 'git commit -a -m \"Your message\"', aby przygotować i zatwierdzić w jednej komendzie."
+		]
+	},
+	{
+		"id": 5,
+		"title": "Przeglądanie historii commitów",
+		"description": "Spójrzmy na historię commitów, aby zobaczyć jakie zmiany zostały wprowadzone.\n\nUżyj komendy do wyświetlenia historii commitów.",
+		"difficulty": "Łatwy",
+		"category": "Podstawy",
+		"hints": [
+			"Użyj 'git log', aby zobaczyć historię commitów."
+		]
+	},
+	{
+		"id": 6,
+		"title": "Utworzenie gałęzi",
+		"description": "Gałęzie pozwalają pracować nad różnymi funkcjonalnościami lub poprawkami w izolacji.\n\nUtwórz nową gałąź o nazwie 'feature'.",
+		"difficulty": "Łatwy",
+		"category": "Podstawy",
+		"hints": [
+			"Użyj 'git branch feature', aby utworzyć nową gałąź."
+		]
+	},
+	{
+		"id": 7,
+		"title": "Przełączanie między gałęziami",
+		"description": "Teraz gdy utworzyłeś gałąź, przełączmy się na nią.\n\nUżyj komendy checkout, aby przełączyć się na gałąź 'feature'.",
+		"difficulty": "Łatwy",
+		"category": "Podstawy",
+		"hints": [
+			"Użyj 'git checkout feature', aby przełączyć się na gałąź.",
+			"W nowszych wersjach Git możesz również użyć 'git switch feature'."
+		]
+	},
+	{
+		"id": 8,
+		"title": "Usunięcie gałęzi",
+		"description": "Gdy skończysz pracę z gałęzią, możesz ją usunąć, aby utrzymać repozytorium w porządku.\n\nUtwórz gałąź o nazwie 'temp-branch', następnie ją usuń.",
+		"difficulty": "Łatwy",
+		"category": "Podstawy",
+		"hints": [
+			"Najpierw utwórz gałąź za pomocą 'git branch temp-branch'.",
+			"Następnie usuń ją za pomocą 'git branch -d temp-branch'."
+		]
+	},
+	{
+		"id": 9,
+		"title": "Klonowanie repozytorium",
+		"description": "Klonowanie pozwala utworzyć lokalną kopię zdalnego repozytorium.\n\nSklonuj przykładowe repozytorium używając podanego URL:\nhttps://github.com/example/repo.git",
+		"difficulty": "Łatwy",
+		"category": "Podstawy",
+		"hints": [
+			"Użyj 'git clone https://github.com/example/repo.git', aby sklonować repozytorium."
+		]
+	},
+	{
+		"id": 10,
+		"title": "Wyświetlenie zmian",
+		"description": "Zobacz jakie zmiany zostały wprowadzone od ostatniego commita.\n\nUżyj odpowiedniej komendy, aby sprawdzić różnice między twoim katalogiem roboczym a ostatnim commitem.",
+		"difficulty": "Łatwy",
+		"category": "Podstawy",
+		"hints": [
+			"Użyj 'git diff', aby zobaczyć nieprzygotowane zmiany od ostatniego commita."
+		]
+	}
+]

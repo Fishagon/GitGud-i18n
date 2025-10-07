@@ -1,0 +1,131 @@
+[
+	{
+		"id": 41,
+		"title": "Iniciar un Rebase Interactivo para los Últimos Tres Commits",
+		"description": "El rebase interactivo te permite modificar el historial de confirmaciones reordenando, editando, aplastando o eliminando confirmaciones. Esto es útil para limpiar tu historial de confirmaciones antes de empujar a un repositorio compartido.\n\nTienes varias confirmaciones que necesitan ser limpiadas. Inicia un rebase interactivo para las últimas tres confirmaciones (HEAD~3) para prepararlas para edición.",
+		"difficulty": "Medio",
+		"category": "Rebase e Historial",
+		"hints": [
+			"Usa 'git rebase -i HEAD~3' para iniciar un rebase interactivo para las últimas 3 confirmaciones.",
+			"La opción -i significa 'interactivo' y abrirá un editor con instrucciones de confirmación.",
+			"HEAD~3 significa 'regresa 3 confirmaciones desde el HEAD actual'.",
+			"El rebase interactivo te permite pick, reword, edit, squash o drop confirmaciones."
+		]
+	},
+	{
+		"id": 42,
+		"title": "Aplastar Dos Confirmaciones en Una",
+		"description": "A veces tienes múltiples confirmaciones pequeñas que sería mejor combinar en una sola confirmación más significativa. Git te permite aplastar confirmaciones usando rebase interactivo o reiniciando y volviendo a confirmar.\n\nTienes dos confirmaciones recientes que deberían combinarse en una. Usa rebase interactivo o reset/commit para aplastrarlas juntas.",
+		"difficulty": "Medio",
+		"category": "Rebase e Historial",
+		"hints": [
+			"Usa 'git rebase -i HEAD~2' para iniciar un rebase interactivo de las últimas 2 confirmaciones.",
+			"Esto abrirá un editor de texto con la lista de tareas del rebase.",
+			"Cambia la segunda línea de 'pick' a 'squash' (o 's'), luego guarda y cierra el editor.",
+			"Si el editor no abre, usa el respaldo: 'git rebase pick squash'",
+			"Alternativamente, usa 'git reset --soft HEAD~2' seguido de 'git commit'."
+		]
+	},
+	{
+		"id": 43,
+		"title": "Cambiar el Mensaje de una Confirmación Antigua",
+		"description": "Una de las confirmaciones anteriores tiene un mensaje vago 'Update file.txt content' que no describe qué fue realmente cambiado. Usa rebase interactivo para cambiar este mensaje de confirmación a algo más descriptivo.\n\nUsa rebase interactivo para cambiar el mensaje de la segunda confirmación a algo más específico.",
+		"difficulty": "Medio",
+		"category": "Rebase e Historial",
+		"hints": [
+			"Usa 'git rebase -i HEAD~2' para iniciar un rebase interactivo de las últimas 2 confirmaciones.",
+			"Cambia 'pick' a 'reword' (o 'r') para la confirmación con mensaje 'Update file.txt content'.",
+			"Un mejor mensaje de confirmación podría describir qué cambios específicos se hicieron al archivo.",
+			"Guarda y cierra el editor, luego proporciona un nuevo mensaje de confirmación cuando se solicite."
+		]
+	},
+	{
+		"id": 44,
+		"title": "Eliminar una Confirmación del Historial",
+		"description": "A veces necesitas remover completamente una confirmación del historial de tu proyecto. Esto es diferente a revertir - realmente remueve la confirmación como si nunca hubiera existido.\n\nTienes una confirmación con una implementación mala que necesita ser completamente removida del historial. Usa rebase interactivo para eliminar la confirmación con ID 'abc123def'.",
+		"difficulty": "Medio",
+		"category": "Rebase e Historial",
+		"hints": [
+			"Usa 'git log --oneline' para ver el historial de confirmaciones e identificar la confirmación errónea.",
+			"Usa 'git rebase -i HEAD~2' para iniciar un rebase interactivo regresando 2 confirmaciones.",
+			"Cambia 'pick' a 'drop' (o 'd') para la confirmación con mensaje 'Add buggy feature'.",
+			"La confirmación será completamente removida del historial, no solo revertida.",
+			"Usa 'git rebase --continue' si es necesario para completar el rebase."
+		]
+	},
+	{
+		"id": 45,
+		"title": "Reordenar Confirmaciones Durante un Rebase Interactivo",
+		"description": "A veces necesitas reorganizar tu historial de confirmaciones para hacerlo más lógico. Viendo el historial de confirmaciones, 'Update to version 2.0' ocurrió antes de 'Add configuration file', pero lógicamente querrías agregar configuración antes de actualizar versiones.\n\nUsa rebase interactivo para reordenar las últimas 3 confirmaciones para que 'Add configuration file' venga cronológicamente antes de 'Update to version 2.0'.",
+		"difficulty": "Medio",
+		"category": "Rebase e Historial",
+		"hints": [
+			"Usa 'git rebase -i HEAD~3' para iniciar un rebase interactivo de las últimas 3 confirmaciones.",
+			"En el editor de rebase, verás las confirmaciones listadas de la más antigua a la más nueva.",
+			"Mueve la línea 'Add configuration file' para que venga antes de la línea 'Update to version 2.0'.",
+			"Guarda y cierra el editor para aplicar el nuevo orden de confirmaciones.",
+			"Usa 'git log --oneline' para verificar que las confirmaciones están ahora en orden lógico."
+		]
+	},
+	{
+		"id": 46,
+		"title": "Cancelar un Rebase en Curso",
+		"description": "A veces durante una operación de rebase, encuentras conflictos o te das cuenta de que quieres cancelar el rebase completamente. Git te permite cancelar un rebase en curso y regresar tu repositorio a su estado previo al rebase.\n\nHas iniciado un rebase que ha encontrado conflictos. En lugar de resolverlos, cancela el rebase para regresar al estado original.",
+		"difficulty": "Medio",
+		"category": "Rebase e Historial",
+		"hints": [
+			"Usa 'git rebase --abort' para cancelar una operación de rebase en curso.",
+			"Esto regresará tu repositorio al estado exacto en el que estaba antes de que iniciara el rebase.",
+			"Cualquier cambio preparado o marcadores de conflicto serán limpiados automáticamente."
+		]
+	},
+	{
+		"id": 47,
+		"title": "Continuar un Rebase Después de Resolver Conflictos",
+		"description": "Al hacer rebase de confirmaciones, pueden ocurrir conflictos si las mismas líneas fueron modificadas en diferentes confirmaciones. Git pausará el rebase y te permitirá resolver los conflictos manualmente antes de continuar.\n\nHas iniciado un rebase que encontró conflictos. Resuelve los conflictos en los archivos afectados y continúa el proceso de rebase.",
+		"difficulty": "Medio",
+		"category": "Rebase e Historial",
+		"hints": [
+			"Primero, verifica el estado con 'git status' para ver qué archivos tienen conflictos.",
+			"Edita el archivo conflictivo para resolver los marcadores de conflicto (<<<<<<, ======, >>>>>>).",
+			"Prepara el archivo resuelto con 'git add <filename>'.",
+			"Continúa el rebase con 'git rebase --continue'."
+		]
+	},
+	{
+		"id": 48,
+		"title": "Saltar una Confirmación Durante un Rebase Interactivo",
+		"description": "A veces durante un rebase, encuentras una confirmación que causa conflictos o problemas que son difíciles de resolver. Git te permite saltar confirmaciones problemáticas completamente usando la opción --skip.\n\nHas iniciado un rebase que encontró una confirmación problemática. Salta la confirmación actual y continúa con el rebase.",
+		"difficulty": "Medio",
+		"category": "Rebase e Historial",
+		"hints": [
+			"Usa 'git rebase --skip' para saltar la confirmación problemática actual.",
+			"Esto descartará la confirmación problemática y continuará con las confirmaciones restantes.",
+			"El rebase debería completarse automáticamente después de saltar la confirmación problemática."
+		]
+	},
+	{
+		"id": 49,
+		"title": "Encontrar el Autor de Cada Línea en un Archivo",
+		"description": "A veces necesitas ver quién escribió cada línea de un archivo y cuándo fue modificada por última vez. El comando git blame muestra información de autoría línea por línea para un archivo.\n\nUsa git blame para ver la información de autoría para el archivo 'README.md'.",
+		"difficulty": "Fácil",
+		"category": "Rebase e Historial",
+		"hints": [
+			"Usa 'git blame <filename>' para ver información de autoría línea por línea.",
+			"El comando blame muestra el hash de confirmación, autor, marca de tiempo y número de línea para cada línea.",
+			"Prueba 'git blame README.md' para ver quién escribió cada línea del archivo README."
+		]
+	},
+	{
+		"id": 50,
+		"title": "Encontrar la Confirmación que Introdujo un Cambio Específico",
+		"description": "A veces necesitas encontrar cuándo una pieza específica de código o texto fue introducida en tu código base. Git proporciona capacidades de búsqueda poderosas para ayudarte a localizar confirmaciones que agregaron o removieron contenido específico.\n\nUna función llamada 'authenticateUser' fue agregada al código en algún momento. Usa la función pickaxe de Git para encontrar la confirmación que introdujo esta función.",
+		"difficulty": "Medio",
+		"category": "Rebase e Historial",
+		"hints": [
+			"Usa 'git log -S \"authenticateUser\"' para encontrar confirmaciones que agregaron o removieron la función authenticateUser.",
+			"La opción -S (pickaxe) busca confirmaciones donde cambió el número de ocurrencias de la cadena de búsqueda.",
+			"También puedes usar 'git log -G \"pattern\"' para buscar confirmaciones que agregaron o removieron líneas que coinciden con un patrón regex."
+		]
+	}
+]

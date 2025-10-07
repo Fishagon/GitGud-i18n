@@ -1,0 +1,124 @@
+[
+	{
+		"id": 31,
+		"title": "Poprawka ostatniego commita bez zmiany wiadomości",
+		"description": "Czasem zdajesz sobie sprawę, że zapomniałeś przygotować plik lub zrobiłeś małą zmianę po commicie. Git pozwala poprawić ostatni commit aby uwzględnić dodatkowe zmiany bez tworzenia nowego commita.\n\nMasz przygotowane zmiany, które powinny były zostać uwzględnione w ostatnim commicie. Popraw ostatni commit aby uwzględnić te zmiany bez modyfikacji wiadomości commita.",
+		"difficulty": "Łatwy",
+		"category": "Cofanie i Naprawianie Błędów",
+		"hints": [
+			"Użyj 'git commit --amend --no-edit', aby poprawić ostatni commit bez zmiany wiadomości.",
+			"Flaga --amend modyfikuje ostatni commit zamiast tworzyć nowy.",
+			"Flaga --no-edit zachowuje istniejącą wiadomość commita bez zmian."
+		]
+	},
+	{
+		"id": 32,
+		"title": "Poprawka ostatniego commita i aktualizacja jego wiadomości",
+		"description": "Czasem musisz zmodyfikować wiadomość ostatniego commita lub dodać do niego zapomniane zmiany.\n\nTwój ostatni commit ma wiadomość 'Add new feature' ale powinien mówić 'Add user authentication feature'. Użyj funkcji poprawek Git, aby zaktualizować wiadomość commita.",
+		"difficulty": "Łatwy",
+		"category": "Cofanie i Naprawianie Błędów",
+		"hints": [
+			"Użyj 'git commit --amend -m \"Add user authentication feature\"', aby zmienić wiadomość ostatniego commita.",
+			"Flaga --amend modyfikuje najnowszy commit zamiast tworzyć nowy.",
+			"Nie używaj --no-edit ponieważ to zachowałoby istniejącą (niepoprawną) wiadomość."
+		]
+	},
+	{
+		"id": 33,
+		"title": "Cofnięcie ostatniego commita ale zachowanie zmian przygotowanych",
+		"description": "Czasem commitujesz za wcześnie i zdajesz sobie sprawę, że chcesz wprowadzić dodatkowe zmiany lub poprawić wiadomość commita. Git pozwala cofnąć ostatni commit zachowując zmiany przygotowane, aby móc je zmodyfikować i commitować ponownie.\n\nTwój ostatni commit został zrobiony przedwcześnie. Cofnij go ale zachowaj zmiany przygotowane, abyś mógł dalej z nimi pracować.",
+		"difficulty": "Łatwy",
+		"category": "Cofanie i Naprawianie Błędów",
+		"hints": [
+			"Użyj 'git reset --soft HEAD~1', aby cofnąć ostatni commit ale zachować zmiany przygotowane.",
+			"Flaga --soft zachowuje twoje przygotowane zmiany, w przeciwieństwie do --hard który je odrzuca.",
+			"HEAD~1 odnosi się do commita przed obecnym HEAD (jeden commit wstecz)."
+		]
+	},
+	{
+		"id": 34,
+		"title": "Cofnięcie ostatniego commita i odprzygotowanie zmian",
+		"description": "Czasem chcesz cofnąć commit ale zachować zmiany w katalogu roboczym jako nieprzygotowane pliki. To pozwala dalej modyfikować pliki przed ponownym commitowaniem.\n\nTwój ostatni commit musi zostać cofnięty, a zmiany powinny pozostać w katalogu roboczym ale być nieprzygotowane.",
+		"difficulty": "Łatwy",
+		"category": "Cofanie i Naprawianie Błędów",
+		"hints": [
+			"Użyj 'git reset HEAD~1', aby cofnąć ostatni commit i odprzygotować zmiany.",
+			"Mixed reset (domyślny) przesuwa HEAD wstecz i odprzygotowuje pliki ale zachowuje zmiany w katalogu roboczym.",
+			"HEAD~1 odnosi się do commita przed obecnym HEAD (jeden commit wstecz)."
+		]
+	},
+	{
+		"id": 35,
+		"title": "Odprzygotowanie przypadkowo dodanego pliku",
+		"description": "Czasem przypadkowo przygotowujesz plik, którego nie chciałeś uwzględnić w następnym commicie. Git pozwala odprzygotowywać pliki bez utraty zmian w katalogu roboczym.\n\nPrzypadkowo przygotowałeś 'temp.log', który nie powinien być commitowany. Odprzygotuj ten plik zachowując zmiany w katalogu roboczym.",
+		"difficulty": "Łatwy",
+		"category": "Cofanie i Naprawianie Błędów",
+		"hints": [
+			"Użyj 'git reset HEAD temp.log', aby odprzygotować plik zachowując zmiany w katalogu roboczym.",
+			"Możesz również użyć 'git reset temp.log' jako skrótu dla tej samej operacji.",
+			"Plik pozostanie zmodyfikowany w katalogu roboczym po odprzygotowaniu."
+		]
+	},
+	{
+		"id": 36,
+		"title": "Odrzucenie niezcommitowanych zmian w pliku",
+		"description": "Czasem wprowadzasz zmiany do pliku ale zdajesz sobie sprawę, że chcesz je odrzucić i przywrócić plik do ostatniego commitowanego stanu. Git pozwala odrzucać zmiany w katalogu roboczym bez wpływu na przygotowane zmiany.\n\nWprowadzone zmiany do 'file.txt' chcesz odrzucić. Użyj Git, aby przywrócić plik do ostatniego commitowanego stanu.",
+		"difficulty": "Łatwy",
+		"category": "Cofanie i Naprawianie Błędów",
+		"hints": [
+			"Użyj 'git checkout -- file.txt', aby odrzucić zmiany w pliku.",
+			"Możesz również użyć 'git restore file.txt' (Git 2.23+) dla tego samego efektu.",
+			"To wpływa tylko na niezcommitowane zmiany w katalogu roboczym, nie na przygotowane zmiany."
+		]
+	},
+	{
+		"id": 37,
+		"title": "Cofnięcie commita, który został wypchnięty do remote'a",
+		"description": "Czasem musisz cofnąć zmiany z commita, który został już wypchnięty do zdalnego repozytorium. W przeciwieństwie do git reset, git revert tworzy nowy commit, który cofa zmiany, czyniąc to bezpiecznym dla współdzielonych repozytoriów.\n\nMasz commit z ID 'abc123def', który wprowadził błąd i musi zostać cofnięty. Użyj git revert, aby bezpiecznie cofnąć jego zmiany.",
+		"difficulty": "Średni",
+		"category": "Cofanie i Naprawianie Błędów",
+		"hints": [
+			"Użyj 'git revert <commit-id>', aby utworzyć nowy commit cofający zmiany z określonego commita.",
+			"git revert jest bezpieczniejszy niż git reset dla commitów, które zostały wypchnięte do zdalnych repozytoriów.",
+			"Komenda revert otworzy edytor dla wiadomości commita, lub użyj -m, aby określić ją bezpośrednio."
+		]
+	},
+	{
+		"id": 38,
+		"title": "Reset gałęzi do poprzedniego commita (Soft Reset)",
+		"description": "Czasem musisz zresetować gałąź do poprzedniego commita zachowując zmiany w obszarze przygotowania. To pozwala ponownie commitować zmiany z inną strukturą lub wiadomością.\n\nMasz commity które muszą zostać cofnięte, ale chcesz zachować zmiany przygotowane. Zresetuj gałąź do commita 'abc123def' używając soft reset.",
+		"difficulty": "Średni",
+		"category": "Cofanie i Naprawianie Błędów",
+		"hints": [
+			"Użyj 'git reset --soft <commit-id>', aby zresetować do konkretnego commita zachowując zmiany przygotowane.",
+			"Możesz użyć ID commita 'abc123def' lub znaleźć go używając 'git log'.",
+			"Soft reset przesuwa HEAD wstecz ale zachowuje obszar przygotowania i katalog roboczy."
+		]
+	},
+	{
+		"id": 39,
+		"title": "Reset gałęzi do poprzedniego commita (Hard Reset)",
+		"description": "Czasem musisz całkowicie zresetować gałąź do poprzedniego commita, odrzucając wszystkie zmiany zarówno w obszarze przygotowania jak i katalogu roboczym. To destrukcyjna operacja, która na stałe usuwa niezcommitowane zmiany.\n\nMasz commity zawierające błędy i chcesz całkowicie zresetować do commita 'abc123def', odrzucając wszystkie kolejne zmiany. Użyj hard reset, aby to osiągnąć.",
+		"difficulty": "Średni",
+		"category": "Cofanie i Naprawianie Błędów",
+		"hints": [
+			"Użyj 'git reset --hard <commit-id>', aby zresetować do konkretnego commita i odrzucić wszystkie zmiany.",
+			"Możesz użyć ID commita 'abc123def' lub znaleźć go używając 'git log'.",
+			"Hard reset jest destrukcyjny - na stałe usunie wszystkie niezcommitowane zmiany.",
+			"Uważaj z hard reset ponieważ nie można go łatwo cofnąć."
+		]
+	},
+	{
+		"id": 40,
+		"title": "Przywrócenie usuniętego pliku z poprzedniego commita",
+		"description": "Czasem przypadkowo usuwasz plik i commitujesz usunięcie, ale później zdajesz sobie sprawę, że ten plik jest potrzebny. Git pozwala przywracać pliki z poprzednich commitów bez wpływu na inne zmiany.\n\nPlik o nazwie 'important-config.txt' został usunięty w niedawnym commicie. Przywróć ten plik z commita przed jego usunięciem (commit ID 'def456abc').",
+		"difficulty": "Średni",
+		"category": "Cofanie i Naprawianie Błędów",
+		"hints": [
+			"Użyj 'git checkout <commit-id> -- <filename>', aby przywrócić plik z konkretnego commita.",
+			"Możesz również użyć 'git restore --source=<commit-id> <filename>' (Git 2.23+).",
+			"ID commita 'def456abc' zawiera wersję pliku, którą chcesz przywrócić.",
+			"Po przywróceniu plik będzie przygotowany i gotowy do commitowania."
+		]
+	}
+]

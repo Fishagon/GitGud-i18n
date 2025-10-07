@@ -1,0 +1,135 @@
+[
+	{
+		"id": 71,
+		"title": "Buscar Alterações de um Remoto Sem Mesclá-las",
+		"description": "Às vezes você quer ver quais alterações estão disponíveis em um repositório remoto sem imediatamente mesclá-las na sua branch atual. O comando 'git fetch' baixa as alterações mas não as mescla, permitindo revisá-las primeiro.\n\nBusque as últimas alterações do remoto 'origin' sem mesclá-las na sua branch atual.",
+		"difficulty": "Fácil",
+		"category": "Colaboração",
+		"hints": [
+			"Use 'git fetch origin' para baixar alterações do remoto origin.",
+			"Diferente do 'git pull', fetch não mescla as alterações na sua branch atual.",
+			"Após buscar, você pode usar 'git log origin/main' para ver quais alterações estão disponíveis.",
+			"Use 'git status' para ver que sua branch local está atrás do remoto."
+		]
+	},
+	{
+		"id": 72,
+		"title": "Redefinir Alterações Locais para Corresponder à Branch Remota",
+		"description": "Às vezes sua branch local divergiu da branch remota e você quer descartar todas as alterações locais para corresponder exatamente ao que está no remoto. Isso é útil quando você quer abandonar trabalho local e sincronizar com o estado remoto.\n\nVocê tem alterações locais que conflitam com a branch remota 'origin/main'. Redefina sua branch local para corresponder exatamente à branch remota.",
+		"difficulty": "Médio",
+		"category": "Colaboração",
+		"hints": [
+			"Primeiro use 'git fetch' para obter as últimas alterações remotas.",
+			"Use 'git reset --hard origin/main' para redefinir sua branch local para corresponder ao remoto.",
+			"Isso descartará todas as alterações locais e commits que não estão no remoto.",
+			"Seja cuidadoso - esta operação não pode ser desfeita facilmente!"
+		]
+	},
+	{
+		"id": 73,
+		"title": "Mesclar Alterações Remotas Mantendo Alterações Locais Intactas",
+		"description": "Você tem alterações locais no seu diretório de trabalho, mas também há novas alterações no repositório remoto. Você precisa mesclar as alterações remotas preservando seu trabalho local. Isso pode ser feito escondendo suas alterações, puxando, depois recuperando, ou commitando suas alterações primeiro.\n\nVocê tem modificações locais e o remoto tem novos commits. Mescle as alterações remotas mantendo suas alterações locais intactas.",
+		"difficulty": "Médio",
+		"category": "Colaboração",
+		"hints": [
+			"Você pode usar 'git stash' para salvar temporariamente suas alterações locais.",
+			"Após esconder, use 'git pull' para obter as alterações remotas.",
+			"Depois use 'git stash pop' para restaurar suas alterações locais.",
+			"Alternativamente, você pode commitear suas alterações locais primeiro, depois puxar.",
+			"Use 'git status' para verificar o estado do seu diretório de trabalho."
+		]
+	},
+	{
+		"id": 74,
+		"title": "Cherry-pick um Commit de Outra Branch",
+		"description": "Às vezes você precisa aplicar um commit específico de uma branch para outra sem mesclar a branch inteira. O comando 'git cherry-pick' permite copiar um commit de uma branch e aplicá-lo à sua branch atual.\n\nVocê tem uma branch de feature com um commit útil que quer aplicar à sua branch principal. Faça cherry-pick do commit com ID 'abc1234' da branch feature para sua branch atual.",
+		"difficulty": "Médio",
+		"category": "Colaboração",
+		"hints": [
+			"Use 'git log feature-branch' para ver os commits na branch feature.",
+			"Use 'git cherry-pick <commit-id>' para aplicar um commit específico à sua branch atual.",
+			"Certifique-se de estar na branch de destino antes de fazer cherry-pick.",
+			"O cherry-pick cria um novo commit com as mesmas alterações mas um ID de commit diferente."
+		]
+	},
+	{
+		"id": 75,
+		"title": "Push Forçado Após Reescrever Histórico",
+		"description": "Após reescrever o histórico do Git (como com rebase ou amend), sua branch local divergirá da branch remota. Um push regular será rejeitado, então você precisa usar push forçado para sobrescrever o histórico remoto. Isso é potencialmente perigoso pois pode sobrescrever o trabalho de outras pessoas.\n\nVocê reescreveu o histórico de commits localmente e precisa forçar o push das suas alterações para atualizar a branch remota. Use push forçado para atualizar o remoto 'origin'.",
+		"difficulty": "Difícil",
+		"category": "Colaboração",
+		"hints": [
+			"Use 'git push --force' ou 'git push -f' para forçar o push das suas alterações.",
+			"Push forçado sobrescreve a branch remota com sua versão local.",
+			"Seja muito cuidadoso com push forçado - pode sobrescrever o trabalho de outras pessoas!",
+			"Você pode usar 'git push --force-with-lease' para push forçado mais seguro.",
+			"Verifique 'git log --oneline' para ver seu histórico reescrito antes de fazer push."
+		]
+	},
+	{
+		"id": 76,
+		"title": "Push e Configurar Upstream para Nova Branch Remota",
+		"description": "Quando você cria uma branch local e quer enviá-la para um repositório remoto pela primeira vez, precisa configurar o relacionamento de rastreamento upstream. Isso permite que futuros comandos `git push` e `git pull` funcionem sem especificar nomes de remoto e branch.\n\nVocê tem uma branch local 'feature-login' com alguns commits que precisa ser enviada para o repositório remoto. Use git push com a flag upstream para criar a branch remota e configurar o rastreamento em um comando.",
+		"difficulty": "Fácil",
+		"category": "Colaboração",
+		"hints": [
+			"Use 'git push --set-upstream origin feature-login' para fazer push e configurar upstream em um comando.",
+			"Você também pode usar a abreviação 'git push -u origin feature-login'.",
+			"Isso cria a branch remota e configura o rastreamento para que pushes futuros não precisem especificar o remoto.",
+			"Certifique-se de estar na branch 'feature-login' quando executar o comando."
+		]
+	},
+	{
+		"id": 77,
+		"title": "Configurar Upstream para Branch Remota Existente",
+		"description": "Às vezes você tem uma branch local que deveria rastrear uma branch remota existente, mas o relacionamento de rastreamento não foi estabelecido ainda. Isso frequentemente acontece quando você cria uma branch local de uma branch remota ou ao trabalhar com branches criadas por outros membros da equipe.\n\nVocê tem uma branch local 'feature-auth' e já existe uma branch remota 'origin/feature-auth'. Configure sua branch local para rastrear a branch remota existente.",
+		"difficulty": "Fácil",
+		"category": "Colaboração",
+		"hints": [
+			"Use 'git branch -u origin/feature-auth' para configurar o upstream da branch atual.",
+			"Você também pode usar 'git branch --set-upstream-to=origin/feature-auth feature-auth' para ser mais explícito.",
+			"Certifique-se de estar na branch 'feature-auth', ou especifique o nome da branch no comando.",
+			"Não use 'git push -u' para este desafio - isso é para criar novas branches remotas."
+		]
+	},
+	{
+		"id": 78,
+		"title": "Fazer Rebase de uma Branch de Feature na Main",
+		"description": "Você tem uma branch de feature que foi criada de uma versão mais antiga da main. Desde então, main recebeu novos commits. Fazer rebase da sua branch de feature na última main mantém um histórico limpo e linear reproduzindo seus commits de feature no topo dos últimos commits da main, evitando commits de merge desnecessários. Esta prática também garante que sua feature funciona com as alterações de código mais recentes e torna o histórico do projeto mais fácil de ler e entender.\n\nAlterne para a branch 'feature-payment' e faça rebase dela na 'main' para atualizar sua base.",
+		"difficulty": "Médio",
+		"category": "Colaboração",
+		"hints": [
+			"Primeiro alterne para a branch feature com 'git checkout feature-payment'.",
+			"Depois use 'git rebase main' para fazer rebase da branch feature na main.",
+			"Isso reproduzirá seus commits de feature no topo dos últimos commits da main.",
+			"Se houver conflitos, resolva-os e use 'git rebase --continue'."
+		]
+	},
+	{
+		"id": 79,
+		"title": "Lidar com Estado Detached HEAD para Explorar Seguramente",
+		"description": "Quando você faz checkout de um commit específico, entra em um estado 'detached HEAD' onde não está em nenhuma branch. Isso é útil para explorar código antigo ou testar alterações, mas quaisquer commits feitos aqui podem ser perdidos se não forem tratados adequadamente. A maneira segura de trabalhar em detached HEAD é criar uma nova branch se quiser manter as alterações.\n\nFaça checkout do commit 'abc5678' para entrar no estado detached HEAD, depois crie uma nova branch chamada 'exploration' para torná-lo seguro para desenvolvimento.",
+		"difficulty": "Médio",
+		"category": "Colaboração",
+		"hints": [
+			"Use 'git checkout abc5678' para fazer checkout do commit específico (isso entra em detached HEAD).",
+			"O Git avisará sobre o estado detached HEAD - isso é normal.",
+			"Crie uma nova branch com 'git checkout -b exploration' ou 'git switch -c exploration'.",
+			"Isso torna sua posição segura para fazer commits sem perder trabalho."
+		]
+	},
+	{
+		"id": 80,
+		"title": "Sincronizar um Fork com o Repositório Upstream",
+		"description": "No desenvolvimento colaborativo, você frequentemente trabalha com um fork do repositório original. Seu fork (origin) pode ficar desatualizado quando o repositório original (upstream) recebe novos commits de outros contribuidores. Você precisa sincronizar seu fork com o repositório upstream para se manter atualizado com as últimas alterações.\n\nVocê tem um repositório forkado com 'origin' apontando para seu fork e 'upstream' apontando para o repositório original. O repositório upstream tem novos commits que você precisa puxar para seu repositório local e enviar para seu fork para mantê-lo sincronizado.",
+		"difficulty": "Médio",
+		"category": "Colaboração",
+		"hints": [
+			"Primeiro, busque as últimas alterações do upstream com 'git fetch upstream'.",
+			"Certifique-se de estar na sua branch principal com 'git checkout main'.",
+			"Mescle as alterações upstream com 'git merge upstream/main'.",
+			"Envie a branch main atualizada para seu fork com 'git push origin main'.",
+			"Este fluxo de trabalho mantém seu fork sincronizado com o repositório original."
+		]
+	}
+]

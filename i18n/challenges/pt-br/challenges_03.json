@@ -1,0 +1,117 @@
+[
+	{
+		"id": 21,
+		"title": "Adicionar um Repositório Remoto",
+		"description": "Repositórios remotos permitem colaborar com outros e fazer backup do seu trabalho.\n\nAdicione um repositório remoto chamado 'origin' com a URL:\nhttps://github.com/example/my-project.git",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Use 'git remote add origin https://github.com/example/my-project.git' para adicionar um repositório remoto.",
+			"Você pode verificar se o remoto foi adicionado com 'git remote -v' para listar todos os remotos."
+		]
+	},
+	{
+		"id": 22,
+		"title": "Listar Branches Remotas",
+		"description": "Ao trabalhar com repositórios remotos, frequentemente você precisa ver quais branches existem no remoto.\n\nUse o comando Git apropriado para listar todas as branches remotas.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Use 'git branch -r' para listar branches remotas.",
+			"Você também pode usar 'git branch --remotes' para o mesmo resultado."
+		]
+	},
+	{
+		"id": 23,
+		"title": "Buscar as Últimas Alterações de um Repositório Remoto",
+		"description": "Fazer fetch baixa alterações de um repositório remoto sem mesclá-las na sua branch atual.\n\nUse o comando Git apropriado para buscar as últimas alterações do repositório remoto 'origin'.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Use 'git fetch' para baixar alterações do repositório remoto.",
+			"Você pode especificar um nome de remoto com 'git fetch origin' ou apenas usar 'git fetch' para o remoto padrão."
+		]
+	},
+	{
+		"id": 24,
+		"title": "Puxar as Últimas Alterações de um Repositório Remoto",
+		"description": "Fazer pull combina fetch e merge em um comando. Ele baixa as últimas alterações de um repositório remoto e as mescla na sua branch atual.\n\nUse o comando Git apropriado para puxar as últimas alterações do repositório remoto para sua branch atual.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Use 'git pull' para buscar e mesclar alterações do repositório remoto.",
+			"Você pode especificar um nome de remoto com 'git pull origin' ou apenas usar 'git pull' para o remoto padrão."
+		]
+	},
+	{
+		"id": 25,
+		"title": "Enviar Sua Branch Local para o Repositório Remoto",
+		"description": "Fazer push envia seus commits locais para o repositório remoto, tornando-os disponíveis para outros colaboradores.\n\nVocê tem alguns commits locais que precisam ser compartilhados. Envie sua branch atual para o repositório remoto.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Use 'git push' para enviar seus commits locais para o repositório remoto.",
+			"Você pode especificar um nome de remoto com 'git push origin' ou usar 'git push' para o remoto padrão.",
+			"Se este for o primeiro push de uma nova branch, você pode precisar de 'git push -u origin <nome-da-branch>'"
+		]
+	},
+	{
+		"id": 26,
+		"title": "Enviar uma Nova Branch para o Remoto e Configurar Upstream",
+		"description": "Quando você cria uma nova branch localmente, frequentemente quer enviá-la para o repositório remoto e defini-la como branch upstream para facilitar futuros pushes e pulls.\n\nPrimeiro, crie uma nova branch chamada 'feature-login', depois envie-a para o repositório remoto e defina-a como branch upstream em um comando.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Primeiro crie e faça checkout de uma nova branch com 'git checkout -b feature-login'",
+			"Use 'git push -u origin feature-login' para enviar a branch e definir upstream em um comando",
+			"A flag -u é abreviação de --set-upstream e cria um relacionamento de rastreamento"
+		]
+	},
+	{
+		"id": 27,
+		"title": "Ver Informações Sobre Seus Remotos",
+		"description": "Às vezes você precisa ver informações detalhadas sobre seus repositórios remotos, incluindo suas URLs e configurações de fetch/push.\n\nVeja informações detalhadas sobre seus remotos usando o comando Git apropriado.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Use 'git remote -v' para ver nomes de remotos com suas URLs.",
+			"Você também pode usar 'git remote show <nome-do-remoto>' para ver informações detalhadas sobre um remoto específico."
+		]
+	},
+	{
+		"id": 28,
+		"title": "Remover um Repositório Remoto",
+		"description": "Às vezes você precisa remover repositórios remotos que não são mais necessários ou mudaram de localização.\n\nRemova o repositório remoto 'upstream' do seu repositório local.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Use 'git remote remove upstream' para remover o remoto upstream.",
+			"Você também pode usar 'git remote rm upstream' como abreviação.",
+			"Verifique se o remoto foi removido com 'git remote -v' para listar os remotos restantes."
+		]
+	},
+	{
+		"id": 29,
+		"title": "Renomear um Repositório Remoto",
+		"description": "Às vezes você precisa renomear repositórios remotos para refletir melhor seu propósito ou seguir convenções de nomenclatura.\n\nRenomeie o remoto 'upstream' para 'fork' para indicar melhor que é um fork do repositório original.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Use 'git remote rename upstream fork' para renomear o remoto.",
+			"Você pode verificar se o renome foi bem-sucedido com 'git remote -v' para listar todos os remotos.",
+			"Renomear um remoto também atualiza automaticamente quaisquer branches de rastreamento remoto."
+		]
+	},
+	{
+		"id": 30,
+		"title": "Clonar um Repositório em um Diretório Específico",
+		"description": "Ao clonar um repositório, você pode especificar o nome do diretório onde ele deve ser clonado.\n\nClone o repositório 'https://github.com/example/my-awesome-project.git' em um diretório chamado 'my-project'.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Use 'git clone <url> <nome-do-diretório>' para clonar em um diretório específico.",
+			"A sintaxe é: git clone https://github.com/example/my-awesome-project.git my-project",
+			"Isso criará um diretório chamado 'my-project' ao invés de 'my-awesome-project'."
+		]
+	}
+]

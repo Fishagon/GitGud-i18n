@@ -1,0 +1,117 @@
+[
+	{
+		"id": 21,
+		"title": "Agregar un Repositorio Remoto",
+		"description": "Los repositorios remotos te permiten colaborar con otros y hacer respaldo de tu trabajo.\n\nAgrega un repositorio remoto llamado 'origin' con la URL:\nhttps://github.com/example/my-project.git",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Usa 'git remote add origin https://github.com/example/my-project.git' para agregar un repositorio remoto.",
+			"Puedes verificar que el remoto fue agregado con 'git remote -v' para listar todos los remotos."
+		]
+	},
+	{
+		"id": 22,
+		"title": "Listar Ramas Remotas",
+		"description": "Al trabajar con repositorios remotos, a menudo necesitas ver qué ramas existen en el remoto.\n\nUsa el comando de Git apropiado para listar todas las ramas remotas.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Usa 'git branch -r' para listar ramas remotas.",
+			"También puedes usar 'git branch --remotes' para el mismo resultado."
+		]
+	},
+	{
+		"id": 23,
+		"title": "Obtener los Últimos Cambios de un Repositorio Remoto",
+		"description": "Obtener descarga cambios de un repositorio remoto sin fusionarlos en tu rama actual.\n\nUsa el comando de Git apropiado para obtener los últimos cambios del repositorio remoto 'origin'.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Usa 'git fetch' para descargar cambios del repositorio remoto.",
+			"Puedes especificar un nombre de remoto con 'git fetch origin' o simplemente usar 'git fetch' para el remoto por defecto."
+		]
+	},
+	{
+		"id": 24,
+		"title": "Extraer los Últimos Cambios de un Repositorio Remoto",
+		"description": "Extraer combina obtener y fusionar en un comando. Descarga los últimos cambios de un repositorio remoto y los fusiona en tu rama actual.\n\nUsa el comando de Git apropiado para extraer los últimos cambios del repositorio remoto en tu rama actual.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Usa 'git pull' para obtener y fusionar cambios del repositorio remoto.",
+			"Puedes especificar un nombre de remoto con 'git pull origin' o simplemente usar 'git pull' para el remoto por defecto."
+		]
+	},
+	{
+		"id": 25,
+		"title": "Empujar tu Rama Local al Repositorio Remoto",
+		"description": "Empujar sube tus confirmaciones locales al repositorio remoto, haciéndolas disponibles para otros colaboradores.\n\nTienes algunas confirmaciones locales que necesitan ser compartidas. Empuja tu rama actual al repositorio remoto.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Usa 'git push' para subir tus confirmaciones locales al repositorio remoto.",
+			"Puedes especificar un nombre de remoto con 'git push origin' o usar 'git push' para el remoto por defecto.",
+			"Si este es el primer empuje de una rama nueva, podrías necesitar 'git push -u origin <nombre-rama>'"
+		]
+	},
+	{
+		"id": 26,
+		"title": "Empujar una Nueva Rama al Remoto y Establecer Upstream",
+		"description": "Cuando creas una nueva rama localmente, a menudo quieres empujarla al repositorio remoto y establecerla como la rama upstream para futuros empujes y extracciones fáciles.\n\nPrimero, crea una nueva rama llamada 'feature-login', luego empújala al repositorio remoto y establécela como la rama upstream en un comando.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Primero crea y cambia a una nueva rama con 'git checkout -b feature-login'",
+			"Usa 'git push -u origin feature-login' para empujar la rama y establecer upstream en un comando",
+			"La opción -u es corta para --set-upstream y crea una relación de seguimiento"
+		]
+	},
+	{
+		"id": 27,
+		"title": "Ver Información Acerca de tus Remotos",
+		"description": "A veces necesitas ver información detallada sobre tus repositorios remotos, incluyendo sus URLs y configuraciones de fetch/push.\n\nVe información detallada sobre tus remotos usando el comando de Git apropiado.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Usa 'git remote -v' para ver nombres de remotos con sus URLs.",
+			"También puedes usar 'git remote show <nombre-remoto>' para ver información detallada sobre un remoto específico."
+		]
+	},
+	{
+		"id": 28,
+		"title": "Remover un Repositorio Remoto",
+		"description": "A veces necesitas remover repositorios remotos que ya no se necesitan o han cambiado de ubicación.\n\nRemueve el repositorio remoto 'upstream' de tu repositorio local.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Usa 'git remote remove upstream' para remover el remoto upstream.",
+			"También puedes usar 'git remote rm upstream' como abreviación.",
+			"Verifica que el remoto fue removido con 'git remote -v' para listar los remotos restantes."
+		]
+	},
+	{
+		"id": 29,
+		"title": "Renombrar un Repositorio Remoto",
+		"description": "A veces necesitas renombrar repositorios remotos para reflejar mejor su propósito o para seguir convenciones de nomenclatura.\n\nRenombra el remoto 'upstream' a 'fork' para indicar mejor que es una bifurcación del repositorio original.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Usa 'git remote rename upstream fork' para renombrar el remoto.",
+			"Puedes verificar que el renombramiento fue exitoso con 'git remote -v' para listar todos los remotos.",
+			"Renombrar un remoto también actualiza automáticamente cualquier rama de seguimiento remoto."
+		]
+	},
+	{
+		"id": 30,
+		"title": "Clonar un Repositorio en un Directorio Específico",
+		"description": "Al clonar un repositorio, puedes especificar el nombre del directorio donde debería ser clonado.\n\nClona el repositorio 'https://github.com/example/my-awesome-project.git' en un directorio llamado 'my-project'.",
+		"difficulty": "Fácil",
+		"category": "Remotos",
+		"hints": [
+			"Usa 'git clone <url> <nombre-directorio>' para clonar en un directorio específico.",
+			"La sintaxis es: git clone https://github.com/example/my-awesome-project.git my-project",
+			"Esto creará un directorio llamado 'my-project' en lugar de 'my-awesome-project'."
+		]
+	}
+]

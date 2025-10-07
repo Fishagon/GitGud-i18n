@@ -1,0 +1,141 @@
+[
+	{
+		"id": 81,
+		"title": "Usar git reflog para Recuperar um Commit Perdido e Salvá-lo",
+		"description": "Às vezes commits podem ficar 'perdidos' quando branches são excluídas ou redefinidas. Porém, o Git mantém um reflog (log de referência) de todas as alterações no HEAD e referências de branches. Você pode usar 'git reflog' para encontrar esses commits perdidos e recuperá-los criando uma nova branch.\n\nUm commit com alterações úteis foi acidentalmente perdido quando uma branch foi excluída. Use 'git reflog' para encontrar o commit perdido e criar uma nova branch chamada 'recovered-work' apontando para ele.",
+		"difficulty": "Médio",
+		"category": "Usuário Avançado",
+		"hints": [
+			"Use 'git reflog' para ver o histórico de todas as alterações de referência.",
+			"Procure por commits que não são mais alcançáveis de nenhuma branch.",
+			"Use 'git checkout -b recovered-work <commit-id>' para criar uma branch no commit perdido.",
+			"Você também pode usar 'git branch recovered-work <commit-id>' para criar a branch sem alternar para ela.",
+			"O reflog mostra entradas como 'HEAD@{0}', 'HEAD@{1}', etc. representando diferentes pontos no tempo."
+		]
+	},
+	{
+		"id": 82,
+		"title": "Ver um Log Detalhado de Alterações por Commit",
+		"description": "Às vezes você precisa ver não apenas as mensagens de commit e metadados, mas também as alterações reais feitas em cada commit. O Git fornece várias opções para ver informações detalhadas sobre commits, incluindo o conteúdo real do diff/patch, estatísticas de arquivo ou apenas os nomes dos arquivos alterados.\n\nUse git log com flags apropriadas para ver um log detalhado mostrando as alterações reais (diff/patch) feitas em cada commit.",
+		"difficulty": "Fácil",
+		"category": "Usuário Avançado",
+		"hints": [
+			"Use 'git log -p' para mostrar o patch/diff para cada commit.",
+			"Você também pode usar 'git log --patch' que é o mesmo que -p.",
+			"Tente 'git log --stat' para ver estatísticas de alterações de arquivo ao invés de diffs completos.",
+			"Use 'git log --name-only' para ver apenas os nomes dos arquivos alterados.",
+			"Use 'git log --name-status' para ver nomes de arquivos e seu status de alteração."
+		]
+	},
+	{
+		"id": 83,
+		"title": "Criar e Usar um Arquivo .gitignore",
+		"description": "Alguns arquivos nunca devem ser rastreados pelo Git - como arquivos temporários, artefatos de build ou arquivos de configuração sensíveis. O arquivo .gitignore diz ao Git quais arquivos ignorar. Crie um arquivo .gitignore com padrões para ignorar arquivos de log (*.log) e um diretório temp (temp/), depois verifique se funciona adicionando arquivos que devem ser ignorados.\n\nCrie um arquivo .gitignore, adicione padrões para ignorar arquivos '*.log' e diretório 'temp/', depois teste se esses arquivos são ignorados ao usar 'git add .'\n\n💡 Dica: Você pode criar arquivos usando comandos como 'createfile .gitignore', 'touch .gitignore', ou 'New-Item .gitignore'. Para editar arquivos, tente 'start .gitignore' (Windows), 'open .gitignore' (macOS), ou 'xdg-open .gitignore' (Linux).",
+		"difficulty": "Fácil",
+		"category": "Usuário Avançado",
+		"hints": [
+			"Crie um arquivo .gitignore na raiz do seu repositório usando 'createfile .gitignore' ou 'touch .gitignore'",
+			"Adicione padrões como '*.log' para ignorar todos os arquivos terminados em .log",
+			"Adicione 'temp/' para ignorar todo o diretório temp",
+			"Você pode editar o arquivo .gitignore usando 'start .gitignore', 'open .gitignore', ou 'Invoke-Item .gitignore'",
+			"Use 'git add .' para testar se arquivos ignorados não são preparados",
+			"O próprio arquivo .gitignore deve ser adicionado e commitado",
+			"Use 'git status' para ver quais arquivos são ignorados vs. prontos para serem preparados"
+		]
+	},
+	{
+		"id": 84,
+		"title": "Listar Todos os Arquivos Ignorados",
+		"description": "O Git fornece várias maneiras de ver quais arquivos estão sendo ignorados pelas suas regras do .gitignore. Isso é útil para depurar padrões do .gitignore ou verificar se arquivos sensíveis estão sendo adequadamente ignorados.\n\nUse comandos Git para listar todos os arquivos que estão sendo ignorados atualmente no repositório.",
+		"difficulty": "Fácil",
+		"category": "Usuário Avançado",
+		"hints": [
+			"Use 'git status --ignored' para ver arquivos ignorados junto com o status regular",
+			"Use 'git ls-files --ignored --exclude-standard' para listar apenas arquivos ignorados",
+			"Você também pode usar 'git check-ignore *' para verificar quais arquivos são ignorados",
+			"A flag --porcelain pode ser usada com git status para saída mais limpa"
+		]
+	},
+	{
+		"id": 85,
+		"title": "Configurar Aliases do Git para Comandos Usados Frequentemente",
+		"description": "Aliases do Git permitem criar atalhos para comandos Git comumente usados, tornando seu fluxo de trabalho mais eficiente.\n\nConfigure os seguintes aliases úteis:\n- 'st' para 'status'\n- 'co' para 'checkout'\n- 'br' para 'branch'\n- 'cm' para 'commit -m'",
+		"difficulty": "Fácil",
+		"category": "Usuário Avançado",
+		"hints": [
+			"Use 'git config --global alias.<nome> <comando>' para criar um alias.",
+			"Por exemplo: 'git config --global alias.st status' cria um alias 'st' para 'status'.",
+			"Você pode listar todos os aliases configurados com 'git config --list | grep alias'.",
+			"Após configurar aliases, você pode usá-los como 'git st' ao invés de 'git status'."
+		]
+	},
+	{
+		"id": 86,
+		"title": "Configurar Nome de Usuário e Email do Git Globalmente",
+		"description": "Antes de fazer commits, o Git precisa conhecer sua identidade. O nome de usuário e email são incluídos em cada commit que você faz. Configurar esses globalmente significa que serão usados para todos os repositórios Git no seu sistema, a menos que sejam sobrescritos localmente.\n\nConfigure sua identidade Git globalmente:\n- Configure seu nome para 'John Doe'\n- Configure seu email para 'john.doe@example.com'",
+		"difficulty": "Fácil",
+		"category": "Usuário Avançado",
+		"hints": [
+			"Use 'git config --global user.name \"Seu Nome\"' para configurar seu nome globalmente.",
+			"Use 'git config --global user.email \"seu.email@example.com\"' para configurar seu email globalmente.",
+			"A flag --global aplica a configuração a todos os repositórios no seu sistema.",
+			"Você pode verificar suas configurações com 'git config --list' ou 'git config user.name'.",
+			"Sem aspas, nomes com múltiplas palavras podem não ser analisados corretamente."
+		]
+	},
+	{
+		"id": 87,
+		"title": "Usar git grep para Buscar Texto Dentro de Commits",
+		"description": "Git grep pode buscar não apenas no diretório de trabalho e arquivos preparados, mas também em commits específicos. Isso é útil para encontrar quando certo código ou texto estava presente no histórico do repositório.\n\nUse 'git grep' para buscar pelo texto 'TODO' no commit 'HEAD~2' (dois commits atrás do HEAD atual). Isso ajudará você a encontrar comentários de desenvolvimento que estavam presentes em versões anteriores do código.",
+		"difficulty": "Médio",
+		"category": "Usuário Avançado",
+		"hints": [
+			"Use 'git grep \"padrão\" <commit>' para buscar em um commit específico.",
+			"Você pode usar referências de commit como 'HEAD~1', 'HEAD~2', etc.",
+			"Tente 'git log --oneline' primeiro para ver o histórico de commits.",
+			"A sintaxe é: git grep \"TODO\" HEAD~2",
+			"HEAD~2 refere-se ao commit que está 2 passos atrás do HEAD atual."
+		]
+	},
+	{
+		"id": 88,
+		"title": "Usar Submódulos Git para Gerenciar Repositórios Externos",
+		"description": "Submódulos Git permitem incluir e gerenciar repositórios externos como subdiretórios dentro do seu repositório principal. Eles são úteis para incluir bibliotecas, código compartilhado ou outras dependências mantendo-os como repositórios separados.\n\nAdicione um submódulo do repositório 'https://github.com/example/shared-utils.git' no caminho 'libs/utils', depois inicialize-o para que esteja pronto para usar.",
+		"difficulty": "Médio",
+		"category": "Usuário Avançado",
+		"hints": [
+			"Use 'git submodule add <url-do-repositorio> <caminho>' para adicionar um submódulo.",
+			"A sintaxe é: git submodule add https://github.com/example/shared-utils.git libs/utils",
+			"Após adicionar, use 'git submodule init libs/utils' para inicializar o submódulo.",
+			"Você pode verificar o status do submódulo com 'git submodule status'.",
+			"Submódulos são rastreados no arquivo .gitmodules e como um commit especial no seu repositório principal."
+		]
+	},
+	{
+		"id": 89,
+		"title": "Clonar um Repositório Incluindo Submódulos",
+		"description": "Ao clonar um repositório que contém submódulos, o Git não clona automaticamente os submódulos por padrão. Você precisa usar flags especiais para incluir submódulos durante a operação de clone.\n\nClone o repositório 'https://github.com/example/project-with-submodules.git' e garanta que todos os submódulos também sejam clonados e inicializados.",
+		"difficulty": "Médio",
+		"category": "Usuário Avançado",
+		"hints": [
+			"Use 'git clone --recurse-submodules <url-do-repositorio>' para clonar incluindo submódulos.",
+			"Você também pode usar 'git clone --recursive <url-do-repositorio>' que é equivalente.",
+			"A flag --recurse-submodules inicializará e atualizará automaticamente cada submódulo.",
+			"Sem essas flags, você precisaria executar 'git submodule init' e 'git submodule update' manualmente após clonar."
+		]
+	},
+	{
+		"id": 90,
+		"title": "Trabalhar com Múltiplas Árvores de Trabalho",
+		"description": "Árvores de trabalho permitem ter múltiplos diretórios de trabalho para o mesmo repositório, cada um com checkout em branches diferentes. Isso é útil para trabalhar em múltiplas features simultaneamente sem trocar de branches.\n\nCrie três árvores de trabalho:\n1. Árvore de trabalho 'feature-a' no caminho '../feature-a' para uma nova branch 'feature-a'\n2. Árvore de trabalho 'feature-b' no caminho '../feature-b' para uma nova branch 'feature-b'\n3. Árvore de trabalho 'hotfix' no caminho '../hotfix' para a branch 'main'\n\nDepois liste todas as árvores de trabalho para ver sua configuração.",
+		"difficulty": "Médio",
+		"category": "Usuário Avançado",
+		"hints": [
+			"Use 'git worktree add -b <branch> <caminho>' para criar uma árvore de trabalho com uma nova branch.",
+			"Use 'git worktree add <caminho> <branch-existente>' para criar uma árvore de trabalho de uma branch existente.",
+			"A sintaxe é: git worktree add -b feature-a ../feature-a",
+			"Use 'git worktree list' para ver todas suas árvores de trabalho.",
+			"Cada árvore de trabalho é um diretório de trabalho separado que compartilha o mesmo histórico Git."
+		]
+	}
+]

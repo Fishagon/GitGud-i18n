@@ -1,0 +1,145 @@
+[
+	{
+		"id": 91,
+		"title": "Assinar Commits Automaticamente com GPG",
+		"description": "GPG (GNU Privacy Guard) permite assinar criptograficamente seus commits para verificar sua autenticidade. Isso garante que commits são realmente seus e não foram alterados. Configure o Git para assinar automaticamente todos os commits com sua chave GPG.\n\nConfigure assinatura de commits GPG:\n1. Configure sua chave de assinatura GPG (use 'ABC123DEF456' como ID da chave)\n2. Habilite assinatura automática de commits\n3. Faça um commit assinado para testar a configuração",
+		"difficulty": "Médio",
+		"category": "Especialista",
+		"hints": [
+			"Use 'git config --global user.signingkey <key-id>' para configurar sua chave de assinatura GPG.",
+			"Use 'git config --global commit.gpgsign true' para habilitar assinatura automática de commits.",
+			"O ID da chave para este exercício é 'ABC123DEF456'.",
+			"Faça um commit após configurar para testar se a assinatura funciona.",
+			"Você pode verificar a configuração GPG com 'git config --list | grep gpg'."
+		]
+	},
+	{
+		"id": 92,
+		"title": "Comprimir Múltiplos Commits em Um ao Mesclar uma Branch",
+		"description": "Às vezes você quer mesclar uma branch de feature mas manter um histórico limpo combinando todos os commits da branch de feature em um único commit. Isso se chama 'squash merge' e é feito usando 'git merge --squash'.\n\nUma branch de feature chamada 'feature-cleanup' tem múltiplos pequenos commits que devem ser combinados em um commit ao mesclar na main. Use squash merge para combinar todos os commits de 'feature-cleanup' em um único commit com a mensagem 'Implement cleanup feature'.",
+		"difficulty": "Médio",
+		"category": "Especialista",
+		"hints": [
+			"Use 'git merge --squash feature-cleanup' para comprimir todos os commits da branch feature.",
+			"Após squash merge, as alterações são preparadas mas ainda não commitadas.",
+			"Use 'git commit -m \"Implement cleanup feature\"' para criar o commit comprimido final.",
+			"Verifique 'git log --oneline' para ver que apenas um commit foi adicionado ao invés de múltiplos.",
+			"Os commits originais da branch feature não aparecerão no histórico da branch principal."
+		]
+	},
+	{
+		"id": 93,
+		"title": "Reescrever o Histórico de uma Branch e Fazer Push Forçado",
+		"description": "Às vezes você precisa limpar seu histórico de commits antes de compartilhá-lo com outros. Isso envolve reescrever o histórico (usando rebase interativo) e depois forçar o push das alterações para atualizar a branch remota. Isso é útil para comprimir commits, corrigir mensagens de commit ou reordenar commits antes de mesclar.\n\nReescreva o histórico da branch atual comprimindo os últimos 2 commits em 1, depois force o push das alterações para o repositório remoto.",
+		"difficulty": "Difícil",
+		"category": "Especialista",
+		"hints": [
+			"Use 'git rebase -i HEAD~2' para começar rebase interativo dos últimos 2 commits.",
+			"Mude 'pick' para 'squash' ou 's' para comprimir o segundo commit no primeiro.",
+			"Após rebase, use 'git push --force' para atualizar a branch remota.",
+			"Seja cuidadoso com push forçado - pode sobrescrever o trabalho de outros!",
+			"Use 'git log --oneline' para verificar se o histórico foi reescrito corretamente."
+		]
+	},
+	{
+		"id": 94,
+		"title": "Resolver Conflitos de Merge Complexos com Múltiplas Branches",
+		"description": "Em projetos grandes, você pode encontrar conflitos complexos envolvendo múltiplas branches com alterações sobrepostas. Isso requer resolução cuidadosa para preservar todas as alterações intencionais.\n\nVocê tem três branches que precisam ser mescladas: 'feature-auth', 'feature-ui', e 'feature-api'. Mescle-as na branch 'main' em ordem, resolvendo quaisquer conflitos que surgirem. Use a estratégia de merge 'ours' quando necessário para preservar alterações da branch principal.",
+		"difficulty": "Difícil",
+		"category": "Especialista",
+		"hints": [
+			"Comece fazendo checkout da branch 'main'",
+			"Mescle uma branch de cada vez: 'git merge feature-auth' primeiro",
+			"Resolva conflitos editando os arquivos e removendo marcadores de conflito",
+			"Use 'git add <arquivo>' após resolver cada conflito",
+			"Complete cada merge com 'git commit' se necessário",
+			"Para conflitos difíceis, use 'git merge -X ours <branch>' para favorecer sua versão",
+			"Continue com as próximas branches: feature-ui, depois feature-api"
+		]
+	},
+	{
+		"id": 95,
+		"title": "Gerenciar Múltiplas Branches de Feature com Rebase Avançado",
+		"description": "Em desenvolvimento avançado, você frequentemente trabalha com múltiplas branches de feature que precisam ser mantidas atualizadas com a branch principal e entre si. Isso requer uso hábil de rebase para manter um histórico limpo.\n\nVocê tem duas branches de feature: 'feature-cleanup' e 'feature-refactor'. Para 'feature-cleanup': comprima os últimos 3 commits em 1. Para 'feature-refactor': faça rebase na 'main' e reordene os commits para que 'Refactor tests' venha antes de 'Refactor code structure'.",
+		"difficulty": "Difícil",
+		"category": "Especialista",
+		"hints": [
+			"Use 'git checkout feature-cleanup' para alternar para a primeira branch",
+			"Use 'git rebase -i HEAD~3' para começar rebase interativo dos últimos 3 commits",
+			"Mude 'pick' para 'squash' ou 's' para commits que você quer combinar",
+			"Alterne branches com 'git checkout feature-refactor'",
+			"Use 'git rebase main' para fazer rebase de feature-refactor na main",
+			"Use 'git rebase -i HEAD~2' para reordenar os últimos 2 commits",
+			"Na lista de tarefas do rebase, você pode mover linhas para cima/baixo para reordenar commits"
+		]
+	},
+	{
+		"id": 96,
+		"title": "Configurar um Servidor Git para Hospedar Seus Próprios Repositórios",
+		"description": "Configurar seu próprio servidor Git permite hospedar repositórios privadamente e controlar acesso. Você pode usar o daemon integrado do Git para servir simples, ou configurar soluções mais avançadas.\n\nCrie um repositório bare chamado 'project.git', depois inicie um daemon Git para servi-lo na porta padrão (9418) com receive-pack habilitado para que outros possam fazer push nele.",
+		"difficulty": "Difícil",
+		"category": "Especialista",
+		"hints": [
+			"Use 'git init --bare project.git' para criar um repositório bare",
+			"Inicie o daemon Git com 'git daemon --base-path=. --enable=receive-pack'",
+			"Repositórios bare não têm diretório de trabalho - apenas armazenam dados Git",
+			"A flag --enable=receive-pack permite que outros façam push no seu servidor",
+			"Você pode testar o servidor clonando com 'git clone git://localhost/project.git'"
+		]
+	},
+	{
+		"id": 97,
+		"title": "Converter um Repositório Git Existente em um Repositório Bare",
+		"description": "Às vezes você precisa converter um repositório Git regular (com diretório de trabalho) em um repositório bare para compartilhamento ou uso em servidor. Um repositório bare contém apenas os dados Git sem diretório de trabalho.\n\nVocê tem um repositório regular com alguns commits. Converta-o em um repositório bare no caminho '../project-bare.git' preservando todos os commits e branches.",
+		"difficulty": "Médio",
+		"category": "Especialista",
+		"hints": [
+			"Use 'git clone --bare . ../project-bare.git' para criar um clone bare do repositório atual",
+			"Um repositório bare não tem diretório de trabalho - apenas dados Git",
+			"Você também pode usar 'git clone --mirror' para incluir todas as refs e remotos",
+			"Após conversão, verifique com 'git config core.bare' no novo repositório",
+			"Repositórios bare são tipicamente nomeados com sufixo .git"
+		]
+	},
+	{
+		"id": 98,
+		"title": "Usar git rev-list com Opções de Filtragem Avançadas",
+		"description": "O comando `git rev-list` é a ferramenta poderosa de baixo nível do Git para percorrer o histórico de commits. Ele suporta muitas opções de filtragem e formatação que o tornam incrivelmente versátil para analisar o histórico do repositório.\n\nUse `git rev-list` com as seguintes opções combinadas em um único comando:\n- Contar os commits ao invés de listá-los\n- Filtrar para mostrar apenas commits por autores contendo 'john'\n- Buscar mensagens de commit pela palavra 'fix'\n- Excluir commits de merge dos resultados\n\nEssa combinação dará uma contagem de commits não-merge por 'john' que mencionam 'fix' na sua mensagem de commit.",
+		"difficulty": "Médio",
+		"category": "Especialista",
+		"hints": [
+			"A flag --count faz rev-list retornar apenas o número de commits correspondentes",
+			"A flag --author filtra commits por nome do autor (correspondências parciais funcionam)",
+			"A flag --grep busca por texto dentro de mensagens de commit",
+			"A flag --no-merges exclui commits de merge dos resultados",
+			"Todas essas opções podem ser combinadas em um único comando rev-list",
+			"Use 'git rev-list --count --author=\"john\" --grep=\"fix\" --no-merges HEAD'"
+		]
+	},
+	{
+		"id": 99,
+		"title": "Encontrar Todas as Bases de Merge com git merge-base --all",
+		"description": "Em repositórios complexos com múltiplos pontos de merge, pode haver mais de uma base de merge entre commits. Use git merge-base com a flag --all para encontrar todas as possíveis bases de merge entre três branches de feature.\n\nEncontre todas as bases de merge entre 'feature-x', 'feature-y', e 'feature-z' usando um único comando com a flag --all. Isso mostrará todo ancestral comum compartilhado entre essas branches.",
+		"difficulty": "Difícil",
+		"category": "Especialista",
+		"hints": [
+			"Use 'git merge-base --all feature-x feature-y feature-z' para encontrar todos os ancestrais comuns.",
+			"A flag --all mostra toda base de merge, não apenas a melhor.",
+			"Com históricos de merge complexos, múltiplos commits podem ser bases de merge.",
+			"Você pode visualizar a estrutura com 'git log --graph --oneline --all'."
+		]
+	},
+	{
+		"id": 100,
+		"title": "Dominar Git Clean - Desafio Final",
+		"description": "Parabéns por chegar ao desafio final! Seu repositório acumulou vários tipos de arquivos e diretórios não rastreados que precisam ser limpos estrategicamente.\n\nVocê tem:\n- Arquivos fonte não rastreados que devem ser removidos\n- Diretórios não rastreados que precisam de limpeza\n- Alguns arquivos ignorados (artefatos de build) que também devem ser removidos\n- Um arquivo específico 'important-notes.txt' que deve ser preservado\n\nExecute uma operação de limpeza abrangente que remove arquivos e diretórios não rastreados, incluindo arquivos ignorados, mas exclua o arquivo de notas importantes.",
+		"difficulty": "Difícil",
+		"category": "Limpeza e Manutenção",
+		"hints": [
+			"Você precisa usar múltiplas flags: -f (forçar), -d (diretórios), -x (arquivos ignorados)",
+			"Use -e para excluir o arquivo important-notes.txt da limpeza",
+			"O comando completo deve ser: git clean -fdx -e important-notes.txt",
+			"Isso remove arquivos não rastreados, diretórios e arquivos ignorados preservando o arquivo excluído"
+		]
+	}
+]

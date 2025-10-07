@@ -1,0 +1,124 @@
+[
+	{
+		"id": 31,
+		"title": "Modificar la Última Confirmación sin Cambiar su Mensaje",
+		"description": "A veces te das cuenta de que olvidaste preparar un archivo o hiciste un pequeño cambio después de confirmar. Git te permite modificar la última confirmación para incluir cambios adicionales sin crear una nueva confirmación.\n\nTienes algunos cambios preparados que deberían haber sido incluidos en la última confirmación. Modifica la última confirmación para incluir estos cambios sin modificar el mensaje de confirmación.",
+		"difficulty": "Fácil",
+		"category": "Deshacer y Corregir Errores",
+		"hints": [
+			"Usa 'git commit --amend --no-edit' para modificar la última confirmación sin cambiar el mensaje.",
+			"La opción --amend modifica la última confirmación en lugar de crear una nueva.",
+			"La opción --no-edit mantiene sin cambios el mensaje de confirmación existente."
+		]
+	},
+	{
+		"id": 32,
+		"title": "Modificar la Última Confirmación y Actualizar su Mensaje",
+		"description": "A veces necesitas modificar el mensaje de la última confirmación o agregar cambios olvidados a ella.\n\nTu última confirmación tiene el mensaje 'Add new feature' pero debería decir 'Add user authentication feature'. Usa la funcionalidad de modificación de Git para actualizar el mensaje de confirmación.",
+		"difficulty": "Fácil",
+		"category": "Deshacer y Corregir Errores",
+		"hints": [
+			"Usa 'git commit --amend -m \"Add user authentication feature\"' para cambiar el mensaje de la última confirmación.",
+			"La opción --amend modifica la confirmación más reciente en lugar de crear una nueva.",
+			"No uses --no-edit ya que eso preservaría el mensaje existente (incorrecto)."
+		]
+	},
+	{
+		"id": 33,
+		"title": "Deshacer la Última Confirmación pero Mantener los Cambios Preparados",
+		"description": "A veces confirmas demasiado temprano y te das cuenta de que quieres hacer cambios adicionales o arreglar el mensaje de confirmación. Git te permite deshacer la última confirmación mientras mantienes los cambios preparados para que puedas modificarlos y confirmar de nuevo.\n\nTu última confirmación se hizo prematuramente. Deshazla pero mantén los cambios preparados para que puedas trabajar más con ellos.",
+		"difficulty": "Fácil",
+		"category": "Deshacer y Corregir Errores",
+		"hints": [
+			"Usa 'git reset --soft HEAD~1' para deshacer la última confirmación pero mantener los cambios preparados.",
+			"La opción --soft preserva tus cambios preparados, a diferencia de --hard que los descarta.",
+			"HEAD~1 se refiere a la confirmación anterior al HEAD actual (una confirmación atrás)."
+		]
+	},
+	{
+		"id": 34,
+		"title": "Deshacer la Última Confirmación y Despreparar los Cambios",
+		"description": "A veces quieres deshacer una confirmación pero mantener los cambios en tu directorio de trabajo como archivos no preparados. Esto te permite modificar los archivos más antes de confirmar de nuevo.\n\nTu última confirmación necesita ser deshecha, y los cambios deberían permanecer en tu directorio de trabajo pero estar no preparados.",
+		"difficulty": "Fácil",
+		"category": "Deshacer y Corregir Errores",
+		"hints": [
+			"Usa 'git reset HEAD~1' para deshacer la última confirmación y despreparar cambios.",
+			"El reset mixto (por defecto) mueve HEAD atrás y desprepara archivos pero mantiene cambios en el directorio de trabajo.",
+			"HEAD~1 se refiere a la confirmación anterior al HEAD actual (una confirmación atrás)."
+		]
+	},
+	{
+		"id": 35,
+		"title": "Despreparar un Archivo que fue Agregado Accidentalmente",
+		"description": "A veces preparas accidentalmente un archivo que no querías incluir en tu próxima confirmación. Git te permite despreparar archivos sin perder los cambios en tu directorio de trabajo.\n\nHas preparado accidentalmente 'temp.log' que no debería ser confirmado. Desprepara este archivo mientras mantienes los cambios en tu directorio de trabajo.",
+		"difficulty": "Fácil",
+		"category": "Deshacer y Corregir Errores",
+		"hints": [
+			"Usa 'git reset HEAD temp.log' para despreparar el archivo mientras mantienes cambios en el directorio de trabajo.",
+			"También puedes usar 'git reset temp.log' como abreviación para la misma operación.",
+			"El archivo permanecerá modificado en tu directorio de trabajo después de desprepararlo."
+		]
+	},
+	{
+		"id": 36,
+		"title": "Descartar Cambios No Confirmados en un Archivo",
+		"description": "A veces haces cambios a un archivo pero te das cuenta de que quieres descartarlos y regresar el archivo a su último estado confirmado. Git te permite descartar cambios en tu directorio de trabajo sin afectar los cambios preparados.\n\nHas hecho cambios a 'file.txt' que quieres descartar. Usa Git para restaurar el archivo a su último estado confirmado.",
+		"difficulty": "Fácil",
+		"category": "Deshacer y Corregir Errores",
+		"hints": [
+			"Usa 'git checkout -- file.txt' para descartar cambios al archivo.",
+			"También puedes usar 'git restore file.txt' (Git 2.23+) para el mismo efecto.",
+			"Esto solo afecta cambios no confirmados en tu directorio de trabajo, no cambios preparados."
+		]
+	},
+	{
+		"id": 37,
+		"title": "Revertir una Confirmación que fue Empujada al Remoto",
+		"description": "A veces necesitas deshacer cambios de una confirmación que ya ha sido empujada a un repositorio remoto. A diferencia de git reset, git revert crea una nueva confirmación que deshace los cambios, haciéndolo seguro para repositorios compartidos.\n\nTienes una confirmación con ID 'abc123def' que introdujo un error y necesita ser revertida. Usa git revert para deshacer sus cambios de forma segura.",
+		"difficulty": "Medio",
+		"category": "Deshacer y Corregir Errores",
+		"hints": [
+			"Usa 'git revert <commit-id>' para crear una nueva confirmación que deshace los cambios de la confirmación especificada.",
+			"git revert es más seguro que git reset para confirmaciones que han sido empujadas a repositorios remotos.",
+			"El comando revert abrirá un editor para el mensaje de confirmación, o usa -m para especificarlo directamente."
+		]
+	},
+	{
+		"id": 38,
+		"title": "Reiniciar una Rama a una Confirmación Anterior (Reset Suave)",
+		"description": "A veces necesitas reiniciar tu rama a una confirmación anterior mientras preservas tus cambios en el área de preparación. Esto te permite volver a confirmar los cambios con una estructura o mensaje diferente.\n\nTienes confirmaciones que necesitan ser deshechas, pero quieres mantener los cambios preparados. Reinicia tu rama a la confirmación 'abc123def' usando un reset suave.",
+		"difficulty": "Medio",
+		"category": "Deshacer y Corregir Errores",
+		"hints": [
+			"Usa 'git reset --soft <commit-id>' para reiniciar a una confirmación específica mientras mantienes cambios preparados.",
+			"Puedes usar el ID de confirmación 'abc123def' o encontrarlo usando 'git log'.",
+			"El reset suave mueve HEAD atrás pero preserva tu área de preparación y directorio de trabajo."
+		]
+	},
+	{
+		"id": 39,
+		"title": "Reiniciar una Rama a una Confirmación Anterior (Reset Duro)",
+		"description": "A veces necesitas reiniciar completamente tu rama a una confirmación anterior, descartando todos los cambios tanto en el área de preparación como en el directorio de trabajo. Esta es una operación destructiva que remueve permanentemente cambios no confirmados.\n\nTienes confirmaciones que contienen errores y quieres reiniciar completamente a la confirmación 'abc123def', descartando todos los cambios subsecuentes. Usa un reset duro para lograr esto.",
+		"difficulty": "Medio",
+		"category": "Deshacer y Corregir Errores",
+		"hints": [
+			"Usa 'git reset --hard <commit-id>' para reiniciar a una confirmación específica y descartar todos los cambios.",
+			"Puedes usar el ID de confirmación 'abc123def' o encontrarlo usando 'git log'.",
+			"El reset duro es destructivo - removerá permanentemente todos los cambios no confirmados.",
+			"Ten cuidado con el reset duro ya que no puede deshacerse fácilmente."
+		]
+	},
+	{
+		"id": 40,
+		"title": "Restaurar un Archivo Eliminado de una Confirmación Anterior",
+		"description": "A veces eliminas accidentalmente un archivo y confirmas la eliminación, pero luego te das cuenta de que necesitas ese archivo de vuelta. Git te permite restaurar archivos de confirmaciones anteriores sin afectar otros cambios.\n\nUn archivo llamado 'important-config.txt' fue eliminado en una confirmación reciente. Restaura este archivo de la confirmación antes de que fuera eliminado (ID de confirmación 'def456abc').",
+		"difficulty": "Medio",
+		"category": "Deshacer y Corregir Errores",
+		"hints": [
+			"Usa 'git checkout <commit-id> -- <filename>' para restaurar un archivo de una confirmación específica.",
+			"También puedes usar 'git restore --source=<commit-id> <filename>' (Git 2.23+).",
+			"El ID de confirmación 'def456abc' contiene la versión del archivo que quieres restaurar.",
+			"Después de restaurar, el archivo estará preparado y listo para confirmar."
+		]
+	}
+]

@@ -1,0 +1,122 @@
+[
+	{
+		"id": 11,
+		"title": "Utworzenie i przełączenie na gałąź w jednej komendzie",
+		"description": "Git pozwala utworzyć i przełączyć się na nową gałąź za pomocą jednej komendy.\n\nUtwórz nową gałąź o nazwie 'feature-branch' i przełącz się na nią za pomocą jednej komendy.",
+		"difficulty": "Łatwy",
+		"category": "Rozgałęzianie i Scalanie",
+		"hints": [
+			"Użyj 'git checkout -b feature-branch', aby utworzyć i przełączyć się na nową gałąź w jednej komendzie.",
+			"W nowszych wersjach Git możesz również użyć 'git switch -c feature-branch'."
+		]
+	},
+	{
+		"id": 12,
+		"title": "Scalenie gałęzi",
+		"description": "Scalanie łączy zmiany z jednej gałęzi do drugiej.\n\nPrzełącz się na gałąź 'master' i scal gałąź 'feature' z nią.",
+		"difficulty": "Średni",
+		"category": "Rozgałęzianie i Scalanie",
+		"hints": [
+			"Najpierw użyj 'git checkout master', aby przełączyć się na gałąź master.",
+			"Następnie użyj 'git merge feature', aby scalić gałąź feature z master."
+		]
+	},
+	{
+		"id": 13,
+		"title": "Scalanie bez fast-forward",
+		"description": "Czasem chcesz zachować historię gałęzi podczas scalania.\n\nScal gałąź 'feature' z 'master' używając flagi --no-ff, aby zapobiec fast-forwardowi.",
+		"difficulty": "Średni",
+		"category": "Rozgałęzianie i Scalanie",
+		"hints": [
+			"Najpierw użyj 'git checkout master', aby przełączyć się na gałąź master.",
+			"Następnie użyj 'git merge --no-ff feature', aby scalić z commitem nawet jeśli fast-forward jest możliwy."
+		]
+	},
+	{
+		"id": 14,
+		"title": "Rozwiązanie konfliktu scalania",
+		"description": "Czasem zmiany w różnych gałęziach są sprzeczne ze sobą.\n\nRozwiąż konflikt scalania między gałęziami 'feature' i 'master' poprzez scalenie 'feature' do 'master' i naprawienie konfliktu w 'shared-file.txt'.\n\nMożesz użyć specjalnych komend gry:\n- 'resolve current shared-file.txt', aby zachować wersję z bieżącej gałęzi\n- 'resolve incoming shared-file.txt', aby użyć wersji z nadchodzącej gałęzi",
+		"difficulty": "Średni",
+		"category": "Rozgałęzianie i Scalanie",
+		"hints": [
+			"Najpierw przejdź na gałąź master za pomocą 'git checkout master'",
+			"Spróbuj scalić za pomocą 'git merge feature' - to pokaże konflikt",
+			"Rozwiąż konflikt za pomocą 'resolve current shared-file.txt' lub 'resolve incoming shared-file.txt'",
+			"Po rozwiązaniu użyj 'git add shared-file.txt', aby oznaczyć jako rozwiązany",
+			"Dokończ scalanie za pomocą 'git commit -m \"Merge conflict resolved\"'"
+		]
+	},
+	{
+		"id": 15,
+		"title": "Przerwanie trwającego scalania",
+		"description": "Czasem scalanie idzie źle i musisz wrócić do stanu sprzed rozpoczęcia scalania.\n\nPrzejdź na gałąź 'master', spróbuj scalić gałąź 'feature' (co spowoduje konflikt), następnie przerwij scalanie używając odpowiedniej komendy Git.",
+		"difficulty": "Średni",
+		"category": "Rozgałęzianie i Scalanie",
+		"hints": [
+			"Najpierw użyj 'git checkout master', aby przełączyć się na gałąź master",
+			"Następnie użyj 'git merge feature', aby rozpocząć scalanie (co spowoduje konflikt)",
+			"Aby przerwać scalanie i wrócić do stanu sprzed scalania, użyj 'git merge --abort'",
+			"Alternatywne rozwiązania to 'git reset --hard HEAD' lub 'git checkout -f'"
+		]
+	},
+	{
+		"id": 16,
+		"title": "Wyświetlenie graficznego logu gałęzi i commitów",
+		"description": "Regularna komenda git log pokazuje commity w sposób liniowy. Dla repozytoriów z wieloma gałęziami pomocna może być wizualizacja struktury gałęzi.\n\nUżyj git log z flagą --graph, aby wyświetlić graficzną reprezentację historii commitów. Możesz również spróbować dodatkowe flagi jak --oneline dla kompaktowego wyjścia i --all, aby zobaczyć wszystkie gałęzie.",
+		"difficulty": "Łatwy",
+		"category": "Rozgałęzianie i Scalanie",
+		"hints": [
+			"Użyj 'git log --graph', aby pokazać tekstową graficzną reprezentację historii commitów.",
+			"Spróbuj łączyć flagi: 'git log --graph --oneline --all' dla jeszcze bardziej użytecznego widoku."
+		]
+	},
+	{
+		"id": 17,
+		"title": "Wylistowanie wszystkich gałęzi w repozytorium",
+		"description": "Aby skutecznie zarządzać repozytorium, musisz wiedzieć jakie gałęzie istnieją.\n\nUżyj odpowiedniej komendy Git, aby wylistować wszystkie gałęzie w repozytorium.",
+		"difficulty": "Łatwy",
+		"category": "Rozgałęzianie i Scalanie",
+		"hints": [
+			"Komenda do wylistowania wszystkich gałęzi to po prostu 'git branch' bez dodatkowych argumentów.",
+			"Twoja bieżąca gałąź będzie oznaczona gwiazdką (*) w wyniku."
+		]
+	},
+	{
+		"id": 18,
+		"title": "Zmiana nazwy bieżącej gałęzi",
+		"description": "Czasem nazwy gałęzi muszą zostać zmienione, aby lepiej odzwierciedlać ich przeznaczenie.\n\nZmień nazwę bieżącej gałęzi z 'master' na 'main'.",
+		"difficulty": "Łatwy",
+		"category": "Rozgałęzianie i Scalanie",
+		"hints": [
+			"Użyj 'git branch -m main', aby zmienić nazwę bieżącej gałęzi.",
+			"Możesz również użyć dłuższej formy 'git branch --move main'."
+		]
+	},
+	{
+		"id": 19,
+		"title": "Wymuszone usunięcie gałęzi",
+		"description": "Czasem musisz usunąć gałąź nawet gdy ma niezscalone zmiany.\n\nUtwórz gałąź o nazwie 'feature-temp' i dodaj do niej commit. Następnie przełącz się z powrotem na master i wymuś usunięcie gałęzi 'feature-temp'.\n\nUżyj specjalnej komendy gry 'createfile nazwa_pliku zawartość', aby utworzyć plik (np. 'createfile newfile.txt This is content').",
+		"difficulty": "Średni",
+		"category": "Rozgałęzianie i Scalanie",
+		"hints": [
+			"Najpierw utwórz gałąź za pomocą 'git branch feature-temp' i przełącz się na nią za pomocą 'git checkout feature-temp'",
+			"Utwórz plik używając 'createfile newfile.txt Some content'",
+			"Przygotuj plik za pomocą 'git add newfile.txt'",
+			"Zatwierdź go za pomocą 'git commit -m \"Add new file\"'",
+			"Przełącz się z powrotem na master za pomocą 'git checkout master'",
+			"Spróbuj usunąć za pomocą 'git branch -d feature-temp' - zobaczysz że się nie powiedzie",
+			"Wymuś usunięcie za pomocą 'git branch -D feature-temp'"
+		]
+	},
+	{
+		"id": 20,
+		"title": "Wylistowanie scalonych i niezscalonych gałęzi",
+		"description": "Git pozwala filtrować gałęzie według ich statusu scalenia względem bieżącej gałęzi.\n\nUżyj odpowiednich komend Git, aby:\n1. Wylistować gałęzie które zostały scalone do bieżącej gałęzi\n2. Wylistować gałęzie które nie zostały scalone do bieżącej gałęzi",
+		"difficulty": "Średni",
+		"category": "Rozgałęzianie i Scalanie",
+		"hints": [
+			"Użyj 'git branch --merged', aby zobaczyć gałęzie które zostały scalone do bieżącej gałęzi.",
+			"Użyj 'git branch --no-merged', aby zobaczyć gałęzie które nie zostały scalone do bieżącej gałęzi."
+		]
+	}
+]

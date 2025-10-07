@@ -1,0 +1,131 @@
+[
+	{
+		"id": 61,
+		"title": "Fazer Checkout de um Commit Anterior Sem Alterar o Histórico",
+		"description": "Às vezes você precisa examinar o estado do seu código em um ponto específico do histórico sem criar uma nova branch ou alterar o histórico de commits. O Git permite fazer checkout de um commit específico diretamente, colocando você em um estado 'detached HEAD'.\n\nVocê suspeita que o commit 'abc123def' introduziu um bug. Faça checkout desse commit específico para examinar o código naquele momento.",
+		"difficulty": "Médio",
+		"category": "Depuração",
+		"hints": [
+			"Use 'git checkout <commit-id>' para fazer checkout de um commit específico diretamente.",
+			"Isso colocará você em estado 'detached HEAD' - você não está em nenhuma branch.",
+			"Você pode usar o ID completo do commit ou apenas os primeiros 7 caracteres: 'abc123d'.",
+			"Use 'git log' para ver os commits disponíveis e seus IDs."
+		]
+	},
+	{
+		"id": 62,
+		"title": "Descobrir Quais Arquivos Mudaram em um Commit Específico",
+		"description": "Às vezes você precisa ver quais arquivos foram modificados em um commit específico sem ver o conteúdo completo do diff. O Git fornece opções para mostrar apenas os nomes dos arquivos que mudaram.\n\nUse git show para exibir apenas os nomes dos arquivos que mudaram no commit 'abc789def' (o commit de implementação de autenticação).",
+		"difficulty": "Fácil",
+		"category": "Depuração",
+		"hints": [
+			"Use 'git show --name-only <commit-id>' para mostrar apenas os nomes dos arquivos que mudaram.",
+			"Você também pode usar 'git show --name-status <commit-id>' para mostrar nomes dos arquivos com status de mudança.",
+			"O ID do commit 'abc789def' implementou o sistema de autenticação de usuário."
+		]
+	},
+	{
+		"id": 63,
+		"title": "Mostrar Alterações Introduzidas por um Commit",
+		"description": "Às vezes você precisa ver exatamente quais alterações foram feitas em um commit específico. O comando 'git show' exibe as informações do commit junto com as alterações reais (diff) introduzidas por esse commit.\n\nUse git show para exibir as alterações introduzidas pelo commit 'abc123def'.",
+		"difficulty": "Fácil",
+		"category": "Depuração",
+		"hints": [
+			"Use 'git show <commit-id>' para exibir as alterações introduzidas por um commit específico.",
+			"O comando git show exibe tanto os metadados do commit quanto o diff real.",
+			"Você pode usar o ID completo do commit ou apenas os primeiros caracteres."
+		]
+	},
+	{
+		"id": 64,
+		"title": "Listar Commits em uma Branch Específica que Não Estão na Main",
+		"description": "Ao trabalhar com múltiplas branches, você frequentemente precisa ver quais commits existem em uma branch de feature que ainda não foram mesclados na branch principal. O Git fornece várias maneiras de comparar branches e mostrar commits que existem em uma branch mas não em outra.\n\nVocê tem uma branch 'feature' que contém alguns commits que não estão na branch 'master'. Use git log para mostrar apenas os commits que existem na branch 'feature' mas não em 'master'.",
+		"difficulty": "Fácil",
+		"category": "Depuração",
+		"hints": [
+			"Use 'git log master..feature' para mostrar commits em feature que não estão em master.",
+			"Você também pode usar 'git log feature --not master' para o mesmo resultado.",
+			"A sintaxe '..' significa 'commits alcançáveis pelo lado direito mas não pelo lado esquerdo'.",
+			"Adicione '--oneline' para ver uma visualização mais compacta dos commits."
+		]
+	},
+	{
+		"id": 65,
+		"title": "Verificar o Histórico de um Arquivo Específico",
+		"description": "Às vezes você precisa ver o histórico de commits para um arquivo específico para entender como ele evoluiu ao longo do tempo. O Git permite filtrar o log para mostrar apenas commits que afetaram um arquivo particular.\n\nVocê quer ver o histórico de alterações do arquivo 'config.js'. Use git log para mostrar apenas os commits que modificaram esse arquivo.",
+		"difficulty": "Fácil",
+		"category": "Depuração",
+		"hints": [
+			"Use 'git log <filename>' para mostrar commits que modificaram um arquivo específico.",
+			"Você também pode usar 'git log --follow <filename>' para seguir o arquivo através de renomeações.",
+			"Adicione '--oneline' para ver uma visualização mais compacta do histórico do arquivo."
+		]
+	},
+	{
+		"id": 66,
+		"title": "Mostrar a Diferença Entre Dois Commits",
+		"description": "Às vezes você precisa ver o que mudou entre dois commits específicos. O Git permite comparar quaisquer dois commits para ver as diferenças no seu conteúdo.\n\nVocê quer ver as diferenças entre o commit 'abc123def' (a feature com bug) e o commit 'def456abc' (a correção de estilo). Use git diff para mostrar as alterações entre esses dois commits.",
+		"difficulty": "Fácil",
+		"category": "Depuração",
+		"hints": [
+			"Use 'git diff <commit1> <commit2>' para mostrar diferenças entre dois commits.",
+			"Você também pode usar 'git diff <commit1>..<commit2>' para o mesmo resultado.",
+			"A ordem importa - 'git diff A B' mostra o que mudou de A para B.",
+			"Use 'git log --oneline' para ver commits disponíveis e seus IDs."
+		]
+	},
+	{
+		"id": 67,
+		"title": "Comparar Duas Branches e Ver Suas Diferenças",
+		"description": "Ao trabalhar com múltiplas branches, você frequentemente precisa ver quais alterações existem entre elas. O Git fornece várias maneiras de comparar branches e ver as diferenças no seu conteúdo.\n\nVocê tem uma branch 'feature' e uma branch 'master'. Use git diff para mostrar as diferenças entre essas duas branches.",
+		"difficulty": "Fácil",
+		"category": "Depuração",
+		"hints": [
+			"Use 'git diff <branch1> <branch2>' para comparar duas branches.",
+			"Você também pode usar 'git diff <branch1>..<branch2>' para o mesmo resultado.",
+			"A ordem importa - 'git diff A B' mostra o que mudou de A para B.",
+			"Use 'git branch' para ver branches disponíveis."
+		]
+	},
+	{
+		"id": 68,
+		"title": "Encontrar Commits por um Autor Específico",
+		"description": "Às vezes você precisa encontrar todos os commits feitos por um autor específico para rastrear suas contribuições ou revisar seu trabalho. O Git permite filtrar o histórico de commits por nome do autor ou email.\n\nVocê quer ver todos os commits feitos por 'John Smith'. Use git log para mostrar apenas os commits de autoria dessa pessoa.",
+		"difficulty": "Fácil",
+		"category": "Depuração",
+		"hints": [
+			"Use 'git log --author=\"John Smith\"' para mostrar commits por um autor específico.",
+			"Você pode usar correspondência parcial: 'git log --author=john' combinará com 'John Smith'.",
+			"A correspondência de autor não diferencia maiúsculas e minúsculas por padrão.",
+			"Você pode combinar --author com outras flags como --oneline para saída compacta."
+		]
+	},
+	{
+		"id": 69,
+		"title": "Restaurar uma Branch Excluída",
+		"description": "Às vezes você exclui acidentalmente uma branch que ainda precisa. O Git mantém registro de onde as branches apontavam mesmo depois de serem excluídas através do reflog. Você pode restaurar uma branch excluída encontrando seu último commit e recriando-a.\n\nVocê excluiu acidentalmente a branch 'feature-login'. Use git reflog para encontrar onde ela estava apontando e restaurá-la.",
+		"difficulty": "Médio",
+		"category": "Depuração",
+		"hints": [
+			"Use 'git reflog' para ver o histórico de movimentos do HEAD e encontrar onde a branch excluída estava apontando.",
+			"Procure por entradas como 'checkout: moving from feature-login to master' para encontrar o último commit da branch.",
+			"Use 'git checkout -b feature-login <commit-id>' para recriar a branch naquele commit.",
+			"Você também pode usar 'git branch feature-login <commit-id>' se não estiver na branch que quer criar."
+		]
+	},
+	{
+		"id": 70,
+		"title": "Identificar o Commit que Introduziu um Bug Usando Git Bisect",
+		"description": "Git bisect é uma ferramenta poderosa para encontrar o commit exato que introduziu um bug usando busca binária. Você começa marcando um commit bom conhecido e um commit ruim conhecido, depois o Git guiará você através do teste de commits até encontrar o primeiro commit ruim.\n\nVocê sabe que o commit 'abc123def' é ruim (contém o bug) e o commit 'xyz789abc' é bom (não contém o bug). Use git bisect para identificar qual commit introduziu o bug.",
+		"difficulty": "Difícil",
+		"category": "Depuração",
+		"hints": [
+			"Comece com 'git bisect start' para iniciar o processo de bissecção.",
+			"Use 'git bisect bad <commit-id>' para marcar o commit ruim conhecido.",
+			"Use 'git bisect good <commit-id>' para marcar o commit bom conhecido.",
+			"O Git fará checkout de commits para você testar - marque cada um como 'git bisect good' ou 'git bisect bad'.",
+			"Continue até o Git identificar o primeiro commit ruim.",
+			"Use 'git bisect reset' quando terminar para retornar à sua branch original."
+		]
+	}
+]

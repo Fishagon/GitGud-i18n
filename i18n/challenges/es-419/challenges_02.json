@@ -1,0 +1,122 @@
+[
+	{
+		"id": 11,
+		"title": "Crear y Cambiar a una Rama en un Solo Comando",
+		"description": "Git te permite crear y cambiar a una nueva rama en un solo comando.\n\nCrea una nueva rama llamada 'feature-branch' y cambia a ella en un solo comando.",
+		"difficulty": "Fácil",
+		"category": "Ramificación y Fusión",
+		"hints": [
+			"Usa 'git checkout -b feature-branch' para crear y cambiar a una nueva rama en un solo comando.",
+			"En versiones más nuevas de Git, también puedes usar 'git switch -c feature-branch'."
+		]
+	},
+	{
+		"id": 12,
+		"title": "Fusionar una Rama",
+		"description": "Fusionar combina los cambios de una rama en otra.\n\nCambia a la rama 'master' y fusiona la rama 'feature' en ella.",
+		"difficulty": "Medio",
+		"category": "Ramificación y Fusión",
+		"hints": [
+			"Primero usa 'git checkout master' para cambiar a la rama master.",
+			"Luego usa 'git merge feature' para fusionar la rama feature en master."
+		]
+	},
+	{
+		"id": 13,
+		"title": "Fusión Sin Avance Rápido",
+		"description": "A veces quieres preservar el historial de la rama al fusionar.\n\nFusiona la rama 'feature' en 'master' con la opción --no-ff para prevenir el avance rápido.",
+		"difficulty": "Medio",
+		"category": "Ramificación y Fusión",
+		"hints": [
+			"Primero usa 'git checkout master' para cambiar a la rama master.",
+			"Luego usa 'git merge --no-ff feature' para fusionar con una confirmación incluso si el avance rápido es posible."
+		]
+	},
+	{
+		"id": 14,
+		"title": "Resolver un Conflicto de Fusión",
+		"description": "A veces los cambios en diferentes ramas entran en conflicto entre sí.\n\nResuelve el conflicto de fusión entre las ramas 'feature' y 'master' fusionando 'feature' en 'master' y arreglando el conflicto en 'shared-file.txt'.\n\nPuedes usar los comandos especiales del juego:\n- 'resolve current shared-file.txt' para mantener la versión de la rama actual\n- 'resolve incoming shared-file.txt' para usar la versión de la rama entrante",
+		"difficulty": "Medio",
+		"category": "Ramificación y Fusión",
+		"hints": [
+			"Primero cambia a la rama master con 'git checkout master'",
+			"Intenta fusionar con 'git merge feature' - esto mostrará el conflicto",
+			"Resuelve el conflicto con 'resolve current shared-file.txt' o 'resolve incoming shared-file.txt'",
+			"Después de resolver, usa 'git add shared-file.txt' para marcarlo como resuelto",
+			"Completa la fusión con 'git commit -m \"Conflicto de fusión resuelto\"'"
+		]
+	},
+	{
+		"id": 15,
+		"title": "Cancelar una Fusión en Progreso",
+		"description": "A veces una fusión sale mal y necesitas regresar al estado anterior al inicio de la fusión.\n\nCambia a la rama 'master', intenta fusionar la rama 'feature' (que causará un conflicto), luego cancela la fusión usando cualquier comando de Git apropiado.",
+		"difficulty": "Medio",
+		"category": "Ramificación y Fusión",
+		"hints": [
+			"Primero usa 'git checkout master' para cambiar a la rama master",
+			"Luego usa 'git merge feature' para iniciar la fusión (que causará un conflicto)",
+			"Para cancelar la fusión y regresar al estado anterior, usa 'git merge --abort'",
+			"Las soluciones alternativas incluyen 'git reset --hard HEAD' o 'git checkout -f'"
+		]
+	},
+	{
+		"id": 16,
+		"title": "Ver un Log Gráfico de Ramas y Confirmaciones",
+		"description": "El comando regular git log muestra las confirmaciones de manera lineal. Para repositorios con múltiples ramas, puede ser útil visualizar la estructura de las ramas.\n\nUsa git log con la opción --graph para mostrar una representación gráfica del historial de confirmaciones. También puedes probar opciones adicionales como --oneline para salida compacta y --all para ver todas las ramas.",
+		"difficulty": "Fácil",
+		"category": "Ramificación y Fusión",
+		"hints": [
+			"Usa 'git log --graph' para mostrar una representación gráfica basada en texto del historial de confirmaciones.",
+			"Prueba combinando opciones: 'git log --graph --oneline --all' para una vista aún más útil."
+		]
+	},
+	{
+		"id": 17,
+		"title": "Listar Todas las Ramas en un Repositorio",
+		"description": "Para gestionar tu repositorio efectivamente, necesitas saber qué ramas existen.\n\nUsa el comando de Git apropiado para listar todas las ramas en el repositorio.",
+		"difficulty": "Fácil",
+		"category": "Ramificación y Fusión",
+		"hints": [
+			"El comando para listar todas las ramas es simplemente 'git branch' sin argumentos adicionales.",
+			"Tu rama actual estará marcada con un asterisco (*) en la salida."
+		]
+	},
+	{
+		"id": 18,
+		"title": "Renombrar la Rama Actual",
+		"description": "A veces los nombres de tus ramas necesitan cambiar para reflejar mejor su propósito.\n\nRenombra la rama actual de 'master' a 'main'.",
+		"difficulty": "Fácil",
+		"category": "Ramificación y Fusión",
+		"hints": [
+			"Usa 'git branch -m main' para renombrar tu rama actual.",
+			"También puedes usar la forma larga 'git branch --move main'."
+		]
+	},
+	{
+		"id": 19,
+		"title": "Forzar Eliminación de una Rama",
+		"description": "A veces necesitas eliminar una rama incluso cuando tiene cambios no fusionados.\n\nCrea una rama llamada 'feature-temp' y agrégale una confirmación. Luego cambia de vuelta a master y fuerza la eliminación de la rama 'feature-temp'.\n\nUsa el comando especial del juego 'createfile filename content' para crear un archivo (ej., 'createfile newfile.txt Este es contenido').",
+		"difficulty": "Medio",
+		"category": "Ramificación y Fusión",
+		"hints": [
+			"Primero crea una rama con 'git branch feature-temp' y cambia a ella con 'git checkout feature-temp'",
+			"Crea un archivo usando 'createfile newfile.txt Algo de contenido'",
+			"Prepara el archivo con 'git add newfile.txt'",
+			"Confírmalo con 'git commit -m \"Agregar nuevo archivo\"'",
+			"Cambia de vuelta a master con 'git checkout master'",
+			"Intenta eliminar con 'git branch -d feature-temp' - verás que falla",
+			"Fuerza la eliminación con 'git branch -D feature-temp'"
+		]
+	},
+	{
+		"id": 20,
+		"title": "Listar Ramas Fusionadas y No Fusionadas",
+		"description": "Git te permite filtrar ramas por su estado de fusión relativo a la rama actual.\n\nUsa los comandos de Git apropiados para:\n1. Listar ramas que han sido fusionadas en la rama actual\n2. Listar ramas que no han sido fusionadas en la rama actual",
+		"difficulty": "Medio",
+		"category": "Ramificación y Fusión",
+		"hints": [
+			"Usa 'git branch --merged' para ver ramas que han sido fusionadas en la rama actual.",
+			"Usa 'git branch --no-merged' para ver ramas que no han sido fusionadas en la rama actual."
+		]
+	}
+]

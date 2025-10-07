@@ -1,0 +1,205 @@
+[
+  {
+    "Id": 1,
+    "Title": "Po co Git?",
+    "Content": "Git to system kontroli wersji. Oznacza to, że pomaga programistom śledzić zmiany w plikach w czasie. Jeśli kiedykolwiek straciłeś pracę, musiałeś cofnąć coś, lub chciałeś zrozumieć kto co zmienił w projekcie zespołowym, kontrola wersji to odpowiedź.\n\nGit działa lokalnie i jest rozproszony — nie musisz być online żeby go używać, a każda kopia repozytorium Git zawiera pełną historię. To czyni Git niezawodnym, elastycznym i potężnym, szczególnie dla rozwoju oprogramowania.",
+    "Questions": [
+      {
+        "QuestionText": "Do czego głównie używa się Git?",
+        "Options": [
+          "Hostowania stron internetowych",
+          "Zarządzania wersjami projektu i śledzenia zmian",
+          "Tworzenia kopii zapasowych systemu",
+          "Szyfrowania plików"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git to przede wszystkim system kontroli wersji zaprojektowany do śledzenia zmian w plikach i koordynowania pracy między wieloma osobami."
+      },
+      {
+        "QuestionText": "Jaki rodzaj projektu skorzystałby z Git?",
+        "Options": [
+          "Pojedynczy plik tekstowy, którego nigdy nie zmienisz",
+          "Duży projekt z ewoluującymi plikami",
+          "Coś co wysyłasz tam i z powrotem przez email",
+          "Zablokowany PDF"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git wyróżnia się w zarządzaniu projektami, które zmieniają się w czasie, szczególnie gdy pracuje nad nimi wiele osób."
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Title": "Czym jest repozytorium?",
+    "Content": "Repozytorium Git — lub \"repo\" — to katalog projektu, który jest śledzony przez Git. To co czyni folder repozytorium Git to ukryty folder .git/ wewnątrz niego. Ten folder .git/ zawiera całą historię twojego projektu, gałęzie, konfigurację i więcej.\n\nMożesz utworzyć nowe repo za pomocą git init lub sklonować istniejące za pomocą git clone. Repo Git to nie tylko twoje pliki — to cała twoja oś czasu pracy.",
+    "Questions": [
+      {
+        "QuestionText": "Co czyni folder repozytorium Git?",
+        "Options": [
+          "Jest przesłany na GitHub",
+          "Zawiera folder .git/",
+          "Zawiera JavaScript",
+          "Ma plik README"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Ukryty folder .git/ to to, co czyni każdy zwykły folder repozytorium Git, zawierając wszystkie dane kontroli wersji."
+      },
+      {
+        "QuestionText": "Wpisujesz git init w folderze. Co się właśnie stało?",
+        "Options": [
+          "Git pobrał kopię twoich plików",
+          "Zostało utworzone zdalne połączenie",
+          "Usunąłeś swoją starą historię",
+          "Git utworzył folder .git/ aby zacząć śledzić twój projekt"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "Komenda git init tworzy nowy folder .git/ w bieżącym katalogu, inicjalizując go jako repozytorium Git."
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Title": "Jak myśli Git",
+    "Content": "Model mentalny Git obejmuje trzy główne obszary:\n\nKatalog roboczy - Twoje rzeczywiste pliki na dysku.\nObszar przygotowania - Podgląd tego, co zostanie zatwierdzone.\nRepozytorium - Historia zapisanych commitów.\n\nKiedy modyfikujesz pliki, są aktualizowane w katalogu roboczym. Kiedy je git add, przechodzą do obszaru przygotowania. Kiedy git commit, są zapisywane w repozytorium.",
+    "Questions": [
+      {
+        "QuestionText": "Git to system \"migawek\". Co to oznacza?",
+        "Options": [
+          "Zapisuje tylko różnice między plikami",
+          "Zapisuje całą kopię twojego projektu za każdym razem",
+          "Robi zdjęcie twojego ekranu",
+          "Nagrywa twój głos"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git robi migawki całego stanu twojego projektu przy każdym commicie, zamiast zapisywać tylko różnice plików."
+      },
+      {
+        "QuestionText": "W modelu Git, jakie są trzy główne obszary?",
+        "Options": [
+          "Dev, Test, Prod",
+          "Przygotowanie, Rozgałęzianie, Wdrażanie",
+          "Katalog roboczy, Obszar przygotowania, Repozytorium",
+          "Upload, Sync, Review"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Te trzy obszary reprezentują przepływ zmian: Katalog roboczy (gdzie edytujesz), Obszar przygotowania (gdzie przygotowujesz) i Repozytorium (gdzie zapisujesz)."
+      },
+      {
+        "QuestionText": "Który obszar zawiera pliki, które edytowałeś ale jeszcze nie dodałeś?",
+        "Options": [
+          "Obszar przygotowania",
+          "Katalog roboczy",
+          "Zdalne Repo",
+          "Historia logów"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Katalog roboczy zawiera twoje rzeczywiste pliki tak jak istnieją na dysku, włączając wszystkie niezapisane zmiany."
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Title": "Commity i historia",
+    "Content": "Commity to sposób Git na zapisywanie twojego postępu. Commit to migawka twojego projektu w określonym momencie. Każdy commit zawiera metadane takie jak autor, znacznik czasowy i wiadomość.\n\nDobre wiadomości commitów są krótkie i opisowe. Seria dobrze napisanych commitów opowiada historię twojego projektu.",
+    "Questions": [
+      {
+        "QuestionText": "Co reprezentuje commit w Git?",
+        "Options": [
+          "Folder",
+          "Punkt zapisu w historii projektu",
+          "Współpracownik",
+          "Gałąź"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Commit jest jak punkt zapisu lub checkpoint na osi czasu twojego projektu, przechwytujący stan wszystkich plików w tym momencie."
+      },
+      {
+        "QuestionText": "Co najlepiej opisuje wiadomość commita?",
+        "Options": [
+          "Opcjonalny żart",
+          "Komenda Git",
+          "Krótka notatka wyjaśniająca co się zmieniło",
+          "Twoje hasło GitHub"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Wiadomości commitów powinny krótko opisywać jakie zmiany zostały wprowadzone, pomagając tobie i innym zrozumieć ewolucję projektu."
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Title": "Odkrywanie Git",
+    "Content": "Git ma wbudowaną pomoc dla prawie każdej komendy. Możesz uruchomić:\n\ngit help <komenda>\n<komenda> --help\n\nLub wyświetlić strony manuala za pomocą man git-<komenda>\n\nNie musisz wszystkiego zapamiętywać — Git oczekuje, że będziesz eksplorować w trakcie.",
+    "Questions": [
+      {
+        "QuestionText": "Zapomniałeś co robi git log. Co wpisujesz?",
+        "Options": [
+          "git search log",
+          "git help log",
+          "git !log",
+          "git -explain log"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Komenda git help po której następuje jakakolwiek komenda Git pokaże ci szczegółową dokumentację dla tej komendy."
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Title": "Klonowanie i zdalne repozytoria",
+    "Content": "Git to nie tylko lokalne pliki. Możesz synchronizować swoją pracę ze zdalnymi repozytoriami takimi jak GitHub używając komend takich jak git clone, git fetch i git push.\n\nKiedy klonujesz repo, Git kopiuje wszystko — nie tylko pliki, ale całą historię commitów. Domyślna nazwa dla zdalnego repozytorium to origin.",
+    "Questions": [
+      {
+        "QuestionText": "Co robi git clone?",
+        "Options": [
+          "Tworzy nową gałąź",
+          "Kopiuje zdalne repozytorium Git na twoją maszynę",
+          "Zipuje twój projekt",
+          "Przesyła twój folder do chmury"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git clone pobiera kompletną kopię zdalnego repozytorium, włączając wszystkie pliki i historię commitów."
+      },
+      {
+        "QuestionText": "Właśnie sklonowałeś repo. Jak nazywa się domyślny remote?",
+        "Options": [
+          "upstream",
+          "ssh",
+          "master",
+          "origin"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "Zgodnie z konwencją, Git nazywa domyślny remote 'origin' kiedy klonujesz repozytorium."
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Title": "Gałęzie i HEAD",
+    "Content": "Gałęzie pozwalają ci pracować nad różnymi wersjami twojego projektu równolegle. Gałąź to po prostu wskaźnik na commit — etykieta na osi czasu.\n\nHEAD to specjalny wskaźnik na twoją obecną pozycję w Git. Zwykle wskazuje na ostatni commit twojej obecnej gałęzi.",
+    "Questions": [
+      {
+        "QuestionText": "Czym jest gałąź w Git?",
+        "Options": [
+          "Kopia folderu .git/",
+          "Oś czasu commitów pod określoną etykietą",
+          "Zipowana kopia zapasowa",
+          "Katalog przygotowania"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Gałąź to zasadniczo ruchomy wskaźnik lub etykieta, która wskazuje na określony commit, reprezentująca linię rozwoju."
+      },
+      {
+        "QuestionText": "Czym jest HEAD w Git?",
+        "Options": [
+          "Pierwszy commit",
+          "Plik .gitignore",
+          "Wskaźnik na twój obecny commit",
+          "Tracker problemów GitHub"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "HEAD to sposób Git na wiedzenie gdzie jesteś w historii twojego projektu - wskazuje na commit z którego aktualnie pracujesz."
+      }
+    ]
+  }
+]

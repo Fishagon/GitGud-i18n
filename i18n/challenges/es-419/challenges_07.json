@@ -1,0 +1,131 @@
+[
+	{
+		"id": 61,
+		"title": "Revisar una Confirmación Anterior sin Cambiar el Historial",
+		"description": "A veces necesitas examinar el estado de tu código en un punto específico del historial sin crear una nueva rama o cambiar el historial de confirmaciones. Git te permite hacer checkout de una confirmación específica directamente, poniéndote en un estado de 'detached HEAD'.\n\nSospechas que la confirmación 'abc123def' introdujo un error. Haz checkout de esa confirmación específica para examinar el código en ese punto del tiempo.",
+		"difficulty": "Medio",
+		"category": "Depuración",
+		"hints": [
+			"Usa 'git checkout <commit-id>' para hacer checkout de una confirmación específica directamente.",
+			"Esto te pondrá en estado de 'detached HEAD' - no estás en ninguna rama.",
+			"Puedes usar el ID completo de la confirmación o solo los primeros 7 caracteres: 'abc123d'.",
+			"Usa 'git log' para ver las confirmaciones disponibles y sus IDs."
+		]
+	},
+	{
+		"id": 62,
+		"title": "Descubrir Qué Archivos Cambiaron en una Confirmación Específica",
+		"description": "A veces necesitas ver qué archivos fueron modificados en una confirmación específica sin ver el contenido completo del diff. Git proporciona opciones para mostrar solo los nombres de archivos que cambiaron.\n\nUsa git show para mostrar solo los nombres de los archivos que cambiaron en la confirmación 'abc789def' (la confirmación de implementación de autenticación).",
+		"difficulty": "Fácil",
+		"category": "Depuración",
+		"hints": [
+			"Usa 'git show --name-only <commit-id>' para mostrar solo los nombres de archivos que cambiaron.",
+			"También puedes usar 'git show --name-status <commit-id>' para mostrar nombres de archivos con estado de cambio.",
+			"El ID de confirmación 'abc789def' implementó el sistema de autenticación de usuario."
+		]
+	},
+	{
+		"id": 63,
+		"title": "Mostrar Cambios Introducidos por una Confirmación",
+		"description": "A veces necesitas ver exactamente qué cambios se hicieron en una confirmación específica. El comando 'git show' muestra la información de la confirmación junto con los cambios reales (diff) introducidos por esa confirmación.\n\nUsa git show para mostrar los cambios introducidos por la confirmación 'abc123def'.",
+		"difficulty": "Fácil",
+		"category": "Depuración",
+		"hints": [
+			"Usa 'git show <commit-id>' para mostrar los cambios introducidos por una confirmación específica.",
+			"El comando git show muestra tanto los metadatos de la confirmación como el diff real.",
+			"Puedes usar el ID completo de la confirmación o solo los primeros caracteres."
+		]
+	},
+	{
+		"id": 64,
+		"title": "Listar Confirmaciones en una Rama Específica que No Están en Main",
+		"description": "Al trabajar con múltiples ramas, a menudo necesitas ver qué confirmaciones existen en una rama de característica que aún no han sido fusionadas en la rama principal. Git proporciona varias maneras de comparar ramas y mostrar confirmaciones que existen en una rama pero no en otra.\n\nTienes una rama 'feature' que contiene algunas confirmaciones que no están en la rama 'master'. Usa git log para mostrar solo las confirmaciones que existen en la rama 'feature' pero no en 'master'.",
+		"difficulty": "Fácil",
+		"category": "Depuración",
+		"hints": [
+			"Usa 'git log master..feature' para mostrar confirmaciones en feature que no están en master.",
+			"También puedes usar 'git log feature --not master' para el mismo resultado.",
+			"La sintaxis '..' significa 'confirmaciones alcanzables desde el lado derecho pero no el izquierdo'.",
+			"Agrega '--oneline' para ver una vista más compacta de las confirmaciones."
+		]
+	},
+	{
+		"id": 65,
+		"title": "Verificar el Historial de un Archivo Específico",
+		"description": "A veces necesitas ver el historial de confirmaciones para un archivo específico para entender cómo ha evolucionado con el tiempo. Git te permite filtrar el log para mostrar solo confirmaciones que afectaron un archivo particular.\n\nQuieres ver el historial de cambios del archivo 'config.js'. Usa git log para mostrar solo las confirmaciones que modificaron este archivo.",
+		"difficulty": "Fácil",
+		"category": "Depuración",
+		"hints": [
+			"Usa 'git log <filename>' para mostrar confirmaciones que modificaron un archivo específico.",
+			"También puedes usar 'git log --follow <filename>' para seguir el archivo a través de renombramientos.",
+			"Agrega '--oneline' para ver una vista más compacta del historial del archivo."
+		]
+	},
+	{
+		"id": 66,
+		"title": "Mostrar la Diferencia Entre Dos Confirmaciones",
+		"description": "A veces necesitas ver qué cambió entre dos confirmaciones específicas. Git te permite comparar cualquier par de confirmaciones para ver las diferencias en su contenido.\n\nQuieres ver las diferencias entre la confirmación 'abc123def' (la característica errónea) y la confirmación 'def456abc' (la corrección de estilos). Usa git diff para mostrar los cambios entre estas dos confirmaciones.",
+		"difficulty": "Fácil",
+		"category": "Depuración",
+		"hints": [
+			"Usa 'git diff <commit1> <commit2>' para mostrar diferencias entre dos confirmaciones.",
+			"También puedes usar 'git diff <commit1>..<commit2>' para el mismo resultado.",
+			"El orden importa - 'git diff A B' muestra qué cambió de A a B.",
+			"Usa 'git log --oneline' para ver confirmaciones disponibles y sus IDs."
+		]
+	},
+	{
+		"id": 67,
+		"title": "Comparar Dos Ramas y Ver sus Diferencias",
+		"description": "Al trabajar con múltiples ramas, a menudo necesitas ver qué cambios existen entre ellas. Git proporciona varias maneras de comparar ramas y ver las diferencias en su contenido.\n\nTienes una rama 'feature' y una rama 'master'. Usa git diff para mostrar las diferencias entre estas dos ramas.",
+		"difficulty": "Fácil",
+		"category": "Depuración",
+		"hints": [
+			"Usa 'git diff <branch1> <branch2>' para comparar dos ramas.",
+			"También puedes usar 'git diff <branch1>..<branch2>' para el mismo resultado.",
+			"El orden importa - 'git diff A B' muestra qué cambió de A a B.",
+			"Usa 'git branch' para ver ramas disponibles."
+		]
+	},
+	{
+		"id": 68,
+		"title": "Encontrar Confirmaciones por un Autor Específico",
+		"description": "A veces necesitas encontrar todas las confirmaciones hechas por un autor específico para rastrear sus contribuciones o revisar su trabajo. Git te permite filtrar el historial de confirmaciones por nombre o email del autor.\n\nQuieres ver todas las confirmaciones hechas por 'John Smith'. Usa git log para mostrar solo las confirmaciones creadas por esta persona.",
+		"difficulty": "Fácil",
+		"category": "Depuración",
+		"hints": [
+			"Usa 'git log --author=\"John Smith\"' para mostrar confirmaciones por un autor específico.",
+			"Puedes usar coincidencia parcial: 'git log --author=john' coincidirá con 'John Smith'.",
+			"La coincidencia de autor es insensible a mayúsculas por defecto.",
+			"Puedes combinar --author con otras opciones como --oneline para salida compacta."
+		]
+	},
+	{
+		"id": 69,
+		"title": "Restaurar una Rama Eliminada",
+		"description": "A veces eliminas accidentalmente una rama que aún necesitas. Git mantiene registro de dónde apuntaban las ramas incluso después de que son eliminadas a través del reflog. Puedes restaurar una rama eliminada encontrando su última confirmación y recreándola.\n\nEliminaste accidentalmente la rama 'feature-login'. Usa git reflog para encontrar hacia dónde apuntaba y restáurala.",
+		"difficulty": "Medio",
+		"category": "Depuración",
+		"hints": [
+			"Usa 'git reflog' para ver el historial de movimientos de HEAD y encontrar hacia dónde apuntaba la rama eliminada.",
+			"Busca entradas como 'checkout: moving from feature-login to master' para encontrar la última confirmación de la rama.",
+			"Usa 'git checkout -b feature-login <commit-id>' para recrear la rama en esa confirmación.",
+			"También puedes usar 'git branch feature-login <commit-id>' si no estás en la rama que quieres crear."
+		]
+	},
+	{
+		"id": 70,
+		"title": "Identificar la Confirmación que Introdujo un Error Usando git bisect",
+		"description": "Git bisect es una herramienta poderosa para encontrar la confirmación exacta que introdujo un error usando búsqueda binaria. Comienzas marcando una confirmación buena conocida y una confirmación mala conocida, luego Git te guiará a través de probar confirmaciones hasta encontrar la primera confirmación mala.\n\nSabes que la confirmación 'abc123def' es mala (contiene el error) y la confirmación 'xyz789abc' es buena (no contiene el error). Usa git bisect para identificar qué confirmación introdujo el error.",
+		"difficulty": "Difícil",
+		"category": "Depuración",
+		"hints": [
+			"Comienza con 'git bisect start' para iniciar el proceso de bisección.",
+			"Usa 'git bisect bad <commit-id>' para marcar la confirmación mala conocida.",
+			"Usa 'git bisect good <commit-id>' para marcar la confirmación buena conocida.",
+			"Git hará checkout de confirmaciones para que las pruebes - marca cada una como 'git bisect good' o 'git bisect bad'.",
+			"Continúa hasta que Git identifique la primera confirmación mala.",
+			"Usa 'git bisect reset' cuando termines para regresar a tu rama original."
+		]
+	}
+]

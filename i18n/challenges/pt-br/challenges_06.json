@@ -1,0 +1,126 @@
+[
+	{
+		"id": 51,
+		"title": "Esconder Alterações Não Commitadas",
+		"description": "Às vezes você está trabalhando em algo mas precisa rapidamente trocar de contexto ou puxar alterações de um repositório remoto. O git stash permite salvar temporariamente suas alterações não commitadas sem criar um commit.\n\nVocê tem algumas alterações não commitadas no seu diretório de trabalho. Use git stash para salvar essas alterações para que possa trabalhar em outra coisa e voltar a elas mais tarde.",
+		"difficulty": "Fácil",
+		"category": "Esconder (Stash)",
+		"hints": [
+			"Use 'git stash' ou 'git stash push' para salvar suas alterações não commitadas.",
+			"Após esconder, seu diretório de trabalho deve estar limpo.",
+			"Você pode recuperar suas alterações mais tarde com 'git stash pop' ou 'git stash apply'."
+		]
+	},
+	{
+		"id": 52,
+		"title": "Ver uma Lista de Todas as Alterações Escondidas",
+		"description": "O Git permite ver todas suas alterações escondidas usando o comando stash list. Isso mostra todos os stashes que você salvou, junto com suas mensagens e IDs de stash.\n\nVocê tem algumas alterações escondidas existentes. Use Git para ver uma lista de todas suas alterações escondidas.",
+		"difficulty": "Fácil",
+		"category": "Esconder (Stash)",
+		"hints": [
+			"Use 'git stash list' para ver todas suas alterações escondidas.",
+			"Cada entrada de stash mostra o ID do stash (stash@{0}, stash@{1}, etc.) e a mensagem do stash.",
+			"O stash mais recente está no topo da lista (stash@{0})."
+		]
+	},
+	{
+		"id": 53,
+		"title": "Aplicar o Último Stash Sem Removê-lo",
+		"description": "Às vezes você quer aplicar alterações escondidas ao seu diretório de trabalho mas manter a entrada do stash para uso futuro potencial. O comando 'git stash apply' aplica o stash sem removê-lo da lista de stash, diferente do 'git stash pop' que o remove.\n\nVocê tem algumas alterações escondidas que quer aplicar ao seu diretório de trabalho, mas quer manter a entrada do stash caso precise dela novamente mais tarde.",
+		"difficulty": "Fácil",
+		"category": "Esconder (Stash)",
+		"hints": [
+			"Use 'git stash apply' para aplicar o último stash sem removê-lo da lista de stash.",
+			"Diferente do 'git stash pop', 'git stash apply' mantém a entrada do stash para uso futuro.",
+			"Você pode verificar se o stash ainda está lá com 'git stash list' após aplicar."
+		]
+	},
+	{
+		"id": 54,
+		"title": "Aplicar um Stash Específico",
+		"description": "Quando você tem múltiplos stashes, pode aplicar um específico referenciando seu índice. Cada stash é numerado começando de 0, com stash@{0} sendo o mais recente, stash@{1} o segundo mais recente, e assim por diante.\n\nVocê tem múltiplas alterações escondidas. Aplique a segunda entrada de stash (stash@{1}) sem removê-la da lista de stash.",
+		"difficulty": "Fácil",
+		"category": "Esconder (Stash)",
+		"hints": [
+			"Use 'git stash list' para ver todas as entradas de stash disponíveis.",
+			"Use 'git stash apply stash@{1}' para aplicar a segunda entrada de stash.",
+			"Você também pode usar a forma abreviada 'git stash apply 1'.",
+			"A entrada stash@{1} deve permanecer na lista de stash após aplicar."
+		]
+	},
+	{
+		"id": 55,
+		"title": "Descartar um Stash Específico",
+		"description": "Às vezes você quer remover uma entrada de stash específica sem aplicá-la. O comando 'git stash drop' pode ter como alvo um stash específico por sua referência (stash@{1}, stash@{2}, etc.).\n\nVocê tem múltiplas alterações escondidas. Descarte a segunda entrada de stash (stash@{1}) sem aplicá-la.",
+		"difficulty": "Fácil",
+		"category": "Esconder (Stash)",
+		"hints": [
+			"Use 'git stash list' para ver todas as entradas de stash disponíveis.",
+			"Use 'git stash drop stash@{1}' para descartar a segunda entrada de stash.",
+			"Você também pode usar a forma abreviada 'git stash drop 1'.",
+			"A entrada stash@{1} deve ser removida da lista de stash após descartar."
+		]
+	},
+	{
+		"id": 56,
+		"title": "Criar um Stash com uma Mensagem Personalizada",
+		"description": "Ao esconder alterações, você pode fornecer uma mensagem personalizada para ajudar a identificar o que o stash contém. Isso é especialmente útil quando você tem múltiplos stashes e precisa lembrar para que cada um servia.\n\nVocê tem algumas alterações não commitadas no seu diretório de trabalho. Crie um stash com a mensagem personalizada 'Work in progress on feature X'.",
+		"difficulty": "Fácil",
+		"category": "Esconder (Stash)",
+		"hints": [
+			"Use 'git stash push -m \"mensagem\"' para criar um stash com uma mensagem personalizada.",
+			"Você também pode usar 'git stash save \"mensagem\"' (obsoleto mas ainda funciona).",
+			"A mensagem deve ser: 'Work in progress on feature X'",
+			"Após esconder, seu diretório de trabalho deve estar limpo."
+		]
+	},
+	{
+		"id": 57,
+		"title": "Esconder Arquivos Não Rastreados Também",
+		"description": "Por padrão, git stash apenas salva arquivos rastreados que foram modificados. Às vezes você também quer esconder arquivos não rastreados (arquivos que ainda não foram adicionados ao Git). Use a flag --include-untracked para esconder tanto arquivos rastreados quanto não rastreados.\n\nVocê tem alguns arquivos rastreados modificados e alguns arquivos novos não rastreados. Esconda todos eles, incluindo os arquivos não rastreados.",
+		"difficulty": "Fácil",
+		"category": "Esconder (Stash)",
+		"hints": [
+			"Use 'git stash -u' ou 'git stash --include-untracked' para esconder arquivos não rastreados também.",
+			"Você também pode usar 'git stash push -u' com o mesmo efeito.",
+			"Após esconder, tanto arquivos rastreados quanto não rastreados devem ser salvos e seu diretório de trabalho deve estar completamente limpo."
+		]
+	},
+	{
+		"id": 58,
+		"title": "Retirar o Último Stash e Removê-lo",
+		"description": "O comando 'git stash pop' aplica o stash mais recente ao seu diretório de trabalho e o remove da lista de stash. Isso é diferente do 'git stash apply' que mantém a entrada do stash após aplicá-la.\n\nVocê tem algumas alterações escondidas que quer aplicar ao seu diretório de trabalho e remover da lista de stash permanentemente.",
+		"difficulty": "Fácil",
+		"category": "Esconder (Stash)",
+		"hints": [
+			"Use 'git stash pop' para aplicar o último stash e removê-lo da lista de stash.",
+			"Diferente do 'git stash apply', 'git stash pop' remove a entrada do stash após aplicá-la.",
+			"Você pode verificar se o stash foi removido com 'git stash list' após retirar."
+		]
+	},
+	{
+		"id": 59,
+		"title": "Retirar um Stash Específico",
+		"description": "Quando você tem múltiplos stashes, pode retirar um específico referenciando seu índice. O comando 'git stash pop' com uma referência de stash aplica o stash e o remove da lista de stash.\n\nVocê tem múltiplas alterações escondidas. Retire a segunda entrada de stash (stash@{1}) e remova-a da lista de stash.",
+		"difficulty": "Fácil",
+		"category": "Esconder (Stash)",
+		"hints": [
+			"Use 'git stash list' para ver todas as entradas de stash disponíveis.",
+			"Use 'git stash pop stash@{1}' para retirar a segunda entrada de stash.",
+			"Você também pode usar a forma abreviada 'git stash pop 1'.",
+			"A entrada stash@{1} deve ser removida da lista de stash após retirar."
+		]
+	},
+	{
+		"id": 60,
+		"title": "Limpar Todas as Alterações Escondidas",
+		"description": "Às vezes você quer remover permanentemente todas as alterações escondidas de uma vez. O comando 'git stash clear' remove todas as entradas de stash da sua lista de stash. Seja cuidadoso com este comando pois ele deleta permanentemente todas suas alterações escondidas.\n\nVocê tem múltiplas alterações escondidas que não precisa mais. Limpe todas as entradas de stash para organizar sua lista de stash.",
+		"difficulty": "Fácil",
+		"category": "Esconder (Stash)",
+		"hints": [
+			"Use 'git stash clear' para remover todas as entradas de stash de uma vez.",
+			"Este comando deleta permanentemente todas as alterações escondidas - use com cautela.",
+			"Você pode verificar se todos os stashes foram limpos com 'git stash list' depois."
+		]
+	}
+]

@@ -1,0 +1,122 @@
+[
+	{
+		"id": 51,
+		"title": "Odłożenie niezcommitowanych zmian",
+		"description": "Czasem pracujesz nad czymś ale musisz szybko zmienić kontekst lub ściągnąć zmiany ze zdalnego repozytorium. Git stash pozwala tymczasowo zapisać niezcommitowane zmiany bez tworzenia commita.\n\nMasz niezcommitowane zmiany w katalogu roboczym. Użyj git stash, aby zapisać te zmiany, abyś mógł pracować nad czymś innym i wrócić do nich później.",
+		"difficulty": "Łatwy",
+		"category": "Odłożenie",
+		"hints": [
+			"Użyj 'git stash' lub 'git stash push', aby zapisać niezcommitowane zmiany.",
+			"Po odłożeniu katalog roboczy powinien być czysty.",
+			"Możesz później odzyskać zmiany za pomocą 'git stash pop' lub 'git stash apply'."
+		]
+	},
+	{
+		"id": 52,
+		"title": "Wyświetlenie listy wszystkich odłożonych zmian",
+		"description": "Git pozwala wyświetlić wszystkie odłożone zmiany używając komendy stash list. Pokazuje wszystkie odłożone zmiany które zapisałeś, wraz z ich wiadomościami i ID stash.\n\nMasz istniejące odłożone zmiany. Użyj Git, aby wyświetlić listę wszystkich odłożonych zmian.",
+		"difficulty": "Łatwy",
+		"category": "Odłożenie",
+		"hints": [
+			"Użyj 'git stash list', aby wyświetlić wszystkie odłożone zmiany.",
+			"Każdy wpis stash pokazuje ID stash (stash@{0}, stash@{1}, itd.) i wiadomość stash.",
+			"Najnowszy stash jest na górze listy (stash@{0})."
+		]
+	},
+	{
+		"id": 53,
+		"title": "Zastosowanie najnowszego stash bez jego usuwania",
+		"description": "Czasem chcesz zastosować odłożone zmiany do katalogu roboczego ale zachować wpis stash do potencjalnego przyszłego użycia. Komenda 'git stash apply' stosuje stash bez usuwania go z listy stash, w przeciwieństwie do 'git stash pop' które go usuwa.\n\nMasz odłożone zmiany, które chcesz zastosować do katalogu roboczego, ale chcesz zachować wpis stash na wypadek gdybyś potrzebował go ponownie później.",
+		"difficulty": "Łatwy",
+		"category": "Odłożenie",
+		"hints": [
+			"Użyj 'git stash apply', aby zastosować najnowszy stash bez usuwania go.",
+			"To zachowa wpis stash na liście do przyszłego użycia.",
+			"Możesz zastosować konkretny stash używając 'git stash apply stash@{n}'."
+		]
+	},
+	{
+		"id": 54,
+		"title": "Zastosowanie konkretnego stash",
+		"description": "Gdy masz wiele wpisów stash, możesz chcieć zastosować konkretny stash zamiast najnowszego. Git pozwala określić który stash chcesz zastosować używając jego ID.\n\nMasz wiele wpisów stash. Zastosuj stash@{1} (drugi najnowszy stash) do swojego katalogu roboczego.",
+		"difficulty": "Łatwy",
+		"category": "Odłożenie",
+		"hints": [
+			"Użyj 'git stash apply stash@{1}', aby zastosować konkretny stash.",
+			"Numery stash zaczynają się od 0 dla najnowszego stash.",
+			"Możesz zobaczyć dostępne stash używając 'git stash list'."
+		]
+	},
+	{
+		"id": 55,
+		"title": "Usunięcie konkretnego stash",
+		"description": "Czasem masz stash, który nie jest już potrzebny i chcesz go usunąć. Git pozwala usuwać konkretne wpisy stash z listy bez zastosowywania ich.\n\nMasz kilka wpisów stash. Usuń stash@{0} (najnowszy stash) bez zastosowywania go.",
+		"difficulty": "Łatwy",
+		"category": "Odłożenie",
+		"hints": [
+			"Użyj 'git stash drop stash@{0}', aby usunąć konkretny stash.",
+			"To na stałe usuwa stash bez zastosowywania zmian.",
+			"Bądź ostrożny - usunięty stash nie może być łatwo odzyskany."
+		]
+	},
+	{
+		"id": 56,
+		"title": "Utworzenie stash z niestandardową wiadomością",
+		"description": "Domyślnie Git tworzy automatyczne wiadomości stash, ale możesz podać własną opisową wiadomość, aby łatwiej identyfikować stash później.\n\nMasz niezcommitowane zmiany w katalogu roboczym. Utwórz stash z wiadomością 'Work in progress on login feature'.",
+		"difficulty": "Łatwy",
+		"category": "Odłożenie",
+		"hints": [
+			"Użyj 'git stash push -m \"Work in progress on login feature\"', aby utworzyć stash z niestandardową wiadomością.",
+			"Możesz również użyć 'git stash save \"message\"' (starsza składnia).",
+			"Opisowe wiadomości stash pomagają zidentyfikować zawartość stash później."
+		]
+	},
+	{
+		"id": 57,
+		"title": "Odłożenie również nieśledzonych plików",
+		"description": "Domyślnie git stash zapisuje tylko zmiany w śledzonych plikach. Jeśli chcesz również odłożyć nieśledzone pliki (nowe pliki nie dodane do Git), musisz użyć flagi -u.\n\nMasz niezcommitowane zmiany w śledzonych plikach i kilka nowych nieśledzonych plików. Odłóż wszystkie zmiany włączając nieśledzone pliki.",
+		"difficulty": "Łatwy",
+		"category": "Odłożenie",
+		"hints": [
+			"Użyj 'git stash -u' lub 'git stash --include-untracked', aby odłożyć również nieśledzone pliki.",
+			"Bez flagi -u tylko śledzone pliki zostaną odłożone.",
+			"Możesz również użyć 'git stash push -u' z niestandardową wiadomością."
+		]
+	},
+	{
+		"id": 58,
+		"title": "Wydobycie najnowszego stash i jego usunięcie",
+		"description": "Git stash pop łączy zastosowanie najnowszego stash i usunięcie go z listy stash w jednej operacji. To najczęstszy sposób odzyskiwania odłożonych zmian.\n\nMasz odłożone zmiany, które są gotowe do zastosowania. Użyj git stash pop, aby zastosować i usunąć najnowszy stash.",
+		"difficulty": "Łatwy",
+		"category": "Odłożenie",
+		"hints": [
+			"Użyj 'git stash pop', aby zastosować najnowszy stash i usunąć go z listy.",
+			"To równoznaczne z 'git stash apply' następnie 'git stash drop'.",
+			"Jeśli wystąpią konflikty, stash nie zostanie usunięty dopóki konflikty nie zostaną rozwiązane."
+		]
+	},
+	{
+		"id": 59,
+		"title": "Wydobycie konkretnego stash",
+		"description": "Podobnie jak git stash apply, możesz określić który stash chcesz pop'nąć (zastosować i usunąć) używając jego ID.\n\nMasz wiele wpisów stash. Pop'nij stash@{1} (zastosuj go i usuń z listy).",
+		"difficulty": "Łatwy",
+		"category": "Odłożenie",
+		"hints": [
+			"Użyj 'git stash pop stash@{1}', aby pop'nąć konkretny stash.",
+			"To zastosuje zmiany ze stash@{1} i usunie ten wpis z listy stash.",
+			"Jeśli wystąpią konflikty podczas pop, stash pozostanie na liście."
+		]
+	},
+	{
+		"id": 60,
+		"title": "Wyczyszczenie wszystkich odłożonych zmian",
+		"description": "Czasem chcesz usunąć wszystkie wpisy stash naraz, na przykład gdy kończysz projekt lub gdy stare stash nie są już potrzebne.\n\nMasz kilka starych wpisów stash, które nie są już potrzebne. Wyczyść wszystkie wpisy stash naraz.",
+		"difficulty": "Łatwy",
+		"category": "Odłożenie",
+		"hints": [
+			"Użyj 'git stash clear', aby usunąć wszystkie wpisy stash.",
+			"To na stałe usuwa wszystkie stash - nie można tego cofnąć.",
+			"Upewnij się, że nie potrzebujesz żadnego ze stash przed użyciem clear."
+		]
+	}
+]

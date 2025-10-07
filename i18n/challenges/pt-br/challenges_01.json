@@ -1,0 +1,107 @@
+[
+	{
+		"id": 1,
+		"title": "Inicializar um Repositório",
+		"description": "Bem-vindo ao Git Gud! Vamos começar criando seu primeiro repositório Git.\n\nCrie um novo repositório Git usando o comando 'git init'.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Digite 'git init' para inicializar um novo repositório."
+		]
+	},
+	{
+		"id": 2,
+		"title": "Verificar Status do Repositório",
+		"description": "Agora que você tem um repositório, vamos verificar seu status para ver quais arquivos estão rastreados, modificados ou preparados.\n\nUse o comando apropriado para verificar o status do repositório.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"O comando para verificar o status do repositório é 'git status'."
+		]
+	},
+	{
+		"id": 3,
+		"title": "Preparar e Fazer Commit de um Arquivo",
+		"description": "Vamos adicionar um arquivo ao seu repositório e registrar essas alterações.\n\nPrimeiro, prepare o file.txt usando 'git add', depois faça commit com uma mensagem.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Use 'git add file.txt' para preparar o arquivo.",
+			"Depois use 'git commit -m \"Sua mensagem aqui\"' para criar um commit."
+		]
+	},
+	{
+		"id": 4,
+		"title": "Adicionar e Fazer Commit em Uma Etapa",
+		"description": "Às vezes você quer preparar todas as suas alterações e fazer commit delas rapidamente.\n\nAdicione todos os arquivos modificados à área de preparação e faça commit deles em uma única etapa.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"A maioria dos comandos suporta várias flags para modificar seu comportamento. Por exemplo, 'git add' pode ser usado com a flag '-A' para adicionar todas as alterações.",
+			"Você pode usar 'git add .' para preparar todos os arquivos, depois 'git commit -m \"Sua mensagem\"'. Considere maneiras de combinar os dois em um único comando com flags.",
+			"Para arquivos rastreados, você também pode usar 'git commit -a -m \"Sua mensagem\"' para preparar e fazer commit em um comando."
+		]
+	},
+	{
+		"id": 5,
+		"title": "Ver Histórico de Commits",
+		"description": "Vamos olhar o histórico de commits para ver quais alterações foram feitas.\n\nUse o comando para ver o histórico de commits.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Use 'git log' para ver o histórico de commits."
+		]
+	},
+	{
+		"id": 6,
+		"title": "Criar uma Branch",
+		"description": "Branches permitem que você trabalhe em diferentes recursos ou correções de forma isolada.\n\nCrie uma nova branch chamada 'feature'.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Use 'git branch feature' para criar uma nova branch."
+		]
+	},
+	{
+		"id": 7,
+		"title": "Alternar Entre Branches",
+		"description": "Agora que você criou uma branch, vamos alternar para ela.\n\nUse o comando checkout para alternar para a branch 'feature'.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Use 'git checkout feature' para alternar para a branch.",
+			"Em versões mais recentes do Git, você também pode usar 'git switch feature'."
+		]
+	},
+	{
+		"id": 8,
+		"title": "Excluir uma Branch",
+		"description": "Quando você termina com uma branch, pode excluí-la para manter seu repositório organizado.\n\nCrie uma branch chamada 'temp-branch', depois exclua-a.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Primeiro crie a branch com 'git branch temp-branch'.",
+			"Depois exclua-a com 'git branch -d temp-branch'."
+		]
+	},
+	{
+		"id": 9,
+		"title": "Clonar um Repositório",
+		"description": "Clonar permite criar uma cópia local de um repositório remoto.\n\nClone o repositório de exemplo usando a URL fornecida:\nhttps://github.com/example/repo.git",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Use 'git clone https://github.com/example/repo.git' para clonar um repositório."
+		]
+	},
+	{
+		"id": 10,
+		"title": "Ver Alterações",
+		"description": "Veja quais alterações você fez desde o último commit.\n\nUse o comando apropriado para verificar as diferenças entre seu diretório de trabalho e o último commit.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Use 'git diff' para ver alterações não preparadas desde o último commit."
+		]
+	}
+]

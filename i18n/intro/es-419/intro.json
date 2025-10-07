@@ -1,0 +1,205 @@
+[
+  {
+    "Id": 1,
+    "Title": "¿Por qué Git?",
+    "Content": "Git es un sistema de control de versiones. Eso significa que ayuda a los desarrolladores a rastrear cambios en sus archivos a lo largo del tiempo. Si alguna vez has perdido trabajo, necesitaste deshacer algo, o quisiste entender quién cambió qué en un proyecto de equipo, el control de versiones es la respuesta.\n\nGit funciona localmente y es distribuido — no necesitas estar en línea para usarlo, y cada copia de un repositorio Git contiene el historial completo. Esto hace que Git sea confiable, flexible y poderoso, especialmente para el desarrollo de software.",
+    "Questions": [
+      {
+        "QuestionText": "¿Para qué se usa principalmente Git?",
+        "Options": [
+          "Alojar sitios web",
+          "Gestionar versiones de proyecto y rastrear cambios",
+          "Hacer respaldo de tu sistema",
+          "Cifrar archivos"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git es principalmente un sistema de control de versiones diseñado para rastrear cambios en archivos y coordinar trabajo entre múltiples personas."
+      },
+      {
+        "QuestionText": "¿Qué tipo de proyecto se beneficiaría de Git?",
+        "Options": [
+          "Un solo archivo de texto que nunca cambiarás",
+          "Un proyecto grande con archivos en evolución",
+          "Algo que estás enviando por correo electrónico de ida y vuelta",
+          "Un PDF bloqueado"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git sobresale en gestionar proyectos que cambian con el tiempo, especialmente cuando múltiples personas están trabajando en ellos."
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Title": "¿Qué es un Repositorio?",
+    "Content": "Un repositorio Git — o \"repo\" — es un directorio de proyecto que está siendo rastreado por Git. Lo que hace que una carpeta sea un repositorio Git es una carpeta oculta .git/ dentro de ella. Esta carpeta .git/ contiene todo el historial de tu proyecto, ramas, configuración, y más.\n\nPuedes crear un nuevo repo con 'git init' o clonar uno existente con 'git clone'. Un repo Git no es solo tus archivos — es toda tu línea de tiempo de trabajo.",
+    "Questions": [
+      {
+        "QuestionText": "¿Qué hace que una carpeta sea un repositorio Git?",
+        "Options": [
+          "Está subida a GitHub",
+          "Contiene una carpeta .git/",
+          "Contiene JavaScript",
+          "Tiene un README"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "La carpeta oculta .git/ es lo que convierte cualquier carpeta regular en un repositorio Git, conteniendo todos los datos de control de versiones."
+      },
+      {
+        "QuestionText": "Escribes 'git init' en una carpeta. ¿Qué acaba de pasar?",
+        "Options": [
+          "Git descargó una copia de tus archivos",
+          "Se creó una conexión remota",
+          "Eliminaste tu historial anterior",
+          "Git creó una carpeta .git/ para comenzar a rastrear tu proyecto"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "El comando 'git init' crea una nueva carpeta .git/ en el directorio actual, inicializándolo como un repositorio Git."
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Title": "Cómo Piensa Git",
+    "Content": "El modelo mental de Git incluye tres áreas principales:\n\nDirectorio de Trabajo - Tus archivos reales en el disco.\nÁrea de Preparación - Una vista previa de lo que será confirmado.\nRepositorio - El historial de confirmaciones guardadas.\n\nCuando modificas archivos, se actualizan en el directorio de trabajo. Cuando les haces 'git add', se mueven al área de preparación. Cuando haces 'git commit', se guardan en el repositorio.",
+    "Questions": [
+      {
+        "QuestionText": "Git es un sistema de \"instantáneas\". ¿Qué significa eso?",
+        "Options": [
+          "Solo registra las diferencias entre archivos",
+          "Guarda una copia completa de tu proyecto cada vez",
+          "Toma una foto de tu pantalla",
+          "Graba tu voz"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git toma instantáneas del estado completo de tu proyecto en cada confirmación, en lugar de solo almacenar diferencias de archivos."
+      },
+      {
+        "QuestionText": "En el modelo de Git, ¿cuáles son las tres áreas principales?",
+        "Options": [
+          "Dev, Test, Prod",
+          "Preparación, Ramificación, Despliegue",
+          "Directorio de Trabajo, Área de Preparación, Repositorio",
+          "Subida, Sincronización, Revisión"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Estas tres áreas representan el flujo de cambios: Directorio de Trabajo (donde editas), Área de Preparación (donde preparas), y Repositorio (donde guardas)."
+      },
+      {
+        "QuestionText": "¿Cuál área contiene archivos que has editado pero aún no has agregado?",
+        "Options": [
+          "Área de Preparación",
+          "Directorio de Trabajo",
+          "Repositorio Remoto",
+          "Registro de Historial"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "El Directorio de Trabajo contiene tus archivos reales como existen en el disco, incluyendo cualquier cambio no guardado."
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Title": "Confirmaciones e Historial",
+    "Content": "Las confirmaciones son la forma en que Git guarda tu progreso. Una confirmación es una instantánea de tu proyecto en un momento determinado. Cada confirmación incluye metadatos como autor, marca de tiempo, y un mensaje.\n\nLos buenos mensajes de confirmación son cortos y descriptivos. Una serie de confirmaciones bien escritas cuenta la historia de tu proyecto.",
+    "Questions": [
+      {
+        "QuestionText": "¿Qué representa una confirmación en Git?",
+        "Options": [
+          "Una carpeta",
+          "Un punto de guardado en el historial del proyecto",
+          "Un colaborador",
+          "Una rama"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Una confirmación es como un punto de guardado o checkpoint en la línea de tiempo de tu proyecto, capturando el estado de todos los archivos en ese momento."
+      },
+      {
+        "QuestionText": "¿Cuál de estos describe mejor un mensaje de confirmación?",
+        "Options": [
+          "Una broma opcional",
+          "Un comando Git",
+          "Una nota corta explicando qué cambió",
+          "Tu contraseña de GitHub"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Los mensajes de confirmación deben describir brevemente qué cambios se hicieron, ayudándote a ti y a otros a entender la evolución del proyecto."
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Title": "Descubriendo Git",
+    "Content": "Git viene con ayuda incorporada para casi todos los comandos. Puedes ejecutar:\n\ngit help <comando>\n<comando> --help\n\nO ver páginas de manual con man git-<comando>\n\nNo tienes que memorizar todo — Git espera que explores mientras avanzas.",
+    "Questions": [
+      {
+        "QuestionText": "Olvidaste qué hace 'git log'. ¿Qué escribes?",
+        "Options": [
+          "git search log",
+          "git help log",
+          "git !log",
+          "git -explain log"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "El comando 'git help' seguido de cualquier comando Git te mostrará documentación detallada para ese comando."
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Title": "Clonado y Repositorios Remotos",
+    "Content": "Git no es solo para archivos locales. Puedes sincronizar tu trabajo con repositorios remotos como GitHub usando comandos como 'git clone', 'git fetch', y 'git push'.\n\nCuando clonas un repo, Git copia todo — no solo los archivos, sino todo el historial de confirmaciones. El nombre predeterminado para el remoto es origin.",
+    "Questions": [
+      {
+        "QuestionText": "¿Qué hace 'git clone'?",
+        "Options": [
+          "Crea una nueva rama",
+          "Copia un repositorio Git remoto a tu máquina",
+          "Comprime tu proyecto",
+          "Sube tu carpeta a la nube"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "'Git clone' descarga una copia completa de un repositorio remoto, incluyendo todos los archivos y el historial de confirmaciones."
+      },
+      {
+        "QuestionText": "Acabas de clonar un repo. ¿Cómo se llama el remoto predeterminado?",
+        "Options": [
+          "upstream",
+          "ssh",
+          "master",
+          "origin"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "Por convención, Git nombra el remoto predeterminado 'origin' cuando clonas un repositorio."
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Title": "Ramas y HEAD",
+    "Content": "Las ramas te permiten trabajar en diferentes versiones de tu proyecto en paralelo. Una rama es solo un puntero a una confirmación — una etiqueta en una línea de tiempo.\n\nHEAD es un puntero especial a tu posición actual en Git. Usualmente apunta a la última confirmación en tu rama actual.",
+    "Questions": [
+      {
+        "QuestionText": "¿Qué es una rama en Git?",
+        "Options": [
+          "Una copia de la carpeta .git/",
+          "Una línea de tiempo de confirmaciones bajo una etiqueta específica",
+          "Una copia de seguridad comprimida",
+          "Un directorio de preparación"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Una rama es esencialmente un puntero móvil o etiqueta que apunta a una confirmación específica, representando una línea de desarrollo."
+      },
+      {
+        "QuestionText": "¿Qué es HEAD en Git?",
+        "Options": [
+          "La primera confirmación",
+          "El archivo .gitignore",
+          "El puntero a tu confirmación actual",
+          "El rastreador de problemas de GitHub"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "HEAD es la forma en que Git sabe dónde estás en el historial de tu proyecto - apunta a la confirmación desde la cual estás trabajando actualmente."
+      }
+    ]
+  }
+]

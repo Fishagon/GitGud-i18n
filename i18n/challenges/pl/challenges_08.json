@@ -1,0 +1,132 @@
+[
+	{
+		"id": 71,
+		"title": "Pobranie zmian z remote'a bez scalania ich",
+		"description": "Czasem chcesz pobrać najnowsze zmiany ze zdalnego repozytorium ale nie scalać ich od razu z lokalną gałęzią. Git fetch pozwala pobrać zmiany bez scalania.\n\nPobierz najnowsze zmiany z remote'a 'origin' bez scalania ich z lokalną gałęzią.",
+		"difficulty": "Łatwy",
+		"category": "Współpraca",
+		"hints": [
+			"Użyj 'git fetch origin', aby pobrać zmiany z remote'a origin.",
+			"Możesz również użyć po prostu 'git fetch' jeśli origin jest domyślnym remote'em.",
+			"Fetch pobiera zmiany ale nie modyfikuje twojej bieżącej gałęzi roboczej.",
+			"Po fetch możesz sprawdzić zmiany za pomocą 'git log origin/main' przed scaleniem."
+		]
+	},
+	{
+		"id": 72,
+		"title": "Reset lokalnych zmian aby dopasować zdalną gałąź",
+		"description": "Czasem twoja lokalna gałąź rozeszła się ze zdalną i chcesz całkowicie porzucić lokalne zmiany aby dopasować zdalną gałąź.\n\nZresetuj lokalną gałąź 'main', aby dokładnie dopasować 'origin/main', odrzucając wszystkie lokalne zmiany.",
+		"difficulty": "Średni",
+		"category": "Współpraca",
+		"hints": [
+			"Najpierw pobierz najnowsze zmiany za pomocą 'git fetch origin'.",
+			"Użyj 'git reset --hard origin/main', aby zresetować lokalną gałąź main do stanu origin/main.",
+			"Flaga --hard odrzuci wszystkie lokalne zmiany - bądź ostrożny!",
+			"To jest destrukcyjna operacja - upewnij się, że nie potrzebujesz lokalnych zmian."
+		]
+	},
+	{
+		"id": 73,
+		"title": "Scalenie zdalnych zmian zachowując lokalne zmiany nietknięte",
+		"description": "Czasem masz lokalne zmiany i chcesz scalić zdalne zmiany ale w sposób który zachowa twoje lokalne modyfikacje na górze.\n\nMasz lokalne zmiany i potrzebujesz włączyć najnowsze zmiany z origin/main. Użyj rebase zamiast merge, aby zachować czystą historię.",
+		"difficulty": "Średni",
+		"category": "Współpraca",
+		"hints": [
+			"Najpierw pobierz najnowsze zmiany za pomocą 'git fetch origin'.",
+			"Użyj 'git rebase origin/main', aby przenieść lokalne zmiany na górę zdalnych zmian.",
+			"Rebase da ci liniową historię zamiast commita merge.",
+			"Jeśli wystąpią konflikty, rozwiąż je i użyj 'git rebase --continue'."
+		]
+	},
+	{
+		"id": 74,
+		"title": "Cherry-pick commita z innej gałęzi",
+		"description": "Czasem chcesz zastosować konkretny commit z jednej gałęzi do innej bez scalania całej gałęzi. Cherry-pick pozwala wybrać i zastosować konkretne commity.\n\nZastosuj commit z ID 'abc123def' z gałęzi 'feature' do bieżącej gałęzi.",
+		"difficulty": "Średni",
+		"category": "Współpraca",
+		"hints": [
+			"Użyj 'git cherry-pick abc123def', aby zastosować konkretny commit do bieżącej gałęzi.",
+			"To utworzy nowy commit z tymi samymi zmianami ale z innym hash.",
+			"Jeśli wystąpią konflikty, rozwiąż je i użyj 'git cherry-pick --continue'.",
+			"Możesz cherry-pick wiele commitów naraz: 'git cherry-pick commit1 commit2'."
+		]
+	},
+	{
+		"id": 75,
+		"title": "Wymuszone push'owanie po przepisaniu historii",
+		"description": "Po operacjach takich jak rebase lub amend, które przepisują historię, normalny push zostanie odrzucony. Musisz użyć force push, ale bezpieczniej jest użyć --force-with-lease.\n\nPrzeprowadź force push ale w bezpieczny sposób używając --force-with-lease, aby upewnić się, że nie nadpiszesz cudzej pracy.",
+		"difficulty": "Trudny",
+		"category": "Współpraca",
+		"hints": [
+			"Użyj 'git push --force-with-lease', aby bezpiecznie wymusić push.",
+			"--force-with-lease sprawdzi czy remote gałąź nie została zaktualizowana przez kogoś innego.",
+			"To bezpieczniejsze niż --force, które może nadpisać cudze zmiany.",
+			"Jeśli ktoś inny pushował do gałęzi, komenda zostanie odrzucona."
+		]
+	},
+	{
+		"id": 76,
+		"title": "Push'owanie i ustawianie upstream dla nowej zdalnej gałęzi",
+		"description": "Gdy tworzysz nową lokalną gałąź i chcesz ją wypchnąć do remote'a po raz pierwszy, musisz ustawić upstream connection.\n\nMasz lokalną gałąź 'new-feature'. Wypchnij ją do origin i ustaw upstream w jednej komendzie.",
+		"difficulty": "Łatwy",
+		"category": "Współpraca",
+		"hints": [
+			"Użyj 'git push -u origin new-feature', aby wypchnąć i ustawić upstream.",
+			"Flaga -u to skrót od --set-upstream.",
+			"Po ustawieniu upstream możesz używać po prostu 'git push' i 'git pull'.",
+			"Sprawdź status za pomocą 'git branch -vv', aby zobaczyć upstream connections."
+		]
+	},
+	{
+		"id": 77,
+		"title": "Ustawienie upstream do istniejącej zdalnej gałęzi",
+		"description": "Czasem masz lokalną gałąź która nie ma ustawionego upstream do odpowiadającej jej zdalnej gałęzi. Możesz ustawić to connection bez push'owania.\n\nUstaw upstream dla bieżącej lokalnej gałęzi do 'origin/feature-branch'.",
+		"difficulty": "Łatwy",
+		"category": "Współpraca",
+		"hints": [
+			"Użyj 'git branch --set-upstream-to=origin/feature-branch', aby ustawić upstream.",
+			"Możesz również użyć krótszej formy: 'git branch -u origin/feature-branch'.",
+			"Po ustawieniu upstream możesz używać 'git push' i 'git pull' bez określania remote'a.",
+			"Sprawdź status za pomocą 'git status', aby zobaczyć informacje o ahead/behind."
+		]
+	},
+	{
+		"id": 78,
+		"title": "Rebase gałęzi funkcjonalności na main",
+		"description": "Zamiast scalania gałęzi funkcjonalności z main, możesz rebas'ować ją na main, aby uzyskać czystą, liniową historię.\n\nJesteś na gałęzi 'feature-auth'. Rebas'uj ją na najnowszą wersję gałęzi 'main'.",
+		"difficulty": "Średni",
+		"category": "Współpraca",
+		"hints": [
+			"Najpierw upewnij się, że jesteś na gałęzi feature-auth: 'git checkout feature-auth'.",
+			"Pobierz najnowsze zmiany: 'git fetch origin'.",
+			"Użyj 'git rebase origin/main', aby rebas'ować feature-auth na main.",
+			"Rozwiąż konflikty jeśli wystąpią i użyj 'git rebase --continue'."
+		]
+	},
+	{
+		"id": 79,
+		"title": "Obsługa stanu detached HEAD aby bezpiecznie eksplorować",
+		"description": "Stan detached HEAD występuje gdy checkout'ujesz konkretny commit zamiast gałęzi. To bezpieczny sposób eksploracji ale musisz wiedzieć jak wrócić lub utworzyć gałąź.\n\nJesteś w stanie detached HEAD po checkout commita. Utwórz nową gałąź 'exploration' z obecnej pozycji i przełącz się na nią.",
+		"difficulty": "Średni",
+		"category": "Współpraca",
+		"hints": [
+			"Użyj 'git checkout -b exploration', aby utworzyć nową gałąź z obecnej pozycji.",
+			"To utworzy gałąź 'exploration' wskazującą na obecny commit i przełączy cię na nią.",
+			"Alternatywnie możesz użyć 'git switch -c exploration'.",
+			"Sprawdź status za pomocą 'git status', aby potwierdzić że jesteś na nowej gałęzi."
+		]
+	},
+	{
+		"id": 80,
+		"title": "Synchronizacja fork'a z upstream repozytorium",
+		"description": "Gdy pracujesz z fork'iem repozytorium, musisz regularnie synchronizować z oryginalnym (upstream) repozytorium, aby być na bieżąco.\n\nMasz fork z remote'em 'upstream' wskazującym na oryginalne repozytorium. Zsynchronizuj główną gałąź z upstream.",
+		"difficulty": "Średni",
+		"category": "Współpraca",
+		"hints": [
+			"Przełącz się na główną gałąź: 'git checkout main'.",
+			"Pobierz zmiany z upstream: 'git fetch upstream'.",
+			"Scal zmiany z upstream: 'git merge upstream/main'.",
+			"Wypchnij zaktualizowaną główną gałąź do swojego fork'a: 'git push origin main'."
+		]
+	}
+]

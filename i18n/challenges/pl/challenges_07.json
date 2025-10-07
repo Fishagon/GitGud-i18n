@@ -1,0 +1,126 @@
+[
+	{
+		"id": 61,
+		"title": "Przejście do poprzedniego commita bez zmiany historii",
+		"description": "Czasem chcesz zbadać stan kodu w konkretnym momencie w historii bez wpływu na bieżącą gałąź. Git pozwala na checkout konkretnego commita, co prowadzi do stanu 'detached HEAD'.\n\nPrzejdź do commita z ID 'abc123def', aby zbadać stan kodu w tym momencie.",
+		"difficulty": "Średni",
+		"category": "Debugowanie",
+		"hints": [
+			"Użyj 'git checkout <commit-id>', aby przejść do konkretnego commita.",
+			"To wprowadzi cię w stan 'detached HEAD', gdzie możesz eksplorować kod ale nie jesteś na żadnej gałęzi.",
+			"Możesz wrócić do głównej gałęzi używając 'git checkout main' lub 'git checkout master'.",
+			"Jeśli chcesz utworzyć nową gałąź z tego punktu, użyj 'git checkout -b new-branch-name'."
+		]
+	},
+	{
+		"id": 62,
+		"title": "Sprawdzenie które pliki zmieniły się w konkretnym commicie",
+		"description": "Czasem musisz szybko zobaczyć które pliki zostały zmienione w konkretnym commicie bez oglądania szczegółów zmian.\n\nPokaż listę plików, które zmieniły się w commicie z ID 'def456abc'.",
+		"difficulty": "Łatwy",
+		"category": "Debugowanie",
+		"hints": [
+			"Użyj 'git show --name-only <commit-id>', aby zobaczyć tylko nazwy zmienionych plików.",
+			"Możesz również użyć 'git diff-tree --no-commit-id --name-only -r <commit-id>'.",
+			"Flaga --name-only pokazuje tylko nazwy plików bez szczegółów zmian."
+		]
+	},
+	{
+		"id": 63,
+		"title": "Pokazanie zmian wprowadzonych przez commit",
+		"description": "Gdy potrzebujesz zobaczyć dokładnie jakie zmiany zostały wprowadzone w konkretnym commicie, Git pozwala wyświetlić diff dla tego commita.\n\nPokaż wszystkie zmiany wprowadzone przez commit z ID 'ghi789abc'.",
+		"difficulty": "Łatwy",
+		"category": "Debugowanie",
+		"hints": [
+			"Użyj 'git show <commit-id>', aby zobaczyć zmiany wprowadzone przez commit.",
+			"To pokaże informacje o commicie plus diff zmian.",
+			"Możesz również użyć 'git diff <commit-id>~1 <commit-id>' dla tego samego efektu."
+		]
+	},
+	{
+		"id": 64,
+		"title": "Wylistowanie commitów w konkretnej gałęzi których nie ma w main",
+		"description": "Podczas pracy z gałęziami często potrzebujesz zobaczyć które commity istnieją w gałęzi funkcjonalności ale jeszcze nie zostały scalone z główną gałęzią.\n\nPokaż wszystkie commity, które są w gałęzi 'feature' ale nie w gałęzi 'main'.",
+		"difficulty": "Średni",
+		"category": "Debugowanie",
+		"hints": [
+			"Użyj 'git log main..feature', aby zobaczyć commity w feature ale nie w main.",
+			"Składnia '..' oznacza 'od pierwszej gałęzi do drugiej (wyłączając pierwszą)'.",
+			"Możesz również użyć 'git log --oneline main..feature' dla kompaktowego widoku."
+		]
+	},
+	{
+		"id": 65,
+		"title": "Sprawdzenie historii konkretnego pliku",
+		"description": "Czasem chcesz zobaczyć historię zmian konkretnego pliku - kto go modyfikował, kiedy i jakie zmiany zostały wprowadzone.\n\nPokaż historię zmian dla pliku 'config.json'.",
+		"difficulty": "Łatwy",
+		"category": "Debugowanie",
+		"hints": [
+			"Użyj 'git log <filename>', aby zobaczyć historię commitów które modyfikowały konkretny plik.",
+			"Możesz dodać '--oneline' dla kompaktowego widoku: 'git log --oneline config.json'.",
+			"Użyj 'git log -p <filename>', aby zobaczyć również szczegółowe zmiany (diff) dla każdego commita."
+		]
+	},
+	{
+		"id": 66,
+		"title": "Pokazanie różnicy między dwoma commitami",
+		"description": "Czasem musisz porównać stan kodu między dwoma konkretnymi punktami w historii, aby zobaczyć co się zmieniło.\n\nPokaż różnice między commitami 'abc123def' i 'xyz789abc'.",
+		"difficulty": "Średni",
+		"category": "Debugowanie",
+		"hints": [
+			"Użyj 'git diff <commit1> <commit2>', aby zobaczyć różnice między dwoma commitami.",
+			"Kolejność ma znaczenie - pokaże co zmieniło się od pierwszego commita do drugiego.",
+			"Możesz również użyć 'git diff <commit1>..<commit2>' dla tego samego efektu."
+		]
+	},
+	{
+		"id": 67,
+		"title": "Porównanie dwóch gałęzi i zobaczenie ich różnic",
+		"description": "Podczas pracy z wieloma gałęziami często potrzebujesz zobaczyć jakie są różnice między nimi przed scaleniem lub przełączeniem.\n\nPokaż różnice między gałęzią 'feature' i gałęzią 'main'.",
+		"difficulty": "Średni",
+		"category": "Debugowanie",
+		"hints": [
+			"Użyj 'git diff main feature', aby zobaczyć różnice między gałęziami.",
+			"To pokaże co zmieniło się w feature względem main.",
+			"Możesz użyć 'git diff main..feature' dla tego samego wyniku.",
+			"Aby zobaczyć tylko nazwy plików, dodaj --name-only: 'git diff --name-only main feature'."
+		]
+	},
+	{
+		"id": 68,
+		"title": "Znalezienie commitów konkretnego autora",
+		"description": "Czasem musisz zobaczyć wszystkie commity wprowadzone przez konkretną osobę, na przykład podczas code review lub śledzenia zmian.\n\nZnajdź wszystkie commity wprowadzone przez autora 'John Smith'.",
+		"difficulty": "Łatwy",
+		"category": "Debugowanie",
+		"hints": [
+			"Użyj 'git log --author=\"John Smith\"', aby znaleźć commity konkretnego autora.",
+			"Możesz użyć częściowych nazw: 'git log --author=\"John\"' będzie działać.",
+			"Dodaj --oneline dla kompaktowego widoku: 'git log --oneline --author=\"John Smith\"'."
+		]
+	},
+	{
+		"id": 69,
+		"title": "Przywrócenie usuniętej gałęzi",
+		"description": "Czasem przypadkowo usuwasz gałąź, ale możesz ją przywrócić jeśli znasz hash ostatniego commita. Git reflog może pomóc znaleźć utracone commity.\n\nGałąź 'feature-login' została przypadkowo usunięta. Przywróć ją używając hash commita 'def456abc'.",
+		"difficulty": "Średni",
+		"category": "Debugowanie",
+		"hints": [
+			"Użyj 'git checkout -b feature-login def456abc', aby odtworzyć gałąź z konkretnego commita.",
+			"Jeśli nie znasz hash commita, użyj 'git reflog', aby znaleźć ostatni commit usuniętej gałęzi.",
+			"Git reflog przechowuje historię wszystkich zmian HEAD, włączając usunięte gałęzie."
+		]
+	},
+	{
+		"id": 70,
+		"title": "Identyfikacja commita który wprowadził błąd używając git bisect",
+		"description": "Git bisect to potężne narzędzie które pomaga znaleźć commit wprowadzający błąd używając binarnego wyszukiwania. Podajesz dobry i zły commit, a Git pomoże znaleźć pierwszy zły commit.\n\nW kodzie jest błąd. Rozpocznij sesję bisect między commitami 'good123abc' (dobry) i 'bad456def' (zły), aby znaleźć commit który wprowadził błąd.",
+		"difficulty": "Trudny",
+		"category": "Debugowanie",
+		"hints": [
+			"Rozpocznij bisect za pomocą 'git bisect start'.",
+			"Oznacz zły commit: 'git bisect bad bad456def'.",
+			"Oznacz dobry commit: 'git bisect good good123abc'.",
+			"Git będzie checkout kolejnych commitów - testuj każdy i oznaczaj jako 'git bisect good' lub 'git bisect bad'.",
+			"Gdy skończysz, użyj 'git bisect reset', aby wrócić do oryginalnego stanu."
+		]
+	}
+]

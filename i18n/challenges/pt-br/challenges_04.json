@@ -1,0 +1,124 @@
+[
+	{
+		"id": 31,
+		"title": "Alterar o Último Commit Sem Mudar Sua Mensagem",
+		"description": "Às vezes você percebe que esqueceu de preparar um arquivo ou fez uma pequena alteração depois do commit. O Git permite alterar o último commit para incluir alterações adicionais sem criar um novo commit.\n\nVocê tem algumas alterações preparadas que deveriam ter sido incluídas no último commit. Altere o último commit para incluir essas alterações sem modificar a mensagem do commit.",
+		"difficulty": "Fácil",
+		"category": "Desfazer e Corrigir Erros",
+		"hints": [
+			"Use 'git commit --amend --no-edit' para alterar o último commit sem mudar a mensagem.",
+			"A flag --amend modifica o último commit ao invés de criar um novo.",
+			"A flag --no-edit mantém a mensagem de commit existente inalterada."
+		]
+	},
+	{
+		"id": 32,
+		"title": "Alterar o Último Commit e Atualizar Sua Mensagem",
+		"description": "Às vezes você precisa modificar a mensagem do último commit ou adicionar alterações esquecidas nele.\n\nSeu último commit tem a mensagem 'Add new feature' mas deveria dizer 'Add user authentication feature'. Use a funcionalidade de alteração do Git para atualizar a mensagem do commit.",
+		"difficulty": "Fácil",
+		"category": "Desfazer e Corrigir Erros",
+		"hints": [
+			"Use 'git commit --amend -m \"Add user authentication feature\"' para mudar a mensagem do último commit.",
+			"A flag --amend modifica o commit mais recente ao invés de criar um novo.",
+			"Não use --no-edit pois isso preservaria a mensagem existente (incorreta)."
+		]
+	},
+	{
+		"id": 33,
+		"title": "Desfazer o Último Commit mas Manter Alterações Preparadas",
+		"description": "Às vezes você faz commit cedo demais e percebe que quer fazer alterações adicionais ou corrigir a mensagem do commit. O Git permite desfazer o último commit mantendo as alterações preparadas para que você possa modificá-las e fazer commit novamente.\n\nSeu último commit foi feito prematuramente. Desfaça-o mas mantenha as alterações preparadas para que você possa trabalhar com elas.",
+		"difficulty": "Fácil",
+		"category": "Desfazer e Corrigir Erros",
+		"hints": [
+			"Use 'git reset --soft HEAD~1' para desfazer o último commit mas manter alterações preparadas.",
+			"A flag --soft preserva suas alterações preparadas, diferente de --hard que as descarta.",
+			"HEAD~1 refere-se ao commit anterior ao HEAD atual (um commit atrás)."
+		]
+	},
+	{
+		"id": 34,
+		"title": "Desfazer o Último Commit e Despreparar as Alterações",
+		"description": "Às vezes você quer desfazer um commit mas manter as alterações no seu diretório de trabalho como arquivos não preparados. Isso permite modificar os arquivos antes de fazer commit novamente.\n\nSeu último commit precisa ser desfeito, e as alterações devem permanecer no seu diretório de trabalho mas não preparadas.",
+		"difficulty": "Fácil",
+		"category": "Desfazer e Corrigir Erros",
+		"hints": [
+			"Use 'git reset HEAD~1' para desfazer o último commit e despreparar alterações.",
+			"Reset misto (o padrão) move HEAD para trás e despreparar arquivos mas mantém alterações no diretório de trabalho.",
+			"HEAD~1 refere-se ao commit anterior ao HEAD atual (um commit atrás)."
+		]
+	},
+	{
+		"id": 35,
+		"title": "Despreparar um Arquivo que Foi Adicionado Acidentalmente",
+		"description": "Às vezes você prepara acidentalmente um arquivo que não queria incluir no próximo commit. O Git permite despreparar arquivos sem perder as alterações no seu diretório de trabalho.\n\nVocê preparou acidentalmente 'temp.log' que não deveria ser commitado. Despreparar este arquivo mantendo as alterações no seu diretório de trabalho.",
+		"difficulty": "Fácil",
+		"category": "Desfazer e Corrigir Erros",
+		"hints": [
+			"Use 'git reset HEAD temp.log' para despreparar o arquivo mantendo alterações no diretório de trabalho.",
+			"Você também pode usar 'git reset temp.log' como abreviação para a mesma operação.",
+			"O arquivo permanecerá modificado no seu diretório de trabalho após despreparar."
+		]
+	},
+	{
+		"id": 36,
+		"title": "Descartar Alterações Não Commitadas de um Arquivo",
+		"description": "Às vezes você faz alterações em um arquivo mas percebe que quer descartá-las e retornar o arquivo ao seu último estado commitado. O Git permite descartar alterações no seu diretório de trabalho sem afetar alterações preparadas.\n\nVocê fez alterações em 'file.txt' que quer descartar. Use o Git para restaurar o arquivo ao seu último estado commitado.",
+		"difficulty": "Fácil",
+		"category": "Desfazer e Corrigir Erros",
+		"hints": [
+			"Use 'git checkout -- file.txt' para descartar alterações no arquivo.",
+			"Você também pode usar 'git restore file.txt' (Git 2.23+) para o mesmo efeito.",
+			"Isso afeta apenas alterações não commitadas no seu diretório de trabalho, não alterações preparadas."
+		]
+	},
+	{
+		"id": 37,
+		"title": "Reverter um Commit que Foi Enviado para o Remoto",
+		"description": "Às vezes você precisa desfazer alterações de um commit que já foi enviado para um repositório remoto. Diferente do git reset, git revert cria um novo commit que desfaz as alterações, tornando seguro para repositórios compartilhados.\n\nVocê tem um commit com ID 'abc123def' que introduziu um bug e precisa ser revertido. Use git revert para desfazer suas alterações com segurança.",
+		"difficulty": "Médio",
+		"category": "Desfazer e Corrigir Erros",
+		"hints": [
+			"Use 'git revert <commit-id>' para criar um novo commit que desfaz as alterações do commit especificado.",
+			"git revert é mais seguro que git reset para commits que foram enviados para repositórios remotos.",
+			"O comando revert abrirá um editor para a mensagem do commit, ou use -m para especificá-la diretamente."
+		]
+	},
+	{
+		"id": 38,
+		"title": "Redefinir uma Branch para um Commit Anterior (Soft Reset)",
+		"description": "Às vezes você precisa redefinir sua branch para um commit anterior preservando suas alterações na área de preparação. Isso permite refazer o commit das alterações com uma estrutura ou mensagem diferente.\n\nVocê tem commits que precisam ser desfeitos, mas quer manter as alterações preparadas. Redefina sua branch para o commit 'abc123def' usando um soft reset.",
+		"difficulty": "Médio",
+		"category": "Desfazer e Corrigir Erros",
+		"hints": [
+			"Use 'git reset --soft <commit-id>' para redefinir para um commit específico mantendo alterações preparadas.",
+			"Você pode usar o ID do commit 'abc123def' ou encontrá-lo usando 'git log'.",
+			"Soft reset move HEAD para trás mas preserva sua área de preparação e diretório de trabalho."
+		]
+	},
+	{
+		"id": 39,
+		"title": "Redefinir uma Branch para um Commit Anterior (Hard Reset)",
+		"description": "Às vezes você precisa redefinir completamente sua branch para um commit anterior, descartando todas as alterações tanto na área de preparação quanto no diretório de trabalho. Esta é uma operação destrutiva que remove permanentemente alterações não commitadas.\n\nVocê tem commits que contêm bugs e quer redefinir completamente para o commit 'abc123def', descartando todas as alterações subsequentes. Use um hard reset para conseguir isso.",
+		"difficulty": "Médio",
+		"category": "Desfazer e Corrigir Erros",
+		"hints": [
+			"Use 'git reset --hard <commit-id>' para redefinir para um commit específico e descartar todas as alterações.",
+			"Você pode usar o ID do commit 'abc123def' ou encontrá-lo usando 'git log'.",
+			"Hard reset é destrutivo - removerá permanentemente todas as alterações não commitadas.",
+			"Seja cuidadoso com hard reset pois não pode ser desfeito facilmente."
+		]
+	},
+	{
+		"id": 40,
+		"title": "Restaurar um Arquivo Excluído de um Commit Anterior",
+		"description": "Às vezes você exclui acidentalmente um arquivo e faz commit da exclusão, mas depois percebe que precisa desse arquivo de volta. O Git permite restaurar arquivos de commits anteriores sem afetar outras alterações.\n\nUm arquivo chamado 'important-config.txt' foi excluído em um commit recente. Restaure este arquivo do commit anterior à exclusão (ID do commit 'def456abc').",
+		"difficulty": "Médio",
+		"category": "Desfazer e Corrigir Erros",
+		"hints": [
+			"Use 'git checkout <commit-id> -- <filename>' para restaurar um arquivo de um commit específico.",
+			"Você também pode usar 'git restore --source=<commit-id> <filename>' (Git 2.23+).",
+			"O ID do commit 'def456abc' contém a versão do arquivo que você quer restaurar.",
+			"Após restaurar, o arquivo estará preparado e pronto para commit."
+		]
+	}
+]

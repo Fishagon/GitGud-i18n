@@ -1,0 +1,135 @@
+[
+	{
+		"id": 71,
+		"title": "Obtener Cambios de un Remoto sin Fusionarlos",
+		"description": "A veces quieres ver qué cambios están disponibles en un repositorio remoto sin fusionarlos inmediatamente en tu rama actual. El comando 'git fetch' descarga los cambios pero no los fusiona, permitiéndote revisarlos primero.\n\nObtén los últimos cambios del remoto 'origin' sin fusionarlos en tu rama actual.",
+		"difficulty": "Fácil",
+		"category": "Colaboración",
+		"hints": [
+			"Usa 'git fetch origin' para descargar cambios del remoto origin.",
+			"A diferencia de 'git pull', fetch no fusiona los cambios en tu rama actual.",
+			"Después de obtener, puedes usar 'git log origin/main' para ver qué cambios están disponibles.",
+			"Usa 'git status' para ver que tu rama local está detrás del remoto."
+		]
+	},
+	{
+		"id": 72,
+		"title": "Reiniciar Cambios Locales para Coincidir con la Rama Remota",
+		"description": "A veces tu rama local ha divergido de la rama remota y quieres descartar todos los cambios locales para coincidir exactamente con lo que está en el remoto. Esto es útil cuando quieres abandonar trabajo local y sincronizar con el estado remoto.\n\nTienes cambios locales que entran en conflicto con la rama remota 'origin/main'. Reinicia tu rama local para coincidir exactamente con la rama remota.",
+		"difficulty": "Medio",
+		"category": "Colaboración",
+		"hints": [
+			"Primero usa 'git fetch' para obtener los últimos cambios remotos.",
+			"Usa 'git reset --hard origin/main' para reiniciar tu rama local para coincidir con el remoto.",
+			"Esto descartará todos los cambios locales y confirmaciones que no están en el remoto.",
+			"¡Ten cuidado - esta operación no puede deshacerse fácilmente!"
+		]
+	},
+	{
+		"id": 73,
+		"title": "Fusionar Cambios Remotos Manteniendo Intactos los Cambios Locales",
+		"description": "Tienes cambios locales en tu directorio de trabajo, pero también hay cambios nuevos en el repositorio remoto. Necesitas fusionar los cambios remotos mientras preservas tu trabajo local. Esto puede hacerse guardando tus cambios, extrayendo, y luego restaurando, o confirmando tus cambios primero.\n\nTienes modificaciones locales y el remoto tiene nuevas confirmaciones. Fusiona los cambios remotos manteniendo intactos tus cambios locales.",
+		"difficulty": "Medio",
+		"category": "Colaboración",
+		"hints": [
+			"Puedes usar 'git stash' para guardar temporalmente tus cambios locales.",
+			"Después de guardar, usa 'git pull' para obtener los cambios remotos.",
+			"Luego usa 'git stash pop' para restaurar tus cambios locales.",
+			"Alternativamente, puedes confirmar tus cambios locales primero, luego extraer.",
+			"Usa 'git status' para verificar el estado de tu directorio de trabajo."
+		]
+	},
+	{
+		"id": 74,
+		"title": "Cherry-pick de una Confirmación de Otra Rama",
+		"description": "A veces necesitas aplicar una confirmación específica de una rama a otra sin fusionar la rama completa. El comando 'git cherry-pick' te permite copiar una confirmación de una rama y aplicarla a tu rama actual.\n\nTienes una rama de característica con una confirmación útil que quieres aplicar a tu rama principal. Haz cherry-pick de la confirmación con ID 'abc1234' de la rama feature a tu rama actual.",
+		"difficulty": "Medio",
+		"category": "Colaboración",
+		"hints": [
+			"Usa 'git log feature-branch' para ver las confirmaciones en la rama feature.",
+			"Usa 'git cherry-pick <commit-id>' para aplicar una confirmación específica a tu rama actual.",
+			"Asegúrate de estar en la rama objetivo antes de hacer cherry-pick.",
+			"El cherry-pick crea una nueva confirmación con los mismos cambios pero un ID de confirmación diferente."
+		]
+	},
+	{
+		"id": 75,
+		"title": "Forzar Push Después de Reescribir el Historial",
+		"description": "Después de reescribir el historial de Git (como con rebase o amend), tu rama local divergirá de la rama remota. Un push regular será rechazado, así que necesitas usar un force push para sobrescribir el historial remoto. Esto es potencialmente peligroso ya que puede sobrescribir el trabajo de otras personas.\n\nHas reescrito el historial de confirmaciones localmente y necesitas forzar el push de tus cambios para actualizar la rama remota. Usa un force push para actualizar el remoto 'origin'.",
+		"difficulty": "Difícil",
+		"category": "Colaboración",
+		"hints": [
+			"Usa 'git push --force' o 'git push -f' para forzar el push de tus cambios.",
+			"Force push sobrescribe la rama remota con tu versión local.",
+			"¡Ten mucho cuidado con force push - puede sobrescribir el trabajo de otras personas!",
+			"Puedes usar 'git push --force-with-lease' para un force push más seguro.",
+			"Verifica 'git log --oneline' para ver tu historial reescrito antes de empujar."
+		]
+	},
+	{
+		"id": 76,
+		"title": "Push y Establecer Upstream para Nueva Rama Remota",
+		"description": "Cuando creas una rama local y quieres empujarla a un repositorio remoto por primera vez, necesitas establecer la relación de seguimiento upstream. Esto permite que futuros comandos `git push` y `git pull` funcionen sin especificar los nombres del remoto y rama.\n\nTienes una rama local 'feature-login' con algunas confirmaciones que necesita ser empujada al repositorio remoto. Usa git push con la opción upstream para crear la rama remota y establecer el seguimiento en un comando.",
+		"difficulty": "Fácil",
+		"category": "Colaboración",
+		"hints": [
+			"Usa 'git push --set-upstream origin feature-login' para empujar y establecer upstream en un comando.",
+			"También puedes usar la abreviación 'git push -u origin feature-login'.",
+			"Esto crea la rama remota y establece el seguimiento para que futuros pushes no necesiten especificar el remoto.",
+			"Asegúrate de estar en la rama 'feature-login' cuando ejecutes el comando."
+		]
+	},
+	{
+		"id": 77,
+		"title": "Establecer Upstream a Rama Remota Existente",
+		"description": "A veces tienes una rama local que debería seguir una rama remota existente, pero la relación de seguimiento no ha sido establecida aún. Esto ocurre a menudo cuando creas una rama local desde una rama remota o cuando trabajas con ramas creadas por otros miembros del equipo.\n\nTienes una rama local 'feature-auth' y ya hay una rama remota 'origin/feature-auth'. Configura tu rama local para seguir la rama remota existente.",
+		"difficulty": "Fácil",
+		"category": "Colaboración",
+		"hints": [
+			"Usa 'git branch -u origin/feature-auth' para establecer el upstream para la rama actual.",
+			"También puedes usar 'git branch --set-upstream-to=origin/feature-auth feature-auth' para ser más explícito.",
+			"Asegúrate de estar en la rama 'feature-auth', o especifica el nombre de la rama en el comando.",
+			"No uses 'git push -u' para este desafío - eso es para crear nuevas ramas remotas."
+		]
+	},
+	{
+		"id": 78,
+		"title": "Rebase de una Rama Feature en Main",
+		"description": "Tienes una rama feature que fue creada desde una versión anterior de main. Desde entonces, main ha recibido nuevas confirmaciones. Hacer rebase de tu rama feature en el último main mantiene un historial limpio y lineal reproduciendo tus confirmaciones feature encima de las últimas confirmaciones main, evitando confirmaciones de fusión innecesarias. Esta práctica también asegura que tu feature funcione con los cambios de código más recientes y hace que el historial del proyecto sea más fácil de leer y entender.\n\nCambia a la rama 'feature-payment' y haz rebase en 'main' para actualizar su base.",
+		"difficulty": "Medio",
+		"category": "Colaboración",
+		"hints": [
+			"Primero cambia a la rama feature con 'git checkout feature-payment'.",
+			"Luego usa 'git rebase main' para hacer rebase de la rama feature en main.",
+			"Esto reproducirá tus confirmaciones feature encima de las últimas confirmaciones main.",
+			"Si hay conflictos, resuélvelos y usa 'git rebase --continue'."
+		]
+	},
+	{
+		"id": 79,
+		"title": "Manejar un Estado de HEAD Separado para Explorar de Forma Segura",
+		"description": "Cuando haces checkout de una confirmación específica, entras en un estado de 'detached HEAD' donde no estás en ninguna rama. Esto es útil para explorar código antiguo o probar cambios, pero cualquier confirmación hecha aquí podría perderse si no se maneja apropiadamente. La forma segura de trabajar en detached HEAD es crear una nueva rama si quieres mantener cambios.\n\nHaz checkout de la confirmación 'abc5678' para entrar en estado detached HEAD, luego crea una nueva rama llamada 'exploration' para hacerlo seguro para desarrollo.",
+		"difficulty": "Medio",
+		"category": "Colaboración",
+		"hints": [
+			"Usa 'git checkout abc5678' para hacer checkout de la confirmación específica (esto entra en detached HEAD).",
+			"Git te advertirá sobre el estado detached HEAD - esto es normal.",
+			"Crea una nueva rama con 'git checkout -b exploration' o 'git switch -c exploration'.",
+			"Esto hace tu posición segura para hacer confirmaciones sin perder trabajo."
+		]
+	},
+	{
+		"id": 80,
+		"title": "Sincronizar un Fork con el Repositorio Upstream",
+		"description": "En desarrollo colaborativo, a menudo trabajas con un fork del repositorio original. Tu fork (origin) puede volverse desactualizado cuando el repositorio original (upstream) recibe nuevas confirmaciones de otros contribuidores. Necesitas sincronizar tu fork con el repositorio upstream para mantenerte actualizado con los últimos cambios.\n\nTienes un repositorio forkeado con 'origin' apuntando a tu fork y 'upstream' apuntando al repositorio original. El repositorio upstream tiene nuevas confirmaciones que necesitas extraer en tu repositorio local y empujar a tu fork para mantenerlo sincronizado.",
+		"difficulty": "Medio",
+		"category": "Colaboración",
+		"hints": [
+			"Primero, obtén los últimos cambios del upstream con 'git fetch upstream'.",
+			"Asegúrate de estar en tu rama main con 'git checkout main'.",
+			"Fusiona los cambios upstream con 'git merge upstream/main'.",
+			"Empuja la rama main actualizada a tu fork con 'git push origin main'.",
+			"Este flujo de trabajo mantiene tu fork sincronizado con el repositorio original."
+		]
+	}
+]

@@ -1,0 +1,131 @@
+[
+	{
+		"id": 41,
+		"title": "Rozpoczęcie interaktywnego rebase dla ostatnich trzech commitów",
+		"description": "Interaktywny rebase pozwala modyfikować historię commitów poprzez zmienianie kolejności, edytowanie, squashowanie lub odrzucanie commitów. Jest to przydatne do uporządkowania historii commitów przed wypchnięciem do współdzielonego repozytorium.\n\nMasz kilka commitów, które wymagają uporządkowania. Rozpocznij interaktywny rebase dla ostatnich trzech commitów (HEAD~3), aby przygotować je do edycji.",
+		"difficulty": "Średni",
+		"category": "Rebasing i Historia",
+		"hints": [
+			"Użyj 'git rebase -i HEAD~3', aby rozpocząć interaktywny rebase dla ostatnich 3 commitów.",
+			"Flaga -i oznacza 'interactive' i otworzy edytor z instrukcjami commitów.",
+			"HEAD~3 oznacza 'cofnij się o 3 commity od obecnego HEAD'.",
+			"Interaktywny rebase pozwala pick, reword, edit, squash lub drop commitów."
+		]
+	},
+	{
+		"id": 42,
+		"title": "Squashowanie dwóch commitów w jeden",
+		"description": "Czasem masz wiele małych commitów, które lepiej byłoby połączyć w jeden, bardziej znaczący commit. Git pozwala squashować commity razem używając interaktywnego rebase lub resetując i ponownie commitując.\n\nMasz dwa ostatnie commity, które powinny być połączone w jeden. Użyj interaktywnego rebase lub reset/commit, aby je squashować razem.",
+		"difficulty": "Średni",
+		"category": "Rebasing i Historia",
+		"hints": [
+			"Użyj 'git rebase -i HEAD~2', aby rozpocząć interaktywny rebase ostatnich 2 commitów.",
+			"To otworzy edytor tekstu z listą todo rebase.",
+			"Zmień drugą linię z 'pick' na 'squash' (lub 's'), następnie zapisz i zamknij edytor.",
+			"Jeśli edytor się nie otworzy, użyj fallback: 'git rebase pick squash'",
+			"Alternatywnie użyj 'git reset --soft HEAD~2' następnie 'git commit'."
+		]
+	},
+	{
+		"id": 43,
+		"title": "Przepisanie wiadomości starego commita",
+		"description": "Jeden z wcześniejszych commitów ma niejasną wiadomość 'Update file.txt content', która nie opisuje co zostało faktycznie zmienione. Użyj interaktywnego rebase, aby przepisać wiadomość tego commita na bardziej opisową.\n\nUżyj interaktywnego rebase, aby przepisać wiadomość drugiego commita na coś bardziej konkretnego.",
+		"difficulty": "Średni",
+		"category": "Rebasing i Historia",
+		"hints": [
+			"Użyj 'git rebase -i HEAD~2', aby rozpocząć interaktywny rebase ostatnich 2 commitów.",
+			"Zmień 'pick' na 'reword' (lub 'r') dla commita z wiadomością 'Update file.txt content'.",
+			"Lepsza wiadomość commita mogłaby opisywać jakie konkretne zmiany zostały wprowadzone do pliku.",
+			"Zapisz i zamknij edytor, następnie podaj nową wiadomość commita gdy zostaniesz poproszony."
+		]
+	},
+	{
+		"id": 44,
+		"title": "Usunięcie commita z historii",
+		"description": "Czasem musisz całkowicie usunąć commit z historii projektu. To różni się od revertowania - faktycznie usuwa commit jakby nigdy nie istniał.\n\nMasz commit ze złą implementacją, który musi być całkowicie usunięty z historii. Użyj interaktywnego rebase, aby odrzucić commit z ID 'abc123def'.",
+		"difficulty": "Średni",
+		"category": "Rebasing i Historia",
+		"hints": [
+			"Użyj 'git log --oneline', aby zobaczyć historię commitów i zidentyfikować błędny commit.",
+			"Użyj 'git rebase -i HEAD~2', aby rozpocząć interaktywny rebase cofający się o 2 commity.",
+			"Zmień 'pick' na 'drop' (lub 'd') dla commita z wiadomością 'Add buggy feature'.",
+			"Commit zostanie całkowicie usunięty z historii, nie tylko revertowany.",
+			"Użyj 'git rebase --continue' jeśli potrzebne, aby dokończyć rebase."
+		]
+	},
+	{
+		"id": 45,
+		"title": "Zmiana kolejności commitów podczas interaktywnego rebase",
+		"description": "Czasem musisz reorganizować historię commitów, aby była bardziej logiczna. Patrząc na historię commitów, 'Update to version 2.0' nastąpił przed 'Add configuration file', ale logicznie chciałbyś dodać konfigurację przed aktualizacją wersji.\n\nUżyj interaktywnego rebase, aby zmienić kolejność ostatnich 3 commitów tak, aby 'Add configuration file' nastąpił chronologicznie przed 'Update to version 2.0'.",
+		"difficulty": "Średni",
+		"category": "Rebasing i Historia",
+		"hints": [
+			"Użyj 'git rebase -i HEAD~3', aby rozpocząć interaktywny rebase ostatnich 3 commitów.",
+			"W edytorze rebase zobaczysz commity wymienione od najstarszego do najnowszego.",
+			"Przenieś linię 'Add configuration file', aby była przed linią 'Update to version 2.0'.",
+			"Zapisz i zamknij edytor, aby zastosować nową kolejność commitów.",
+			"Użyj 'git log --oneline', aby zweryfikować że commity są teraz w logicznej kolejności."
+		]
+	},
+	{
+		"id": 46,
+		"title": "Przerwanie trwającego rebase",
+		"description": "Czasem podczas operacji rebase napotkasz konflikty lub zdajesz sobie sprawę, że chcesz całkowicie anulować rebase. Git pozwala przerwać trwający rebase i wrócić repozytorium do stanu sprzed rebase.\n\nRozpocząłeś rebase, który napotkał konflikty. Zamiast je rozwiązywać, przerwij rebase, aby wrócić do oryginalnego stanu.",
+		"difficulty": "Średni",
+		"category": "Rebasing i Historia",
+		"hints": [
+			"Użyj 'git rebase --abort', aby anulować trwającą operację rebase.",
+			"To przywróci twoje repozytorium do dokładnego stanu sprzed rozpoczęcia rebase.",
+			"Wszystkie przygotowane zmiany lub znaczniki konfliktów zostaną automatycznie wyczyszczone."
+		]
+	},
+	{
+		"id": 47,
+		"title": "Kontynuowanie rebase po rozwiązaniu konfliktów",
+		"description": "Podczas rebasowania commitów mogą wystąpić konflikty jeśli te same linie zostały zmodyfikowane w różnych commitach. Git wstrzyma rebase i pozwoli ręcznie rozwiązać konflikty przed kontynuowaniem.\n\nRozpocząłeś rebase, który napotkał konflikty. Rozwiąż konflikty w dotkniętych plikach i kontynuuj proces rebase.",
+		"difficulty": "Średni",
+		"category": "Rebasing i Historia",
+		"hints": [
+			"Najpierw sprawdź status za pomocą 'git status', aby zobaczyć które pliki mają konflikty.",
+			"Edytuj pliki z konfliktami, aby rozwiązać znaczniki konfliktów (<<<<<<, ======, >>>>>>).",
+			"Przygotuj rozwiązany plik za pomocą 'git add <filename>'.",
+			"Kontynuuj rebase za pomocą 'git rebase --continue'."
+		]
+	},
+	{
+		"id": 48,
+		"title": "Pomijanie commita podczas interaktywnego rebase",
+		"description": "Czasem podczas rebase napotkasz commit, który powoduje konflikty lub problemy trudne do rozwiązania. Git pozwala całkowicie pominąć problematyczne commity używając flagi --skip.\n\nRozpocząłeś rebase, który napotkał problematyczny commit. Pomiń obecny commit i kontynuuj z rebase.",
+		"difficulty": "Średni",
+		"category": "Rebasing i Historia",
+		"hints": [
+			"Użyj 'git rebase --skip', aby pominąć obecny problematyczny commit.",
+			"To odrzuci problematyczny commit i kontynuuje z pozostałymi commitami.",
+			"Rebase powinien zakończyć się automatycznie po pominięciu problematycznego commita."
+		]
+	},
+	{
+		"id": 49,
+		"title": "Znalezienie autora każdej linii w pliku",
+		"description": "Czasem musisz zobaczyć kto napisał każdą linię pliku i kiedy została ostatnio zmodyfikowana. Komenda git blame pokazuje informacje o autorstwie linia po linii dla pliku.\n\nUżyj git blame, aby zobaczyć informacje o autorstwie dla pliku 'README.md'.",
+		"difficulty": "Łatwy",
+		"category": "Rebasing i Historia",
+		"hints": [
+			"Użyj 'git blame <filename>', aby zobaczyć informacje o autorstwie linia po linii.",
+			"Komenda blame pokazuje hash commita, autora, timestamp i numer linii dla każdej linii.",
+			"Spróbuj 'git blame README.md', aby zobaczyć kto napisał każdą linię pliku README."
+		]
+	},
+	{
+		"id": 50,
+		"title": "Znalezienie commita który wprowadził konkretną zmianę",
+		"description": "Czasem musisz znaleźć kiedy konkretny kawałek kodu lub tekstu został wprowadzony do bazy kodu. Git zapewnia potężne możliwości wyszukiwania, aby pomóc zlokalizować commity które dodały lub usunęły konkretną zawartość.\n\nFunkcja o nazwie 'authenticateUser' została dodana do bazy kodu w pewnym momencie. Użyj funkcji pickaxe Git, aby znaleźć commit, który wprowadził tę funkcję.",
+		"difficulty": "Średni",
+		"category": "Rebasing i Historia",
+		"hints": [
+			"Użyj 'git log -S \"authenticateUser\"', aby znaleźć commity które dodały lub usunęły funkcję authenticateUser.",
+			"Flaga -S (pickaxe) szuka commitów gdzie liczba wystąpień szukanego ciągu się zmieniła.",
+			"Możesz również użyć 'git log -G \"pattern\"', aby szukać commitów które dodały lub usunęły linie pasujące do wzorca regex."
+		]
+	}
+]

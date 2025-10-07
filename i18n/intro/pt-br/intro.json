@@ -1,0 +1,205 @@
+[
+  {
+    "Id": 1,
+    "Title": "Por que Git?",
+    "Content": "Git é um sistema de controle de versão. Isso significa que ele ajuda desenvolvedores a rastrear alterações em seus arquivos ao longo do tempo. Se você já perdeu trabalho, precisou desfazer algo ou quis entender quem mudou o que em um projeto de equipe, controle de versão é a resposta.\n\nGit é local-first e distribuído — você não precisa estar online para usá-lo, e cada cópia de um repositório Git contém todo o histórico. Isso torna Git confiável, flexível e poderoso, especialmente para desenvolvimento de software.",
+    "Questions": [
+      {
+        "QuestionText": "Para que o Git é usado principalmente?",
+        "Options": [
+          "Hospedar sites",
+          "Gerenciar versões de projeto e rastrear alterações",
+          "Fazer backup do seu sistema",
+          "Criptografar arquivos"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git é principalmente um sistema de controle de versão projetado para rastrear alterações em arquivos e coordenar trabalho entre múltiplas pessoas."
+      },
+      {
+        "QuestionText": "Que tipo de projeto se beneficiaria do Git?",
+        "Options": [
+          "Um único arquivo de texto que você nunca mudará",
+          "Um projeto grande com arquivos em evolução",
+          "Algo que você está enviando por email de um lado para outro",
+          "Um PDF bloqueado"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git é excelente para gerenciar projetos que mudam ao longo do tempo, especialmente quando múltiplas pessoas estão trabalhando neles."
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Title": "O que é um Repositório?",
+    "Content": "Um repositório Git — ou \"repo\" — é um diretório de projeto que está sendo rastreado pelo Git. O que torna uma pasta um repositório Git é uma pasta oculta .git/ dentro dela. Esta pasta .git/ contém todo o histórico do seu projeto, branches, configuração e mais.\n\nVocê pode criar um novo repo com git init ou clonar um existente com git clone. Um repo Git não são apenas seus arquivos — é toda sua linha do tempo de trabalho.",
+    "Questions": [
+      {
+        "QuestionText": "O que faz uma pasta ser um repositório Git?",
+        "Options": [
+          "Ela está enviada para o GitHub",
+          "Ela contém uma pasta .git/",
+          "Ela contém JavaScript",
+          "Ela tem um README"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "A pasta oculta .git/ é o que transforma qualquer pasta comum em um repositório Git, contendo todos os dados de controle de versão."
+      },
+      {
+        "QuestionText": "Você digita git init em uma pasta. O que acabou de acontecer?",
+        "Options": [
+          "Git baixou uma cópia dos seus arquivos",
+          "Uma conexão remota foi criada",
+          "Você deletou seu histórico antigo",
+          "Git criou uma pasta .git/ para começar a rastrear seu projeto"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "O comando git init cria uma nova pasta .git/ no diretório atual, inicializando-o como um repositório Git."
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Title": "Como o Git Pensa",
+    "Content": "O modelo mental do Git inclui três áreas principais:\n\nDiretório de Trabalho - Seus arquivos reais no disco.\nÁrea de Preparação - Uma prévia do que será commitado.\nRepositório - O histórico de commits salvos.\n\nQuando você modifica arquivos, eles são atualizados no diretório de trabalho. Quando você faz git add neles, eles vão para a área de preparação. Quando você faz git commit, eles são salvos no repositório.",
+    "Questions": [
+      {
+        "QuestionText": "Git é um sistema de \"snapshot\". O que isso significa?",
+        "Options": [
+          "Ele registra apenas as diferenças entre arquivos",
+          "Ele salva uma cópia inteira do seu projeto a cada vez",
+          "Ele tira uma foto da sua tela",
+          "Ele grava sua voz"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git tira snapshots de todo o estado do seu projeto a cada commit, ao invés de apenas armazenar diferenças de arquivo."
+      },
+      {
+        "QuestionText": "No modelo do Git, quais são as três áreas principais?",
+        "Options": [
+          "Dev, Test, Prod",
+          "Staging, Branching, Deploying",
+          "Diretório de Trabalho, Área de Preparação, Repositório",
+          "Upload, Sync, Review"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Essas três áreas representam o fluxo de alterações: Diretório de Trabalho (onde você edita), Área de Preparação (onde você prepara) e Repositório (onde você salva)."
+      },
+      {
+        "QuestionText": "Qual área contém arquivos que você editou mas ainda não adicionou?",
+        "Options": [
+          "Área de Preparação",
+          "Diretório de Trabalho",
+          "Repo Remoto",
+          "Log de Histórico"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "O Diretório de Trabalho contém seus arquivos reais como eles existem no disco, incluindo quaisquer alterações não salvas."
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Title": "Commits e Histórico",
+    "Content": "Commits são a forma do Git salvar seu progresso. Um commit é um snapshot do seu projeto em um certo momento. Cada commit inclui metadados como autor, timestamp e uma mensagem.\n\nBoas mensagens de commit são curtas e descritivas. Uma série de commits bem escritos conta a história do seu projeto.",
+    "Questions": [
+      {
+        "QuestionText": "O que um commit representa no Git?",
+        "Options": [
+          "Uma pasta",
+          "Um ponto de salvamento no histórico do projeto",
+          "Um colaborador",
+          "Uma branch"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Um commit é como um ponto de salvamento ou checkpoint na linha do tempo do seu projeto, capturando o estado de todos os arquivos naquele momento."
+      },
+      {
+        "QuestionText": "Qual destas melhor descreve uma mensagem de commit?",
+        "Options": [
+          "Uma piada opcional",
+          "Um comando Git",
+          "Uma nota curta explicando o que mudou",
+          "Sua senha do GitHub"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Mensagens de commit devem descrever brevemente quais alterações foram feitas, ajudando você e outros a entender a evolução do projeto."
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Title": "Descobrindo Git",
+    "Content": "Git vem com ajuda integrada para quase todos os comandos. Você pode executar:\n\ngit help <comando>\n<comando> --help\n\nOu ver páginas do manual com man git-<comando>\n\nVocê não precisa memorizar tudo — Git espera que você explore conforme avança.",
+    "Questions": [
+      {
+        "QuestionText": "Você esqueceu o que git log faz. O que você digita?",
+        "Options": [
+          "git search log",
+          "git help log",
+          "git !log",
+          "git -explain log"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "O comando git help seguido por qualquer comando Git mostrará documentação detalhada para esse comando."
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Title": "Clonagem e Remotos",
+    "Content": "Git não é apenas para arquivos locais. Você pode sincronizar seu trabalho com repositórios remotos como GitHub usando comandos como git clone, git fetch e git push.\n\nQuando você clona um repo, Git copia tudo — não apenas os arquivos, mas todo o histórico de commits. O nome padrão para o remoto é origin.",
+    "Questions": [
+      {
+        "QuestionText": "O que git clone faz?",
+        "Options": [
+          "Cria uma nova branch",
+          "Copia um repositório Git remoto para sua máquina",
+          "Compacta seu projeto",
+          "Envia sua pasta para a nuvem"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git clone baixa uma cópia completa de um repositório remoto, incluindo todos os arquivos e histórico de commits."
+      },
+      {
+        "QuestionText": "Você acabou de clonar um repo. Como o remoto padrão é chamado?",
+        "Options": [
+          "upstream",
+          "ssh",
+          "master",
+          "origin"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "Por convenção, Git nomeia o remoto padrão como 'origin' quando você clona um repositório."
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Title": "Branches e HEAD",
+    "Content": "Branches permitem trabalhar em diferentes versões do seu projeto em paralelo. Uma branch é apenas um ponteiro para um commit — um rótulo em uma linha do tempo.\n\nHEAD é um ponteiro especial para sua posição atual no Git. Normalmente aponta para o último commit na sua branch atual.",
+    "Questions": [
+      {
+        "QuestionText": "O que é uma branch no Git?",
+        "Options": [
+          "Uma cópia da pasta .git/",
+          "Uma linha do tempo de commits sob um rótulo específico",
+          "Um backup compactado",
+          "Um diretório de preparação"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Uma branch é essencialmente um ponteiro móvel ou rótulo que aponta para um commit específico, representando uma linha de desenvolvimento."
+      },
+      {
+        "QuestionText": "O que é HEAD no Git?",
+        "Options": [
+          "O primeiro commit",
+          "O arquivo .gitignore",
+          "O ponteiro para seu commit atual",
+          "O rastreador de issues do GitHub"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "HEAD é a forma do Git saber onde você está no histórico do seu projeto - ele aponta para o commit do qual você está trabalhando atualmente."
+      }
+    ]
+  }
+]

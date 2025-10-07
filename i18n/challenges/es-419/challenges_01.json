@@ -1,0 +1,107 @@
+[
+	{
+		"id": 1,
+		"title": "Inicializar un Repositorio",
+		"description": "¡Bienvenido a Git Gud! Comencemos creando tu primer repositorio de Git.\n\nCrea un nuevo repositorio de Git usando el comando 'git init'.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Escribe 'git init' para inicializar un nuevo repositorio."
+		]
+	},
+	{
+		"id": 2,
+		"title": "Verificar el Estado del Repositorio",
+		"description": "Ahora que tienes un repositorio, vamos a verificar su estado para ver qué archivos están rastreados, modificados o preparados.\n\nUsa el comando apropiado para verificar el estado del repositorio.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"El comando para verificar el estado del repositorio es 'git status'."
+		]
+	},
+	{
+		"id": 3,
+		"title": "Preparar y Confirmar un Archivo",
+		"description": "Vamos a agregar un archivo a tu repositorio y registrar esos cambios.\n\nPrimero, prepara file.txt usando 'git add', luego confírmalo con un mensaje.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Usa 'git add file.txt' para preparar el archivo.",
+			"Luego usa 'git commit -m \"Tu mensaje aquí\"' para crear una confirmación."
+		]
+	},
+	{
+		"id": 4,
+		"title": "Agregar y Confirmar en un Solo Paso",
+		"description": "A veces quieres preparar todos tus cambios y confirmarlos rápidamente.\n\nAgrega todos los archivos modificados al área de preparación y confírmalos en un solo paso.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"La mayoría de comandos soportan varias opciones para modificar su comportamiento. Por ejemplo, 'git add' puede usarse con la opción '-A' para agregar todos los cambios.",
+			"Puedes usar 'git add .' para preparar todos los archivos, luego 'git commit -m \"Tu mensaje\"'. ¿Considera maneras de combinar ambos en un solo comando con opciones?",
+			"Para archivos rastreados, también puedes usar 'git commit -a -m \"Tu mensaje\"' para preparar y confirmar en un comando."
+		]
+	},
+	{
+		"id": 5,
+		"title": "Ver el Historial de Confirmaciones",
+		"description": "Vamos a ver el historial de confirmaciones para ver qué cambios se han hecho.\n\nUsa el comando para ver el historial de confirmaciones.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Usa 'git log' para ver el historial de confirmaciones."
+		]
+	},
+	{
+		"id": 6,
+		"title": "Crear una Rama",
+		"description": "Las ramas te permiten trabajar en diferentes características o correcciones de forma aislada.\n\nCrea una nueva rama llamada 'feature'.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Usa 'git branch feature' para crear una nueva rama."
+		]
+	},
+	{
+		"id": 7,
+		"title": "Cambiar de Rama",
+		"description": "Ahora que has creado una rama, vamos a cambiar a ella.\n\nUsa el comando checkout para cambiar a la rama 'feature'.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Usa 'git checkout feature' para cambiar a la rama.",
+			"En versiones más nuevas de Git, también puedes usar 'git switch feature'."
+		]
+	},
+	{
+		"id": 8,
+		"title": "Eliminar una Rama",
+		"description": "Cuando hayas terminado con una rama, puedes eliminarla para mantener tu repositorio limpio.\n\nCrea una rama llamada 'temp-branch', luego elimínala.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Primero crea la rama con 'git branch temp-branch'.",
+			"Luego elimínala con 'git branch -d temp-branch'."
+		]
+	},
+	{
+		"id": 9,
+		"title": "Clonar un Repositorio",
+		"description": "Clonar te permite crear una copia local de un repositorio remoto.\n\nClona el repositorio de muestra usando la URL proporcionada:\nhttps://github.com/example/repo.git",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Usa 'git clone https://github.com/example/repo.git' para clonar un repositorio."
+		]
+	},
+	{
+		"id": 10,
+		"title": "Ver Cambios",
+		"description": "Ve qué cambios has hecho desde la última confirmación.\n\nUsa el comando apropiado para verificar las diferencias entre tu directorio de trabajo y la última confirmación.",
+		"difficulty": "Fácil",
+		"category": "Básicos",
+		"hints": [
+			"Usa 'git diff' para ver los cambios no preparados desde la última confirmación."
+		]
+	}
+]
