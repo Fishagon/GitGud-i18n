@@ -84,12 +84,12 @@
 	{
 		"id": 18,
 		"title": "Aktuellen Branch umbenennen",
-		"description": "Manchmal möchten Sie einen Branch umbenennen, um ihn aussagekräftiger zu machen.\n\nBenennen Sie den aktuellen Branch von 'old-feature' zu 'new-feature' um.",
+		"description": "Manchmal möchten Sie einen Branch umbenennen, um ihn aussagekräftiger zu machen.\n\nBenennen Sie den aktuellen Branch von 'master' zu 'main' um.",
 		"difficulty": "Mittel",
 		"category": "Verzweigungen & Zusammenführung",
 		"hints": [
-			"Verwenden Sie 'git branch -m new-feature', um den aktuellen Branch umzubenennen.",
-			"Alternativ können Sie 'git branch -m old-feature new-feature' verwenden, um explizit anzugeben, welcher Branch umbenannt werden soll."
+			"Verwenden Sie 'git branch -m main', um den aktuellen Branch umzubenennen.",
+			"Alternativ können Sie 'git branch -m master main' verwenden, um explizit anzugeben, welcher Branch umbenannt werden soll."
 		]
 	},
 	{
