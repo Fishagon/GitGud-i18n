@@ -64,7 +64,7 @@
         "hints": [
             "Прво креирајте и пређите на нову грану командом 'git checkout -b feature-login'.",
             "Користите 'git push -u origin feature-login' да бисте послали грану и поставили upstream у једној команди.",
-            "Flag -u је скраћеница за --set-upstream и креира однос праћења."
+            "Flag -u је скраћеница за --set-upstream и креира релацију праћења."
         ]
     },
     {
