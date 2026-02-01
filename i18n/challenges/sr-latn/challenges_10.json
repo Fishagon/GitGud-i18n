@@ -1,0 +1,144 @@
+[
+    {
+        "id": 91,
+        "title": "Automatsko GPG potpisivanje commit-ova",
+        "description": "GPG (GNU Privacy Guard) omogućava kriptografsko potpisivanje commit-ova radi provere njihove autentičnosti. Ovo osigurava da commit-ovi zaista potiču od Vas i da nije bilo manipulacije. Podesite Git da automatski potpisuje sve commit-ove Vašim GPG ključem.\n\nPodesite GPG potpisivanja commit-ova:\n1. Podesite Vaš GPG ključ za potpisivanje (koristite 'ABC123DEF456' kao ID ključa)\n2. Omogućite automatsko potpisivanje commit-ova\n3. Napravite potpisan commit radi provere konfiguracije",
+        "difficulty": "Srednje",
+        "category": "Stručnjak",
+        "hints": [
+            "Koristite 'git config --global user.signingkey <key-id>' da biste podesili Vaš GPG ključ za potpisivanje.",
+            "Koristite 'git config --global commit.gpgsign true' da biste omogućili automatsko potpisivanje commit-ova.",
+            "ID ključa za ovu vežbu je 'ABC123DEF456'.",
+            "Nakon konfiguracije napravite commit kako biste proverili da li potpisivanje funkcioniše.",
+            "GPG konfiguraciju možete proveriti komandom 'git config --list | grep gpg'."
+        ]
+    },
+    {
+        "id": 92,
+        "title": "Squash-ovanje više commit-ova u jedan prilikom spajanja grane",
+        "description": "Ponekad želite da spojite feature granu, ali da zadržite čistu istoriju tako što ćete sve commit-ove sa feature grane objediniti u jedan commit. Ovo se naziva 'squash merge' i izvodi se pomoću 'git merge --squash'.\n\nFeature grana pod nazivom 'feature-cleanup' sadrži više manjih commit-ova koji treba da budu objedinjeni u jedan commit prilikom spajanja u main. Koristite squash merge da biste spojili sve commit-ove iz 'feature-cleanup' u jedan commit sa porukom 'Implement cleanup feature'.",
+        "difficulty": "Srednje",
+        "category": "Stručnjak",
+        "hints": [
+            "Koristite 'git merge --squash feature-cleanup' da biste squash-ovali sve commit-ove sa feature grane.",
+            "Nakon squash merge operacije, izmene su stage-ovane ali još uvek nisu commit-ovane.",
+            "Koristite 'git commit -m \"Implement cleanup feature\"' da biste kreirali konačni squash-ovani commit.",
+            "Proverite 'git log --oneline' da biste videli da je dodat samo jedan commit.",
+            "Originalni commit-ovi sa feature grane se neće pojaviti u istoriji main grane."
+        ]
+    },
+    {
+        "id": 93,
+        "title": "Prepisivanje istorije grane i force push",
+        "description": "Ponekad je potrebno očistiti istoriju commit-ova pre deljenja sa drugima. Ovo podrazumeva prepisivanje istorije (korišćenjem interaktivnog rebase-a), a zatim force push-ovanje izmena radi ažuriranja udaljene grane. Ovo je korisno za squash-ovanje commit-ova, ispravljanje commit poruka ili promenu redosleda commit-ova pre spajanja.\n\nPrepišite istoriju trenutne grane tako što ćete squash-ovati poslednja 2 commit-a u 1, a zatim force push-ujte izmene u udaljeni repozitorijum.",
+        "difficulty": "Teško",
+        "category": "Stručnjak",
+        "hints": [
+            "Koristite 'git rebase -i HEAD~2' da biste pokrenuli interaktivni rebase poslednja 2 commit-a.",
+            "Promenite 'pick' u 'squash' (ili 's') za drugi commit kako biste ga squash-ovali u prvi.",
+            "Nakon završetka rebase-a, koristite 'git push --force' ili 'git push -f' za ažuriranje udaljene grane.",
+            "Budite oprezni sa force push-om - prepisuje udaljenu istoriju i može uticati na druge saradnike.",
+            "Možete koristiti 'git push --force-with-lease' za bezbedniji force push."
+        ]
+    },
+    {
+        "id": 94,
+        "title": "Uklanjanje osetljivih podataka iz istorije pomoću git filter-branch",
+        "description": "Ponekad se osetljivi podaci poput lozinki, API ključeva ili ličnih informacija slučajno commit-uju u repozitorijum. Prosto brisanje fajla u novom commit-u nije dovoljno - osetljivi podaci i dalje postoje u Git istoriji i dostupni su svima koji imaju pristup repozitorijumu.\n\nFajl pod nazivom 'secrets.txt' koji sadrži osetljive API ključeve je slučajno commit-ovan u istoriju repozitorijuma. Koristite 'git filter-branch' da biste u potpunosti uklonili ovaj fajl iz svih commit-ova u istoriji repozitorijuma i obezbedite uklanjanje praznih commit-ova.\n\nVažno: Ova operacija prepisuje istoriju i treba je pažljivo izvesti u deljenim repozitorijumima. Poželjno je korišćenje eksternog alata kao što je filter-repo.",
+        "difficulty": "Teško",
+        "category": "Stručnjak",
+        "hints": [
+            "Koristite 'git filter-branch --tree-filter \"rm -f secrets.txt\" --prune-empty --all' da biste uklonili fajl iz istorije.",
+            "--tree-filter radi nad Working Directory-jem svakog commit-a.",
+            "Koristite --prune-empty za uklanjanje commit-ova koji postanu prazni nakon filtriranja.",
+            "Flag --all obezbeđuje obradu svih grana.",
+            "Alternativa: Koristite --index-filter 'git rm --cached --ignore-unmatch secrets.txt' radi boljih performansi.",
+            "Nakon filtriranja, osetljivi fajl ne bi trebalo da postoji ni u jednom commit-u u istoriji."
+        ]
+    },
+    {
+        "id": 95,
+        "title": "Prepisivanje istorije commit-ova pomoću git rebase -i na više grana",
+        "description": "Kompleksni projekti često zahtevaju čišćenje istorije commit-ova na više grana pre spajanja. Imate projekat sa dve feature grane čije istorije commit-ova je potrebno očistiti.\n\nZadaci:\n1. Prebacite se na granu 'feature-cleanup' i koristite interaktivni rebase da squash-ujete poslednja 3 commit-a u 1\n2. Prebacite se na 'feature-refactor' granu i rebase-ujte je na 'main' granu\n3. Koristite interaktivni rebase na grani 'feature-refactor' da biste promenili redosled commit-ova tako da 'refactor tests' dođe pre 'refactor code'\n\nOvo simulira pripremu više feature grana za čisto spajanje u main.",
+        "difficulty": "Teško",
+        "category": "Stručnjak",
+        "hints": [
+            "Koristite 'git checkout feature-cleanup' da biste se prebacili na prvu granu.",
+            "Koristite 'git rebase -i HEAD~3' za pokretanje interaktivnog rebase-a poslednja 3 commit-a.",
+            "Promenite 'pick' u 'squash' ili 's' za commit-ove koje želite da objedinite.",
+            "Promenite granu komandom 'git checkout feature-refactor'.",
+            "Koristite 'git rebase main' da biste rebase-ovali feature-refactor granu na main.",
+            "Koristite 'git rebase -i HEAD~2' da biste promenili redosled poslednja 2 commit-a.",
+            "U rebase todo listi možete pomerati linije gore-dole radi promene redosleda commit-ova."
+        ]
+    },
+    {
+        "id": 96,
+        "title": "Podešavanje Git servera za host-ovanje sopstvenih repozitorijuma",
+        "description": "Podešavanje sopstvenog Git servera Vam omogućava da privatno host-ujete repozitorijume i kontrolišete pristup. Možete koristiti Git-ov ugrađeni daemon za jednostavno serviranje ili podesiti naprednija rešenja.\n\nKreirajte bare repozitorijum pod nazivom 'project.git', a zatim pokrenite Git daemon da ga servira na podrazumevanom portu (9418) sa omogućenim receive-pack flag-om kako bi drugi mogli da push-uju izmene.",
+        "difficulty": "Teško",
+        "category": "Stručnjak",
+        "hints": [
+            "Koristite 'git init --bare project.git' da biste kreirali bare repozitorijum.",
+            "Pokrenite Git daemon komandom 'git daemon --base-path=. --enable=receive-pack'.",
+            "Bare repozitorijumi nemaju Working Directory - sadrže samo Git podatke.",
+            "Flag --enable=receive-pack omogućava drugim korisnicima da push-uju na Vaš server.",
+            "Server možete testirati kloniranjem pomoću 'git clone git://localhost/project.git'."
+        ]
+    },
+    {
+        "id": 97,
+        "title": "Konverzija postojećeg Git repozitorijuma u bare repozitorijum",
+        "description": "Ponekad je potrebno konvertovati običan Git repozitorijum (sa Working Directory-jem) u bare repozitorijum radi deljenja ili serverske upotrebe. Bare repozitorijum sadrži isključivo Git podatke, bez Working Directory-ja.\n\nImate običan repozitorijum sa nekoliko commit-ova. Konvertujte ga u bare repozitorijum na putanji '../project-bare.git', uz očuvanje svih commit-ova i grana.",
+        "difficulty": "Srednje",
+        "category": "Stručnjak",
+        "hints": [
+            "Koristite 'git clone --bare . ../project-bare.git' da biste napravili bare kopiju trenutnog repozitorijuma.",
+            "Bare repozitorijum nema Working Directory - sadrži samo Git podatke.",
+            "Takođe možete koristiti i 'git clone --mirror' da biste uključili sve reference i udaljene grane.",
+            "Nakon konverzije, proverite podešavanje komandom 'git config core.bare' u novom repozitorijumu.",
+            "Bare repozitorijumi se obično imenuju sa .git sufiksom."
+        ]
+    },
+    {
+        "id": 98,
+        "title": "Korišćenje git rev-list sa naprednim opcijama filtriranja",
+        "description": "Komanda 'git rev-list' je moćan Git alat niskog nivoa za prolazak kroz istoriju commit-ova. Podržava brojne opcije za filtriranje i formatiranje, što je čini izuzetno fleksibilnom za analizu istorije repozitorijuma.\n\nKoristite 'git rev-list' sa sledećim opcijama kombinovanim u jednoj komandi:\n- Brojanje commit-ova umesto njihovog izlistavanja\n- Filtriranje tako da se prikažu samo commit-ovi autora koji sadrže 'john'\n- Pretraga commit poruka za reč 'fix'\n- Isključivanje merge commit-ova iz rezultata\n\nOva kombinacija će Vam dati broj commit-ova koji nisu merge od autora 'john' koji u commit poruci sadrže 'fix'.",
+        "difficulty": "Srednje",
+        "category": "Stručnjak",
+        "hints": [
+            "Flag --count čini da rev-list vrati samo broj odgovarajućih commit-ova.",
+            "Flag --author filtrira commit-ove po imenu autora (delimična poklapanja su podržana).",
+            "Flag --grep pretražuje tekst u commit porukama.",
+            "Flag --no-merges isključuje merge commit-ove iz rezultata.",
+            "Sve ove opcije mogu se kombinovati u jednoj rev-list komandi.",
+            "Koristite 'git rev-list --count --author=\"john\" --grep=\"fix\" --no-merges HEAD'."
+        ]
+    },
+    {
+        "id": 99,
+        "title": "Pronalaženje svih merge base-ova pomoću git merge-base --all",
+        "description": "U kompleksnim repozitorijumima sa više merge tačaka, može postojati više od jednog merge base-a između commit-ova. Koristite git merge-base sa --all flag-om da biste pronašli sve moguće merge base-ove između tri feature grane.\n\nPronađite sve merge base-ove između 'feature-x', 'feature-y' i 'feature-z' korišćenjem jedne komande sa --all flag-om. Ovo će prikazati sve zajedničke pretke koje ove grane dele.",
+        "difficulty": "Teško",
+        "category": "Stručnjak",
+        "hints": [
+            "Koristite 'git merge-base --all feature-x feature-y feature-z' da biste pronašli sve zajedničke pretke.",
+            "Flag --all prikazuje sve merge base-ove, a ne samo najbolji.",
+            "Kod kompleksnih merge istorija, više commit-ova mogu biti merge base-ovi.",
+            "Strukturu možete vizualizovati pomoću 'git log --graph --oneline --all'."
+        ]
+    },
+    {
+        "id": 100,
+        "title": "Master Git Clean - završni izazov",
+        "description": "Čestitamo na dolasku do završnog izazova! Vaš repozitorijum je sakupio različite tipove nepraćenih fajlova i direktorijuma koje je potrebno pažljivo očistiti.\n\nImate:\n- Nepraćene source fajlove koje treba ukloniti\n- Nepraćene direktorijume koje je potrebno očistiti\n- Određene ignorisane fajlove (build artefakte) koje takođe treba ukloniti\n- Fajl 'important-notes.txt' koji treba biti sačuvan\n\nIzvršite sveobuhvatnu clean operaciju koja uklanja nepraćene fajlove i direktorijume, uključujući ignorisane fajlove, ali izuzima važan fajl sa beleškama.",
+        "difficulty": "Teško",
+        "category": "Čišćenje i održavanje",
+        "hints": [
+            "Potrebno je koristiti više flag-ova: -f (force), -d (direktorijumi), -x (ignorisani fajlovi).",
+            "Koristite -e da biste izuzeli important-notes.txt fajl iz clean operacije.",
+            "Kompletna komanda glasi: git clean -fdx -e important-notes.txt",
+            "Ovom komandom se uklanjaju nepraćeni fajlovi, direktorijumi i ignorisani fajlovi, uz očuvanje izuzetog fajla."
+        ]
+    }
+]

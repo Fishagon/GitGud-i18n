@@ -1,0 +1,135 @@
+[
+    {
+        "id": 71,
+        "title": "Fetch-ovanje izmena iz udaljenog repozitorijuma bez njihovog spajanja",
+        "description": "Ponekad želite da vidite koje su izmene dostupne u udaljenom repozitorijumu, bez da ih odmah spajate u Vašu trenutnu granu. Komanda 'git fetch' preuzima izmene, ali ih ne spaja, omogućavajući Vam da ih prvo pregledate.\n\nFetch-ujte najnovije izmene iz udaljenog 'origin' repozitorijuma bez njihovog spajanja u Vašu trenutnu granu.",
+        "difficulty": "Lako",
+        "category": "Saradnja",
+        "hints": [
+            "Koristite 'git fetch origin' da biste preuzeli izmene iz udaljenog origin repozitorijuma.",
+            "Za razliku od 'git pull', fetch ne spaja izmene u Vašu trenutnu granu.",
+            "Nakon fetch-ovanja, možete koristiti 'git log origin/main' da biste videli koje su izmene dostupne.",
+            "Koristite 'git status' da biste videli da Vaša lokalna grana zaostaje za udaljenom granom."
+        ]
+    },
+    {
+        "id": 72,
+        "title": "Resetovanje lokalnih izmena da bi se poklopile sa udaljenom granom",
+        "description": "Ponekad se Vaša lokalna grana odvoji od udaljene grane i želite da odbacite sve lokalne izmene kako bi se stanje u potpunosti poklopilo sa onim na udaljenoj grani. Ovo je korisno kada želite da napustite lokalni rad i sinhronizujete se sa udaljenim stanjem.\n\nImate lokalne izmene koje su u konfliktu sa udaljenom 'origin/main' granom. Resetujte Vašu lokalnu granu tako da se u potpunosti poklopi sa udaljenom granom.",
+        "difficulty": "Srednje",
+        "category": "Saradnja",
+        "hints": [
+            "Prvo koristite 'git fetch' da biste dobili najnovije udaljene izmene.",
+            "Koristite 'git reset --hard origin/main' da biste resetovali lokalnu granu da odgovara udaljenoj.",
+            "Ovo će odbaciti sve lokalne izmene i commit-ove koji nisu na udaljenoj grani.",
+            "Budite oprezni - ovu operaciju nije lako poništiti!"
+        ]
+    },
+    {
+        "id": 73,
+        "title": "Spajanje udaljenih izmena uz zadržavanje lokalnih izmena",
+        "description": "Imate lokalne izmene u Working Directory-ju, ali postoje i nove izmene u udaljenom repozitorijumu. Potrebno je da spojite udaljene izmene, a da pri tome sačuvate Vaš lokalni rad. Ovo se može uraditi tako što ćete stash-ovati izmene, povući udaljene izmene, a zatim povratiti stash, ili tako što ćete prvo commit-ovati izmene.\n\nImate lokalne izmene, a udaljeni repozitorijum sadrži nove commit-ove. Spojite udaljene izmene uz zadržavanje lokalnih izmena.",
+        "difficulty": "Srednje",
+        "category": "Saradnja",
+        "hints": [
+            "Možete koristiti 'git stash' da biste privremeno sačuvali lokalne izmene.",
+            "Nakon stash-ovanja, koristite 'git pull' da biste povukli udaljene izmene.",
+            "Zatim koristite 'git stash pop' da biste vratili lokalne izmene.",
+            "Alternativno, možete prvo commit-ovati lokalne izmene, a zatim uraditi pull.",
+            "Koristite 'git status' da biste proverili stanje Working Directory-ja."
+        ]
+    },
+    {
+        "id": 74,
+        "title": "Cherry-pick-ovanje commit-a sa druge grane",
+        "description": "Ponekad je potrebno da primenite određeni commit sa jedne grane na drugu, bez spajanja cele grane. Komanda 'git cherry-pick' Vam omogućava da kopirate commit sa jedne grane i primenite ga na Vašu trenutnu granu.\n\nImate feature granu sa korisnim commit-om koji želite da primenite na Vašu main granu. Cherry-pick-ujte commit sa ID-em 'abc1234' sa feature grane na Vašu trenutnu granu.",
+        "difficulty": "Srednje",
+        "category": "Saradnja",
+        "hints": [
+            "Koristite 'git log feature-branch' da biste videli commit-ove na feature grani.",
+            "Koristite 'git cherry-pick <commit-id>' da biste primenili određeni commit na trenutnu granu.",
+            "Uverite se da se nalazite na ciljanoj grani pre cherry-pick-ovanja.",
+            "Cherry-pick kreira novi commit sa istim izmenama, ali drugačijim commit ID-em."
+        ]
+    },
+    {
+        "id": 75,
+        "title": "Force push-ovanje nakon prepisivanja istorije",
+        "description": "Nakon prepisivanja Git istorije (na primer pomoću rebase ili amend), Vaša lokalna grana će se odvojiti od udaljene grane. Običan push će biti odbijen, pa je potrebno da koristite force push kako biste prepisali udaljenu istoriju. Ovo je potencijalno opasno, jer može prepisati rad drugih ljudi.\n\nPrepisali Ste istoriju commit-ova lokalno i potrebno je da force push-ujete izmene kako biste ažurirali udaljenu granu. Koristite force push da biste ažurirali udaljeni 'origin' repozitorijum.",
+        "difficulty": "Teško",
+        "category": "Saradnja",
+        "hints": [
+            "Koristite 'git push --force' ili 'git push -f' da biste force push-ovali izmene.",
+            "Force push prepisuje udaljenu granu Vašom lokalnom verzijom.",
+            "Budite veoma oprezni sa force push-om - može prepisati rad drugih ljudi!",
+            "Možete koristiti 'git push --force-with-lease' za bezbedniji force push.",
+            "Proverite 'git log --oneline' da biste videli prepisanu istoriju pre push-ovanja."
+        ]
+    },
+    {
+        "id": 76,
+        "title": "Push-ovanje i postavljanje upstream-a za novu udaljenu granu",
+        "description": "Kada kreirate lokalnu granu i želite da je po prvi put push-ujete u udaljeni repozitorijum, potrebno je da podesite upstream relaciju praćenja. Ovo omogućava da buduće 'git push' i 'git pull' komande rade bez navođenja imena udaljenog repozitorijuma i grane.\n\nImate lokalnu granu 'feature-login' sa nekoliko commit-ova koju je potrebno push-ovati u udaljeni repozitorijum. Koristite git push sa upstream flag-om da biste u jednoj komandi kreirali udaljenu granu i podesili praćenje.",
+        "difficulty": "Lako",
+        "category": "Saradnja",
+        "hints": [
+            "Koristite 'git push --set-upstream origin feature-login' da biste push-ovali i podesili upstream u jednoj komandi.",
+            "Takođe možete koristiti i skraćeni oblik 'git push -u origin feature-login'.",
+            "Ovo kreira udaljenu granu i postavlja praćenje, tako da budući push-evi ne moraju da navode udaljenu granu.",
+            "Uverite se da se nalazite na 'feature-login' grani kada izvršavate komandu."
+        ]
+    },
+    {
+        "id": 77,
+        "title": "Podešavanje upstream-a za postojeću udaljenu granu",
+        "description": "Ponekad imate lokalnu granu koja treba da prati postojeću udaljenu granu, ali relacija praćenja još uvek nije podešena. Ovo se često dešava kada kreirate lokalnu granu iz udaljene grane ili kada radite sa granama koje su kreirali drugi članovi tima.\n\nImate lokalnu 'feature-auth' granu i već postoji udaljena grana 'origin/feature-auth'. Podesite Vašu lokalnu granu da prati postojeću udaljenu granu.",
+        "difficulty": "Lako",
+        "category": "Saradnja",
+        "hints": [
+            "Koristite 'git branch -u origin/feature-auth' da biste podesili upstream za trenutnu granu.",
+            "Takođe možete koristiti i 'git branch --set-upstream-to=origin/feature-auth feature-auth' za eksplicitnije podešavanje.",
+            "Uverite se da se nalazite na grani 'feature-auth', ili navedite ime grane u komandi.",
+            "Nemojte koristiti 'git push -u' za ovaj izazov - to je namenjeno kreiranju novih udaljenih grana."
+        ]
+    },
+    {
+        "id": 78,
+        "title": "Rebase-ovanje feature grane na main",
+        "description": "Imate feature granu koja je kreirana na osnovu starije verzije main grane. U međuvremenu, main grana je dobila nove commit-ove. Rebase-ovanje feature grane na najnoviju main granu održava čistu, linearnu istoriju tako što postavlja Vaše feature commit-ove nakon najnovijih main commit-ova, izbegavajući nepotrebne merge commit-ove. Ova praksa takođe obezbeđuje da feature radi sa najnovijim izmenama koda i čini istoriju projekta lakšom za čitanje i razumevanje.\n\nPrebacite se na granu 'feature-payment' i rebase-ujte je na 'main' kako biste je ažurirali.",
+        "difficulty": "Srednje",
+        "category": "Saradnja",
+        "hints": [
+            "Prvo se prebacite na feature granu komandom 'git checkout feature-payment'.",
+            "Zatim koristite 'git rebase main' da biste rebase-ovali feature granu na main.",
+            "Ovo će postaviti Vaše feature commit-ove nakon najnovijih main commit-ova.",
+            "Ukoliko dođe do konflikata, rešite ih i koristite 'git rebase --continue'."
+        ]
+    },
+    {
+        "id": 79,
+        "title": "Bezbedno rukovanje detached HEAD stanjem radi istraživanja",
+        "description": "Kada checkout-ujete određeni commit, ulazite u 'detached HEAD' stanje, u kome se ne nalazite ni na jednoj grani. Ovo je korisno za istraživanje starog koda ili testiranje izmena, ali commit-ovi napravljeni u ovom stanju mogu biti izgubljeni ako se njima pravilno ne upravlja. Bezbedan način rada u detached HEAD stanju je kreiranje nove grane ukoliko želite da zadržite izmene.\n\nCheckout-ujte commit 'abc5678' da biste ušli u detached HEAD stanje, a zatim kreirajte novu granu pod imenom 'exploration' kako biste obezbedili siguran razvoj.",
+        "difficulty": "Srednje",
+        "category": "Saradnja",
+        "hints": [
+            "Koristite 'git checkout abc5678' da biste checkout-ovali određeni commit (ovo uvodi detached HEAD stanje).",
+            "Git će Vas upozoriti na detached HEAD stanje - ovo je normalno.",
+            "Kreirajte novu granu komandom 'git checkout -b exploration' ili 'git switch -c exploration'.",
+            "Ovo čini Vašu poziciju bezbednom za pravljenje commit-ova bez gubitka izmena."
+        ]
+    },
+    {
+        "id": 80,
+        "title": "Sinhronizacija fork-a sa upstream repozitorijumom",
+        "description": "U saradničkom razvoju, često radite sa fork-om originalnog repozitorijuma. Vaš fork (origin) može da zastari kada originalni repozitorijum (upstream) dobije nove commit-ove od drugih saradnika. Potrebno je da sinhronizujete Vaš fork sa upstream repozitorijumom kako biste ostali u toku sa najnovijim izmenama.\n\nImate fork-ovani repozitorijum sa 'origin' koji pokazuje na Vaš fork i 'upstream' koji pokazuje na originalni repozitorijum. Upstream repozitorijum sadrži nove commit-ove koje je potrebno da povučete u lokalni repozitorijum, a zatim push-ujete na Vaš fork kako bi ostao sinhronizovan.",
+        "difficulty": "Srednje",
+        "category": "Saradnja",
+        "hints": [
+            "Prvo fetch-ujte najnovije izmene sa upstream-a komandom 'git fetch upstream'.",
+            "Uverite se da se nalazite na main grani komandom 'git checkout main'.",
+            "Spojite upstream izmene komandom 'git merge upstream/main'.",
+            "Push-ujte ažuriranu main granu na Vaš fork komandom 'git push origin main'.",
+            "Ovaj proces održava Vaš fork sinhronizovanim sa originalnim repozitorijumom."
+        ]
+    }
+]

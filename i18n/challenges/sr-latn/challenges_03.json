@@ -1,0 +1,117 @@
+[
+    {
+        "id": 21,
+        "title": "Dodavanje udaljenog repozitorijuma",
+        "description": "Udaljeni repozitorijumi Vam omogućavaju saradnju sa drugim ljudima i pravljenje rezervne kopije Vašeg rada.\n\nDodajte udaljeni repozitorijum pod nazivom 'origin' sa sledećom URL adresom:\nhttps://github.com/example/my-project.git",
+        "difficulty": "Lako",
+        "category": "Udaljeni repozitorijumi",
+        "hints": [
+            "Koristite 'git remote add origin https://github.com/example/my-project.git' da biste dodali udaljeni repozitorijum.",
+            "Možete proveriti da li je udaljeni repozitorijum dodat pomoću komande 'git remote -v' koja prikazuje sve udaljene repozitorijume."
+        ]
+    },
+    {
+        "id": 22,
+        "title": "Prikaz udaljenih grana",
+        "description": "U radu sa udaljenim repozitorijumima, često je potrebno da vidite koje grane postoje na udaljenom repozitorijumu.\n\nKoristite odgovarajuću Git komandu da biste prikazali sve udaljene grane.",
+        "difficulty": "Lako",
+        "category": "Udaljeni repozitorijumi",
+        "hints": [
+            "Koristite 'git branch -r' za prikaz udaljenih grana.",
+            "Takođe možete koristiti i 'git branch --remotes' za isti rezultat."
+        ]
+    },
+    {
+        "id": 23,
+        "title": "Fetch-ovanje najnovijih izmena iz udaljenog repozitorijuma",
+        "description": "Fetch-ovanje preuzima izmene iz udaljenog repozitorijuma bez njihovog spajanja u Vašu trenutnu granu.\n\nKoristite odgovarajuću Git komandu da biste fetch-ovali najnovije izmene iz udaljenog 'origin' repozitorijuma.",
+        "difficulty": "Lako",
+        "category": "Udaljeni repozitorijumi",
+        "hints": [
+            "Koristite 'git fetch' za preuzimanje izmena iz udaljenog repozitorijuma.",
+            "Možete navesti ime udaljenog repozitorijuma komandom 'git fetch origin' ili jednostavno koristiti 'git fetch' za podrazumevani udaljeni repozitorijum."
+        ]
+    },
+    {
+        "id": 24,
+        "title": "Povlačenje (eng. pull) najnovijih izmena iz udaljenog repozitorijuma",
+        "description": "Povlačenje objedinjuje fetch-ovanje i spajanje u jednu komandu. Preuzima najnovije izmene iz udaljenog repozitorijuma i spaja ih u Vašu trenutnu granu.\n\nKoristite odgovarajuću Git komandu da biste povukli najnovije izmene iz udaljenog repozitorijuma u Vašu trenutnu granu.",
+        "difficulty": "Lako",
+        "category": "Udaljeni repozitorijumi",
+        "hints": [
+            "Koristite 'git pull' za fetch-ovanje i spajanje izmena iz udaljenog repozitorijuma.",
+            "Možete navesti ime udaljenog repozitorijuma komandom 'git pull origin' ili jednostavno koristiti 'git pull' za podrazumevani udaljeni repozitorijum."
+        ]
+    },
+    {
+        "id": 25,
+        "title": "Push-ovanje lokalne grane u udaljeni repozitorijum",
+        "description": "Push-ovanje otprema Vaše lokalne commit-ove u udaljeni repozitorijum, čineći ih dostupnim drugim saradnicima.\n\nImate lokalne commit-ove koje je potrebno podeliti. Push-ujte Vašu trenutnu granu u udaljeni repozitorijum.",
+        "difficulty": "Lako",
+        "category": "Udaljeni repozitorijumi",
+        "hints": [
+            "Koristite 'git push' da biste otpremili Vaše lokalne commit-ove u udaljeni repozitorijum.",
+            "Možete navesti ime udaljenog repozitorijuma komandom 'git push origin' ili koristiti 'git push' za podrazumevani udaljeni repozitorijum.",
+            "Ako je ovo prvo push-ovanje nove grane, možda će Vam biti potrebna komanda 'git push -u origin <branch-name>'."
+        ]
+    },
+    {
+        "id": 26,
+        "title": "Push-ovanje nove grane u udaljeni repozitorijum i postavljanje upstream grane",
+        "description": "Kada lokalno kreirate novu granu, često želite da je push-ujete u udaljeni repozitorijum i postavite je kao upstream granu radi lakšeg push-ovanja i povlačenja izmena u budućnosti.\n\nPrvo kreirajte novu granu pod nazivom 'feature-login', zatim je push-ujte u udaljeni repozitorijum i postavite je kao upstream granu u jednoj komandi.",
+        "difficulty": "Lako",
+        "category": "Udaljeni repozitorijumi",
+        "hints": [
+            "Prvo kreirajte i pređite na novu granu komandom 'git checkout -b feature-login'.",
+            "Koristite 'git push -u origin feature-login' da biste push-ovali granu i postavili upstream u jednoj komandi.",
+            "Flag -u je skraćenica za --set-upstream i kreira relaciju praćenja."
+        ]
+    },
+    {
+        "id": 27,
+        "title": "Prikaz informacija o udaljenim repozitorijumima",
+        "description": "Ponekad je potrebno da vidite detaljne informacije o Vašim udaljenim repozitorijumima, uključujući njihove URL adrese i fetch/push konfiguracije.\n\nPrikažite detaljne informacije o udaljenim repozitorijumima koristeći odgovarajuću Git komandu.",
+        "difficulty": "Lako",
+        "category": "Udaljeni repozitorijumi",
+        "hints": [
+            "Koristite 'git remote -v' da biste videli nazive udaljenih repozitorijuma sa njihovim URL adresama.",
+            "Takođe možete koristiti i 'git remote show <remote-name>' da biste videli detaljne informacije o određenom udaljenom repozitorijumu."
+        ]
+    },
+    {
+        "id": 28,
+        "title": "Uklanjanje udaljenog repozitorijuma",
+        "description": "Ponekad je potrebno ukloniti udaljene repozitorijume koji više nisu potrebni ili su promenili lokaciju.\n\nUklonite udaljeni 'upstream' repozitorijum iz Vašeg lokalnog repozitorijuma.",
+        "difficulty": "Lako",
+        "category": "Udaljeni repozitorijumi",
+        "hints": [
+            "Koristite 'git remote remove upstream' da biste uklonili udaljeni upstream repozitorijum.",
+            "Takođe možete koristiti i 'git remote rm upstream' kao skraćenicu.",
+            "Proverite rezultat pomoću komande 'git remote -v' koja prikazuje preostale udaljene repozitorijume."
+        ]
+    },
+    {
+        "id": 29,
+        "title": "Preimenovanje udaljenog repozitorijuma",
+        "description": "Ponekad je potrebno preimenovati udaljene repozitorijume kako bi bolje odražavali svoju namenu ili bili u skladu sa konvencijama imenovanja.\n\nPreimenujte udaljeni 'upstream' repozitorijum u 'fork' kako bi jasnije ukazivao da je u pitanju fork originalnog repozitorijuma.",
+        "difficulty": "Lako",
+        "category": "Udaljeni repozitorijumi",
+        "hints": [
+            "Koristite 'git remote rename upstream fork' za preimenovanje udaljenog repozitorijuma.",
+            "Proverite promenu pomoću komande 'git remote -v' koja prikazuje sve udaljene repozitorijume.",
+            "Preimenovanje udaljenog repozitorijuma automatski ažurira sve praćene udaljene grane."
+        ]
+    },
+    {
+        "id": 30,
+        "title": "Kloniranje repozitorijuma u određeni direktorijum",
+        "description": "Pri kloniranju repozitorijuma, možete navesti naziv direktorijuma u koji će on biti kloniran.\n\nKlonirajte repozitorijum 'https://github.com/example/my-awesome-project.git' u direktorijum pod nazivom 'my-project'.",
+        "difficulty": "Lako",
+        "category": "Udaljeni repozitorijumi",
+        "hints": [
+            "Koristite 'git clone <url> <directory-name>' da biste klonirali repozitorijum u određeni direktorijum.",
+            "Sintaksa je: git clone https://github.com/example/my-awesome-project.git my-project",
+            "Ovo će kreirati direktorijum pod nazivom 'my-project' umesto 'my-awesome-project'."
+        ]
+    }
+]

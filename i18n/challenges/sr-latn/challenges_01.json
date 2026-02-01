@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "title": "Inicijalizacija repozitorijuma",
+        "description": "Dobro došli u Git Gud! Hajde da započnemo kreiranjem Vašeg prvog Git repozitorijuma.\n\nKreirajte novi Git repozitorijum korišćenjem 'git init' komande.",
+        "difficulty": "Lako",
+        "category": "Osnove",
+        "hints": [
+            "Unesite 'git init' da biste inicijalizovali novi repozitorijum."
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Provera statusa repozitorijuma",
+        "description": "Sada kada imate repozitorijum, proverite njegov status kako biste videli koji fajlovi se prate, koji su izmenjeni i koji su stage-ovani.\n\nKoristite odgovarajuću komandu za proveru statusa repozitorijuma.",
+        "difficulty": "Lako",
+        "category": "Osnove",
+        "hints": [
+            "Komanda za proveru statusa repozitorijuma je 'git status'."
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Stage-ovanje i commit-ovanje fajla",
+        "description": "Dodajmo fajl u Vaš repozitorijum i zabeležimo te izmene.\n\nNajpre stage-ujte file.txt pomoću 'git add', a zatim ga commit-ujte sa porukom.",
+        "difficulty": "Lako",
+        "category": "Osnove",
+        "hints": [
+            "Koristite 'git add file.txt' da biste stage-ovali fajl.",
+            "Zatim koristite 'git commit -m \"Your message here\"' da biste kreirali commit."
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Dodavanje i commit-ovanje u jednom koraku",
+        "description": "Ponekad želite da brzo stage-ujete sve izmene i commit-ujete ih.\n\nDodajte sve izmenjene fajlove u Staging Area i commit-ujte ih u jednom koraku.",
+        "difficulty": "Lako",
+        "category": "Osnove",
+        "hints": [
+            "Mnoge Git komande podržavaju flag-ove koji menjaju njihovo ponašanje i omogućavaju više operacija odjednom.",
+            "Komanda 'git commit' ima parametar koji automatski stage-uje sve praćene fajlove pre pravljenja commit-a.",
+            "Koristite 'git commit -a -m \"Your message\"' da biste stage-ovali sve praćene fajlove i commit-ovali ih u jednom koraku."
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Pregled istorije commit-ova",
+        "description": "Pogledajmo istoriju commit-ova kako bismo videli koje su izmene napravljene.\n\nKoristite komandu za prikaz istorije commit-ova.",
+        "difficulty": "Lako",
+        "category": "Osnove",
+        "hints": [
+            "Koristite 'git log' za prikaz istorije commit-ova."
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Kreiranje grane",
+        "description": "Grane Vam omogućavaju da izolovano radite na različitim funkcionalnostima ili ispravkama.\n\nKreirajte novu granu pod nazivom 'feature'.",
+        "difficulty": "Lako",
+        "category": "Osnove",
+        "hints": [
+            "Koristite 'git branch feature' da biste kreirali novu granu."
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Promena grane",
+        "description": "Sada kada Ste kreirali granu, pređite na nju.\n\nKoristite checkout komandu da biste se prebacili na granu 'feature'.",
+        "difficulty": "Lako",
+        "category": "Osnove",
+        "hints": [
+            "Koristite 'git checkout feature' da biste prešli na granu.",
+            "U novijim verzijama Git-a možete koristiti i 'git switch feature'."
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Brisanje grane",
+        "description": "Kada završite rad na grani, možete je obrisati kako bi repozitorijum ostao uredan.\n\nKreirajte granu pod nazivom 'temp-branch', a zatim je obrišite.",
+        "difficulty": "Lako",
+        "category": "Osnove",
+        "hints": [
+            "Najpre kreirajte granu pomoću 'git branch temp-branch'.",
+            "Zatim je obrišite komandom 'git branch -d temp-branch'."
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Kloniranje repozitorijuma",
+        "description": "Kloniranje Vam omogućava da napravite lokalnu kopiju udaljenog repozitorijuma.\n\nKlonirajte primer repozitorijuma korišćenjem sledećeg URL-a:\nhttps://github.com/example/repo.git",
+        "difficulty": "Lako",
+        "category": "Osnove",
+        "hints": [
+            "Koristite 'git clone https://github.com/example/repo.git' da biste klonirali repozitorijum."
+        ]
+    },
+    {
+        "id": 10,
+        "title": "Pregled izmena",
+        "description": "Pogledajte koje Ste izmene napravili od poslednjeg commit-a.\n\nKoristite odgovarajuću komandu za prikaz razlika između Working Directory-ja i poslednjeg commit-a.",
+        "difficulty": "Lako",
+        "category": "Osnove",
+        "hints": [
+            "Koristite 'git diff' da biste videli izmene koje još nisu stage-ovane u odnosu na poslednji commit."
+        ]
+    }
+]

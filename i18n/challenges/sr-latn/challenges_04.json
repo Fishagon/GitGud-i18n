@@ -1,0 +1,124 @@
+[
+    {
+        "id": 31,
+        "title": "Izmena poslednjeg commit-a bez promene poruke",
+        "description": "Ponekad shvatite da Ste zaboravili da stage-ujete fajl ili Ste napravili manju izmenu nakon commit-a. Git Vam omogućava da izmenite poslednji commit i uključite dodatne izmene bez kreiranja novog commit-a.\n\nImate stage-ovane izmene koje je trebalo uključiti u poslednji commit. Izmenite poslednji commit tako da sadrži ove izmene, bez promene commit poruke.",
+        "difficulty": "Lako",
+        "category": "Poništavanje i popravka grešaka",
+        "hints": [
+            "Koristite 'git commit --amend --no-edit' da biste izmenili poslednji commit bez promene poruke.",
+            "Flag --amend menja poslednji commit umesto kreiranja novog.",
+            "Flag --no-edit zadržava postojeću commit poruku."
+        ]
+    },
+    {
+        "id": 32,
+        "title": "Izmena poslednjeg commit-a i ažuriranje poruke",
+        "description": "Ponekad je potrebno da izmenite poruku poslednjeg commit-a ili da mu dodate zaboravljene izmene.\n\nVaš poslednji commit ima poruku 'Add new feature', ali bi trebalo da glasi 'Add user authentication feature'. Koristite Git-ovu amend funkcionalnost da biste ažurirali commit poruku.",
+        "difficulty": "Lako",
+        "category": "Poništavanje i popravka grešaka",
+        "hints": [
+            "Koristite 'git commit --amend -m \"Add user authentication feature\"' da biste promenili poruku poslednjeg commit-a.",
+            "Flag --amend menja najnoviji commit umesto kreiranja novog.",
+            "Nemojte koristiti --no-edit, jer bi to zadržalo postojeću (pogrešnu) poruku."
+        ]
+    },
+    {
+        "id": 33,
+        "title": "Poništavanje poslednjeg commit-a uz zadržavanje izmena u stage-u",
+        "description": "Ponekad prerano napravite commit i shvatite da želite da napravite dodatne izmene ili ispravite commit poruku. Git Vam omogućava da poništite poslednji commit, a da pritom stage-ujete postojeće izmene, kako biste ih mogli dodatno izmeniti i ponovo napraviti commit.\n\nVaš poslednji commit je napravljen prerano. Poništite ga, ali zadržite izmene u stage-u kako biste mogli da nastavite da radite na njima.",
+        "difficulty": "Lako",
+        "category": "Poništavanje i popravka grešaka",
+        "hints": [
+            "Koristite 'git reset --soft HEAD~1' da biste poništili poslednji commit i zadržali izmene u stage-u.",
+            "Flag --soft čuva stage-ovane izmene, za razliku od --hard koji ih odbacuje.",
+            "HEAD~1 se odnosi na commit pre trenutnog HEAD-a (jedan commit unazad)."
+        ]
+    },
+    {
+        "id": 34,
+        "title": "Poništavanje poslednjeg commit-a i uklanjanje izmena iz stage-a",
+        "description": "Ponekad želite da poništite commit, ali da zadržite izmene u Working Directory-ju kao fajlove koji nisu stage-ovani. Ovo Vam omogućava da dodatno izmenite fajlove pre ponovnog commit-a.\n\nPoslednji commit je potrebno poništiti, a izmene treba da ostanu u Vašem Working Directory-ju, ali da ne budu stage-ovane.",
+        "difficulty": "Lako",
+        "category": "Poništavanje i popravka grešaka",
+        "hints": [
+            "Koristite 'git reset HEAD~1' da biste poništili poslednji commit i uklonili izmene iz stage-a.",
+            "Mešoviti reset (podrazumevani) pomera HEAD unazad i uklanja fajlove iz stage-a, ali zadržava izmene u Working Directory-ju.",
+            "HEAD~1 se odnosi na commit pre trenutnog HEAD-a (jedan commit unazad)."
+        ]
+    },
+    {
+        "id": 35,
+        "title": "Uklanjanje fajla koji je slučajno dodat iz stage-a",
+        "description": "Ponekad slučajno stage-ujete fajl koji niste nameravali da uključite u naredni commit. Git Vam omogućava da uklonite fajlove iz stage-a bez gubitka izmena u Working Directory-ju.\n\nSlučajno Ste stage-ovali 'temp.log', a taj fajl ne bi trebalo da bude commit-ovan. Uklonite ovaj fajl iz stage-a, zadržavajući izmene u Working Directory-ju.",
+        "difficulty": "Lako",
+        "category": "Poništavanje i popravka grešaka",
+        "hints": [
+            "Koristite 'git reset HEAD temp.log' da biste uklonili fajl iz stage-a uz zadržavanje izmena u Working Directory-ju.",
+            "Takođe možete koristiti i 'git reset temp.log' kao skraćenicu za istu operaciju.",
+            "Fajl će ostati izmenjen u Vašem Working Directory-ju nakon uklanjanja iz stage-a."
+        ]
+    },
+    {
+        "id": 36,
+        "title": "Odbacivanje (eng. discard) izmena u fajlu koje nisu commit-ovane",
+        "description": "Ponekad napravite izmene u fajlu, ali shvatite da želite da ih odbacite i vratite fajl u stanje poslednjeg commit-a. Git Vam omogućava da odbacite izmene u Working Directory-ju bez uticaja na stage-ovane izmene.\n\nNapravili Ste izmene u 'file.txt' koje želite da odbacite. Koristite Git da biste vratili fajl u stanje poslednjeg commit-a.",
+        "difficulty": "Lako",
+        "category": "Poništavanje i popravka grešaka",
+        "hints": [
+            "Koristite 'git checkout -- file.txt' da biste odbacili izmene u fajlu.",
+            "Takođe možete koristiti i 'git restore file.txt' (Git 2.23+) za isti efekat.",
+            "Ovo utiče samo na izmene koje nisu commit-ovane u Working Directory-ju, a ne na stage-ovane izmene."
+        ]
+    },
+    {
+        "id": 37,
+        "title": "Revert-ovanje commit-a koji je push-ovan u udaljeni repozitorijum",
+        "description": "Ponekad je potrebno da poništite izmene iz commit-a koji je već push-ovan u udaljeni repozitorijum. Za razliku od komande git reset, git revert kreira novi commit koji poništava izmene, što ga čini bezbednim za deljene repozitorijume.\n\nImate commit sa ID-em 'abc123def' koji je uveo bug i potrebno je da bude poništen. Koristite git revert da biste bezbedno poništili njegove izmene.",
+        "difficulty": "Srednje",
+        "category": "Poništavanje i popravka grešaka",
+        "hints": [
+            "Koristite 'git revert <commit-id>' da biste kreirali novi commit koji poništava izmene iz navedenog commit-a.",
+            "git revert je bezbedniji od git reset za commit-ove koji su već push-ovani u udaljene repozitorijume.",
+            "Komanda revert će otvoriti editor za commit poruku, ili možete koristiti -m da je direktno navedete."
+        ]
+    },
+    {
+        "id": 38,
+        "title": "Resetovanje grane na prethodni commit (soft reset)",
+        "description": "Ponekad je potrebno da resetujete granu na prethodni commit, uz zadržavanje izmena u Staging Area. Ovo Vam omogućava da ponovo commit-ujete izmene sa drugačijom strukturom ili porukom.\n\nImate commit-ove koje je potrebno poništiti, ali želite da zadržite izmene u stage-u. Resetujte granu na commit 'abc123def' korišćenjem soft reset-a.",
+        "difficulty": "Srednje",
+        "category": "Poništavanje i popravka grešaka",
+        "hints": [
+            "Koristite 'git reset --soft <commit-id>' da biste resetovali na određeni commit uz zadržavanje izmena u stage-u.",
+            "Možete koristiti commit ID 'abc123def' ili ga pronaći pomoću 'git log'.",
+            "Soft reset pomera HEAD unazad, ali zadržava Staging Area i Working Directory."
+        ]
+    },
+    {
+        "id": 39,
+        "title": "Resetovanje grane na prethodni commit (hard reset)",
+        "description": "Ponekad je potrebno da u potpunosti resetujete granu na prethodni commit, odbacujući sve izmene iz Staging Area i Working Directory-ja. Ovo je destruktivna operacija koja trajno uklanja izmene koje nisu commit-ovane.\n\nImate commit-ove koji sadrže bug-ove i želite da se u potpunosti vratite na commit 'abc123def', odbacujući sve naknadne izmene. Koristite hard reset da biste to postigli.",
+        "difficulty": "Srednje",
+        "category": "Poništavanje i popravka grešaka",
+        "hints": [
+            "Koristite 'git reset --hard <commit-id>' da biste resetovali na određeni commit i odbacili sve izmene.",
+            "Možete koristiti commit ID 'abc123def' ili ga pronaći pomoću 'git log'.",
+            "Hard reset je destruktivan - trajno uklanja sve izmene koje nisu commit-ovane.",
+            "Budite oprezni pri korišćenju hard reset-a, jer ga nije lako poništiti."
+        ]
+    },
+    {
+        "id": 40,
+        "title": "Vraćanje (eng. restore) obrisanog fajla iz prethodnog commit-a",
+        "description": "Ponekad slučajno obrišete fajl i commit-ujete brisanje, ali kasnije shvatite da Vam je taj fajl i dalje potreban. Git Vam omogućava da vratite fajlove iz prethodnih commit-ova bez uticaja na ostale izmene.\n\nFajl pod nazivom 'important-config.txt' je obrisan u nedavnom commit-u. Vratite ovaj fajl iz commit-a pre nego što je obrisan (commit ID 'def456abc').",
+        "difficulty": "Srednje",
+        "category": "Poništavanje i popravka grešaka",
+        "hints": [
+            "Koristite 'git checkout <commit-id> -- <filename>' da biste vratili fajl iz određenog commit-a.",
+            "Takođe možete koristiti i 'git restore --source=<commit-id> <filename>' (Git 2.23+).",
+            "Commit ID 'def456abc' sadrži verziju fajla koju želite da vratite.",
+            "Nakon vraćanja, fajl će biti stage-ovan i spreman za commit."
+        ]
+    }
+]

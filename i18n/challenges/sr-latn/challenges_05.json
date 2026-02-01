@@ -1,0 +1,131 @@
+[
+    {
+        "id": 41,
+        "title": "Pokretanje interaktivnog rebase-ovanja za poslednja tri commit-a",
+        "description": "Interaktivno rebase-ovanje Vam omogućava da izmenite istoriju commit-ova njihovom izmenom, squash-ovanjem, uklanjanjem ili promenom redosleda. Ovo je korisno za čišćenje istorije commit-ova pre push-ovanja u deljeni repozitorijum.\n\nImate nekoliko commit-ova koje je potrebno očistiti. Pokrenite interaktivno rebase-ovanje za poslednja tri commit-a (HEAD~3) kako biste ih pripremili za izmenu.",
+        "difficulty": "Srednje",
+        "category": "Rebase-ovanje i istorija",
+        "hints": [
+            "Koristite 'git rebase -i HEAD~3' da biste pokrenuli interaktivno rebase-ovanje za poslednja 3 commit-a.",
+            "Flag -i označava 'interactive' i otvoriće editor sa uputstvima za commit-ove.",
+            "HEAD~3 znači 'vrati se 3 commit-a unazad od trenutnog HEAD-a'.",
+            "Interaktivno rebase-ovanje Vam omogućava da pick-ujete, menjate, squash-ujete ili uklonite commit-ove, kao i da im menjate poruku."
+        ]
+    },
+    {
+        "id": 42,
+        "title": "Squash-ovanje dva commit-a u jedan",
+        "description": "Ponekad imate više malih commit-ova koje je bolje objediniti u jedan, smisleniji commit. Git Vam omogućava da squash-ujete commit-ove korišćenjem interaktivnog rebase-ovanja ili resetovanjem i ponovnim commit-ovanjem.\n\nImate dva nedavna commit-a koja treba objediniti u jedan. Koristite ili interaktivno rebase-ovanje ili reset/commit da biste ih squash-ovali.",
+        "difficulty": "Srednje",
+        "category": "Rebase-ovanje i istorija",
+        "hints": [
+            "Koristite 'git rebase -i HEAD~2' da biste pokrenuli interaktivno rebase-ovanje za poslednja 2 commit-a.",
+            "Ovo će otvoriti tekstualni editor sa rebase todo listom.",
+            "Promenite drugu liniju iz 'pick' u 'squash' (ili 's'), zatim sačuvajte i zatvorite editor.",
+            "Ako se editor ne otvori, možete koristiti alternativu: 'git rebase pick squash'.",
+            "Alternativno, koristite 'git reset --soft HEAD~2', a zatim 'git commit'."
+        ]
+    },
+    {
+        "id": 43,
+        "title": "Izmena poruke starog commit-a",
+        "description": "Jedan od ranijih commit-ova ima nejasnu poruku 'Update file.txt content' koja ne opisuje šta je zapravo izmenjeno. Koristite interaktivno rebase-ovanje da biste izmenili poruku commit-a da bolje opisuje izmene.\n\nKoristite interaktivno rebase-ovanje da biste izmenili poruku drugog commit-a u nešto konkretnije.",
+        "difficulty": "Srednje",
+        "category": "Rebase-ovanje i istorija",
+        "hints": [
+            "Koristite 'git rebase -i HEAD~2' da biste pokrenuli interaktivno rebase-ovanje za poslednja 2 commit-a.",
+            "Promenite 'pick' u 'reword' (ili 'r') za commit sa porukom 'Update file.txt content'.",
+            "Bolja commit poruka bi trebalo da opisuje koje su konkretne izmene napravljene u fajlu.",
+            "Sačuvajte i zatvorite editor, a zatim unesite novu commit poruku kada budete upitani."
+        ]
+    },
+    {
+        "id": 44,
+        "title": "Brisanje commit-a iz istorije",
+        "description": "Ponekad je potrebno u potpunosti ukloniti commit iz istorije projekta. Ovo se razlikuje od revert-ovanja - commit se zaista uklanja kao da nikada nije postojao.\n\nImate commit sa lošom implementacijom kojeg je potrebno u potpunosti ukloniti iz istorije. Koristite interaktivno rebase-ovanje da biste uklonili commit sa ID-em 'abc123def'.",
+        "difficulty": "Srednje",
+        "category": "Rebase-ovanje i istorija",
+        "hints": [
+            "Koristite 'git log --oneline' da biste videli istoriju commit-ova i identifikovali problematičan commit.",
+            "Koristite 'git rebase -i HEAD~2' da biste pokrenuli interaktivno rebase-ovanje dva commit-a unazad.",
+            "Promenite 'pick' u 'drop' (ili 'd') za commit sa porukom 'Add buggy feature'.",
+            "Commit će biti u potpunosti uklonjen iz istorije, a ne samo revert-ovan.",
+            "Koristite 'git rebase --continue' ako je potrebno da dovršite rebase-ovanje."
+        ]
+    },
+    {
+        "id": 45,
+        "title": "Promena redosleda commit-ova tokom interaktivnog rebase-ovanja",
+        "description": "Ponekad je potrebno da reorganizujete istoriju commit-ova kako bi bila logičnija. U postojećoj istoriji, commit 'Update to version 2.0' se dogodio pre commit-a 'Add configuration file', ali logično je da se konfiguracija doda pre ažuriranja verzije.\n\nKoristite interaktivno rebase-ovanje da biste promenili redosled poslednja 3 commit-a tako da 'Add configuration file' bude hronološki pre 'Update to version 2.0'.",
+        "difficulty": "Srednje",
+        "category": "Rebase-ovanje i istorija",
+        "hints": [
+            "Koristite 'git rebase -i HEAD~3' da biste pokrenuli interaktivno rebase-ovanje za poslednja 3 commit-a.",
+            "U rebase editoru, commit-ovi će biti prikazani od najstarijeg do najnovijeg.",
+            "Premestite liniju 'Add configuration file' pre linije 'Update to version 2.0'.",
+            "Sačuvajte i zatvorite editor da biste primenili novi redosled commit-ova.",
+            "Koristite 'git log --oneline' da biste proverili da li su commit-ovi sada logično poređani."
+        ]
+    },
+    {
+        "id": 46,
+        "title": "Prekidanje rebase-ovanja u toku",
+        "description": "Ponekad tokom rebase-ovanja naiđete na konflikte ili shvatite da želite u potpunosti da otkažete proces. Git Vam omogućava da prekinete rebase-ovanje koje je u toku i vratite repozitorijum u stanje pre njegovog pokretanja.\n\nPokrenuli Ste rebase-ovanje koje je naišlo na konflikte. Umesto njihovog rešavanja, prekinite rebase-ovanje i vratite se u prvobitno stanje.",
+        "difficulty": "Srednje",
+        "category": "Rebase-ovanje i istorija",
+        "hints": [
+            "Koristite 'git rebase --abort' da biste otkazali rebase-ovanje koje je u toku.",
+            "Ovim će se repozitorijum vratiti u stanje u kom je bio pre pokretanja rebase-ovanja.",
+            "Sve stage-ovane izmene i markeri konflikata biće automatski uklonjeni."
+        ]
+    },
+    {
+        "id": 47,
+        "title": "Nastavak rebase-ovanja nakon rešavanja konflikata",
+        "description": "Tokom rebase-ovanja commit-ova mogu se pojaviti konflikti ako su iste linije izmenjene u različitim commit-ovima. Git će pauzirati rebase-ovanje i omogućiti Vam da ručno rešite konflikte pre nastavka.\n\nPokrenuli Ste rebase-ovanje koje je naišlo na konflikte. Rešite konflikte u pogođenim fajlovima i nastavite proces.",
+        "difficulty": "Srednje",
+        "category": "Rebase-ovanje i istorija",
+        "hints": [
+            "Prvo proverite status komandom 'git status' da biste videli koji fajlovi imaju konflikte.",
+            "Izmenite konfliktni fajl da biste razrešili markere konflikata (<<<<<<, ======, >>>>>>).",
+            "Stage-ujte razrešeni fajl pomoću 'git add <filename>'.",
+            "Nastavite rebase-ovanje komandom 'git rebase --continue'."
+        ]
+    },
+    {
+        "id": 48,
+        "title": "Preskakanje (eng. skip) commit-a tokom interaktivnog rebase-ovanja",
+        "description": "Ponekad tokom rebase-ovanja naiđete na commit koji izaziva konflikte ili probleme koje je teško rešiti. Git Vam omogućava da u potpunosti preskočite problematične commit-ove korišćenjem --skip flag-a.\n\nPokrenuli Ste rebase-ovanje koje je naišlo na problematičan commit. Preskočite trenutni commit i nastavite proces.",
+        "difficulty": "Srednje",
+        "category": "Rebase-ovanje i istorija",
+        "hints": [
+            "Koristite 'git rebase --skip' da biste preskočili trenutni problematičan commit.",
+            "Ovim će problematičan commit biti odbačen i rebase-ovanje će se nastaviti sa preostalim commit-ovima.",
+            "Rebase-ovanje bi trebalo automatski da se završi nakon preskakanja problematičnog commit-a."
+        ]
+    },
+    {
+        "id": 49,
+        "title": "Pronalaženje autora svake linije u fajlu",
+        "description": "Ponekad je potrebno da vidite ko je napisao koju liniju fajla i kada je poslednji put izmenjena. Komanda git blame prikazuje informacije o autorstvu za svaku liniju fajla.\n\nKoristite git blame da biste videli informacije o autorstvu za fajl 'README.md'.",
+        "difficulty": "Lako",
+        "category": "Rebase-ovanje i istorija",
+        "hints": [
+            "Koristite 'git blame <filename>' da biste videli informacije o autorstvu po linijama.",
+            "blame komanda prikazuje commit hash, autora, vremensku oznaku i broj linije za svaku liniju.",
+            "Probajte 'git blame README.md' da biste videli ko je napisao koju liniju README fajla."
+        ]
+    },
+    {
+        "id": 50,
+        "title": "Pronalaženje commit-a koji je uveo određenu izmenu",
+        "description": "Ponekad je potrebno da pronađete kada je određeni deo koda ili teksta dodat u codebase. Git pruža moćne mogućnosti pretrage koje Vam pomažu da pronađete commit-ove koji su dodali ili uklonili određeni sadržaj.\n\nFunkcija pod nazivom 'authenticateUser' je u nekom trenutku dodata u codebase. Koristite Git-ovu pickaxe funkcionalnost da biste pronašli commit koji je uveo ovu funkciju.",
+        "difficulty": "Srednje",
+        "category": "Rebase-ovanje i istorija",
+        "hints": [
+            "Koristite 'git log -S \"authenticateUser\"' da biste pronašli commit-ove koji su dodali ili uklonili funkciju authenticateUser.",
+            "Flag -S (pickaxe) traži commit-ove gde se broj pojavljivanja traženog stringa promenio.",
+            "Takođe možete koristiti 'git log -G \"pattern\"' za pretragu commit-ova koji su dodali ili uklonili linije koje odgovaraju regularnom izrazu."
+        ]
+    }
+]

@@ -1,0 +1,131 @@
+[
+    {
+        "id": 61,
+        "title": "Checkout-ovanje prethodnog commit-a bez menjanja istorije",
+        "description": "Ponekad je potrebno da ispitate stanje Vašeg koda u određenom trenutku u istoriji, bez kreiranja nove grane ili menjanja istorije commit-ova. Git Vam omogućava da direktno checkout-ujete određeni commit, čime ulazite u stanje 'detached HEAD'.\n\nSumnjate da je commit 'abc123def' uveo bug. Checkout-ujte taj commit kako biste proverili kod u tom trenutku.",
+        "difficulty": "Srednje",
+        "category": "Debug-ovanje",
+        "hints": [
+            "Koristite 'git checkout <commit-id>' da biste direktno checkout-ovali određeni commit.",
+            "Ovo će Vas dovesti u stanje 'detached HEAD' - niste ni na jednoj grani.",
+            "Možete koristiti ceo commit ID ili samo prvih 7 karaktera: 'abc123d'.",
+            "Koristite 'git log' da biste videli dostupne commit-ove i njihove ID-eve."
+        ]
+    },
+    {
+        "id": 62,
+        "title": "Pregled fajlova koji izmenjeni u određenom commit-u",
+        "description": "Ponekad je potrebno da vidite koji su fajlovi izmenjeni u određenom commit-u, bez prikazivanja kompletnog diff sadržaja. Git pruža opcije koje prikazuju samo nazive fajlova koji su izmenjeni.\n\nKoristite git show da biste prikazali samo nazive fajlova koji su izmenjeni u commit-u 'abc789def' (commit koji implementira autentifikaciju).",
+        "difficulty": "Lako",
+        "category": "Debug-ovanje",
+        "hints": [
+            "Koristite 'git show --name-only <commit-id>' da biste prikazali samo nazive izmenjenih fajlova.",
+            "Takođe možete koristiti i 'git show --name-status <commit-id>' da biste videli nazive fajlova sa statusom promene.",
+            "Commit ID 'abc789def' implementira sistem autentifikacije korisnika."
+        ]
+    },
+    {
+        "id": 63,
+        "title": "Prikaz izmena uvedenih commit-om",
+        "description": "Ponekad je potrebno da vidite tačno koje su izmene napravljene u određenom commit-u. Komanda 'git show' prikazuje informacije o commit-u zajedno sa stvarnim izmenama (diff) koje je taj commit uveo.\n\nKoristite git show da biste prikazali izmene uvedene commit-om 'abc123def'.",
+        "difficulty": "Lako",
+        "category": "Debug-ovanje",
+        "hints": [
+            "Koristite 'git show <commit-id>' da biste prikazali izmene uvedene određenim commit-om.",
+            "Komanda git show prikazuje i metapodatke commit-a i stvarni diff.",
+            "Možete koristiti ceo commit ID ili samo prvih nekoliko karaktera."
+        ]
+    },
+    {
+        "id": 64,
+        "title": "Izlistavanje commit-ova na određenoj grani koji nisu na main-u",
+        "description": "Prilikom rada sa više grana, često je potrebno da vidite koji commit-ovi postoje na feature grani, a još uvek nisu spojeni u main granu. Git pruža nekoliko načina za poređenje grana i prikaz commit-ova koji postoje na jednoj grani, ali ne i na drugoj.\n\nImate 'feature' granu koja sadrži commit-ove koji nisu na 'master' grani. Koristite git log da biste prikazali samo commit-ove koji postoje na 'feature' grani, ali ne i na 'master' grani.",
+        "difficulty": "Lako",
+        "category": "Debug-ovanje",
+        "hints": [
+            "Koristite 'git log master..feature' da biste prikazali commit-ove koji su na feature-u, ali ne i na master-u.",
+            "Takođe možete koristiti i 'git log feature --not master' za isti rezultat.",
+            "Sintaksa '..' znači 'commit-ovi dostupni sa desne strane, ali ne i sa leve strane'.",
+            "Dodajte '--oneline' da biste dobili sažetiji prikaz commit-ova."
+        ]
+    },
+    {
+        "id": 65,
+        "title": "Provera istorije određenog fajla",
+        "description": "Ponekad je potrebno da vidite istoriju commit-ova za određeni fajl kako biste razumeli kako se menjao tokom vremena. Git Vam omogućava da filtrirate log i prikažete samo commit-ove koji su uticali na određeni fajl.\n\nŽelite da vidite istoriju izmena fajla pod nazivom 'config.js'. Koristite git log da biste prikazali samo commit-ove koji su menjali ovaj fajl.",
+        "difficulty": "Lako",
+        "category": "Debug-ovanje",
+        "hints": [
+            "Koristite 'git log <filename>' da biste prikazali commit-ove koji su menjali određeni fajl.",
+            "Takođe možete koristiti i 'git log --follow <filename>' da biste pratili fajl kroz promene imena.",
+            "Dodajte '--oneline' da biste dobili sažetiji prikaz istorije fajla."
+        ]
+    },
+    {
+        "id": 66,
+        "title": "Prikaz razlika između dva commit-a",
+        "description": "Ponekad je potrebno da vidite šta se promenilo između dva određena commit-a. Git Vam omogućava da uporedite bilo koja dva commit-a i vidite razlike u njihovom sadržaju.\n\nŽelite da vidite razlike između commit-a 'abc123def' (funkcionalnost sa bug-om) i commit-a 'def456abc' (ispravka stilova). Koristite git diff da biste prikazali izmene između ova dva commit-a.",
+        "difficulty": "Lako",
+        "category": "Debug-ovanje",
+        "hints": [
+            "Koristite 'git diff <commit1> <commit2>' da biste prikazali razlike između dva commit-a.",
+            "Takođe možete koristiti i 'git diff <commit1>..<commit2>' za isti rezultat.",
+            "Redosled je bitan - 'git diff A B' prikazuje šta se promenilo od A ka B.",
+            "Koristite 'git log --oneline' da biste videli dostupne commit-ove i njihove ID-eve."
+        ]
+    },
+    {
+        "id": 67,
+        "title": "Upoređivanje dve grane i prikaz njihove razlike",
+        "description": "Prilikom rada sa više grana, često je potrebno da vidite koje promene postoje između njih. Git pruža nekoliko načina za poređenje grana i prikaz razlika u njihovom sadržaju.\n\nImate 'feature' granu i 'master' granu. Koristite git diff da biste prikazali razlike između ove dve grane.",
+        "difficulty": "Lako",
+        "category": "Debug-ovanje",
+        "hints": [
+            "Koristite 'git diff <branch1> <branch2>' da biste uporedili dve grane.",
+            "Takođe možete koristiti i 'git diff <branch1>..<branch2>' za isti rezultat.",
+            "Redosled je bitan - 'git diff A B' prikazuje šta se promenilo od A ka B.",
+            "Koristite 'git branch' da biste videli dostupne grane."
+        ]
+    },
+    {
+        "id": 68,
+        "title": "Pronalazak commit-ova određenog autora",
+        "description": "Ponekad je potrebno da pronađete sve commit-ove koje je napravio određeni autor, kako biste pratili njegov doprinos ili pregledali njegov rad. Git Vam omogućava da filtrirate istoriju commit-ova prema imenu ili email-u autora.\n\nŽelite da vidite sve commit-ove koje je napravio 'John Smith'. Koristite git log da biste prikazali samo commit-ove čiji je autor ova osoba.",
+        "difficulty": "Lako",
+        "category": "Debug-ovanje",
+        "hints": [
+            "Koristite 'git log --author=\"John Smith\"' da biste prikazali commit-ove određenog autora.",
+            "Možete koristiti delimično poklapanje: 'git log --author=john' će pronaći 'John Smith'.",
+            "Podrazumevano, poklapanje autora nije osetljivo na veličinu slova slova.",
+            "Možete kombinovati --author sa drugim flag-ovima poput --oneline radi sažetijeg rezultata."
+        ]
+    },
+    {
+        "id": 69,
+        "title": "Vraćanje (eng. restore) obrisane grane",
+        "description": "Ponekad slučajno obrišete granu koja Vam je i dalje potrebna. Git pomoću reflog-a pamti gde su grane pokazivale čak i nakon što budu obrisane. Možete povratiti obrisanu granu tako što ćete pronaći njen poslednji commit i ponovo ga kreirati.\n\nSlučajno Ste obrisali granu 'feature-login'. Koristite git reflog da biste pronašli gde je pokazivala i povratili je.",
+        "difficulty": "Srednje",
+        "category": "Debug-ovanje",
+        "hints": [
+            "Koristite 'git reflog' da biste videli istoriju pomeranja HEAD-a i pronašli gde je obrisana grana pokazivala.",
+            "Potražite unose poput 'checkout: moving from feature-login to master' kako biste pronašli poslednji commit grane.",
+            "Koristite 'git checkout -b feature-login <commit-id>' da biste ponovo kreirali granu na tom commit-u.",
+            "Takođe možete koristiti i 'git branch feature-login <commit-id>' ako se ne nalazite na grani koju želite da kreirate."
+        ]
+    },
+    {
+        "id": 70,
+        "title": "Identifikacija commit-a koji je uveo bug koristeći git bisect",
+        "description": "Git bisect je moćan alat za pronalaženje tačnog commit-a koji je uveo bug, koristeći binarnu pretragu. Proces započinjete označavanjem poznatog dobrog commit-a i poznatog lošeg commit-a, nakon čega Vas Git vodi kroz testiranje commit-ova dok ne pronađe prvi loš commit.\n\nZnate da je commit 'abc123def' loš (sadrži bug), a commit 'xyz789abc' dobar (ne sadrži bug). Koristite git bisect da biste identifikovali koji commit je uveo bug.",
+        "difficulty": "Teško",
+        "category": "Debug-ovanje",
+        "hints": [
+            "Započnite sa 'git bisect start' kako biste pokrenuli proces podele (bisekcije).",
+            "Koristite 'git bisect bad <commit-id>' da biste označili poznati loš commit.",
+            "Koristite 'git bisect good <commit-id>' da biste označili poznati dobar commit.",
+            "Git će checkout-ovati commit-ove koje treba da testirate - svaki označite kao 'git bisect good' ili 'git bisect bad'.",
+            "Nastavite dok Git ne identifikuje prvi loš commit.",
+            "Kada završite, koristite 'git bisect reset' da biste se vratili na Vašu originalnu granu."
+        ]
+    }
+]
