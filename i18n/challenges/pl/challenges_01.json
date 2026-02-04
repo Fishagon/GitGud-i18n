@@ -37,9 +37,9 @@
 		"difficulty": "Łatwy",
 		"category": "Podstawy",
 		"hints": [
-			"Większość komend obsługuje flagi do modyfikacji ich zachowania. Na przykład, 'git add' może być używane z flagą '-A' do dodania wszystkich zmian.",
-			"Możesz użyć 'git add .', aby przygotować wszystkie pliki, następnie 'git commit -m \"Your message\"'. Zastanów się nad sposobami łączenia tych dwóch komend w jedną z flagami.",
-			"Dla śledzonych plików możesz również użyć 'git commit -a -m \"Your message\"', aby przygotować i zatwierdzić w jednej komendzie."
+			"Wiele komend Git obsługuje flagi, które modyfikują ich zachowanie i wykonują wiele operacji jednocześnie.",
+			"Komenda 'git commit' ma flagę, która może automatycznie przygotować wszystkie śledzone pliki przed zatwierdzeniem.",
+			"Użyj 'git commit -a -m \"Your message\"', aby przygotować wszystkie śledzone pliki i zatwierdzić je w jednym kroku."
 		]
 	},
 	{

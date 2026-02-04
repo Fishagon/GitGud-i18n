@@ -37,9 +37,9 @@
 		"difficulty": "Fácil",
 		"category": "Básicos",
 		"hints": [
-			"La mayoría de comandos soportan varias opciones para modificar su comportamiento. Por ejemplo, 'git add' puede usarse con la opción '-A' para agregar todos los cambios.",
-			"Puedes usar 'git add .' para preparar todos los archivos, luego 'git commit -m \"Tu mensaje\"'. ¿Considera maneras de combinar ambos en un solo comando con opciones?",
-			"Para archivos rastreados, también puedes usar 'git commit -a -m \"Tu mensaje\"' para preparar y confirmar en un comando."
+			"Muchos comandos de Git soportan opciones para modificar su comportamiento y realizar múltiples operaciones a la vez.",
+			"El comando 'git commit' tiene una opción que puede preparar automáticamente todos los archivos rastreados antes de confirmar.",
+			"Use 'git commit -a -m \"Tu mensaje\"' para preparar todos los archivos rastreados y confirmarlos en un solo paso."
 		]
 	},
 	{

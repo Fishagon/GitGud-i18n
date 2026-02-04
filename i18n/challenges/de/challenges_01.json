@@ -37,9 +37,9 @@
 		"difficulty": "Einfach",
 		"category": "Grundlagen",
 		"hints": [
-			"Die meisten Befehle unterstützen eine Reihe von Flags, um ihr Verhalten zu ändern. Zum Beispiel kann 'git add' mit dem Flag '-A' verwendet werden, um alle Änderungen hinzuzufügen.",
-			"Sie können 'git add .' verwenden, um alle Dateien vorzumerken, dann 'git commit -m \"Ihre Nachricht\"'. Überlegen Sie, wie Sie diese beiden Befehle mit Flags zu einem einzigen Befehl kombinieren können.",
-			"Für verfolgte Dateien können Sie auch 'git commit -a -m \"Ihre Nachricht\"' verwenden, um in einem Befehl vorzumerken und zu committen."
+			"Viele Git-Befehle unterstützen Flags, um ihr Verhalten zu ändern und mehrere Operationen gleichzeitig auszuführen.",
+			"Der 'git commit'-Befehl hat ein Flag, das automatisch alle verfolgten Dateien vor dem Commit vormerken kann.",
+			"Verwenden Sie 'git commit -a -m \"Ihre Nachricht\"', um alle verfolgten Dateien in einem Schritt vorzumerken und zu committen."
 		]
 	},
 	{

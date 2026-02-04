@@ -37,9 +37,9 @@
 		"difficulty": "Fácil",
 		"category": "Básicos",
 		"hints": [
-			"A maioria dos comandos suporta várias flags para modificar seu comportamento. Por exemplo, 'git add' pode ser usado com a flag '-A' para adicionar todas as alterações.",
-			"Você pode usar 'git add .' para preparar todos os arquivos, depois 'git commit -m \"Sua mensagem\"'. Considere maneiras de combinar os dois em um único comando com flags.",
-			"Para arquivos rastreados, você também pode usar 'git commit -a -m \"Sua mensagem\"' para preparar e fazer commit em um comando."
+			"Muitos comandos Git suportam flags para modificar seu comportamento e realizar múltiplas operações de uma vez.",
+			"O comando 'git commit' tem uma flag que pode preparar automaticamente todos os arquivos rastreados antes de fazer o commit.",
+			"Use 'git commit -a -m \"Sua mensagem\"' para preparar todos os arquivos rastreados e fazer commit deles em um único passo."
 		]
 	},
 	{

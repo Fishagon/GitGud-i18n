@@ -37,9 +37,9 @@
 		"difficulty": "Facile",
 		"category": "Bases",
 		"hints": [
-			"La plupart des commandes supportent un certain nombre d'options pour modifier leur comportement. Par exemple, 'git add' peut être utilisé avec l'option '-A' pour ajouter toutes les modifications.",
-			"Vous pouvez utiliser 'git add .' pour indexer tous les fichiers, puis 'git commit -m \"Votre message\"'. Réfléchissez aux moyens de combiner les deux en une seule commande avec des options ?",
-			"Pour les fichiers suivis, vous pouvez aussi utiliser 'git commit -a -m \"Votre message\"' pour indexer et confirmer en une commande."
+			"Beaucoup de commandes Git supportent des options pour modifier leur comportement et effectuer plusieurs opérations à la fois.",
+			"La commande 'git commit' a une option qui peut indexer automatiquement tous les fichiers suivis avant de confirmer.",
+			"Utilisez 'git commit -a -m \"Votre message\"' pour indexer tous les fichiers suivis et les confirmer en une seule étape."
 		]
 	},
 	{
