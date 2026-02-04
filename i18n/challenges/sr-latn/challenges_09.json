@@ -1,0 +1,141 @@
+[
+    {
+        "id": 81,
+        "title": "Korišćenje git reflog-a za oporavak izgubljenog commit-a",
+        "description": "Ponekad commit-ovi mogu postati 'izgubljeni' kada se grane obrišu ili resetuju. Međutim, Git čuva reflog (log referenci) svih promena nad HEAD-om i referencama grana. Možete koristiti 'git reflog' da pronađete ove izgubljene commit-ove i oporavite ih kreiranjem nove grane.\n\nCommit sa korisnim izmenama je slučajno izgubljen prilikom brisanja grane. Koristite 'git reflog' da pronađete izgubljeni commit i kreirajte novu granu pod nazivom 'recovered-work' koja će pokazivati na njega.",
+        "difficulty": "Srednje",
+        "category": "Moćni korisnik",
+        "hints": [
+            "Koristite 'git reflog' da biste videli istoriju svih promena referenci.",
+            "Potražite commit-ove koji više nisu dostupni ni na jednoj grani.",
+            "Koristite 'git checkout -b recovered-work <commit-id>' da biste kreirali granu na izgubljenom commit-u.",
+            "Takođe možete koristiti i 'git branch recovered-work <commit-id>' da biste kreirali granu bez prebacivanja na nju.",
+            "Reflog prikazuje unose poput 'HEAD@{0}', 'HEAD@{1}' itd, koji predstavljaju različite vremenske trenutke."
+        ]
+    },
+    {
+        "id": 82,
+        "title": "Prikaz detaljnog log-a izmena po commit-u",
+        "description": "Ponekad je potrebno da vidite ne samo commit poruke i metapodatke, već i stvarne izmene napravljene u svakom commit-u. Git pruža više opcija za prikaz detaljnih informacija o commit-ovima, uključujući stvarni diff/patch sadržaj, statistiku fajlova ili samo nazive izmenjenih fajlova.\n\nKoristite git log sa odgovarajućim flag-ovima da biste prikazali detaljan log koji pokazuje stvarne izmene (diff/patch) napravljene u svakom commit-u.",
+        "difficulty": "Lako",
+        "category": "Moćni korisnik",
+        "hints": [
+            "Koristite 'git log -p' za prikaz patch/diff sadržaja za svaki commit.",
+            "Takođe možete koristiti i 'git log --patch', što je isto kao i -p.",
+            "Probajte 'git log --stat' za prikaz statistike izmena fajlova umesto kompletnih diff-ova.",
+            "Koristite 'git log --name-only' da biste videli samo nazive izmenjenih fajlova.",
+            "Koristite 'git log --name-status' za prikaz naziva fajlova i njihovog statusa promene."
+        ]
+    },
+    {
+        "id": 83,
+        "title": "Kreiranje i korišćenje .gitignore fajla",
+        "description": "Neke fajlove Git nikada ne bi trebalo da prati - poput privremenih fajlova, build artefakata ili osetljivih konfiguracionih fajlova. .gitignore fajl govori Git-u koje fajlove treba da ignoriše. Kreirajte .gitignore fajl sa obrascima za ignorisanje log fajlova (*.log) i temp direktorijuma (temp/), a zatim proverite da li radi dodavanjem fajlova koji treba da budu ignorisani.\n\nKreirajte .gitignore fajl, dodajte obrasce za ignorisanje '*.log' fajlova i 'temp/' direktorijuma, a zatim proverite da li su ti fajlovi ignorisani prilikom korišćenja 'git add .'\n\n💡 Savet: Fajlove možete kreirati komandama poput 'createfile .gitignore', 'touch .gitignore' ili 'New-Item .gitignore'. Za uređivanje fajlova probajte 'start .gitignore' (Windows), 'open .gitignore' (macOS) ili 'xdg-open .gitignore' (Linux).",
+        "difficulty": "Lako",
+        "category": "Moćni korisnik",
+        "hints": [
+            "Kreirajte .gitignore fajl u root-u repozitorijuma pomoću 'createfile .gitignore' ili 'touch .gitignore'.",
+            "Dodajte obrasce poput '*.log' za ignorisanje svih fajlova koji se završavaju sa '.log'.",
+            "Dodajte 'temp/' za ignorisanje celog temp direktorijuma.",
+            "Možete uređivati .gitignore fajl pomoću 'start .gitignore', 'open .gitignore' ili 'Invoke-Item .gitignore'.",
+            "Koristite 'git add .' da biste proverili da ignorisani fajlovi nisu stage-ovani.",
+            ".gitignore fajl treba da bude dodat i commit-ovan.",
+            "Koristite 'git status' da biste videli koji fajlovi su ignorisani, a koji su spremni da budu stage-ovani."
+        ]
+    },
+    {
+        "id": 84,
+        "title": "Prikaz svih ignorisanih fajlova",
+        "description": "Git pruža više načina da vidite koji su fajlovi ignorisani Vašim .gitignore pravilima. Ovo je korisno za debug-ovanje .gitignore obrazaca ili proveru da li su osetljivi fajlovi pravilno ignorisani.\n\nKoristite Git komande da biste izlistali sve fajlove koji su trenutno ignorisani u repozitorijumu.",
+        "difficulty": "Lako",
+        "category": "Moćni korisnik",
+        "hints": [
+            "Koristite 'git status --ignored' da biste videli ignorisane fajlove uz regularni status.",
+            "Koristite 'git ls-files --ignored --exclude-standard' da biste izlistali samo ignorisane fajlove.",
+            "Takođe možete koristiti i 'git check-ignore *' da biste proverili koji su fajlovi ignorisani.",
+            "Flag --porcelain se može koristiti uz git status radi čistijeg rezultata."
+        ]
+    },
+    {
+        "id": 85,
+        "title": "Podešavanje Git alijasa za često korišćene komande",
+        "description": "Git alijasi Vam omogućavaju da kreirate prečice za često korišćene Git komande, čineći Vaš rad efikasnijim.\n\nPodesite sledeće korisne alijase:\n- 'st' za 'status'\n- 'co' za 'checkout'\n- 'br' za 'branch'\n- 'cm' za 'commit -m'",
+        "difficulty": "Lako",
+        "category": "Moćni korisnik",
+        "hints": [
+            "Koristite 'git config --global alias.<name> <command>' za kreiranje alijasa.",
+            "Na primer: 'git config --global alias.st status' kreira alijas 'st' za 'status'.",
+            "Sve podešene alijase možete izlistati komandom 'git config --list | grep alias'.",
+            "Nakon podešavanja alijasa, možete ih koristiti kao 'git st' umesto 'git status'."
+        ]
+    },
+    {
+        "id": 86,
+        "title": "Globalna konfiguracija Git korisničkog imena i email adrese",
+        "description": "Pre pravljenja commit-ova, Git mora da zna Vaš identitet. Korisničko ime i email su uključeni u svaki commit koji napravite. Globalno podešavanje znači da će se ove vrednosti koristiti za sve Git repozitorijume na Vašem sistemu, osim ako nisu lokalno prepisana.\n\nGlobalno konfigurišite Vaš Git identitet:\n- Postavite ime na 'John Doe'\n- Postavite email adresu na 'john.doe@example.com'",
+        "difficulty": "Lako",
+        "category": "Moćni korisnik",
+        "hints": [
+            "Koristite 'git config --global user.name \"Your Name\"' za globalno podešavanje imena.",
+            "Koristite 'git config --global user.email \"your.email@example.com\"' za globalno podešavanje email adrese.",
+            "Flag --global primenjuje podešavanje na sve repozitorijume na Vašem sistemu.",
+            "Podešavanja možete proveriti pomoću 'git config --list' ili 'git config user.name'.",
+            "Bez navodnika, imena sa više reči možda neće biti pravilno obrađena."
+        ]
+    },
+    {
+        "id": 87,
+        "title": "Korišćenje git grep komande za pretragu teksta u commit-ovima",
+        "description": "Git grep može da pretražuje ne samo Working Directory i stage-ovane fajlove, već i određene commit-ove. Ovo je korisno za pronalaženje trenutka kada je određeni kod ili tekst postojao u istoriji repozitorijuma.\n\nKoristite 'git grep' da pretražite tekst 'TODO' u commit-u 'HEAD~2' (dva commit-a unazad od trenutnog HEAD-a). Ovo će Vam pomoći da pronađete razvojne komentare koji su postojali u ranijim verzijama koda.",
+        "difficulty": "Srednje",
+        "category": "Moćni korisnik",
+        "hints": [
+            "Koristite 'git grep \"pattern\" <commit>' za pretragu u određenom commit-u.",
+            "Možete koristiti reference commit-ova poput 'HEAD~1', 'HEAD~2' itd.",
+            "Probajte 'git log --oneline' da biste videli istoriju commit-ova.",
+            "Sintaksa je: git grep \"TODO\" HEAD~2",
+            "HEAD~2 označava commit koji je dva koraka unazad od trenutnog HEAD-a."
+        ]
+    },
+    {
+        "id": 88,
+        "title": "Korišćenje Git submodule-a za upravljanje eksternim repozitorijumima",
+        "description": "Git submodule-i Vam omogućavaju da uključite i upravljate eksternim repozitorijumima kao poddirektorijumima unutar glavnog repozitorijuma. Korisni su za uključivanje biblioteka, deljenog koda ili drugih zavisnosti, čuvajući ih kao zasebne repozitorijume.\n\nDodajte submodule iz repozitorijuma 'https://github.com/example/shared-utils.git' na putanju 'libs/utils', a zatim ga inicijalizujte kako bi bio spreman za korišćenje.",
+        "difficulty": "Srednje",
+        "category": "Moćni korisnik",
+        "hints": [
+            "Koristite 'git submodule add <repository-url> <path>' za dodavanje submodule-a.",
+            "Sintaksa je: git submodule add https://github.com/example/shared-utils.git libs/utils",
+            "Nakon dodavanja, koristite 'git submodule init libs/utils' za inicijalizaciju submodule-a.",
+            "Možete proveriti status submodule-a komandom 'git submodule status'.",
+            "Submodule-i se prate u .gitmodules fajlu i kao poseban commit u glavnom repozitorijumu."
+        ]
+    },
+    {
+        "id": 89,
+        "title": "Kloniranje repozitorijuma koji sadrži submodule-e",
+        "description": "Prilikom kloniranja repozitorijuma koji sadrži submodule-e, Git ih podrazumevano ne klonira automatski. Potrebno je koristiti posebne flag-ove kako bi submodule-i bili uključeni tokom operacije kloniranja.\n\nKlonirajte repozitorijum 'https://github.com/example/project-with-submodules.git' i osigurajte se da su svi submodule-i klonirani i inicijalizovani.",
+        "difficulty": "Srednje",
+        "category": "Moćni korisnik",
+        "hints": [
+            "Koristite 'git clone --recurse-submodules <repository-url>' za kloniranje uključujući submodule-e.",
+            "Takođe možete koristiti i 'git clone --recursive <repository-url>', što je ekvivalentno.",
+            "Flag --recurse-submodules će automatski inicijalizovati i ažurirati svaki submodule.",
+            "Bez ovih flag-ova, morali biste ručno da pokrenete 'git submodule init' i 'git submodule update' nakon kloniranja."
+        ]
+    },
+    {
+        "id": 90,
+        "title": "Rad sa više worktree-ova",
+        "description": "Worktree-ovi Vam omogućavaju da imate više Working Directory-ja za isti repozitorijum, pri čemu je svaki checkout-ovan na različitu granu. Ovo je korisno za paralelan rad na više funkcionalnosti bez prebacivanja grana.\n\nKreirajte tri worktree-a:\n1. 'feature-a' worktree na putanji '../feature-a' za novu granu 'feature-a'\n2. 'feature-b' worktree na putanji '../feature-b' za novu granu 'feature-b'\n3. 'hotfix' worktree na putanji '../hotfix' za 'main' granu.\n\nZatim izlistajte sve worktree-ove da biste videli šta Ste podesili.",
+        "difficulty": "Srednje",
+        "category": "Moćni korisnik",
+        "hints": [
+            "Koristite 'git worktree add -b <branch> <path>' za kreiranje worktree-a sa novom granom.",
+            "Koristite 'git worktree add <path> <existing-branch>' za kreiranje worktree-a iz postojeće grane.",
+            "Sintaksa je: git worktree add -b feature-a ../feature-a",
+            "Koristite 'git worktree list' da biste videli sve worktree-ove.",
+            "Svaki worktree je zaseban Working Directory koji deli istu Git istoriju."
+        ]
+    }
+]

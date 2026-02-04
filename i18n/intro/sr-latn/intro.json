@@ -1,0 +1,205 @@
+[
+  {
+    "Id": 1,
+    "Title": "Zašto Git?",
+    "Content": "Git je sistem za kontrolu verzija. To znači da pomaže developerima da prate izmene u svojim fajlovima tokom vremena. Ako Ste ikada izgubili svoj rad, morali da poništite nešto ili želeli da razumete ko je šta izmenio u timskom projektu, kontrola verzija je rešenje.\n\nGit je lokalno orijentisan i distribuiran — nije potrebno da budete online da bi ga koristili, a svaka kopija Git repozitorijuma sadrži celu istoriju. Ovo čini Git pouzdanim, fleksibilnim i moćnim, posebno za razvoj softvera.",
+    "Questions": [
+      {
+        "QuestionText": "Za šta se Git najčešće koristi?",
+        "Options": [
+          "Hosting veb-sajtova",
+          "Upravljanje verzijama projekta i praćenje izmena",
+          "Pravljenje rezervne kopije sistema",
+          "Enkriptovanje fajlova"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git je pre svega sistem za kontrolu verzija dizajniran da prati izmene u fajlovima i koordiniše rad između više ljudi."
+      },
+      {
+        "QuestionText": "Koja vrsta projekta ima koristi od Git-a?",
+        "Options": [
+          "Jedan tekstualni fajl koji nikada nećete menjati",
+          "Veliki projekat sa fajlovima koji se razvijaju",
+          "Nešto što šaljete email-om tamo vamo",
+          "Zaključan PDF"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git je odličan za upravljanje projektima koji se vremenom menjaju, naročito kada više ljudi radi na njima."
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Title": "Šta je to repozitorijum?",
+    "Content": "Git repozitorijum — ili \"repo\" — je direktorijum projekta koji Git prati. Ono što jedan folder čini Git repozitorijumom je skriveni .git/ folder unutar njega. Taj .git/ folder sadrži celu istoriju projekta, grane, konfiguraciju i još mnogo toga.\n\nMožete napraviti novi repozitorijum pomoću komande git init ili klonirati postojeći pomoću git clone. Git repozitorijum nisu samo Vaši fajlovi — to je cela vremenska linija Vašeg rada.",
+    "Questions": [
+      {
+        "QuestionText": "Šta čini jedan folder Git repozitorijumom?",
+        "Options": [
+          "To što je otpremljen na GitHub",
+          "To što sadrži .git/ folder",
+          "To što sadrži JavaScript",
+          "To što ima README"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Skriveni .git/ folder je ono što običan folder čini Git repozitorijumom, jer sadrži sve podatke o kontroli verzija."
+      },
+      {
+        "QuestionText": "Izvršili Ste git init u folderu. Šta se upravo desilo?",
+        "Options": [
+          "Git je preuzeo kopiju Vaših fajlova",
+          "Napravljena je udaljena konekcija",
+          "Obrisali Ste staru istoriju",
+          "Git je napravio .git/ folder i počeo da prati projekat"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "Komanda git init kreira novi .git/ folder u trenutnom direktorijumu i inicijalizuje ga kao Git repozitorijum."
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Title": "Kako Git razmišlja",
+    "Content": "Git-ov mentalni model uključuje tri glavne oblasti:\n\nWorking Directory - Vaši stvarni fajlovi na disku.\nStaging Area - pregled onoga što će biti commit-ovano.\nRepository - istorija sačuvanih commit-ova.\n\nKada menjate fajlove, oni se ažuriraju u Working Directory-ju. Kada izvršite git add, prelaze u Staging Area. Kada izvršite git commit, čuvaju se u Repository.",
+    "Questions": [
+      {
+        "QuestionText": "Git je \"snapshot\" sistem. Šta to znači?",
+        "Options": [
+          "Čuva samo razlike između fajlova",
+          "Čuva celu kopiju Vašeg projekta svaki put",
+          "Pravi sliku Vašeg ekrana",
+          "Snima Vaš glas"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git pravi snapshot celog stanja projekta pri svakom commit-u, umesto da čuva samo razlike između fajlova."
+      },
+      {
+        "QuestionText": "Koje su tri glavne oblasti u Git modelu?",
+        "Options": [
+          "Dev, Test, Prod",
+          "Staging, Branching, Deploying",
+          "Working Directory, Staging Area, Repository",
+          "Upload, Sync, Review"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Ove tri oblasti predstavljaju tok izmena: Working Directory (gde menjate), Staging Area (gde pripremate) i Repository (gde čuvate)."
+      },
+      {
+        "QuestionText": "Koja oblast sadrži fajlove koje Ste izmenili, ali još niste dodali?",
+        "Options": [
+          "Staging Area",
+          "Working Directory",
+          "Remote Repo",
+          "History Log"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Working Directory sadrži Vaše stvarne fajlove onakve kakvi su na disku, uključujući sve nesačuvane izmene."
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Title": "Commit-ovi i istorija",
+    "Content": "Commit-ovi su Git-ov način čuvanja Vašeg napretka. Commit je snapshot Vašeg projekta u određenom trenutku. Svaki commit uključuje metapodatke kao što su autor, vremenska oznaka i poruka.\n\nDobre commit poruke su kratke i opisne. Niz dobro napisanih commit-ova priča priču Vašeg projekta.",
+    "Questions": [
+      {
+        "QuestionText": "Šta commit predstavlja na Git-u?",
+        "Options": [
+          "Folder",
+          "Tačku čuvanja u istoriji projekta",
+          "Saradnika",
+          "Granu"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Commit je kao tačka čuvanja ili kontrolna tačka na vremenskoj liniji projekta koja beleži stanje svih fajlova u tom trenutku."
+      },
+      {
+        "QuestionText": "Koji opis najbolje odgovara commit poruci?",
+        "Options": [
+          "Opciona šala",
+          "Git komanda",
+          "Kratka beleška koja objašnjava šta je izmenjeno",
+          "Vaša GitHub lozinka"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "Commit poruke trebaju ukratko da opišu napravljene izmene, kako biste i Vi i ostali lakše razumeli razvoj projekta."
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Title": "Otkrivanje Git-a",
+    "Content": "Git ima ugrađenu pomoć za skoro svaku komandu. Možete izvršiti:\n\ngit help <command>\n<command> --help\n\nIli pregledati stranice sa uputstvima pomoću man git-<command>\n\nNe morate sve pamtiti — Git očekuje da istražujete usput.",
+    "Questions": [
+      {
+        "QuestionText": "Zaboravili Ste šta radi git log. Šta ćete izvršiti?",
+        "Options": [
+          "git search log",
+          "git help log",
+          "git !log",
+          "git -explain log"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Komanda git help, praćena bilo kojom Git komandom, prikazuje detaljnu dokumentaciju za tu komandu."
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Title": "Kloniranje i udaljeni repozitorijumi",
+    "Content": "Git nije samo za lokalne fajlove. Možete sinhronizovati Vaš rad sa udaljenim repozitorijumima kao što je GitHub pomoću komandi git clone, git fetch i git push.\n\nKada klonirate repozitorijum, Git kopira sve — ne samo fajlove, već i celu istoriju commit-ova. Podrazumevano ime za udaljeni repozitorijum je origin.",
+    "Questions": [
+      {
+        "QuestionText": "Šta radi git clone?",
+        "Options": [
+          "Kreira novu granu",
+          "Kopira udaljeni Git repozitorijum na Vašu mašinu",
+          "Zip-uje projekat",
+          "Otprema folder na cloud"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Git clone preuzima kompletnu kopiju udaljenog repozitorijuma, uključujući sve fajlove i istoriju commit-ova."
+      },
+      {
+        "QuestionText": "Upravo Ste klonirali repozitorijum. Kako se zove podrazumevani udaljeni repozitorijum?",
+        "Options": [
+          "upstream",
+          "ssh",
+          "master",
+          "origin"
+        ],
+        "CorrectAnswerIndex": 3,
+        "Explanation": "Po konvenciji, kada klonirate repozitorijum, Git naziva podrazumevani udaljeni repozitorijum 'origin'."
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Title": "Grane i HEAD",
+    "Content": "Grane Vam omogućavaju da paralelno radite na različitim verzijama projekta. Grana je samo pokazivač na commit — oznaka na vremenskoj liniji.\n\nHEAD je poseban pokazivač na Vašu trenutnu poziciju na Git-u. Obično pokazuje na poslednji commit na trenutnoj grani.",
+    "Questions": [
+      {
+        "QuestionText": "Šta je grana na Git-u?",
+        "Options": [
+          "Kopija .git/ foldera",
+          "Vremenska linija commit-ova pod određenom oznakom",
+          "Zip-ovana rezervna kopija",
+          "Staging direktorijum"
+        ],
+        "CorrectAnswerIndex": 1,
+        "Explanation": "Grana je u suštini pokretni pokazivač ili oznaka koja pokazuje na određeni commit i predstavlja jednu liniju razvoja."
+      },
+      {
+        "QuestionText": "Šta je HEAD na Git-u?",
+        "Options": [
+          "Prvi commit",
+          ".gitignore fajl",
+          "Pokazivač na trenutni commit",
+          "GitHub-ov sistem za tikete"
+        ],
+        "CorrectAnswerIndex": 2,
+        "Explanation": "HEAD je Git-ov način da zna gde se nalazite u istoriji projekta — pokazuje na commit sa kog trenutno radite."
+      }
+    ]
+  }
+]

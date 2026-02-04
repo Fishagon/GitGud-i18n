@@ -1,0 +1,126 @@
+[
+    {
+        "id": 51,
+        "title": "Stash-ovanje izmena koje nisu commit-ovane",
+        "description": "Ponekad radite na nečemu, ali je potrebno da brzo promenite kontekst ili povučete izmene iz udaljenog repozitorijuma. Git stash Vam omogućava da privremeno sačuvate izmene koje nisu commit-ovane bez kreiranja commit-a.\n\nImate neke izmene koje nisu commit-ovane u Working Directory-ju. Koristite git stash da biste sačuvali ove izmene kako biste mogli da radite na nečemu drugom, a njima se možete kasnije vratiti.",
+        "difficulty": "Lako",
+        "category": "Stash-ovanje",
+        "hints": [
+            "Koristite 'git stash' ili 'git stash push' da biste sačuvali izmene koje nisu commit-ovane.",
+            "Nakon stash-ovanja, Working Directory bi trebalo da bude čist.",
+            "Kasnije možete vratiti izmene pomoću 'git stash pop' ili 'git stash apply'."
+        ]
+    },
+    {
+        "id": 52,
+        "title": "Prikaz liste svih stash-ovanih izmena",
+        "description": "Git Vam omogućava da prikažete sve stash-ovane izmene korišćenjem komande stash list. Ovo Vam prikazuje sve stash-eve koje Ste sačuvali, zajedno sa njihovim porukama i stash ID-evima.\n\nImate postojeće stash-ovane izmene. Koristite Git da biste prikazali listu svih stash-ovanih izmena.",
+        "difficulty": "Lako",
+        "category": "Stash-ovanje",
+        "hints": [
+            "Koristite 'git stash list' da biste prikazali sve stash-ovane izmene.",
+            "Svaki stash unos prikazuje stash ID (stash@{0}, stash@{1}, itd.) i stash poruku.",
+            "Najnoviji stash se nalazi na vrhu liste (stash@{0})."
+        ]
+    },
+    {
+        "id": 53,
+        "title": "Primena (eng. apply) poslednjeg stash-a bez njegovog uklanjanja",
+        "description": "Ponekad želite da primenite stash-ovane izmene na Working Directory, ali da zadržite stash unos za potencijalnu buduću upotrebu. Komanda 'git stash apply' primenjuje stash bez njegovog uklanjanja iz liste stash-eva, za razliku od 'git stash pop' koja ga uklanja.\n\nImate stash-ovane izmene koje želite da primenite na Working Directory, ali želite da zadržite stash unos u slučaju da Vam ponovo zatreba.",
+        "difficulty": "Lako",
+        "category": "Stash-ovanje",
+        "hints": [
+            "Koristite 'git stash apply' da biste primenili poslednji stash bez njegovog uklanjanja iz liste stash-eva.",
+            "Za razliku od 'git stash pop' komande, 'git stash apply' zadržava stash unos za buduću upotrebu.",
+            "Možete proveriti da li stash nakon primene i dalje postoji pomoću 'git stash list'."
+        ]
+    },
+    {
+        "id": 54,
+        "title": "Primena određenog stash-a",
+        "description": "Kada imate više stash-eva, možete primeniti određeni tako što ćete referencirati njegov indeks. Svaki stash je numerisan počev od 0, gde je stash@{0} najnoviji, stash@{1} drugi po redu, i tako dalje.\n\nImate više stash-ovanih izmena. Primenite drugi stash unos (stash@{1}) bez njegovog uklanjanja iz liste stash-eva.",
+        "difficulty": "Lako",
+        "category": "Stash-ovanje",
+        "hints": [
+            "Koristite 'git stash list' da biste videli sve dostupne stash unose.",
+            "Koristite 'git stash apply stash@{1}' da biste primenili drugi stash unos.",
+            "Takođe možete koristiti i kraći oblik 'git stash apply 1'.",
+            "Stash unos stash@{1} treba da ostane u listi stash-eva nakon primene."
+        ]
+    },
+    {
+        "id": 55,
+        "title": "Uklanjanje (eng. drop) određenog stash-a",
+        "description": "Ponekad želite da uklonite određeni stash unos bez da ga primenite. Komanda 'git stash drop' omogućava ciljanje određenog stash-a na osnovu njegove reference (stash@{1}, stash@{2}, itd.).\n\nImate više stash-ovanih izmena. Uklonite drugi stash unos (stash@{1}) bez da ga primenite.",
+        "difficulty": "Lako",
+        "category": "Stash-ovanje",
+        "hints": [
+            "Koristite 'git stash list' da biste videli sve dostupne stash unose.",
+            "Koristite 'git stash drop stash@{1}' da biste uklonili drugi stash unos.",
+            "Takođe možete koristiti i kraći oblik 'git stash drop 1'.",
+            "Stash unos stash@{1} treba da bude uklonjen iz liste stash-eva nakon ove operacije."
+        ]
+    },
+    {
+        "id": 56,
+        "title": "Kreiranje stash-a sa prilagođenom porukom",
+        "description": "Pri stash-ovanju izmena, možete navesti prilagođenu poruku koja će Vam pomoći da prepoznate šta stash sadrži. Ovo je posebno korisno kada imate više stash-eva i potrebno je da se podsetite čemu koji služi.\n\nImate neke izmene koje nisu commit-ovane u Working Directory-ju. Kreirajte stash sa prilagođenom porukom 'Work in progress on feature X'.",
+        "difficulty": "Lako",
+        "category": "Stash-ovanje",
+        "hints": [
+            "Koristite 'git stash push -m \"message\"' da biste kreirali stash sa prilagođenom porukom.",
+            "Takođe možete koristiti i 'git stash save \"message\"' (zastarelo, ali i dalje radi).",
+            "Poruka treba da bude: 'Work in progress on feature X'.",
+            "Nakon stash-ovanja, Working Directory bi trebalo da bude čist."
+        ]
+    },
+    {
+        "id": 57,
+        "title": "Stash-ovanje nepraćenih fajlova",
+        "description": "Podrazumevano, git stash čuva samo praćene fajlove koji su izmenjeni. Ponekad želite da stash-ujete i nepraćene fajlove (fajlovi koji još uvek nisu dodati na Git). Koristite flag --include-untracked da biste stash-ovali i praćene i nepraćene fajlove.\n\nImate neke izmenjene praćene fajlove i nove nepraćene fajlove. Stash-ujte ih sve, uključujući i nepraćene fajlove.",
+        "difficulty": "Lako",
+        "category": "Stash-ovanje",
+        "hints": [
+            "Koristite 'git stash -u' ili 'git stash --include-untracked' da biste stash-ovali i nepraćene fajlove.",
+            "Takođe možete koristiti i 'git stash push -u' sa istim efektom.",
+            "Nakon stash-ovanja, i praćeni i nepraćeni fajlovi treba da budu sačuvani, a Working Directory potpuno čist."
+        ]
+    },
+    {
+        "id": 58,
+        "title": "Primena (eng. pop) poslednjeg stash-a i njegovo uklanjanje",
+        "description": "Komanda 'git stash pop' primenjuje najnoviji stash na Working Directory i uklanja ga iz liste stash-eva. Ovo se razlikuje od 'git stash apply' koja zadržava stash unos nakon primene.\n\nImate stash-ovane izmene koje želite da primenite na Working Directory i da ih trajno uklonite iz liste stash-eva.",
+        "difficulty": "Lako",
+        "category": "Stash-ovanje",
+        "hints": [
+            "Koristite 'git stash pop' da biste primenili poslednji stash i uklonili ga iz liste stash-eva.",
+            "Za razliku od 'git stash apply' komande, 'git stash pop' uklanja stash unos nakon primene.",
+            "Možete proveriti da li je stash uklonjen pomoću 'git stash list' nakon ove operacije."
+        ]
+    },
+    {
+        "id": 59,
+        "title": "Primena i uklanjanje (eng. pop) određenog stash-a",
+        "description": "Kada imate više stash-eva, možete primeniti i ukloniti određeni tako što ćete referencirati njegov indeks. Komanda 'git stash pop' sa stash referencom primenjuje stash i uklanja ga iz liste stash-eva.\n\nImate više stash-ovanih izmena. Primenite drugi stash unos (stash@{1}) i uklonite ga iz liste stash-eva.",
+        "difficulty": "Lako",
+        "category": "Stash-ovanje",
+        "hints": [
+            "Koristite 'git stash list' da biste videli sve dostupne stash unose.",
+            "Koristite 'git stash pop stash@{1}' da biste primenili i uklonili drugi stash unos.",
+            "Takođe možete koristiti i kraći oblik 'git stash pop 1'.",
+            "Stash unos stash@{1} treba da bude uklonjen iz liste nakon ove operacije."
+        ]
+    },
+    {
+        "id": 60,
+        "title": "Brisanje (eng. clear) svih stash-ovanih izmena",
+        "description": "Ponekad želite da trajno uklonite sve stash-ovane izmene odjednom. Komanda 'git stash clear' uklanja sve stash-ovane unose iz liste stash-eva. Budite oprezni sa ovom komandom jer trajno briše sve stash-ovane izmene.\n\nImate više stash-ovanih izmena koje Vam više nisu potrebne. Obrišite sve stash unose da biste očistili listu stash-eva.",
+        "difficulty": "Lako",
+        "category": "Stash-ovanje",
+        "hints": [
+            "Koristite 'git stash clear' da biste uklonili sve stash unose odjednom.",
+            "Ova komanda trajno briše sve stash-ovane izmene - koristite je oprezno.",
+            "Možete proveriti da li su svi stash-evi obrisani pomoću 'git stash list'."
+        ]
+    }
+]

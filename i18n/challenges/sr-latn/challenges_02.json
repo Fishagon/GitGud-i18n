@@ -1,0 +1,122 @@
+[
+    {
+        "id": 11,
+        "title": "Kreiranje i prelazak na granu jednom komandom",
+        "description": "Git Vam omogućava da kreirate novu granu i odmah pređete na nju pomoću jedne komande.\n\nKreirajte novu granu pod nazivom 'feature-branch' i pređite na nju jednom komandom.",
+        "difficulty": "Lako",
+        "category": "Grananje i spajanje",
+        "hints": [
+            "Koristite 'git checkout -b feature-branch' da biste kreirali novu granu i prešli na nju jednom komandom.",
+            "U novijim verzijama Git-a možete koristiti i 'git switch -c feature-branch'."
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Spajanje (eng. merge) grana",
+        "description": "Spajanje kombinuje izmene iz jedne grane u drugu.\n\nPređite na 'master' granu i spojite 'feature' granu u nju.",
+        "difficulty": "Srednje",
+        "category": "Grananje i spajanje",
+        "hints": [
+            "Najpre koristite 'git checkout master' da biste prešli na master granu.",
+            "Zatim koristite 'git merge feature' da biste spojili feature granu u master."
+        ]
+    },
+    {
+        "id": 13,
+        "title": "No Fast-Forward Merge",
+        "description": "Ponekad želite da sačuvate istoriju grane prilikom spajanja.\n\nSpojite 'feature' granu u 'master' korišćenjem --no-ff flag-a kako biste sprečili fast-forward spajanje.",
+        "difficulty": "Srednje",
+        "category": "Grananje i spajanje",
+        "hints": [
+            "Najpre koristite 'git checkout master' da biste prešli na master granu.",
+            "Zatim koristite 'git merge --no-ff feature' da biste spojili sa commit-om čak i ako je fast-forward moguć."
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Rešavanje merge konflikta",
+        "description": "Ponekad se izmene na različitim granama međusobno sukobljavaju.\n\nRešite merge konflikt između 'feature' i 'master' grana tako što ćete spojiti 'feature' granu u 'master' i ispraviti konflikt u fajlu 'shared-file.txt'.\n\nMožete koristiti posebne komande:\n- 'resolve current shared-file.txt' da zadržite verziju trenutne grane\n- 'resolve incoming shared-file.txt' da prihvatite verziju dolazeće grane",
+        "difficulty": "Srednje",
+        "category": "Grananje i spajanje",
+        "hints": [
+            "Najpre pređite na master granu pomoću 'git checkout master'.",
+            "Pokušajte spajanje komandom 'git merge feature' - pojaviće se konflikt.",
+            "Rešite konflikt pomoću 'resolve current shared-file.txt' ili 'resolve incoming shared-file.txt'.",
+            "Nakon rešavanja, koristite 'git add shared-file.txt' da biste označili konflikt kao rešen.",
+            "Dovršite spajanje komandom 'git commit -m \"Merge conflict resolved\"'."
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Prekidanje započetog spajanja",
+        "description": "Ponekad spajanje pođe po zlu i potrebno je da se vratite na stanje pre nego što je spajanje započeto.\n\nPređite na 'master' granu, pokušajte da spojite 'feature' granu (što će izazvati konflikt), a zatim prekinite spajanje koristeći bilo koju odgovarajuću Git komandu.",
+        "difficulty": "Srednje",
+        "category": "Grananje i spajanje",
+        "hints": [
+            "Najpre koristite 'git checkout master' da biste prešli na master granu.",
+            "Zatim koristite 'git merge feature' da biste započeli spajanje (što će izazvati konflikt).",
+            "Da biste prekinuli spajanje i vratili se na prethodno stanje, koristite 'git merge --abort'.",
+            "Alternativna rešenja uključuju 'git reset --hard HEAD' ili 'git checkout -f'."
+        ]
+    },
+    {
+        "id": 16,
+        "title": "Grafički prikaz istorije grana i commit-ova",
+        "description": "Standardna git log komanda prikazuje commit-ove linearno. Kod repozitorijuma sa više grana, često je korisno vizuelizovati strukturu grana.\n\nKoristite git log sa --graph flag-om da biste dobili grafički prikaz istorije commit-ova. Takođe možete isprobati i dodatne flag-ove kao što su --oneline za sažet prikaz i --all da biste videli sve grane.",
+        "difficulty": "Lako",
+        "category": "Grananje i spajanje",
+        "hints": [
+            "Koristite 'git log --graph' za tekstualni grafički prikaz istorije commit-ova.",
+            "Isprobajte kombinaciju flag-ova: 'git log --graph --oneline --all' za još pregledniji prikaz."
+        ]
+    },
+    {
+        "id": 17,
+        "title": "Prikaz svih grana u repozitorijumu",
+        "description": "Da biste efikasno upravljali repozitorijumom, potrebno je da znate koje grane postoje.\n\nKoristite odgovarajuću Git komandu da biste izlistali sve grane u repozitorijumu.",
+        "difficulty": "Lako",
+        "category": "Grananje i spajanje",
+        "hints": [
+            "Komanda za prikaz svih grana je jednostavno 'git branch' bez dodatnih argumenata.",
+            "Vaša trenutna grana biće označena zvezdicom (*) u rezultatu."
+        ]
+    },
+    {
+        "id": 18,
+        "title": "Preimenovanje trenutne grane",
+        "description": "Ponekad je potrebno promeniti naziv grane kako bi bolje odražavao njenu namenu.\n\nPreimenujte trenutnu granu iz 'master' u 'main'.",
+        "difficulty": "Lako",
+        "category": "Grananje i spajanje",
+        "hints": [
+            "Koristite 'git branch -m main' da biste preimenovali trenutnu granu.",
+            "Takođe možete koristiti i duži oblik 'git branch --move main'."
+        ]
+    },
+    {
+        "id": 19,
+        "title": "Prisilno brisanje grane",
+        "description": "Ponekad je potrebno da obrišete granu čak i kada sadrži nespojene izmene.\n\nKreirajte granu pod nazivom 'feature-temp' i napravite commit na njoj. Zatim se vratite na master i prisilno obrišite 'feature-temp' granu.\n\nKoristite posebnu komandu 'createfile filename content' da biste kreirali fajl (npr. 'createfile newfile.txt This is content').",
+        "difficulty": "Srednje",
+        "category": "Grananje i spajanje",
+        "hints": [
+            "Najpre kreirajte granu komandom 'git branch feature-temp' i pređite na nju pomoću 'git checkout feature-temp'.",
+            "Kreirajte fajl korišćenjem 'createfile newfile.txt Some content'.",
+            "Stage-ujte fajl komandom 'git add newfile.txt'.",
+            "Commit-ujte ga pomoću 'git commit -m \"Add new file\"'.",
+            "Vratite se na master pomoću 'git checkout master'.",
+            "Pokušajte brisanje komandom 'git branch -d feature-temp' - videćete da ne uspeva.",
+            "Izvršite prisilno brisanje komandom 'git branch -D feature-temp'."
+        ]
+    },
+    {
+        "id": 20,
+        "title": "Prikaz spojenih i nespojenih grana",
+        "description": "Git Vam omogućava da filtrirate grane po statusu spajanja u odnosu na trenutnu granu.\n\nKoristite odgovarajuće Git komande da biste:\n1. Prikazali grane koje su spojene u trenutnu granu\n2. Prikazali grane koje nisu spojene u trenutnu granu",
+        "difficulty": "Srednje",
+        "category": "Grananje i spajanje",
+        "hints": [
+            "Koristite 'git branch --merged' da biste videli grane koje su spojene u trenutnu granu.",
+            "Koristite 'git branch --no-merged' da biste videli grane koje nisu spojene u trenutnu granu."
+        ]
+    }
+]
