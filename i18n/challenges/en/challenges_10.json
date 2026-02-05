@@ -1,0 +1,144 @@
+[
+    {
+        "id": 91,
+        "title": "Automatically sign commits with GPG",
+        "description": "GPG (GNU Privacy Guard) allows you to cryptographically sign your commits to verify their authenticity. This ensures that commits are actually from you and haven't been tampered with. Configure Git to automatically sign all commits with your GPG key.\n\nSet up GPG commit signing:\n1. Configure your GPG signing key (use 'ABC123DEF456' as the key ID)\n2. Enable automatic commit signing\n3. Make a signed commit to test the configuration",
+        "difficulty": "Medium",
+        "category": "Expert",
+        "hints": [
+            "Use 'git config --global user.signingkey <key-id>' to set your GPG signing key.",
+            "Use 'git config --global commit.gpgsign true' to enable automatic commit signing.",
+            "The key ID for this exercise is 'ABC123DEF456'.",
+            "Make a commit after configuring to test that signing works.",
+            "You can verify GPG configuration with 'git config --list | grep gpg'."
+        ]
+    },
+    {
+        "id": 92,
+        "title": "Squash multiple commits into one when merging a branch",
+        "description": "Sometimes you want to merge a feature branch but keep a clean history by combining all the commits from the feature branch into a single commit. This is called a 'squash merge' and is done using 'git merge --squash'.\n\nA feature branch called 'feature-cleanup' has multiple small commits that should be combined into one commit when merged into main. Use a squash merge to combine all commits from 'feature-cleanup' into a single commit with the message 'Implement cleanup feature'.",
+        "difficulty": "Medium",
+        "category": "Expert",
+        "hints": [
+            "Use 'git merge --squash feature-cleanup' to squash all commits from the feature branch.",
+            "After squash merge, the changes are staged but not committed yet.",
+            "Use 'git commit -m \"Implement cleanup feature\"' to create the final squashed commit.",
+            "Check 'git log --oneline' to see that only one commit was added instead of multiple.",
+            "The original commits from the feature branch won't appear in the main branch history."
+        ]
+    },
+    {
+        "id": 93,
+        "title": "Rewrite the history of a branch and force push",
+        "description": "Sometimes you need to clean up your commit history before sharing it with others. This involves rewriting history (using interactive rebase) and then force pushing the changes to update the remote branch. This is useful for squashing commits, fixing commit messages, or reordering commits before merging.\n\nRewrite the history of the current branch by squashing the last 2 commits into 1, then force push the changes to the remote repository.",
+        "difficulty": "Hard",
+        "category": "Expert",
+        "hints": [
+            "Use 'git rebase -i HEAD~2' to start an interactive rebase of the last 2 commits.",
+            "Change 'pick' to 'squash' (or 's') for the second commit to squash it into the first.",
+            "After completing the rebase, use 'git push --force' or 'git push -f' to update the remote.",
+            "Be careful with force push - it rewrites remote history and can affect other collaborators.",
+            "You can also use 'git push --force-with-lease' for safer force pushing."
+        ]
+    },
+    {
+        "id": 94,
+        "title": "Use git filter-branch to remove sensitive data from history",
+        "description": "Sometimes sensitive data like passwords, API keys, or personal information gets accidentally committed to a repository. Simply deleting the file in a new commit isn't enough - the sensitive data still exists in the Git history and can be accessed by anyone with repository access.\n\nA file called 'secrets.txt' containing sensitive API keys was accidentally committed to the repository history. Use 'git filter-branch' to completely remove this file from all commits in the repository history, and ensure that empty commits are pruned.\n\n Important: This operation rewrites history and should be done carefully in shared repositories. It is preferrable to use an external tool like filter-repo.",
+        "difficulty": "Hard",
+        "category": "Expert",
+        "hints": [
+            "Use 'git filter-branch --tree-filter \"rm -f secrets.txt\" --prune-empty --all' to remove the file from history",
+            "The --tree-filter operates on the working directory of each commit",
+            "Use --prune-empty to remove commits that become empty after filtering",
+            "The --all flag ensures all branches are processed",
+            "Alternative: Use --index-filter 'git rm --cached --ignore-unmatch secrets.txt' for better performance",
+            "After filtering, the sensitive file should not exist in any commit in the history"
+        ]
+    },
+    {
+        "id": 95,
+        "title": "Rewrite commit history using git rebase -i across multiple branches",
+        "description": "Complex projects often require cleaning up commit history across multiple branches before merging. You have a project with two feature branches that need their commit histories cleaned up.\n\nTasks:\n1. Switch to 'feature-cleanup' branch and use interactive rebase to squash the last 3 commits into 1\n2. Switch to 'feature-refactor' branch and rebase it onto 'main' branch\n3. Use interactive rebase on 'feature-refactor' to reorder commits so 'refactor tests' comes before 'refactor code'\n\nThis simulates preparing multiple feature branches for a clean merge into main.",
+        "difficulty": "Hard",
+        "category": "Expert",
+        "hints": [
+            "Use 'git checkout feature-cleanup' to switch to the first branch",
+            "Use 'git rebase -i HEAD~3' to start interactive rebase of last 3 commits",
+            "Change 'pick' to 'squash' or 's' for commits you want to combine",
+            "Switch branches with 'git checkout feature-refactor'",
+            "Use 'git rebase main' to rebase feature-refactor onto main",
+            "Use 'git rebase -i HEAD~2' to reorder the last 2 commits",
+            "In the rebase todo list, you can move lines up/down to reorder commits"
+        ]
+    },
+    {
+        "id": 96,
+        "title": "Set up a Git server to host your own repositories",
+        "description": "Setting up your own Git server allows you to host repositories privately and control access. You can use Git's built-in daemon for simple serving, or set up more advanced solutions.\n\nCreate a bare repository called 'project.git', then start a Git daemon to serve it on the default port (9418) with receive-pack enabled so others can push to it.",
+        "difficulty": "Hard",
+        "category": "Expert",
+        "hints": [
+            "Use 'git init --bare project.git' to create a bare repository",
+            "Start the Git daemon with 'git daemon --base-path=. --enable=receive-pack'",
+            "Bare repositories don't have a working directory - they only store Git data",
+            "The --enable=receive-pack flag allows others to push to your server",
+            "You can test the server by cloning with 'git clone git://localhost/project.git'"
+        ]
+    },
+    {
+        "id": 97,
+        "title": "Convert an existing Git repository into a bare repository",
+        "description": "Sometimes you need to convert a regular Git repository (with working directory) into a bare repository for sharing or server use. A bare repository contains only the Git data without a working directory.\n\nYou have a regular repository with some commits. Convert it to a bare repository at the path '../project-bare.git' while preserving all commits and branches.",
+        "difficulty": "Medium",
+        "category": "Expert",
+        "hints": [
+            "Use 'git clone --bare . ../project-bare.git' to create a bare clone of the current repository",
+            "A bare repository has no working directory - only Git data",
+            "You can also use 'git clone --mirror' to include all refs and remotes",
+            "After conversion, verify with 'git config core.bare' in the new repository",
+            "Bare repositories are typically named with .git suffix"
+        ]
+    },
+    {
+        "id": 98,
+        "title": "Use git rev-list with advanced filtering options",
+        "description": "The `git rev-list` command is Git's powerful low-level tool for traversing commit history. It supports many filtering and formatting options that make it incredibly versatile for analyzing repository history.\n\nUse `git rev-list` with the following options combined in a single command:\n- Count the commits instead of listing them\n- Filter to only show commits by authors containing 'john'\n- Search commit messages for the word 'fix'\n- Exclude merge commits from the results\n\nThis combination will give you a count of non-merge commits by 'john' that mention 'fix' in their commit message.",
+        "difficulty": "Medium",
+        "category": "Expert",
+        "hints": [
+            "The --count flag makes rev-list return just the number of matching commits",
+            "The --author flag filters commits by author name (partial matches work)",
+            "The --grep flag searches for text within commit messages",
+            "The --no-merges flag excludes merge commits from the results",
+            "All these options can be combined in a single rev-list command",
+            "Use 'git rev-list --count --author=\"john\" --grep=\"fix\" --no-merges HEAD'"
+        ]
+    },
+    {
+        "id": 99,
+        "title": "Find all merge bases with git merge-base --all",
+        "description": "In complex repositories with multiple merge points, there can be more than one merge base between commits. Use git merge-base with the --all flag to find all possible merge bases between three feature branches.\n\nFind all merge bases between 'feature-x', 'feature-y', and 'feature-z' using a single command with the --all flag. This will show you every common ancestor shared between these branches.",
+        "difficulty": "Hard",
+        "category": "Expert",
+        "hints": [
+            "Use 'git merge-base --all feature-x feature-y feature-z' to find all common ancestors.",
+            "The --all flag shows every merge base, not just the best one.",
+            "With complex merge histories, multiple commits can be merge bases.",
+            "You can visualize the structure with 'git log --graph --oneline --all'."
+        ]
+    },
+    {
+        "id": 100,
+        "title": "Master Git Clean - Final Challenge",
+        "description": "Congratulations on reaching the final challenge! Your repository has accumulated various types of untracked files and directories that need to be cleaned up strategically.\n\nYou have:\n- Untracked source files that should be removed\n- Untracked directories that need cleanup\n- Some ignored files (build artifacts) that should also be removed\n- A specific file 'important-notes.txt' that should be preserved\n\nPerform a comprehensive clean operation that removes untracked files and directories, including ignored files, but excludes the important notes file.",
+        "difficulty": "Hard",
+        "category": "Cleanup & Maintenance",
+        "hints": [
+            "You need to use multiple flags: -f (force), -d (directories), -x (ignored files)",
+            "Use -e to exclude the important-notes.txt file from cleaning",
+            "The complete command should be: git clean -fdx -e important-notes.txt",
+            "This removes untracked files, directories, and ignored files while preserving the excluded file"
+        ]
+    }
+]

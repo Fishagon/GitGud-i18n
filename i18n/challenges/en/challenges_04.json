@@ -1,0 +1,124 @@
+[
+    {
+        "id": 31,
+        "title": "Amend the Last Commit Without Changing Its Message",
+        "description": "Sometimes you realize you forgot to stage a file or made a small change after committing. Git allows you to amend the last commit to include additional changes without creating a new commit.\n\nYou have some staged changes that should have been included in the last commit. Amend the last commit to include these changes without modifying the commit message.",
+        "difficulty": "Easy",
+        "category": "Undo & Fix Mistakes",
+        "hints": [
+            "Use 'git commit --amend --no-edit' to amend the last commit without changing the message.",
+            "The --amend flag modifies the last commit instead of creating a new one.",
+            "The --no-edit flag keeps the existing commit message unchanged."
+        ]
+    },
+    {
+        "id": 32,
+        "title": "Amend the Last Commit and Update Its Message",
+        "description": "Sometimes you need to modify the last commit's message or add forgotten changes to it.\n\nYour last commit has the message 'Add new feature' but it should say 'Add user authentication feature'. Use Git's amend functionality to update the commit message.",
+        "difficulty": "Easy",
+        "category": "Undo & Fix Mistakes",
+        "hints": [
+            "Use 'git commit --amend -m \"Add user authentication feature\"' to change the last commit's message.",
+            "The --amend flag modifies the most recent commit instead of creating a new one.",
+            "Don't use --no-edit as that would preserve the existing (incorrect) message."
+        ]
+    },
+    {
+        "id": 33,
+        "title": "Undo the Last Commit but Keep Changes Staged",
+        "description": "Sometimes you commit too early and realize you want to make additional changes or fix the commit message. Git allows you to undo the last commit while keeping the changes staged so you can modify them and commit again.\n\nYour last commit was made prematurely. Undo it but keep the changes staged so you can work with them further.",
+        "difficulty": "Easy",
+        "category": "Undo & Fix Mistakes",
+        "hints": [
+            "Use 'git reset --soft HEAD~1' to undo the last commit but keep changes staged.",
+            "The --soft flag preserves your staged changes, unlike --hard which discards them.",
+            "HEAD~1 refers to the commit before the current HEAD (one commit back)."
+        ]
+    },
+    {
+        "id": 34,
+        "title": "Undo the Last Commit and Unstage the Changes",
+        "description": "Sometimes you want to undo a commit but keep the changes in your working directory as unstaged files. This allows you to modify the files further before committing again.\n\nYour last commit needs to be undone, and the changes should remain in your working directory but be unstaged.",
+        "difficulty": "Easy",
+        "category": "Undo & Fix Mistakes",
+        "hints": [
+            "Use 'git reset HEAD~1' to undo the last commit and unstage changes.",
+            "Mixed reset (the default) moves HEAD back and unstages files but keeps changes in working directory.",
+            "HEAD~1 refers to the commit before the current HEAD (one commit back)."
+        ]
+    },
+    {
+        "id": 35,
+        "title": "Unstage a File That Was Added Accidentally",
+        "description": "Sometimes you accidentally stage a file that you didn't mean to include in your next commit. Git allows you to unstage files without losing the changes in your working directory.\n\nYou have accidentally staged 'temp.log' which should not be committed. Unstage this file while keeping the changes in your working directory.",
+        "difficulty": "Easy",
+        "category": "Undo & Fix Mistakes",
+        "hints": [
+            "Use 'git reset HEAD temp.log' to unstage the file while keeping changes in working directory.",
+            "You can also use 'git reset temp.log' as a shorthand for the same operation.",
+            "The file will remain modified in your working directory after unstaging."
+        ]
+    },
+    {
+        "id": 36,
+        "title": "Discard Uncommitted Changes to a File",
+        "description": "Sometimes you make changes to a file but realize you want to discard them and return the file to its last committed state. Git allows you to discard changes in your working directory without affecting staged changes.\n\nYou have made changes to 'file.txt' that you want to discard. Use Git to restore the file to its last committed state.",
+        "difficulty": "Easy",
+        "category": "Undo & Fix Mistakes",
+        "hints": [
+            "Use 'git checkout -- file.txt' to discard changes to the file.",
+            "You can also use 'git restore file.txt' (Git 2.23+) for the same effect.",
+            "This only affects uncommitted changes in your working directory, not staged changes."
+        ]
+    },
+    {
+        "id": 37,
+        "title": "Revert a Commit That Was Pushed to the Remote",
+        "description": "Sometimes you need to undo changes from a commit that has already been pushed to a remote repository. Unlike git reset, git revert creates a new commit that undoes the changes, making it safe for shared repositories.\n\nYou have a commit with ID 'abc123def' that introduced a bug and needs to be reverted. Use git revert to safely undo its changes.",
+        "difficulty": "Medium",
+        "category": "Undo & Fix Mistakes",
+        "hints": [
+            "Use 'git revert <commit-id>' to create a new commit that undoes the changes from the specified commit.",
+            "git revert is safer than git reset for commits that have been pushed to remote repositories.",
+            "The revert command will open an editor for the commit message, or use -m to specify it directly."
+        ]
+    },
+    {
+        "id": 38,
+        "title": "Reset a Branch to a Previous Commit (Soft Reset)",
+        "description": "Sometimes you need to reset your branch to a previous commit while preserving your changes in the staging area. This allows you to recommit the changes with a different structure or message.\n\nYou have commits that need to be undone, but you want to keep the changes staged. Reset your branch to commit 'abc123def' using a soft reset.",
+        "difficulty": "Medium",
+        "category": "Undo & Fix Mistakes",
+        "hints": [
+            "Use 'git reset --soft <commit-id>' to reset to a specific commit while keeping changes staged.",
+            "You can use the commit ID 'abc123def' or find it using 'git log'.",
+            "Soft reset moves HEAD back but preserves your staging area and working directory."
+        ]
+    },
+    {
+        "id": 39,
+        "title": "Reset a Branch to a Previous Commit (Hard Reset)",
+        "description": "Sometimes you need to completely reset your branch to a previous commit, discarding all changes in both the staging area and working directory. This is a destructive operation that permanently removes uncommitted changes.\n\nYou have commits that contain bugs and you want to completely reset to commit 'abc123def', discarding all subsequent changes. Use a hard reset to achieve this.",
+        "difficulty": "Medium",
+        "category": "Undo & Fix Mistakes",
+        "hints": [
+            "Use 'git reset --hard <commit-id>' to reset to a specific commit and discard all changes.",
+            "You can use the commit ID 'abc123def' or find it using 'git log'.",
+            "Hard reset is destructive - it will permanently remove all uncommitted changes.",
+            "Be careful with hard reset as it cannot be undone easily."
+        ]
+    },
+    {
+        "id": 40,
+        "title": "Restore a Deleted File from a Previous Commit",
+        "description": "Sometimes you accidentally delete a file and commit the deletion, but later realize you need that file back. Git allows you to restore files from previous commits without affecting other changes.\n\nA file called 'important-config.txt' was deleted in a recent commit. Restore this file from the commit before it was deleted (commit ID 'def456abc').",
+        "difficulty": "Medium",
+        "category": "Undo & Fix Mistakes",
+        "hints": [
+            "Use 'git checkout <commit-id> -- <filename>' to restore a file from a specific commit.",
+            "You can also use 'git restore --source=<commit-id> <filename>' (Git 2.23+).",
+            "The commit ID 'def456abc' contains the version of the file you want to restore.",
+            "After restoring, the file will be staged and ready to commit."
+        ]
+    }
+]

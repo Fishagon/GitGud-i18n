@@ -1,0 +1,191 @@
+[
+  {
+    "Id": 1,
+    "Title": "Why Git?",
+    "Content": "Git is a version control system. That means it helps developers track changes to their files over time. If you've ever lost work, needed to undo something, or wanted to understand who changed what in a team project, version control is the answer.\n\nGit is local-first and distributed — you don't need to be online to use it, and every copy of a Git repository contains the full history. This makes Git reliable, flexible, and powerful, especially for software development.",
+    "Questions": [
+      {
+        "QuestionText": "What is Git mostly used for?",
+        "Options": [
+          "Hosting websites",
+          "Managing project versions and tracking changes",
+          "Backing up your system",
+          "Encrypting files"
+        ],
+        "Explanation": "Git is primarily a version control system designed to track changes in files and coordinate work among multiple people."
+      },
+      {
+        "QuestionText": "What kind of project would benefit from Git?",
+        "Options": [
+          "A single text file you'll never change",
+          "A large project with evolving files",
+          "Something you're emailing back and forth",
+          "A locked PDF"
+        ],
+        "Explanation": "Git excels at managing projects that change over time, especially when multiple people are working on them."
+      }
+    ]
+  },
+  {
+    "Id": 2,
+    "Title": "What Is a Repository?",
+    "Content": "A Git repository — or \"repo\" — is a project directory that's being tracked by Git. What makes a folder a Git repository is a hidden .git/ folder inside it. This .git/ folder contains all your project's history, branches, configuration, and more.\n\nYou can create a new repo with git init or clone an existing one with git clone. A Git repo is not just your files — it's your entire timeline of work.",
+    "Questions": [
+      {
+        "QuestionText": "What makes a folder a Git repository?",
+        "Options": [
+          "It's uploaded to GitHub",
+          "It contains a .git/ folder",
+          "It contains JavaScript",
+          "It has a README"
+        ],
+        "Explanation": "The hidden .git/ folder is what makes any regular folder into a Git repository, containing all the version control data."
+      },
+      {
+        "QuestionText": "You type git init in a folder. What just happened?",
+        "Options": [
+          "Git downloaded a copy of your files",
+          "A remote connection was created",
+          "You deleted your old history",
+          "Git created a .git/ folder to start tracking your project"
+        ],
+        "Explanation": "The git init command creates a new .git/ folder in the current directory, initializing it as a Git repository."
+      }
+    ]
+  },
+  {
+    "Id": 3,
+    "Title": "How Git Thinks",
+    "Content": "Git's mental model includes three main areas:\n\nWorking Directory - Your actual files on disk.\nStaging Area - A preview of what will be committed.\nRepository - The history of saved commits.\n\nWhen you modify files, they're updated in the working directory. When you git add them, they move into the staging area. When you git commit, they're saved into the repository.",
+    "Questions": [
+      {
+        "QuestionText": "Git is a \"snapshot\" system. What does that mean?",
+        "Options": [
+          "It records only the differences between files",
+          "It saves an entire copy of your project each time",
+          "It takes a picture of your screen",
+          "It records your voice"
+        ],
+        "Explanation": "Git takes snapshots of your entire project state at each commit, rather than just storing file differences."
+      },
+      {
+        "QuestionText": "In Git's model, what are the three main areas?",
+        "Options": [
+          "Dev, Test, Prod",
+          "Staging, Branching, Deploying",
+          "Working Directory, Staging Area, Repository",
+          "Upload, Sync, Review"
+        ],
+        "Explanation": "These three areas represent the flow of changes: Working Directory (where you edit), Staging Area (where you prepare), and Repository (where you save)."
+      },
+      {
+        "QuestionText": "Which area contains files you've edited but haven't added yet?",
+        "Options": [
+          "Staging Area",
+          "Working Directory",
+          "Remote Repo",
+          "History Log"
+        ],
+        "Explanation": "The Working Directory contains your actual files as they exist on disk, including any unsaved changes."
+      }
+    ]
+  },
+  {
+    "Id": 4,
+    "Title": "Commits and History",
+    "Content": "Commits are Git's way of saving your progress. A commit is a snapshot of your project at a certain moment. Each commit includes metadata like author, timestamp, and a message.\n\nGood commit messages are short and descriptive. A series of well-written commits tells the story of your project.",
+    "Questions": [
+      {
+        "QuestionText": "What does a commit represent in Git?",
+        "Options": [
+          "A folder",
+          "A save point in project history",
+          "A collaborator",
+          "A branch"
+        ],
+        "Explanation": "A commit is like a save point or checkpoint in your project's timeline, capturing the state of all files at that moment."
+      },
+      {
+        "QuestionText": "Which of these best describes a commit message?",
+        "Options": [
+          "An optional joke",
+          "A Git command",
+          "A short note explaining what changed",
+          "Your GitHub password"
+        ],
+        "Explanation": "Commit messages should briefly describe what changes were made, helping you and others understand the project's evolution."
+      }
+    ]
+  },
+  {
+    "Id": 5,
+    "Title": "Discovering Git",
+    "Content": "Git comes with built-in help for almost every command. You can run:\n\ngit help <command>\n<command> --help\n\nOr view manual pages with man git-<command>\n\nYou don't have to memorize everything — Git expects you to explore as you go.",
+    "Questions": [
+      {
+        "QuestionText": "You forgot what git log does. What do you type?",
+        "Options": [
+          "git search log",
+          "git help log",
+          "git !log",
+          "git -explain log"
+        ],
+        "Explanation": "The git help command followed by any Git command will show you detailed documentation for that command."
+      }
+    ]
+  },
+  {
+    "Id": 6,
+    "Title": "Cloning and Remotes",
+    "Content": "Git isn't just for local files. You can sync your work to remote repositories like GitHub using commands like git clone, git fetch, and git push.\n\nWhen you clone a repo, Git copies everything — not just the files, but the entire commit history. The default name for the remote is origin.",
+    "Questions": [
+      {
+        "QuestionText": "What does git clone do?",
+        "Options": [
+          "Creates a new branch",
+          "Copies a remote Git repository to your machine",
+          "Zips your project",
+          "Uploads your folder to the cloud"
+        ],
+        "Explanation": "Git clone downloads a complete copy of a remote repository, including all files and commit history."
+      },
+      {
+        "QuestionText": "You just cloned a repo. What's the default remote called?",
+        "Options": [
+          "upstream",
+          "ssh",
+          "master",
+          "origin"
+        ],
+        "Explanation": "By convention, Git names the default remote 'origin' when you clone a repository."
+      }
+    ]
+  },
+  {
+    "Id": 7,
+    "Title": "Branches and HEAD",
+    "Content": "Branches let you work on different versions of your project in parallel. A branch is just a pointer to a commit — a label on a timeline.\n\nHEAD is a special pointer to your current position in Git. It usually points to the latest commit on your current branch.",
+    "Questions": [
+      {
+        "QuestionText": "What is a branch in Git?",
+        "Options": [
+          "A copy of the .git/ folder",
+          "A timeline of commits under a specific label",
+          "A zipped backup",
+          "A staging directory"
+        ],
+        "Explanation": "A branch is essentially a movable pointer or label that points to a specific commit, representing a line of development."
+      },
+      {
+        "QuestionText": "What is HEAD in Git?",
+        "Options": [
+          "The first commit",
+          "The .gitignore file",
+          "The pointer to your current commit",
+          "The GitHub issue tracker"
+        ],
+        "Explanation": "HEAD is Git's way of knowing where you are in your project's history - it points to the commit you're currently working from."
+      }
+    ]
+  }
+]

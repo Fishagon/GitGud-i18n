@@ -1,0 +1,122 @@
+[
+    {
+        "id": 11,
+        "title": "Create and Switch to a Branch in One Command",
+        "description": "Git allows you to create and switch to a new branch in a single command.\n\nCreate a new branch called 'feature-branch' and switch to it in one command.",
+        "difficulty": "Easy",
+        "category": "Branching & Merging",
+        "hints": [
+            "Use 'git checkout -b feature-branch' to create and switch to a new branch in one command.",
+            "In newer Git versions, you could also use 'git switch -c feature-branch'."
+        ]
+    },
+    {
+        "id": 12,
+        "title": "Merge a Branch",
+        "description": "Merging combines the changes from one branch into another.\n\nSwitch to the 'master' branch and merge the 'feature' branch into it.",
+        "difficulty": "Medium",
+        "category": "Branching & Merging",
+        "hints": [
+            "First use 'git checkout master' to switch to the master branch.",
+            "Then use 'git merge feature' to merge the feature branch into master."
+        ]
+    },
+    {
+        "id": 13,
+        "title": "No Fast-Forward Merge",
+        "description": "Sometimes you want to preserve the branch history when merging.\n\nMerge the 'feature' branch into 'master' with the --no-ff flag to prevent fast-forwarding.",
+        "difficulty": "Medium",
+        "category": "Branching & Merging",
+        "hints": [
+            "First use 'git checkout master' to switch to the master branch.",
+            "Then use 'git merge --no-ff feature' to merge with a commit even if fast-forward is possible."
+        ]
+    },
+    {
+        "id": 14,
+        "title": "Resolve a Merge Conflict",
+        "description": "Sometimes changes in different branches conflict with each other.\n\nResolve the merge conflict between 'feature' and 'master' branches by merging 'feature' into 'master' and fixing the conflict in 'shared-file.txt'.\n\nYou can use the special game commands:\n- 'resolve current shared-file.txt' to keep the current branch version\n- 'resolve incoming shared-file.txt' to use the incoming branch version",
+        "difficulty": "Medium",
+        "category": "Branching & Merging",
+        "hints": [
+            "First checkout the master branch with 'git checkout master'",
+            "Try to merge with 'git merge feature' - this will show the conflict",
+            "Resolve the conflict with either 'resolve current shared-file.txt' or 'resolve incoming shared-file.txt'",
+            "After resolving, use 'git add shared-file.txt' to mark it as resolved",
+            "Complete the merge with 'git commit -m \"Merge conflict resolved\"'"
+        ]
+    },
+    {
+        "id": 15,
+        "title": "Abort an In-Progress Merge",
+        "description": "Sometimes a merge goes wrong and you need to return to the state before the merge began.\n\nCheck out the 'master' branch, attempt to merge the 'feature' branch (which will cause a conflict), then abort the merge using any appropriate Git command.",
+        "difficulty": "Medium",
+        "category": "Branching & Merging",
+        "hints": [
+            "First use 'git checkout master' to switch to the master branch",
+            "Then use 'git merge feature' to start the merge (which will cause a conflict)",
+            "To abort the merge and return to the pre-merge state, use 'git merge --abort'",
+            "Alternative solutions include 'git reset --hard HEAD' or 'git checkout -f'"
+        ]
+    },
+    {
+        "id": 16,
+        "title": "View a Graphical Log of Branches and Commits",
+        "description": "The regular git log command shows commits in a linear fashion. For repositories with multiple branches, it can be helpful to visualize the branch structure.\n\nUse git log with the --graph flag to display a graphical representation of the commit history. You can also try additional flags like --oneline for compact output and --all to see all branches.",
+        "difficulty": "Easy",
+        "category": "Branching & Merging",
+        "hints": [
+            "Use 'git log --graph' to show a text-based graphical representation of the commit history.",
+            "Try combining flags: 'git log --graph --oneline --all' for an even more useful view."
+        ]
+    },
+    {
+        "id": 17,
+        "title": "List All Branches in a Repository",
+        "description": "To manage your repository effectively, you need to know what branches exist.\n\nUse the appropriate Git command to list all branches in the repository.",
+        "difficulty": "Easy",
+        "category": "Branching & Merging",
+        "hints": [
+            "The command to list all branches is simply 'git branch' with no additional arguments.",
+            "Your current branch will be marked with an asterisk (*) in the output."
+        ]
+    },
+    {
+        "id": 18,
+        "title": "Rename the Current Branch",
+        "description": "Sometimes your branch names need to change to better reflect their purpose.\n\nRename the current branch from 'master' to 'main'.",
+        "difficulty": "Easy",
+        "category": "Branching & Merging",
+        "hints": [
+            "Use 'git branch -m main' to rename your current branch.",
+            "You can also use the longer form 'git branch --move main'."
+        ]
+    },
+    {
+        "id": 19,
+        "title": "Force Delete a Branch",
+        "description": "Sometimes you need to delete a branch even when it has unmerged changes.\n\nCreate a branch called 'feature-temp' and add a commit to it. Then switch back to master and force delete the 'feature-temp' branch.\n\nUse the special game command 'createfile filename content' to create a file (e.g., 'createfile newfile.txt This is content').",
+        "difficulty": "Medium",
+        "category": "Branching & Merging",
+        "hints": [
+            "First create a branch with 'git branch feature-temp' and switch to it with 'git checkout feature-temp'",
+            "Create a file using 'createfile newfile.txt Some content'",
+            "Stage the file with 'git add newfile.txt'",
+            "Commit it with 'git commit -m \"Add new file\"'",
+            "Switch back to master with 'git checkout master'",
+            "Try to delete with 'git branch -d feature-temp' - you'll see it fails",
+            "Force delete with 'git branch -D feature-temp'"
+        ]
+    },
+    {
+        "id": 20,
+        "title": "List Merged and Unmerged Branches",
+        "description": "Git allows you to filter branches by their merge status relative to the current branch.\n\nUse the appropriate Git commands to:\n1. List branches that have been merged into the current branch\n2. List branches that have not been merged into the current branch",
+        "difficulty": "Medium",
+        "category": "Branching & Merging",
+        "hints": [
+            "Use 'git branch --merged' to see branches that have been merged into the current branch.",
+            "Use 'git branch --no-merged' to see branches that have not been merged into the current branch."
+        ]
+    }
+]

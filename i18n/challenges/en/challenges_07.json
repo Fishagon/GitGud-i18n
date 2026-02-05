@@ -1,0 +1,131 @@
+[
+    {
+        "id": 61,
+        "title": "Check out a previous commit without changing history",
+        "description": "Sometimes you need to examine the state of your code at a specific point in history without creating a new branch or changing the commit history. Git allows you to checkout a specific commit directly, putting you in a 'detached HEAD' state.\n\nYou suspect that commit 'abc123def' introduced a bug. Check out that specific commit to examine the code at that point in time.",
+        "difficulty": "Medium",
+        "category": "Debugging",
+        "hints": [
+            "Use 'git checkout <commit-id>' to checkout a specific commit directly.",
+            "This will put you in 'detached HEAD' state - you're not on any branch.",
+            "You can use the full commit ID or just the first 7 characters: 'abc123d'.",
+            "Use 'git log' to see the available commits and their IDs."
+        ]
+    },
+    {
+        "id": 62,
+        "title": "Find out which files changed in a specific commit",
+        "description": "Sometimes you need to see which files were modified in a specific commit without seeing the full diff content. Git provides options to show only the filenames that changed.\n\nUse git show to display only the names of files that changed in commit 'abc789def' (the authentication implementation commit).",
+        "difficulty": "Easy",
+        "category": "Debugging",
+        "hints": [
+            "Use 'git show --name-only <commit-id>' to show only the filenames that changed.",
+            "You can also use 'git show --name-status <commit-id>' to show filenames with change status.",
+            "The commit ID 'abc789def' implemented the user authentication system."
+        ]
+    },
+    {
+        "id": 63,
+        "title": "Show Changes Introduced by a Commit",
+        "description": "Sometimes you need to see exactly what changes were made in a specific commit. The 'git show' command displays the commit information along with the actual changes (diff) introduced by that commit.\n\nUse git show to display the changes introduced by commit 'abc123def'.",
+        "difficulty": "Easy",
+        "category": "Debugging",
+        "hints": [
+            "Use 'git show <commit-id>' to display the changes introduced by a specific commit.",
+            "The git show command displays both the commit metadata and the actual diff.",
+            "You can use the full commit ID or just the first few characters."
+        ]
+    },
+    {
+        "id": 64,
+        "title": "List commits in a specific branch that aren't in main",
+        "description": "When working with multiple branches, you often need to see what commits exist in a feature branch that haven't been merged into the main branch yet. Git provides several ways to compare branches and show commits that exist in one branch but not another.\n\nYou have a 'feature' branch that contains some commits that aren't in the 'master' branch. Use git log to show only the commits that exist in the 'feature' branch but not in 'master'.",
+        "difficulty": "Easy",
+        "category": "Debugging",
+        "hints": [
+            "Use 'git log master..feature' to show commits in feature that aren't in master.",
+            "You can also use 'git log feature --not master' for the same result.",
+            "The '..' syntax means 'commits reachable from the right side but not the left side'.",
+            "Add '--oneline' to see a more compact view of the commits."
+        ]
+    },
+    {
+        "id": 65,
+        "title": "Check the history of a specific file",
+        "description": "Sometimes you need to see the commit history for a specific file to understand how it has evolved over time. Git allows you to filter the log to show only commits that affected a particular file.\n\nYou want to see the history of changes to the file 'config.js'. Use git log to show only the commits that modified this file.",
+        "difficulty": "Easy",
+        "category": "Debugging",
+        "hints": [
+            "Use 'git log <filename>' to show commits that modified a specific file.",
+            "You can also use 'git log --follow <filename>' to follow the file through renames.",
+            "Add '--oneline' to see a more compact view of the file's history."
+        ]
+    },
+    {
+        "id": 66,
+        "title": "Show the difference between two commits",
+        "description": "Sometimes you need to see what changed between two specific commits. Git allows you to compare any two commits to see the differences in their content.\n\nYou want to see the differences between commit 'abc123def' (the buggy feature) and commit 'def456abc' (the styling fix). Use git diff to show the changes between these two commits.",
+        "difficulty": "Easy",
+        "category": "Debugging",
+        "hints": [
+            "Use 'git diff <commit1> <commit2>' to show differences between two commits.",
+            "You can also use 'git diff <commit1>..<commit2>' for the same result.",
+            "The order matters - 'git diff A B' shows what changed from A to B.",
+            "Use 'git log --oneline' to see available commits and their IDs."
+        ]
+    },
+    {
+        "id": 67,
+        "title": "Compare two branches and see their differences",
+        "description": "When working with multiple branches, you often need to see what changes exist between them. Git provides several ways to compare branches and see the differences in their content.\n\nYou have a 'feature' branch and a 'master' branch. Use git diff to show the differences between these two branches.",
+        "difficulty": "Easy",
+        "category": "Debugging",
+        "hints": [
+            "Use 'git diff <branch1> <branch2>' to compare two branches.",
+            "You can also use 'git diff <branch1>..<branch2>' for the same result.",
+            "The order matters - 'git diff A B' shows what changed from A to B.",
+            "Use 'git branch' to see available branches."
+        ]
+    },
+    {
+        "id": 68,
+        "title": "Find commits by a specific author",
+        "description": "Sometimes you need to find all commits made by a specific author to track their contributions or review their work. Git allows you to filter the commit history by author name or email.\n\nYou want to see all commits made by 'John Smith'. Use git log to show only the commits authored by this person.",
+        "difficulty": "Easy",
+        "category": "Debugging",
+        "hints": [
+            "Use 'git log --author=\"John Smith\"' to show commits by a specific author.",
+            "You can use partial matching: 'git log --author=john' will match 'John Smith'.",
+            "Author matching is case-insensitive by default.",
+            "You can combine --author with other flags like --oneline for compact output."
+        ]
+    },
+    {
+        "id": 69,
+        "title": "Restore a deleted branch",
+        "description": "Sometimes you accidentally delete a branch that you still need. Git keeps track of where branches pointed even after they're deleted through the reflog. You can restore a deleted branch by finding its last commit and recreating it.\n\nYou accidentally deleted the 'feature-login' branch. Use git reflog to find where it was pointing and restore it.",
+        "difficulty": "Medium",
+        "category": "Debugging",
+        "hints": [
+            "Use 'git reflog' to see the history of HEAD movements and find where the deleted branch was pointing.",
+            "Look for entries like 'checkout: moving from feature-login to master' to find the branch's last commit.",
+            "Use 'git checkout -b feature-login <commit-id>' to recreate the branch at that commit.",
+            "You can also use 'git branch feature-login <commit-id>' if you're not on the branch you want to create."
+        ]
+    },
+    {
+        "id": 70,
+        "title": "Identify the commit that introduced a bug using git bisect",
+        "description": "Git bisect is a powerful tool for finding the exact commit that introduced a bug using binary search. You start by marking a known good commit and a known bad commit, then Git will guide you through testing commits until it finds the first bad commit.\n\nYou know that commit 'abc123def' is bad (contains the bug) and commit 'xyz789abc' is good (doesn't contain the bug). Use git bisect to identify which commit introduced the bug.",
+        "difficulty": "Hard",
+        "category": "Debugging",
+        "hints": [
+            "Start with 'git bisect start' to begin the bisection process.",
+            "Use 'git bisect bad <commit-id>' to mark the known bad commit.",
+            "Use 'git bisect good <commit-id>' to mark the known good commit.",
+            "Git will checkout commits for you to test - mark each as 'git bisect good' or 'git bisect bad'.",
+            "Continue until Git identifies the first bad commit.",
+            "Use 'git bisect reset' when you're done to return to your original branch."
+        ]
+    }
+]

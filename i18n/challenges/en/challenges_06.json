@@ -1,0 +1,126 @@
+[
+    {
+        "id": 51,
+        "title": "Stash Uncommitted Changes",
+        "description": "Sometimes you're working on something but need to quickly switch contexts or pull changes from a remote repository. Git stash allows you to temporarily save your uncommitted changes without creating a commit.\n\nYou have some uncommitted changes in your working directory. Use git stash to save these changes so you can work on something else and come back to them later.",
+        "difficulty": "Easy",
+        "category": "Stashing",
+        "hints": [
+            "Use 'git stash' or 'git stash push' to save your uncommitted changes.",
+            "After stashing, your working directory should be clean.",
+            "You can later retrieve your changes with 'git stash pop' or 'git stash apply'."
+        ]
+    },
+    {
+        "id": 52,
+        "title": "View a List of All Stashed Changes",
+        "description": "Git allows you to view all your stashed changes using the stash list command. This shows you all the stashes you've saved, along with their messages and stash IDs.\n\nYou have some existing stashed changes. Use Git to view a list of all your stashed changes.",
+        "difficulty": "Easy",
+        "category": "Stashing",
+        "hints": [
+            "Use 'git stash list' to view all your stashed changes.",
+            "Each stash entry shows the stash ID (stash@{0}, stash@{1}, etc.) and the stash message.",
+            "The most recent stash is at the top of the list (stash@{0})."
+        ]
+    },
+    {
+        "id": 53,
+        "title": "Apply the Latest Stash Without Removing It",
+        "description": "Sometimes you want to apply stashed changes to your working directory but keep the stash entry for potential future use. The 'git stash apply' command applies the stash without removing it from the stash list, unlike 'git stash pop' which removes it.\n\nYou have some stashed changes that you want to apply to your working directory, but you want to keep the stash entry in case you need it again later.",
+        "difficulty": "Easy",
+        "category": "Stashing",
+        "hints": [
+            "Use 'git stash apply' to apply the latest stash without removing it from the stash list.",
+            "Unlike 'git stash pop', 'git stash apply' keeps the stash entry for future use.",
+            "You can verify the stash is still there with 'git stash list' after applying."
+        ]
+    },
+    {
+        "id": 54,
+        "title": "Apply a Specific Stash",
+        "description": "When you have multiple stashes, you can apply a specific one by referencing its index. Each stash is numbered starting from 0, with stash@{0} being the most recent, stash@{1} the second most recent, and so on.\n\nYou have multiple stashed changes. Apply the second stash entry (stash@{1}) without removing it from the stash list.",
+        "difficulty": "Easy",
+        "category": "Stashing",
+        "hints": [
+            "Use 'git stash list' to see all available stash entries.",
+            "Use 'git stash apply stash@{1}' to apply the second stash entry.",
+            "You can also use the shorter form 'git stash apply 1'.",
+            "The stash@{1} entry should remain in the stash list after applying."
+        ]
+    },
+    {
+        "id": 55,
+        "title": "Drop a Specific Stash",
+        "description": "Sometimes you want to remove a specific stash entry without applying it. The 'git stash drop' command can target a specific stash by its reference (stash@{1}, stash@{2}, etc.).\n\nYou have multiple stashed changes. Drop the second stash entry (stash@{1}) without applying it.",
+        "difficulty": "Easy",
+        "category": "Stashing",
+        "hints": [
+            "Use 'git stash list' to see all available stash entries.",
+            "Use 'git stash drop stash@{1}' to drop the second stash entry.",
+            "You can also use the shorter form 'git stash drop 1'.",
+            "The stash@{1} entry should be removed from the stash list after dropping."
+        ]
+    },
+    {
+        "id": 56,
+        "title": "Create a Stash with a Custom Message",
+        "description": "When stashing changes, you can provide a custom message to help identify what the stash contains. This is especially useful when you have multiple stashes and need to remember what each one was for.\n\nYou have some uncommitted changes in your working directory. Create a stash with the custom message 'Work in progress on feature X'.",
+        "difficulty": "Easy",
+        "category": "Stashing",
+        "hints": [
+            "Use 'git stash push -m \"message\"' to create a stash with a custom message.",
+            "You can also use 'git stash save \"message\"' (deprecated but still works).",
+            "The message should be: 'Work in progress on feature X'",
+            "After stashing, your working directory should be clean."
+        ]
+    },
+    {
+        "id": 57,
+        "title": "Stash Untracked Files as Well",
+        "description": "By default, git stash only saves tracked files that have been modified. Sometimes you also want to stash untracked files (files that haven't been added to Git yet). Use the --include-untracked flag to stash both tracked and untracked files.\n\nYou have some modified tracked files and some new untracked files. Stash all of them, including the untracked files.",
+        "difficulty": "Easy",
+        "category": "Stashing",
+        "hints": [
+            "Use 'git stash -u' or 'git stash --include-untracked' to stash untracked files too.",
+            "You can also use 'git stash push -u' with the same effect.",
+            "After stashing, both tracked and untracked files should be saved and your working directory should be completely clean."
+        ]
+    },
+    {
+        "id": 58,
+        "title": "Pop the Latest Stash and Remove It",
+        "description": "The 'git stash pop' command applies the most recent stash to your working directory and removes it from the stash list. This is different from 'git stash apply' which keeps the stash entry after applying it.\n\nYou have some stashed changes that you want to apply to your working directory and remove from the stash list permanently.",
+        "difficulty": "Easy",
+        "category": "Stashing",
+        "hints": [
+            "Use 'git stash pop' to apply the latest stash and remove it from the stash list.",
+            "Unlike 'git stash apply', 'git stash pop' removes the stash entry after applying it.",
+            "You can verify the stash was removed with 'git stash list' after popping."
+        ]
+    },
+    {
+        "id": 59,
+        "title": "Pop a Specific Stash",
+        "description": "When you have multiple stashes, you can pop a specific one by referencing its index. The 'git stash pop' command with a stash reference applies the stash and removes it from the stash list.\n\nYou have multiple stashed changes. Pop the second stash entry (stash@{1}) and remove it from the stash list.",
+        "difficulty": "Easy",
+        "category": "Stashing",
+        "hints": [
+            "Use 'git stash list' to see all available stash entries.",
+            "Use 'git stash pop stash@{1}' to pop the second stash entry.",
+            "You can also use the shorter form 'git stash pop 1'.",
+            "The stash@{1} entry should be removed from the stash list after popping."
+        ]
+    },
+    {
+        "id": 60,
+        "title": "Clear All Stashed Changes",
+        "description": "Sometimes you want to permanently remove all stashed changes at once. The 'git stash clear' command removes all stash entries from your stash list. Be careful with this command as it permanently deletes all your stashed changes.\n\nYou have multiple stashed changes that you no longer need. Clear all stash entries to clean up your stash list.",
+        "difficulty": "Easy",
+        "category": "Stashing",
+        "hints": [
+            "Use 'git stash clear' to remove all stash entries at once.",
+            "This command permanently deletes all stashed changes - use with caution.",
+            "You can verify all stashes were cleared with 'git stash list' afterward."
+        ]
+    }
+]

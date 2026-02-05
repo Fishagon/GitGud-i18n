@@ -1,0 +1,141 @@
+[
+    {
+        "id": 81,
+        "title": "Use git reflog to recover a lost commit and save it",
+        "description": "Sometimes commits can become 'lost' when branches are deleted or reset. However, Git keeps a reflog (reference log) of all changes to HEAD and branch references. You can use 'git reflog' to find these lost commits and recover them by creating a new branch.\n\nA commit with useful changes was accidentally lost when a branch was deleted. Use 'git reflog' to find the lost commit and create a new branch called 'recovered-work' pointing to it.",
+        "difficulty": "Medium",
+        "category": "Power User",
+        "hints": [
+            "Use 'git reflog' to see the history of all reference changes.",
+            "Look for commits that are no longer reachable from any branch.",
+            "Use 'git checkout -b recovered-work <commit-id>' to create a branch at the lost commit.",
+            "You can also use 'git branch recovered-work <commit-id>' to create the branch without switching to it.",
+            "The reflog shows entries like 'HEAD@{0}', 'HEAD@{1}', etc. representing different points in time."
+        ]
+    },
+    {
+        "id": 82,
+        "title": "View a detailed log of changes per commit",
+        "description": "Sometimes you need to see not just the commit messages and metadata, but also the actual changes made in each commit. Git provides several options to view detailed information about commits, including the actual diff/patch content, file statistics, or just the names of changed files.\n\nUse git log with appropriate flags to view a detailed log showing the actual changes (diff/patch) made in each commit.",
+        "difficulty": "Easy",
+        "category": "Power User",
+        "hints": [
+            "Use 'git log -p' to show the patch/diff for each commit.",
+            "You can also use 'git log --patch' which is the same as -p.",
+            "Try 'git log --stat' to see file change statistics instead of full diffs.",
+            "Use 'git log --name-only' to see just the names of changed files.",
+            "Use 'git log --name-status' to see file names and their change status."
+        ]
+    },
+    {
+        "id": 83,
+        "title": "Create and use a .gitignore file",
+        "description": "Some files should never be tracked by Git - like temporary files, build artifacts, or sensitive configuration files. The .gitignore file tells Git which files to ignore. Create a .gitignore file with patterns to ignore log files (*.log) and a temp directory (temp/), then verify it works by adding files that should be ignored.\n\nCreate a .gitignore file, add patterns to ignore '*.log' files and 'temp/' directory, then test that these files are ignored when using 'git add .'\n\n💡 Tip: You can create files using commands like 'createfile .gitignore', 'touch .gitignore', or 'New-Item .gitignore'. To edit files, try 'start .gitignore' (Windows), 'open .gitignore' (macOS), or 'xdg-open .gitignore' (Linux).",
+        "difficulty": "Easy",
+        "category": "Power User",
+        "hints": [
+            "Create a .gitignore file in the root of your repository using 'createfile .gitignore' or 'touch .gitignore'",
+            "Add patterns like '*.log' to ignore all files ending in .log",
+            "Add 'temp/' to ignore the entire temp directory",
+            "You can edit the .gitignore file using 'start .gitignore', 'open .gitignore', or 'Invoke-Item .gitignore'",
+            "Use 'git add .' to test that ignored files are not staged",
+            "The .gitignore file itself should be added and committed",
+            "Use 'git status' to see which files are ignored vs. ready to be staged"
+        ]
+    },
+    {
+        "id": 84,
+        "title": "List all ignored files",
+        "description": "Git provides several ways to see which files are being ignored by your .gitignore rules. This is useful for debugging .gitignore patterns or verifying that sensitive files are properly ignored.\n\nUse Git commands to list all files that are currently being ignored in the repository.",
+        "difficulty": "Easy",
+        "category": "Power User",
+        "hints": [
+            "Use 'git status --ignored' to see ignored files alongside regular status",
+            "Use 'git ls-files --ignored --exclude-standard' to list only ignored files",
+            "You can also use 'git check-ignore *' to check which files are ignored",
+            "The --porcelain flag can be used with git status for cleaner output"
+        ]
+    },
+    {
+        "id": 85,
+        "title": "Set up Git aliases for frequently used commands",
+        "description": "Git aliases allow you to create shortcuts for commonly used Git commands, making your workflow more efficient. \n\nSet up the following useful aliases:\n- 'st' for 'status'\n- 'co' for 'checkout'\n- 'br' for 'branch'\n- 'cm' for 'commit -m'",
+        "difficulty": "Easy",
+        "category": "Power User",
+        "hints": [
+            "Use 'git config --global alias.<name> <command>' to create an alias.",
+            "For example: 'git config --global alias.st status' creates an alias 'st' for 'status'.",
+            "You can list all configured aliases with 'git config --list | grep alias'.",
+            "After setting up aliases, you can use them like 'git st' instead of 'git status'."
+        ]
+    },
+    {
+        "id": 86,
+        "title": "Configure Git user name and email globally",
+        "description": "Before making commits, Git needs to know your identity. The user name and email are included in every commit you make. Setting these globally means they'll be used for all Git repositories on your system unless overridden locally.\n\nConfigure your Git identity globally:\n- Set your name to 'John Doe'\n- Set your email to 'john.doe@example.com'",
+        "difficulty": "Easy",
+        "category": "Power User",
+        "hints": [
+            "Use 'git config --global user.name \"Your Name\"' to set your name globally.",
+            "Use 'git config --global user.email \"your.email@example.com\"' to set your email globally.",
+            "The --global flag applies the setting to all repositories on your system.",
+            "You can verify your settings with 'git config --list' or 'git config user.name'.",
+            "Without quotes, multi-word names might not be parsed correctly."
+        ]
+    },
+    {
+        "id": 87,
+        "title": "Use git grep to search for text inside commits",
+        "description": "Git grep can search not only in the working directory and staged files, but also in specific commits. This is useful for finding when certain code or text was present in the repository history.\n\nUse 'git grep' to search for the text 'TODO' in the commit 'HEAD~2' (two commits back from the current HEAD). This will help you find development comments that were present in earlier versions of the code.",
+        "difficulty": "Medium",
+        "category": "Power User",
+        "hints": [
+            "Use 'git grep \"pattern\" <commit>' to search in a specific commit.",
+            "You can use commit references like 'HEAD~1', 'HEAD~2', etc.",
+            "Try 'git log --oneline' first to see the commit history.",
+            "The syntax is: git grep \"TODO\" HEAD~2",
+            "HEAD~2 refers to the commit that is 2 steps back from the current HEAD."
+        ]
+    },
+    {
+        "id": 88,
+        "title": "Use Git submodules to manage external repositories",
+        "description": "Git submodules allow you to include and manage external repositories as subdirectories within your main repository. They're useful for including libraries, shared code, or other dependencies while keeping them as separate repositories.\n\nAdd a submodule from the repository 'https://github.com/example/shared-utils.git' to the path 'libs/utils', then initialize it so it's ready to use.",
+        "difficulty": "Medium",
+        "category": "Power User",
+        "hints": [
+            "Use 'git submodule add <repository-url> <path>' to add a submodule.",
+            "The syntax is: git submodule add https://github.com/example/shared-utils.git libs/utils",
+            "After adding, use 'git submodule init libs/utils' to initialize the submodule.",
+            "You can check submodule status with 'git submodule status'.",
+            "Submodules are tracked in the .gitmodules file and as a special commit in your main repository."
+        ]
+    },
+    {
+        "id": 89,
+        "title": "Clone a repository including submodules",
+        "description": "When cloning a repository that contains submodules, Git doesn't automatically clone the submodules by default. You need to use special flags to include submodules during the clone operation.\n\nClone the repository 'https://github.com/example/project-with-submodules.git' and ensure that all submodules are also cloned and initialized.",
+        "difficulty": "Medium",
+        "category": "Power User",
+        "hints": [
+            "Use 'git clone --recurse-submodules <repository-url>' to clone including submodules.",
+            "You can also use 'git clone --recursive <repository-url>' which is equivalent.",
+            "The --recurse-submodules flag will automatically initialize and update each submodule.",
+            "Without these flags, you would need to run 'git submodule init' and 'git submodule update' manually after cloning."
+        ]
+    },
+    {
+        "id": 90,
+        "title": "Work with multiple worktrees",
+        "description": "Worktrees allow you to have multiple working directories for the same repository, each checked out to different branches. This is useful for working on multiple features simultaneously without switching branches.\n\nCreate three worktrees:\n1. 'feature-a' worktree at path '../feature-a' for a new branch 'feature-a'\n2. 'feature-b' worktree at path '../feature-b' for a new branch 'feature-b'\n3. 'hotfix' worktree at path '../hotfix' for branch 'main'\n\nThen list all worktrees to see your setup.",
+        "difficulty": "Medium",
+        "category": "Power User",
+        "hints": [
+            "Use 'git worktree add -b <branch> <path>' to create a worktree with a new branch.",
+            "Use 'git worktree add <path> <existing-branch>' to create a worktree from an existing branch.",
+            "The syntax is: git worktree add -b feature-a ../feature-a",
+            "Use 'git worktree list' to see all your worktrees.",
+            "Each worktree is a separate working directory that shares the same Git history."
+        ]
+    }
+]

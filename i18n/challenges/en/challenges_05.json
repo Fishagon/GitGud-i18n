@@ -1,0 +1,131 @@
+[
+    {
+        "id": 41,
+        "title": "Start an Interactive Rebase for the Last Three Commits",
+        "description": "Interactive rebase allows you to modify commit history by reordering, editing, squashing, or dropping commits. This is useful for cleaning up your commit history before pushing to a shared repository.\n\nYou have several commits that need to be cleaned up. Start an interactive rebase for the last three commits (HEAD~3) to prepare them for editing.",
+        "difficulty": "Medium",
+        "category": "Rebasing & History",
+        "hints": [
+            "Use 'git rebase -i HEAD~3' to start an interactive rebase for the last 3 commits.",
+            "The -i flag stands for 'interactive' and will open an editor with commit instructions.",
+            "HEAD~3 means 'go back 3 commits from the current HEAD'.",
+            "Interactive rebase allows you to pick, reword, edit, squash, or drop commits."
+        ]
+    },
+    {
+        "id": 42,
+        "title": "Squash Two Commits Into One",
+        "description": "Sometimes you have multiple small commits that would be better combined into a single, more meaningful commit. Git allows you to squash commits together using interactive rebase or by resetting and recommitting.\n\nYou have two recent commits that should be combined into one. Use either interactive rebase or reset/commit to squash them together.",
+        "difficulty": "Medium",
+        "category": "Rebasing & History",
+        "hints": [
+            "Use 'git rebase -i HEAD~2' to start an interactive rebase of the last 2 commits.",
+            "This will open a text editor with the rebase todo list.",
+            "Change the second line from 'pick' to 'squash' (or 's'), then save and close the editor.",
+            "If the editor doesn't open, use the fallback: 'git rebase pick squash'",
+            "Alternatively, use 'git reset --soft HEAD~2' followed by 'git commit'."
+        ]
+    },
+    {
+        "id": 43,
+        "title": "Reword an Old Commit's Message",
+        "description": "One of the earlier commits has a vague message 'Update file.txt content' that doesn't describe what was actually changed. Use interactive rebase to reword this commit message to be more descriptive.\n\nUse interactive rebase to reword the second commit's message to something more specific.",
+        "difficulty": "Medium",
+        "category": "Rebasing & History",
+        "hints": [
+            "Use 'git rebase -i HEAD~2' to start an interactive rebase of the last 2 commits.",
+            "Change 'pick' to 'reword' (or 'r') for the commit with message 'Update file.txt content'.",
+            "A better commit message might describe what specific changes were made to the file.",
+            "Save and close the editor, then provide a new commit message when prompted."
+        ]
+    },
+    {
+        "id": 44,
+        "title": "Delete a Commit from History",
+        "description": "Sometimes you need to completely remove a commit from your project's history. This is different from reverting - it actually removes the commit as if it never existed.\n\nYou have a commit with a bad implementation that needs to be completely removed from history. Use interactive rebase to drop the commit with ID 'abc123def'.",
+        "difficulty": "Medium",
+        "category": "Rebasing & History",
+        "hints": [
+            "Use 'git log --oneline' to see the commit history and identify the buggy commit.",
+            "Use 'git rebase -i HEAD~2' to start an interactive rebase going back 2 commits.",
+            "Change 'pick' to 'drop' (or 'd') for the commit with message 'Add buggy feature'.",
+            "The commit will be completely removed from history, not just reverted.",
+            "Use 'git rebase --continue' if needed to complete the rebase."
+        ]
+    },
+    {
+        "id": 45,
+        "title": "Reorder Commits During Interactive Rebase",
+        "description": "Sometimes you need to reorganize your commit history to make it more logical. Looking at the commit history, 'Update to version 2.0' happened before 'Add configuration file', but logically you'd want to add configuration before updating versions.\n\nUse interactive rebase to reorder the last 3 commits so that 'Add configuration file' comes chronologically before 'Update to version 2.0'.",
+        "difficulty": "Medium",
+        "category": "Rebasing & History",
+        "hints": [
+            "Use 'git rebase -i HEAD~3' to start an interactive rebase of the last 3 commits.",
+            "In the rebase editor, you'll see the commits listed from oldest to newest.",
+            "Move the 'Add configuration file' line to come before the 'Update to version 2.0' line.",
+            "Save and close the editor to apply the new commit order.",
+            "Use 'git log --oneline' to verify the commits are now in logical order."
+        ]
+    },
+    {
+        "id": 46,
+        "title": "Abort an Ongoing Rebase",
+        "description": "Sometimes during a rebase operation, you encounter conflicts or realize you want to cancel the rebase entirely. Git allows you to abort an ongoing rebase and return your repository to its pre-rebase state.\n\nYou have started a rebase that has encountered conflicts. Instead of resolving them, abort the rebase to return to the original state.",
+        "difficulty": "Medium",
+        "category": "Rebasing & History",
+        "hints": [
+            "Use 'git rebase --abort' to cancel an ongoing rebase operation.",
+            "This will return your repository to the exact state it was in before the rebase started.",
+            "Any staged changes or conflict markers will be cleaned up automatically."
+        ]
+    },
+    {
+        "id": 47,
+        "title": "Continue a Rebase After Resolving Conflicts",
+        "description": "When rebasing commits, conflicts can occur if the same lines were modified in different commits. Git will pause the rebase and allow you to resolve the conflicts manually before continuing.\n\nYou have started a rebase that encountered conflicts. Resolve the conflicts in the affected files and continue the rebase process.",
+        "difficulty": "Medium",
+        "category": "Rebasing & History",
+        "hints": [
+            "First, check the status with 'git status' to see which files have conflicts.",
+            "Edit the conflicted file to resolve the conflict markers (<<<<<<, ======, >>>>>>).",
+            "Stage the resolved file with 'git add <filename>'.",
+            "Continue the rebase with 'git rebase --continue'."
+        ]
+    },
+    {
+        "id": 48,
+        "title": "Skip a Commit During Interactive Rebase",
+        "description": "Sometimes during a rebase, you encounter a commit that causes conflicts or issues that are difficult to resolve. Git allows you to skip problematic commits entirely using the --skip flag.\n\nYou have started a rebase that encountered a problematic commit. Skip the current commit and continue with the rebase.",
+        "difficulty": "Medium",
+        "category": "Rebasing & History",
+        "hints": [
+            "Use 'git rebase --skip' to skip the current problematic commit.",
+            "This will discard the problematic commit and continue with the remaining commits.",
+            "The rebase should complete automatically after skipping the problematic commit."
+        ]
+    },
+    {
+        "id": 49,
+        "title": "Find the Author of Each Line in a File",
+        "description": "Sometimes you need to see who wrote each line of a file and when it was last modified. The git blame command shows line-by-line authorship information for a file.\n\nUse git blame to see the authorship information for the file 'README.md'.",
+        "difficulty": "Easy",
+        "category": "Rebasing & History",
+        "hints": [
+            "Use 'git blame <filename>' to see line-by-line authorship information.",
+            "The blame command shows the commit hash, author, timestamp, and line number for each line.",
+            "Try 'git blame README.md' to see who wrote each line of the README file."
+        ]
+    },
+    {
+        "id": 50,
+        "title": "Find the Commit That Introduced a Specific Change",
+        "description": "Sometimes you need to find when a specific piece of code or text was introduced into your codebase. Git provides powerful search capabilities to help you locate commits that added or removed specific content.\n\nA function called 'authenticateUser' was added to the codebase at some point. Use Git's pickaxe feature to find the commit that introduced this function.",
+        "difficulty": "Medium",
+        "category": "Rebasing & History",
+        "hints": [
+            "Use 'git log -S \"authenticateUser\"' to find commits that added or removed the authenticateUser function.",
+            "The -S flag (pickaxe) looks for commits where the number of occurrences of the search string changed.",
+            "You can also use 'git log -G \"pattern\"' to search for commits that added or removed lines matching a regex pattern."
+        ]
+    }
+]

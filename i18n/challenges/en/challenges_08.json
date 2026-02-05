@@ -1,0 +1,135 @@
+[
+    {
+        "id": 71,
+        "title": "Fetch changes from a remote without merging them",
+        "description": "Sometimes you want to see what changes are available on a remote repository without immediately merging them into your current branch. The 'git fetch' command downloads the changes but doesn't merge them, allowing you to review them first.\n\nFetch the latest changes from the 'origin' remote without merging them into your current branch.",
+        "difficulty": "Easy",
+        "category": "Collaboration",
+        "hints": [
+            "Use 'git fetch origin' to download changes from the origin remote.",
+            "Unlike 'git pull', fetch doesn't merge the changes into your current branch.",
+            "After fetching, you can use 'git log origin/main' to see what changes are available.",
+            "Use 'git status' to see that your local branch is behind the remote."
+        ]
+    },
+    {
+        "id": 72,
+        "title": "Reset local changes to match the remote branch",
+        "description": "Sometimes your local branch has diverged from the remote branch and you want to discard all local changes to match exactly what's on the remote. This is useful when you want to abandon local work and sync with the remote state.\n\nYou have local changes that conflict with the remote 'origin/main' branch. Reset your local branch to match the remote branch exactly.",
+        "difficulty": "Medium",
+        "category": "Collaboration",
+        "hints": [
+            "First use 'git fetch' to get the latest remote changes.",
+            "Use 'git reset --hard origin/main' to reset your local branch to match the remote.",
+            "This will discard all local changes and commits that aren't on the remote.",
+            "Be careful - this operation cannot be undone easily!"
+        ]
+    },
+    {
+        "id": 73,
+        "title": "Merge remote changes while keeping local changes intact",
+        "description": "You have local changes in your working directory, but there are also new changes on the remote repository. You need to merge the remote changes while preserving your local work. This can be done by stashing your changes, pulling, then unstashing, or by committing your changes first.\n\nYou have local modifications and the remote has new commits. Merge the remote changes while keeping your local changes intact.",
+        "difficulty": "Medium",
+        "category": "Collaboration",
+        "hints": [
+            "You can use 'git stash' to temporarily save your local changes.",
+            "After stashing, use 'git pull' to get the remote changes.",
+            "Then use 'git stash pop' to restore your local changes.",
+            "Alternatively, you can commit your local changes first, then pull.",
+            "Use 'git status' to check the state of your working directory."
+        ]
+    },
+    {
+        "id": 74,
+        "title": "Cherry-pick a commit from another branch",
+        "description": "Sometimes you need to apply a specific commit from one branch to another without merging the entire branch. The 'git cherry-pick' command allows you to copy a commit from one branch and apply it to your current branch.\n\nYou have a feature branch with a useful commit that you want to apply to your main branch. Cherry-pick the commit with ID 'abc1234' from the feature branch to your current branch.",
+        "difficulty": "Medium",
+        "category": "Collaboration",
+        "hints": [
+            "Use 'git log feature-branch' to see the commits on the feature branch.",
+            "Use 'git cherry-pick <commit-id>' to apply a specific commit to your current branch.",
+            "Make sure you're on the target branch before cherry-picking.",
+            "The cherry-pick creates a new commit with the same changes but a different commit ID."
+        ]
+    },
+    {
+        "id": 75,
+        "title": "Force push after rewriting history",
+        "description": "After rewriting Git history (like with rebase or amend), your local branch will diverge from the remote branch. A regular push will be rejected, so you need to use a force push to overwrite the remote history. This is potentially dangerous as it can overwrite other people's work.\n\nYou have rewritten commit history locally and need to force push your changes to update the remote branch. Use a force push to update the 'origin' remote.",
+        "difficulty": "Hard",
+        "category": "Collaboration",
+        "hints": [
+            "Use 'git push --force' or 'git push -f' to force push your changes.",
+            "Force push overwrites the remote branch with your local version.",
+            "Be very careful with force push - it can overwrite other people's work!",
+            "You can use 'git push --force-with-lease' for safer force pushing.",
+            "Check 'git log --oneline' to see your rewritten history before pushing."
+        ]
+    },
+    {
+        "id": 76,
+        "title": "Push and Set Upstream for New Remote Branch",
+        "description": "When you create a local branch and want to push it to a remote repository for the first time, you need to set up the upstream tracking relationship. This allows future `git push` and `git pull` commands to work without specifying the remote and branch names.\n\nYou have a local branch 'feature-login' with some commits that needs to be pushed to the remote repository. Use git push with the upstream flag to create the remote branch and set up tracking in one command.",
+        "difficulty": "Easy",
+        "category": "Collaboration",
+        "hints": [
+            "Use 'git push --set-upstream origin feature-login' to push and set upstream in one command.",
+            "You can also use the shorthand 'git push -u origin feature-login'.",
+            "This creates the remote branch and sets up tracking so future pushes don't need to specify the remote.",
+            "Make sure you're on the 'feature-login' branch when you run the command."
+        ]
+    },
+    {
+        "id": 77,
+        "title": "Set Upstream to Existing Remote Branch",
+        "description": "Sometimes you have a local branch that should track an existing remote branch, but the tracking relationship hasn't been established yet. This often happens when you create a local branch from a remote branch or when working with branches created by other team members.\n\nYou have a local branch 'feature-auth' and there's already a remote branch 'origin/feature-auth'. Set up your local branch to track the existing remote branch.",
+        "difficulty": "Easy",
+        "category": "Collaboration",
+        "hints": [
+            "Use 'git branch -u origin/feature-auth' to set the upstream for the current branch.",
+            "You can also use 'git branch --set-upstream-to=origin/feature-auth feature-auth' to be more explicit.",
+            "Make sure you're on the 'feature-auth' branch, or specify the branch name in the command.",
+            "Don't use 'git push -u' for this challenge - that's for creating new remote branches."
+        ]
+    },
+    {
+        "id": 78,
+        "title": "Rebase a feature branch onto main",
+        "description": "You have a feature branch that was created from an older version of main. Since then, main has received new commits. Rebasing your feature branch onto the latest main keeps a clean, linear history by replaying your feature commits on top of the latest main commits, avoiding unnecessary merge commits. This practice also ensures your feature works with the most recent code changes and makes the project history easier to read and understand.\n\nSwitch to the 'feature-payment' branch and rebase it onto 'main' to update its base.",
+        "difficulty": "Medium",
+        "category": "Collaboration",
+        "hints": [
+            "First switch to the feature branch with 'git checkout feature-payment'.",
+            "Then use 'git rebase main' to rebase the feature branch onto main.",
+            "This will replay your feature commits on top of the latest main commits.",
+            "If there are conflicts, resolve them and use 'git rebase --continue'."
+        ]
+    },
+    {
+        "id": 79,
+        "title": "Handle a detached HEAD state to safely explore",
+        "description": "When you checkout a specific commit, you enter a 'detached HEAD' state where you're not on any branch. This is useful for exploring old code or testing changes, but any commits made here could be lost if not handled properly. The safe way to work in detached HEAD is to create a new branch if you want to keep changes.\n\nCheckout commit 'abc5678' to enter detached HEAD state, then create a new branch called 'exploration' to make it safe for development.",
+        "difficulty": "Medium",
+        "category": "Collaboration",
+        "hints": [
+            "Use 'git checkout abc5678' to checkout the specific commit (this enters detached HEAD).",
+            "Git will warn you about detached HEAD state - this is normal.",
+            "Create a new branch with 'git checkout -b exploration' or 'git switch -c exploration'.",
+            "This makes your position safe for making commits without losing work."
+        ]
+    },
+    {
+        "id": 80,
+        "title": "Sync a Fork with Upstream Repository",
+        "description": "In collaborative development, you often work with a fork of the original repository. Your fork (origin) can become outdated when the original repository (upstream) receives new commits from other contributors. You need to sync your fork with the upstream repository to stay current with the latest changes.\n\nYou have a forked repository with 'origin' pointing to your fork and 'upstream' pointing to the original repository. The upstream repository has new commits that you need to pull into your local repository and push to your fork to keep it synchronized.",
+        "difficulty": "Medium",
+        "category": "Collaboration",
+        "hints": [
+            "First, fetch the latest changes from upstream with 'git fetch upstream'.",
+            "Make sure you're on your main branch with 'git checkout main'.",
+            "Merge the upstream changes with 'git merge upstream/main'.",
+            "Push the updated main branch to your fork with 'git push origin main'.",
+            "This workflow keeps your fork synchronized with the original repository."
+        ]
+    }
+]

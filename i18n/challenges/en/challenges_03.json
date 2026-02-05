@@ -1,0 +1,117 @@
+[
+    {
+        "id": 21,
+        "title": "Add a Remote Repository",
+        "description": "Remote repositories allow you to collaborate with others and backup your work.\n\nAdd a remote repository called 'origin' with the URL:\nhttps://github.com/example/my-project.git",
+        "difficulty": "Easy",
+        "category": "Remotes",
+        "hints": [
+            "Use 'git remote add origin https://github.com/example/my-project.git' to add a remote repository.",
+            "You can verify the remote was added with 'git remote -v' to list all remotes."
+        ]
+    },
+    {
+        "id": 22,
+        "title": "List Remote Branches",
+        "description": "When working with remote repositories, you often need to see what branches exist on the remote.\n\nUse the appropriate Git command to list all remote branches.",
+        "difficulty": "Easy",
+        "category": "Remotes",
+        "hints": [
+            "Use 'git branch -r' to list remote branches.",
+            "You can also use 'git branch --remotes' for the same result."
+        ]
+    },
+    {
+        "id": 23,
+        "title": "Fetch the Latest Changes from a Remote Repository",
+        "description": "Fetching downloads changes from a remote repository without merging them into your current branch.\n\nUse the appropriate Git command to fetch the latest changes from the 'origin' remote repository.",
+        "difficulty": "Easy",
+        "category": "Remotes",
+        "hints": [
+            "Use 'git fetch' to download changes from the remote repository.",
+            "You can specify a remote name with 'git fetch origin' or just use 'git fetch' for the default remote."
+        ]
+    },
+    {
+        "id": 24,
+        "title": "Pull the Latest Changes from a Remote Repository",
+        "description": "Pulling combines fetching and merging in one command. It downloads the latest changes from a remote repository and merges them into your current branch.\n\nUse the appropriate Git command to pull the latest changes from the remote repository into your current branch.",
+        "difficulty": "Easy",
+        "category": "Remotes",
+        "hints": [
+            "Use 'git pull' to fetch and merge changes from the remote repository.",
+            "You can specify a remote name with 'git pull origin' or just use 'git pull' for the default remote."
+        ]
+    },
+    {
+        "id": 25,
+        "title": "Push Your Local Branch to the Remote Repository",
+        "description": "Pushing uploads your local commits to the remote repository, making them available to other collaborators.\n\nYou have some local commits that need to be shared. Push your current branch to the remote repository.",
+        "difficulty": "Easy",
+        "category": "Remotes",
+        "hints": [
+            "Use 'git push' to upload your local commits to the remote repository.",
+            "You can specify a remote name with 'git push origin' or use 'git push' for the default remote.",
+            "If this is the first push of a new branch, you might need 'git push -u origin <branch-name>'"
+        ]
+    },
+    {
+        "id": 26,
+        "title": "Push a New Branch to Remote and Set Upstream",
+        "description": "When you create a new branch locally, you often want to push it to the remote repository and set it as the upstream branch for easy future pushes and pulls.\n\nFirst, create a new branch called 'feature-login', then push it to the remote repository and set it as the upstream branch in one command.",
+        "difficulty": "Easy",
+        "category": "Remotes",
+        "hints": [
+            "First create and checkout a new branch with 'git checkout -b feature-login'",
+            "Use 'git push -u origin feature-login' to push the branch and set upstream in one command",
+            "The -u flag is short for --set-upstream and creates a tracking relationship"
+        ]
+    },
+    {
+        "id": 27,
+        "title": "View Information About Your Remotes",
+        "description": "Sometimes you need to see detailed information about your remote repositories, including their URLs and fetch/push configurations.\n\nView detailed information about your remotes using the appropriate Git command.",
+        "difficulty": "Easy",
+        "category": "Remotes",
+        "hints": [
+            "Use 'git remote -v' to see remote names with their URLs.",
+            "You can also use 'git remote show <remote-name>' to see detailed information about a specific remote."
+        ]
+    },
+    {
+        "id": 28,
+        "title": "Remove a Remote Repository",
+        "description": "Sometimes you need to remove remote repositories that are no longer needed or have changed locations.\n\nRemove the 'upstream' remote repository from your local repository.",
+        "difficulty": "Easy",
+        "category": "Remotes",
+        "hints": [
+            "Use 'git remote remove upstream' to remove the upstream remote.",
+            "You can also use 'git remote rm upstream' as a shorthand.",
+            "Verify the remote was removed with 'git remote -v' to list remaining remotes."
+        ]
+    },
+    {
+        "id": 29,
+        "title": "Rename a Remote Repository",
+        "description": "Sometimes you need to rename remote repositories to better reflect their purpose or to follow naming conventions.\n\nRename the 'upstream' remote to 'fork' to better indicate it's a fork of the original repository.",
+        "difficulty": "Easy",
+        "category": "Remotes",
+        "hints": [
+            "Use 'git remote rename upstream fork' to rename the remote.",
+            "You can verify the rename was successful with 'git remote -v' to list all remotes.",
+            "Renaming a remote also updates any remote-tracking branches automatically."
+        ]
+    },
+    {
+        "id": 30,
+        "title": "Clone a Repository into a Specific Directory",
+        "description": "When cloning a repository, you can specify the directory name where it should be cloned.\n\nClone the repository 'https://github.com/example/my-awesome-project.git' into a directory named 'my-project'.",
+        "difficulty": "Easy",
+        "category": "Remotes",
+        "hints": [
+            "Use 'git clone <url> <directory-name>' to clone into a specific directory.",
+            "The syntax is: git clone https://github.com/example/my-awesome-project.git my-project",
+            "This will create a directory called 'my-project' instead of 'my-awesome-project'."
+        ]
+    }
+]

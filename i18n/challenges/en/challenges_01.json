@@ -1,0 +1,107 @@
+[
+    {
+        "id": 1,
+        "title": "Initialize a Repository",
+        "description": "Welcome to Git Gud! Let's get started by creating your first Git repository.\n\nCreate a new Git repository by using the 'git init' command.",
+        "difficulty": "Easy",
+        "category": "Basics",
+        "hints": [
+            "Type 'git init' to initialize a new repository."
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Check Repository Status",
+        "description": "Now that you have a repository, let's check its status to see what files are tracked, modified, or staged.\n\nUse the appropriate command to check the repository status.",
+        "difficulty": "Easy",
+        "category": "Basics",
+        "hints": [
+            "The command to check repository status is 'git status'."
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Stage and Commit a File",
+        "description": "Let's add a file to your repository and record those changes.\n\nFirst, stage file.txt using 'git add', then commit it with a message.",
+        "difficulty": "Easy",
+        "category": "Basics",
+        "hints": [
+            "Use 'git add file.txt' to stage the file.",
+            "Then use 'git commit -m \"Your message here\"' to create a commit."
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Add and Commit in One Step",
+        "description": "Sometimes you want to stage all your changes and commit them quickly.\n\nAdd all modified files to the staging area and commit them in a single step.",
+        "difficulty": "Easy",
+        "category": "Basics",
+        "hints": [
+            "Many Git commands support flags to modify their behavior and perform multiple operations at once.",
+            "The 'git commit' command has a flag that can automatically stage all tracked files before committing.",
+            "Use 'git commit -a -m \"Your message\"' to stage all tracked files and commit them in one step."
+        ]
+    },
+    {
+        "id": 5,
+        "title": "View Commit History",
+        "description": "Let's look at the commit history to see what changes have been made.\n\nUse the command to view the commit history.",
+        "difficulty": "Easy",
+        "category": "Basics",
+        "hints": [
+            "Use 'git log' to see the commit history."
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Create a Branch",
+        "description": "Branches allow you to work on different features or fixes in isolation.\n\nCreate a new branch called 'feature'.",
+        "difficulty": "Easy",
+        "category": "Basics",
+        "hints": [
+            "Use 'git branch feature' to create a new branch."
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Switch Branches",
+        "description": "Now that you've created a branch, let's switch to it.\n\nUse the checkout command to switch to the 'feature' branch.",
+        "difficulty": "Easy",
+        "category": "Basics",
+        "hints": [
+            "Use 'git checkout feature' to switch to the branch.",
+            "In newer Git versions, you could also use 'git switch feature'."
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Delete a Branch",
+        "description": "When you're done with a branch, you can delete it to keep your repository clean.\n\nCreate a branch called 'temp-branch', then delete it.",
+        "difficulty": "Easy",
+        "category": "Basics",
+        "hints": [
+            "First create the branch with 'git branch temp-branch'.",
+            "Then delete it with 'git branch -d temp-branch'."
+        ]
+    },
+    {
+        "id": 9,
+        "title": "Clone a Repository",
+        "description": "Cloning allows you to create a local copy of a remote repository.\n\nClone the sample repository using the provided URL:\nhttps://github.com/example/repo.git",
+        "difficulty": "Easy",
+        "category": "Basics",
+        "hints": [
+            "Use 'git clone https://github.com/example/repo.git' to clone a repository."
+        ]
+    },
+    {
+        "id": 10,
+        "title": "View Changes",
+        "description": "See what changes you've made since the last commit.\n\nUse the appropriate command to check the differences between your working directory and the last commit.",
+        "difficulty": "Easy",
+        "category": "Basics",
+        "hints": [
+            "Use 'git diff' to see unstaged changes since the last commit."
+        ]
+    }
+]
